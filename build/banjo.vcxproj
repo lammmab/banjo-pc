@@ -1,0 +1,1416 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{B92A1640-8763-383C-8E54-84F2EE4F1514}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>banjo</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Sholl\Code\C\banjo-pc\build\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">banjo.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">banjo</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Sholl\Code\C\banjo-pc\build\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">banjo.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">banjo</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\Sholl\Code\C\banjo-pc\build\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">banjo.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">banjo</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\Sholl\Code\C\banjo-pc\build\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">banjo.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">banjo</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\Sholl\Code\C\banjo-pc\platform\pc\include;C:\Users\Sholl\Code\C\banjo-pc\banjo\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\Sholl\Code\C\banjo-pc\platform\pc\include;C:\Users\Sholl\Code\C\banjo-pc\banjo\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\Sholl\Code\C\banjo-pc\platform\pc\include;C:\Users\Sholl\Code\C\banjo-pc\banjo\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/Sholl/Code/C/banjo-pc/build/Debug/banjo.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/Sholl/Code/C/banjo-pc/build/Debug/banjo.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\Sholl\Code\C\banjo-pc\platform\pc\include;C:\Users\Sholl\Code\C\banjo-pc\banjo\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\Sholl\Code\C\banjo-pc\platform\pc\include;C:\Users\Sholl\Code\C\banjo-pc\banjo\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\Sholl\Code\C\banjo-pc\platform\pc\include;C:\Users\Sholl\Code\C\banjo-pc\banjo\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/Sholl/Code/C/banjo-pc/build/Release/banjo.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/Sholl/Code/C/banjo-pc/build/Release/banjo.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\Sholl\Code\C\banjo-pc\platform\pc\include;C:\Users\Sholl\Code\C\banjo-pc\banjo\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="MinSizeRel"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\Sholl\Code\C\banjo-pc\platform\pc\include;C:\Users\Sholl\Code\C\banjo-pc\banjo\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\Sholl\Code\C\banjo-pc\platform\pc\include;C:\Users\Sholl\Code\C\banjo-pc\banjo\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/Sholl/Code/C/banjo-pc/build/MinSizeRel/banjo.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/Sholl/Code/C/banjo-pc/build/MinSizeRel/banjo.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\Sholl\Code\C\banjo-pc\platform\pc\include;C:\Users\Sholl\Code\C\banjo-pc\banjo\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\Sholl\Code\C\banjo-pc\platform\pc\include;C:\Users\Sholl\Code\C\banjo-pc\banjo\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\Sholl\Code\C\banjo-pc\platform\pc\include;C:\Users\Sholl\Code\C\banjo-pc\banjo\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/Sholl/Code/C/banjo-pc/build/RelWithDebInfo/banjo.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/Sholl/Code/C/banjo-pc/build/RelWithDebInfo/banjo.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Sholl\Code\C\banjo-pc\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/Sholl/Code/C/banjo-pc/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Sholl/Code/C/banjo-pc -BC:/Users/Sholl/Code/C/banjo-pc/build --check-stamp-file C:/Users/Sholl/Code/C/banjo-pc/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCCompiler.cmake.in;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCCompilerABI.c;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCompilerIdDetection.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeDetermineCCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeDetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeDetermineCompilerABI.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeDetermineCompilerId.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeDetermineCompilerSupport.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeDetermineRCCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeFindBinUtils.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeParseImplicitIncludeInfo.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeParseImplicitLinkInfo.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeParseLibraryArchitecture.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeRCCompiler.cmake.in;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeTestCCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeTestCompilerCommon.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeTestRCCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\ADSP-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\ARMCC-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\ARMClang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\AppleClang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\Borland-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\Bruce-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\Clang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\Compaq-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\Cray-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\CrayClang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\FujitsuClang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\GHS-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\GNU-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\HP-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\IAR-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\IBMClang-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\Intel-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\IntelLLVM-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\LCC-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\MSVC-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\NVHPC-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\OrangeC-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\PGI-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\PathScale-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\SCO-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\SDCC-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\SunPro-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\TI-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\TIClang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\Tasking-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\Watcom-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\XL-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\XLClang-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\zOS-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CompilerId\VS-10.vcxproj.in;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CMakeCLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CMakeDetermineLinkerId.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CMakeInspectCLinker.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\FeatureTesting.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Linker\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Linker\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Linker\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\WindowsPaths.cmake;C:\Users\Sholl\Code\C\banjo-pc\build\CMakeFiles\4.0.2\CMakeCCompiler.cmake;C:\Users\Sholl\Code\C\banjo-pc\build\CMakeFiles\4.0.2\CMakeRCCompiler.cmake;C:\Users\Sholl\Code\C\banjo-pc\build\CMakeFiles\4.0.2\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Sholl\Code\C\banjo-pc\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/Sholl/Code/C/banjo-pc/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Sholl/Code/C/banjo-pc -BC:/Users/Sholl/Code/C/banjo-pc/build --check-stamp-file C:/Users/Sholl/Code/C/banjo-pc/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCCompiler.cmake.in;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCCompilerABI.c;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCompilerIdDetection.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeDetermineCCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeDetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeDetermineCompilerABI.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeDetermineCompilerId.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeDetermineCompilerSupport.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeDetermineRCCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeFindBinUtils.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeParseImplicitIncludeInfo.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeParseImplicitLinkInfo.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeParseLibraryArchitecture.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeRCCompiler.cmake.in;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeTestCCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeTestCompilerCommon.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeTestRCCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\ADSP-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\ARMCC-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\ARMClang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\AppleClang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\Borland-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\Bruce-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\Clang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\Compaq-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\Cray-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\CrayClang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\FujitsuClang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\GHS-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\GNU-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\HP-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\IAR-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\IBMClang-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\Intel-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\IntelLLVM-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\LCC-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\MSVC-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\NVHPC-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\OrangeC-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\PGI-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\PathScale-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\SCO-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\SDCC-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\SunPro-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\TI-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\TIClang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\Tasking-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\Watcom-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\XL-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\XLClang-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\zOS-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CompilerId\VS-10.vcxproj.in;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CMakeCLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CMakeDetermineLinkerId.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CMakeInspectCLinker.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\FeatureTesting.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Linker\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Linker\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Linker\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\WindowsPaths.cmake;C:\Users\Sholl\Code\C\banjo-pc\build\CMakeFiles\4.0.2\CMakeCCompiler.cmake;C:\Users\Sholl\Code\C\banjo-pc\build\CMakeFiles\4.0.2\CMakeRCCompiler.cmake;C:\Users\Sholl\Code\C\banjo-pc\build\CMakeFiles\4.0.2\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Sholl\Code\C\banjo-pc\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/Sholl/Code/C/banjo-pc/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Sholl/Code/C/banjo-pc -BC:/Users/Sholl/Code/C/banjo-pc/build --check-stamp-file C:/Users/Sholl/Code/C/banjo-pc/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCCompiler.cmake.in;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCCompilerABI.c;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCompilerIdDetection.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeDetermineCCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeDetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeDetermineCompilerABI.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeDetermineCompilerId.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeDetermineCompilerSupport.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeDetermineRCCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeFindBinUtils.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeParseImplicitIncludeInfo.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeParseImplicitLinkInfo.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeParseLibraryArchitecture.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeRCCompiler.cmake.in;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeTestCCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeTestCompilerCommon.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeTestRCCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\ADSP-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\ARMCC-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\ARMClang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\AppleClang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\Borland-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\Bruce-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\Clang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\Compaq-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\Cray-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\CrayClang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\FujitsuClang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\GHS-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\GNU-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\HP-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\IAR-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\IBMClang-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\Intel-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\IntelLLVM-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\LCC-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\MSVC-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\NVHPC-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\OrangeC-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\PGI-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\PathScale-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\SCO-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\SDCC-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\SunPro-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\TI-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\TIClang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\Tasking-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\Watcom-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\XL-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\XLClang-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\zOS-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CompilerId\VS-10.vcxproj.in;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CMakeCLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CMakeDetermineLinkerId.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CMakeInspectCLinker.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\FeatureTesting.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Linker\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Linker\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Linker\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\WindowsPaths.cmake;C:\Users\Sholl\Code\C\banjo-pc\build\CMakeFiles\4.0.2\CMakeCCompiler.cmake;C:\Users\Sholl\Code\C\banjo-pc\build\CMakeFiles\4.0.2\CMakeRCCompiler.cmake;C:\Users\Sholl\Code\C\banjo-pc\build\CMakeFiles\4.0.2\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\Sholl\Code\C\banjo-pc\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/Sholl/Code/C/banjo-pc/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Sholl/Code/C/banjo-pc -BC:/Users/Sholl/Code/C/banjo-pc/build --check-stamp-file C:/Users/Sholl/Code/C/banjo-pc/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCCompiler.cmake.in;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCCompilerABI.c;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCompilerIdDetection.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeDetermineCCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeDetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeDetermineCompilerABI.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeDetermineCompilerId.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeDetermineCompilerSupport.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeDetermineRCCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeFindBinUtils.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeParseImplicitIncludeInfo.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeParseImplicitLinkInfo.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeParseLibraryArchitecture.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeRCCompiler.cmake.in;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeTestCCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeTestCompilerCommon.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeTestRCCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\ADSP-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\ARMCC-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\ARMClang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\AppleClang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\Borland-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\Bruce-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\Clang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\Compaq-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\Cray-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\CrayClang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\FujitsuClang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\GHS-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\GNU-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\HP-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\IAR-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\IBMClang-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\Intel-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\IntelLLVM-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\LCC-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\MSVC-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\NVHPC-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\OrangeC-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\PGI-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\PathScale-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\SCO-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\SDCC-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\SunPro-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\TI-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\TIClang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\Tasking-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\Watcom-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\XL-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\XLClang-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\zOS-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CompilerId\VS-10.vcxproj.in;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CMakeCLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CMakeDetermineLinkerId.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CMakeInspectCLinker.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\FeatureTesting.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Linker\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Linker\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Linker\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\WindowsPaths.cmake;C:\Users\Sholl\Code\C\banjo-pc\build\CMakeFiles\4.0.2\CMakeCCompiler.cmake;C:\Users\Sholl\Code\C\banjo-pc\build\CMakeFiles\4.0.2\CMakeRCCompiler.cmake;C:\Users\Sholl\Code\C\banjo-pc\build\CMakeFiles\4.0.2\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\Sholl\Code\C\banjo-pc\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\src\main.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\BGS\bss_pad.c">
+      <ObjectFileName>$(IntDir)/banjo/BGS/bss_pad.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\BGS\ch\bigalligator.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\BGS\ch\code_2270.c">
+      <ObjectFileName>$(IntDir)/banjo/BGS/ch/code_2270.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\BGS\ch\croctus.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\BGS\ch\flibbit.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\BGS\ch\frogminigame.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\BGS\ch\leafboat.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\BGS\ch\mrvile.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\BGS\ch\mudhut.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\BGS\ch\pinkegg.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\BGS\ch\swampswitch.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\BGS\ch\tanktup.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\BGS\ch\yellowflibbit.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\BGS\ch\yumblie.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\BGS\code_3030.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\BGS\code_3420.c">
+      <ObjectFileName>$(IntDir)/banjo/BGS/code_3420.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\BGS\code_8DF0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\BGS\code_9750.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\BGS\crc.c">
+      <ObjectFileName>$(IntDir)/banjo/BGS/crc.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\CC\bss_pad.c">
+      <ObjectFileName>$(IntDir)/banjo/CC/bss_pad.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\CC\ch\sawblade.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\CC\ch\tooth.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\CC\code_0.c">
+      <ObjectFileName>$(IntDir)/banjo/CC/code_0.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\CC\code_13C0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\CC\code_19B0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\CC\code_1B90.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\CC\code_1F70.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\CC\code_3400.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\CC\code_530.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\CC\code_BF0.c">
+      <ObjectFileName>$(IntDir)/banjo/CC/code_BF0.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\CC\crc.c">
+      <ObjectFileName>$(IntDir)/banjo/CC/crc.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\CCW\bss_pad.c">
+      <ObjectFileName>$(IntDir)/banjo/CCW/bss_pad.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\CCW\ch\grublinhood.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\CCW\ch\vacationtexttrigger.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\CCW\code_0.c">
+      <ObjectFileName>$(IntDir)/banjo/CCW/code_0.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\CCW\code_14B0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\CCW\code_160.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\CCW\code_1B20.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\CCW\code_21A0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\CCW\code_2270.c">
+      <ObjectFileName>$(IntDir)/banjo/CCW/code_2270.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\CCW\code_2B00.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\CCW\code_3050.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\CCW\code_3310.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\CCW\code_3DA0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\CCW\code_4530.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\CCW\code_4960.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\CCW\code_4D00.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\CCW\code_50D0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\CCW\code_5540.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\CCW\code_5BF0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\CCW\code_61E0.c">
+      <ObjectFileName>$(IntDir)/banjo/CCW/code_61E0.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\CCW\code_6620.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\CCW\code_6AC0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\CCW\code_6EC0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\CCW\code_7120.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\CCW\code_7570.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\CCW\code_76C0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\CCW\code_7BC0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\CCW\code_7BF0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\CCW\code_950.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\FP\bss_pad.c">
+      <ObjectFileName>$(IntDir)/banjo/FP/bss_pad.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\FP\ch\bearcub.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\FP\ch\boggy1.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\FP\ch\boggy2.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\FP\ch\boggy3.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\FP\ch\cavewozza.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\FP\ch\present.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\FP\ch\racesled.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\FP\ch\scarfsled.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\FP\ch\snowmanbutton.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\FP\ch\twinkly.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\FP\ch\twinklybox.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\FP\ch\twinklymuncher.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\FP\ch\wozza.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\FP\ch\wozzasjig.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\FP\ch\xmastree.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\FP\ch\xmastreeeggtoll.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\FP\ch\xmastreeice.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\FP\ch\xmastreestar.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\FP\ch\xmastreeswitch.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\FP\code_19E0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\FP\code_1FF0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\FP\code_A1C0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\FP\code_ABD0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\FP\code_B4D0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\FP\ma\slalom.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\FP\ma\snowbutton.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\FP\ma\snowy.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\GV\bss_pad.c">
+      <ObjectFileName>$(IntDir)/banjo/GV/bss_pad.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\GV\ch\ancientone.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\GV\ch\buriedpyramid.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\GV\ch\gobi1.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\GV\ch\gobi2.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\GV\ch\gobi3.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\GV\ch\gobirock.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\GV\ch\gobirope.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\GV\ch\histup.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\GV\ch\mazectrl.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\GV\ch\sarcophagus.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\GV\ch\toots.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\GV\ch\trunker.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\GV\code_2EE0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\GV\code_3630.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\GV\code_3AA0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\GV\code_3B10.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\GV\code_3BB0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\GV\code_3D90.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\GV\code_43B0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\GV\code_4740.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\GV\code_5570.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\GV\code_61E0.c">
+      <ObjectFileName>$(IntDir)/banjo/GV/code_61E0.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\GV\code_6370.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\GV\code_6F80.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\GV\code_7060.c">
+      <ObjectFileName>$(IntDir)/banjo/GV/code_7060.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\GV\code_7D50.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\GV\code_7DB0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\GV\code_7FC0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\GV\code_7FF0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\GV\code_9B70.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\GV\code_9C10.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\GV\matchinggame.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\GV\waterctrl.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\MM\ch\chimpystump.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\MM\ch\conga.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\MM\ch\grublin.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\MM\ch\hut.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\MM\ch\juju.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\MM\ch\jujuhitbox.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\MM\ch\lmonkey.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\MM\ch\orange.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\MM\ch\orangepad.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\MM\code_24C0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\MM\crc.c">
+      <ObjectFileName>$(IntDir)/banjo/MM/crc.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\MMM\bss_pad.c">
+      <ObjectFileName>$(IntDir)/banjo/MMM/bss_pad.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\MMM\ch\loggo.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\MMM\ch\motzhand.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\MMM\ch\napper.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\MMM\code_16B0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\MMM\code_2040.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\MMM\code_2F60.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\MMM\code_3120.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\MMM\code_3420.c">
+      <ObjectFileName>$(IntDir)/banjo/MMM/code_3420.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\MMM\code_3D50.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\MMM\code_47D0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\MMM\code_5000.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\MMM\code_DC0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\MMM\crc.c">
+      <ObjectFileName>$(IntDir)/banjo/MMM/crc.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\RBB\bss_pad.c">
+      <ObjectFileName>$(IntDir)/banjo/RBB/bss_pad.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\RBB\ch\anchor.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\RBB\ch\anchorctrl.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\RBB\ch\anchorswitch.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\RBB\ch\axle.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\RBB\ch\bellbuoy.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\RBB\ch\boombox.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\RBB\ch\bossboombox.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\RBB\ch\bossboomboxctrl.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\RBB\ch\cog.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\RBB\ch\dolphin.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\RBB\ch\eggtoll1.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\RBB\ch\enginefan.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\RBB\ch\enginefanswitch.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\RBB\ch\engineparts.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\RBB\ch\grimlet.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\RBB\ch\propellor.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\RBB\ch\propellorswitch.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\RBB\ch\rarewareflag.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\RBB\ch\rowboat.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\RBB\ch\whistle.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\RBB\ch\whistlectrl.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\RBB\ch\whistleswitch.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\RBB\code_1570.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\RBB\code_640.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\RBB\code_9670.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\RBB\code_9840.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\RBB\code_CA0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\RBB\propellorctrl.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\SM\ch\attacktutorial.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\SM\ch\jumptutorial.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\SM\ch\smbottles.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\SM\ch\vegetables.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\SM\code_0.c">
+      <ObjectFileName>$(IntDir)/banjo/SM/code_0.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\SM\code_2900.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\SM\code_3FC0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\SM\code_44D0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\SM\code_46C0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\SM\code_46C0.us.v10.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\SM\code_5B0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\SM\code_BF0.c">
+      <ObjectFileName>$(IntDir)/banjo/SM/code_BF0.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\SM\code_F0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\TTC\ch\blubber.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\TTC\ch\clam.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\TTC\ch\leaky.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\TTC\ch\lockup.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\TTC\ch\nipper.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\TTC\ch\treasure.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\TTC\ch\treasurehunt.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\TTC\code_26D0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\TTC\code_3040.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\TTC\ma\castle.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\audio\auxbus.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\audio\bnkf.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\audio\cents2ratio.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\audio\code_219D0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\audio\code_21A80.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\audio\code_21AF0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\audio\code_21B50.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\audio\copy.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\audio\cseq.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\audio\cspgettempo.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\audio\cspplay.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\audio\cspsetbank.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\audio\cspsetseq.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\audio\cspsettempo.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\audio\cspsetvol.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\audio\cspstop.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\audio\drvrNew.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\audio\env.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\audio\event.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\audio\filter.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\audio\heapalloc.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\audio\heapinit.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\audio\load.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\audio\mainbus.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\audio\n_adpcm.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\audio\n_auxbus.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\audio\n_csplayer.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\audio\n_csq.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\audio\n_drvrNew.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\audio\n_env.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\audio\n_envresample.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\audio\n_load.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\audio\n_mainbus.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\audio\n_resample.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\audio\n_reverb.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\audio\n_save.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\audio\n_seq.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\audio\n_seqplayer.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\audio\n_sl.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\audio\n_synaddplayer.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\audio\n_synallocfx.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\audio\n_synallocvoice.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\audio\n_syndelete.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\audio\n_synfreevoice.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\audio\n_synsetfxmix.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\audio\n_synsetpan.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\audio\n_synsetpitch.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\audio\n_synsetpriority.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\audio\n_synsetvol.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\audio\n_synstartvoice.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\audio\n_synstartvoiceparam.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\audio\n_synstopvoice.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\audio\n_synthesizer.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\audio\resample.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\audio\reverb.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\audio\save.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\audio\seq.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\audio\sl.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\audio\synallocfx.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\audio\syndelete.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\audio\synthesizer.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\bamotor.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\code_0.c">
+      <ObjectFileName>$(IntDir)/banjo/core1/code_0.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\code_11AC0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\code_15B30.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\code_1D00.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\code_1D5D0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\code_3250.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\code_5650.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\code_660.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\code_7090.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\code_72B0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\code_7F60.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\code_8C50.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\code_CE60.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\crccalc.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\data_1E820.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\debugtext.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\defragmanager.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\depthbuffer.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\eeprom.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\framebufferdraw.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\gu\cosf.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\gu\mtxutil.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\gu\normalize.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\gu\ortho.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\gu\rotate.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\gu\sinf.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\gu\sqrtf.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\gu\translate.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\inflate.c">
+      <ObjectFileName>$(IntDir)/banjo/core1/inflate.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\initthread.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\io\ai.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\io\aigetlen.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\io\aisetfreq.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\io\aisetnextbuf.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\io\cartrominit.c">
+      <ObjectFileName>$(IntDir)/banjo/core1/io/cartrominit.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\io\conteeplongread.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\io\conteeplongwrite.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\io\conteepread.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\io\conteepwrite.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\io\contpfs.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\io\contramread.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\io\contramwrite.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\io\contreaddata.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\io\controller.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\io\contsetch.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\io\crc.c">
+      <ObjectFileName>$(IntDir)/banjo/core1/io/crc.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\io\devmgr.c">
+      <ObjectFileName>$(IntDir)/banjo/core1/io/devmgr.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\io\dpgetstat.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\io\dpsetstat.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\io\epirawdma.c">
+      <ObjectFileName>$(IntDir)/banjo/core1/io/epirawdma.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\io\epirawread.c">
+      <ObjectFileName>$(IntDir)/banjo/core1/io/epirawread.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\io\epirawwrite.c">
+      <ObjectFileName>$(IntDir)/banjo/core1/io/epirawwrite.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\io\leodiskinit.c">
+      <ObjectFileName>$(IntDir)/banjo/core1/io/leodiskinit.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\io\leointerrupt.c">
+      <ObjectFileName>$(IntDir)/banjo/core1/io/leointerrupt.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\io\motor.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\io\pfschecker.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\io\pfsgetstatus.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\io\pfsinit.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\io\pfsisplug.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\io\piacs.c">
+      <ObjectFileName>$(IntDir)/banjo/core1/io/piacs.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\io\pigetcmdq.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\io\pimgr.c">
+      <ObjectFileName>$(IntDir)/banjo/core1/io/pimgr.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\io\pirawdma.c">
+      <ObjectFileName>$(IntDir)/banjo/core1/io/pirawdma.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\io\pirawread.c">
+      <ObjectFileName>$(IntDir)/banjo/core1/io/pirawread.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\io\piread.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\io\si.c">
+      <ObjectFileName>$(IntDir)/banjo/core1/io/si.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\io\siacs.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\io\sirawdma.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\io\sirawread.c">
+      <ObjectFileName>$(IntDir)/banjo/core1/io/sirawread.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\io\sirawwrite.c">
+      <ObjectFileName>$(IntDir)/banjo/core1/io/sirawwrite.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\io\sp.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\io\spgetstat.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\io\sprawdma.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\io\spsetpc.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\io\spsetstat.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\io\sptask.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\io\sptaskyield.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\io\sptaskyielded.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\io\vi.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\io\viblack.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\io\vigetcurrcontext.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\io\vigetcurrframebuf.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\io\vigetnextframebuf.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\io\vimgr.c">
+      <ObjectFileName>$(IntDir)/banjo/core1/io/vimgr.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\io\vimodempallan1.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\io\vimodentsclan1.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\io\vimodepallan1.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\io\visetevent.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\io\visetmode.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\io\visetspecial.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\io\viswapbuf.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\io\viswapcontext.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\ll.c">
+      <ObjectFileName>$(IntDir)/banjo/core1/ll.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\ll_cvt.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\lookup.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\memory.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\ml.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\mlmtx.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\musicplayer.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\os\createmesgqueue.c">
+      <ObjectFileName>$(IntDir)/banjo/core1/os/createmesgqueue.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\os\createthread.c">
+      <ObjectFileName>$(IntDir)/banjo/core1/os/createthread.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\os\destroythread.c">
+      <ObjectFileName>$(IntDir)/banjo/core1/os/destroythread.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\os\getthreadpri.c">
+      <ObjectFileName>$(IntDir)/banjo/core1/os/getthreadpri.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\os\gettime.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\os\initialize.c">
+      <ObjectFileName>$(IntDir)/banjo/core1/os/initialize.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\os\jammesg.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\os\kdebugserver.c">
+      <ObjectFileName>$(IntDir)/banjo/core1/os/kdebugserver.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\os\pidma.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\os\recvmesg.c">
+      <ObjectFileName>$(IntDir)/banjo/core1/os/recvmesg.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\os\resetglobalintmask.c">
+      <ObjectFileName>$(IntDir)/banjo/core1/os/resetglobalintmask.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\os\sendmesg.c">
+      <ObjectFileName>$(IntDir)/banjo/core1/os/sendmesg.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\os\seteventmesg.c">
+      <ObjectFileName>$(IntDir)/banjo/core1/os/seteventmesg.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\os\setglobalintmask.c">
+      <ObjectFileName>$(IntDir)/banjo/core1/os/setglobalintmask.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\os\settimer.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\os\settreadpri.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\os\startthread.c">
+      <ObjectFileName>$(IntDir)/banjo/core1/os/startthread.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\os\stopthread.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\os\stoptimer.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\os\thread.c">
+      <ObjectFileName>$(IntDir)/banjo/core1/os/thread.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\os\timerintr.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\os\virtualtophysical.c">
+      <ObjectFileName>$(IntDir)/banjo/core1/os/virtualtophysical.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\os\yieldthread.c">
+      <ObjectFileName>$(IntDir)/banjo/core1/os/yieldthread.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\overlay.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\overlaymanager.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\pfsmanager.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\pimanager.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\sns.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\sprite.c">
+      <ObjectFileName>$(IntDir)/banjo/core1/sprite.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\stub_13640.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\stub_1D590.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\stub_2FA0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\stub_3A70.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\syncprintf.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\ucode.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\viewport.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core1\vimgr.c">
+      <ObjectFileName>$(IntDir)/banjo/core1/vimgr.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\abilityprogress.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\anctrl.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\anim\sprite.c">
+      <ObjectFileName>$(IntDir)/banjo/core2/anim/sprite.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\animcache.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\animtexturecache.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\anseq.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\ba\anim.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\ba\carriedobj.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\ba\carry.c">
+      <ObjectFileName>$(IntDir)/banjo/core2/ba/carry.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\ba\drone.c">
+      <ObjectFileName>$(IntDir)/banjo/core2/ba/drone.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\ba\falldamage.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\ba\flap.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\ba\iFrame.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\ba\marker.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\ba\model.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\ba\physics.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\babuzz.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\baeyes.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\baflag.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\bainput.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\bakey.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\basfx.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\bastick.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\batimer.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\bs\ant.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\bs\bBarge.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\bs\bEggAss.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\bs\bEggHead.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\bs\bFlap.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\bs\bFlip.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\bs\bFly.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\bs\bLongLeg.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\bs\bPeck.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\bs\bShock.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\bs\bSwim.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\bs\bTrot.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\bs\bWhirl.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\bs\bbuster.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\bs\bee.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\bs\beeFly.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\bs\beeMain.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\bs\carry.c">
+      <ObjectFileName>$(IntDir)/banjo/core2/bs/carry.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\bs\claw.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\bs\climb.c">
+      <ObjectFileName>$(IntDir)/banjo/core2/bs/climb.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\bs\croc.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\bs\crouch.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\bs\die.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\bs\drone.c">
+      <ObjectFileName>$(IntDir)/banjo/core2/bs/drone.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\bs\droneenter.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\bs\dronegoto.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\bs\dronelook.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\bs\dronevanish.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\bs\dronexform.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\bs\jig.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\bs\jump.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\bs\ow.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\bs\pumpkin.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\bs\rebound.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\bs\rest.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\bs\sled.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\bs\slide.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\bs\splat.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\bs\stand.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\bs\surf.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\bs\swim.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\bs\talk.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\bs\throw.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\bs\timeout.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\bs\turn.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\bs\twirl.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\bs\walk.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\bs\walrus.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\bs\washy.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\bsList.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\bsStoredState.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\ch\badShad.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\ch\bat.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\ch\beehive.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\ch\bigbutt.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\ch\bottlesbonus.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\ch\bottlesbonuscursor.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\ch\bubble.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\ch\clankerwhipcrack.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\ch\climbBase.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\ch\clucker.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\ch\code_468E0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\ch\code_CFA60.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\ch\collectible.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\ch\crab.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\ch\drips.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\ch\explosionripple.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\ch\firefx.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\ch\flotsam.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\ch\gameSelect.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\ch\ghost.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\ch\gloop.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\ch\gravestone.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\ch\icecube.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\ch\jiggy.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\ch\jigsawdance.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\ch\jinjo.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\ch\mole.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\ch\molehill.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\ch\musicnote.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\ch\overlaycopyright.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\ch\overlaynocontroller.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\ch\overlaypressstart.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\ch\piranhaWaterParticles.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\ch\shrapnel.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\ch\snacker.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\ch\snowball.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\ch\snowman.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\ch\snowmanhat.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\ch\soundsource.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\ch\termite.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\ch\trainers.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\ch\wadingboots.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\ch\whipcrack.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\climb.c">
+      <ObjectFileName>$(IntDir)/banjo/core2/climb.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_11040.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_11460.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_11660.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_117D0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_11870.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_12360.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_12F30.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_13780.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_13A00.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_14420.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_1550.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_15F20.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_16C60.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_2240.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_33250.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_33310.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_336F0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_33AB0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_33C30.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_33F90.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_34310.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_34790.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_35520.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_379B0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_37E50.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_3B2C0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_3EAD0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_400F0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_41460.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_41F30.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_41FB0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_42CB0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_43250.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_43800.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_43A40.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_45310.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_47BD0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_4A6F0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_4BD70.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_4BE10.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_4C020.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_50490.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_509D0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_51950.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_53A10.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_53C10.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_54D50.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_55180.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_55390.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_556C0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_55850.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_57C70.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_581D0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_59780.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_599E0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_59A80.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_5BEB0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_5C240.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_5C870.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_5DBC0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_5FB00.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_5FD80.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_5FD90.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_62FD0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_630D0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_63410.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_63690.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_637D0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_654C0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_66490.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_66D90.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_66FB0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_6A4B0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_6AEF0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_6B030.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_6B30.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_6CD20.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_6CEC0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_6D030.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_6D270.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_6D490.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_6DA30.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_7060.c">
+      <ObjectFileName>$(IntDir)/banjo/core2/code_7060.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_70C30.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_70F20.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_71820.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_72060.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_72B10.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_73640.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_74090.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_74290.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_74420.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_74910.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_74ED0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_75480.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_75930.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_75E90.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_77E50.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_7AF80.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_851D0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_857B0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_85800.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_8DC20.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_90E0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_91E10.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_9290.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_935F0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_9450.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_94620.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_94780.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_94A20.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_956B0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_98CB0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_999A0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_9A740.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_9A9D0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_9B180.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_9B650.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_9B990.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_9BD0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_9C170.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_9D640.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_9D760.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_9E370.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_A4D00.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_A5BC0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_A600.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_A960.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_ABC00.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_AC520.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_AD110.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_AD5B0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_AE290.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_AEDA0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_B3580.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_B3A80.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_B5040.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_B5E00.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_B62B0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_B6640.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_B6C60.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_B7F40.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_B8020.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_B8070.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_B8080.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_B850.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_B8860.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_B9090.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_B9770.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_BD100.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_BDCC0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_BE2C0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_BEF20.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_C0B80.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_C0CF0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_C0E60.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_C2F30.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_C31A0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_C3A40.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_C4320.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_C4B0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_C4F40.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_C5440.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_C5AF0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_C5CC0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_C5F00.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_C61C0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_C62B0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_C76D0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_C7CC0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_C8230.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_C8360.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_C8490.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_C8760.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_C89C0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_C97F0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_C9E70.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_C9F00.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_CB050.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_CB610.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_CBBF0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_CBD10.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_CC1E0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_CD0A0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_CD3F0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_CD6E0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_CECD0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_CF090.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_CF5F0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_D0CA0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_D2180.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_D5D10.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_D5FD0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_D6180.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_D6600.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_D9B0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_DA3A0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_DA760.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_DAAA0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_DB010.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_DC4B0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_E910.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_EE40.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_EF50.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\code_F8EAF0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\commonParticle.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\commonParticleTypeMap.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\coords.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\dustemitter.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\eggshatter.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\file.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\fla.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\fx\airscore.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\fx\common1score.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\fx\common2score.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\fx\common3score.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\fx\healthscore.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\fx\honeycarrierscore.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\fx\jinjoscore.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\fx\lifescore.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\fx\ripple.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\fx\sparkle.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\gc\bound.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\gc\dialog.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\gc\parade.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\gc\pauseMenu.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\gc\section.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\gc\sky.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\gc\transition.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\gc\zoombox.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\hazards.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\honeycombscore.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\jiggyscore.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\levelspecificflags.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\mapModel.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\mapspecificflags.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\modelRender.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\mumboscore.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\nc\cameranodelist.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\nc\dynamicCam1.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\nc\dynamicCam10.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\nc\dynamicCam11.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\nc\dynamicCam12.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\nc\dynamicCam13.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\nc\dynamicCam3.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\nc\dynamicCam4.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\nc\dynamicCam5.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\nc\dynamicCam8.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\nc\dynamicCam9.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\nc\dynamicCamA.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\nc\dynamicCamB.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\nc\dynamicCamC.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\nc\dynamicCamD.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\nc\dynamicCamF.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\nc\dynamicCamera.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\nc\firstpersoncamera.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\nc\randomCamera.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\nc\staticCamera.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\particle.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\particleemittermanager.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\pitch.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\playerutils.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\progressDialog.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\propModelList.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\quizquestionaskedbitfield.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\rand.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\roll.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\skeletalanim.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\snackerctl.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\spawnqueue.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\statetimer.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\string.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\time.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\timedfuncqueue.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\vla.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\core2\yaw.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\cutscenes\bss_pad.c">
+      <ObjectFileName>$(IntDir)/banjo/cutscenes/bss_pad.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\cutscenes\code_0.c">
+      <ObjectFileName>$(IntDir)/banjo/cutscenes/code_0.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\cutscenes\code_60F0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\cutscenes\code_6730.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\cutscenes\code_69F0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\cutscenes\code_6C90.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\done\bk_boot_1050.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\done\cartrominit.c">
+      <ObjectFileName>$(IntDir)/banjo/done/cartrominit.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\done\createmesgqueue.c">
+      <ObjectFileName>$(IntDir)/banjo/done/createmesgqueue.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\done\createthread.c">
+      <ObjectFileName>$(IntDir)/banjo/done/createthread.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\done\destroythread.c">
+      <ObjectFileName>$(IntDir)/banjo/done/destroythread.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\done\devmgr.c">
+      <ObjectFileName>$(IntDir)/banjo/done/devmgr.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\done\epirawdma.c">
+      <ObjectFileName>$(IntDir)/banjo/done/epirawdma.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\done\epirawread.c">
+      <ObjectFileName>$(IntDir)/banjo/done/epirawread.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\done\epirawwrite.c">
+      <ObjectFileName>$(IntDir)/banjo/done/epirawwrite.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\done\getthreadpri.c">
+      <ObjectFileName>$(IntDir)/banjo/done/getthreadpri.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\done\inflate.c">
+      <ObjectFileName>$(IntDir)/banjo/done/inflate.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\done\initialize.c">
+      <ObjectFileName>$(IntDir)/banjo/done/initialize.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\done\kdebugserver.c">
+      <ObjectFileName>$(IntDir)/banjo/done/kdebugserver.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\done\leodiskinit.c">
+      <ObjectFileName>$(IntDir)/banjo/done/leodiskinit.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\done\leointerrupt.c">
+      <ObjectFileName>$(IntDir)/banjo/done/leointerrupt.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\done\ll.c">
+      <ObjectFileName>$(IntDir)/banjo/done/ll.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\done\overlays.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\done\piacs.c">
+      <ObjectFileName>$(IntDir)/banjo/done/piacs.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\done\pigetstat.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\done\pimgr.c">
+      <ObjectFileName>$(IntDir)/banjo/done/pimgr.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\done\pirawdma.c">
+      <ObjectFileName>$(IntDir)/banjo/done/pirawdma.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\done\pirawread.c">
+      <ObjectFileName>$(IntDir)/banjo/done/pirawread.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\done\rarezip.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\done\recvmesg.c">
+      <ObjectFileName>$(IntDir)/banjo/done/recvmesg.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\done\resetglobalintmask.c">
+      <ObjectFileName>$(IntDir)/banjo/done/resetglobalintmask.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\done\sendmesg.c">
+      <ObjectFileName>$(IntDir)/banjo/done/sendmesg.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\done\seteventmesg.c">
+      <ObjectFileName>$(IntDir)/banjo/done/seteventmesg.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\done\setglobalintmask.c">
+      <ObjectFileName>$(IntDir)/banjo/done/setglobalintmask.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\done\setthreadpri.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\done\si.c">
+      <ObjectFileName>$(IntDir)/banjo/done/si.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\done\sirawread.c">
+      <ObjectFileName>$(IntDir)/banjo/done/sirawread.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\done\sirawwrite.c">
+      <ObjectFileName>$(IntDir)/banjo/done/sirawwrite.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\done\startthread.c">
+      <ObjectFileName>$(IntDir)/banjo/done/startthread.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\done\thread.c">
+      <ObjectFileName>$(IntDir)/banjo/done/thread.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\done\virtualtophysical.c">
+      <ObjectFileName>$(IntDir)/banjo/done/virtualtophysical.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\done\yieldthread.c">
+      <ObjectFileName>$(IntDir)/banjo/done/yieldthread.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\emptyLvl\code_0.c">
+      <ObjectFileName>$(IntDir)/banjo/emptyLvl/code_0.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\fight\chbossjinjo.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\fight\chbossjinjobase.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\fight\chbossshadow.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\fight\chfinalboss.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\fight\chgreenblast.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\fight\chjinjonator.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\fight\chjinjonatorbase.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\fight\chspellbarrier.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\fight\chspellfireball.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\fight\chstonejinjo.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\fight\fight.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\lair\bss_pad.c">
+      <ObjectFileName>$(IntDir)/banjo/lair/bss_pad.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\lair\ch\brentilda.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\lair\ch\cauldron.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\lair\code_0.c">
+      <ObjectFileName>$(IntDir)/banjo/lair/code_0.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\lair\code_5ED0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\lair\code_9C40.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\lair\code_A170.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\lair\code_A430.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\lair\code_A4A0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\lair\code_A810.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\lair\code_AD70.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\lair\code_BBD0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\lair\code_C1C0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\lair\code_C6C0.c" />
+    <ClCompile Include="C:\Users\Sholl\Code\C\banjo-pc\banjo\lair\jigsawpicture.c" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\Sholl\Code\C\banjo-pc\build\ZERO_CHECK.vcxproj">
+      <Project>{8C841572-8B89-3C8E-A3F0-C029B9A682E6}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
