@@ -1,7 +1,7 @@
 #ifndef __BA_TIMER_H__
 #define __BA_TIMER_H__
 
-#include <ultra64.h>
+#include <libultraship/libultra.h>
 
 void batimer_incrementBy(s32 id, f32 inc_value_sec);
 int batimer_decrement(s32 id);

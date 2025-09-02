@@ -1,4 +1,4 @@
-#include <ultra64.h>
+#include <libultraship/libultra.h>
 #include "synthInternals.h"
 
 void *alHeapDBAlloc(u8 *file, s32 line, ALHeap *hp, s32 num, s32 size)

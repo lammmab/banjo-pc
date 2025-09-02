@@ -1,7 +1,7 @@
 #ifndef _STATIC_LENGTH_ARRAY_H_
 #define _STATIC_LENGTH_ARRAY_H_
 
-#include<ultratypes.h>
+#include<libultraship/libultra.h>
 
 typedef struct variable_length_array{
     s32 elem_size;

@@ -1,6 +1,6 @@
 #ifndef __N_AUDIO_INT__
 #define __N_AUDIO_INT__
-#include <ultra64.h>
+#include <libultraship/libultra.h>
 #include <n_libaudio.h>
 #include "synthInternals.h"
 #include <n_abi.h>

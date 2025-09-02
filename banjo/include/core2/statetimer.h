@@ -1,7 +1,7 @@
 #ifndef _STATE_TIMER_
 #define _STATE_TIMER_
 
-#include <ultra64.h>
+#include <libultraship/libultra.h>
 #include "structs.h"
 
 enum state_timer_e{

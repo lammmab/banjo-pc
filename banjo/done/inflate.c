@@ -1,4 +1,4 @@
-#include <ultra64.h>
+#include <libultraship/libultra.h>
 #include "rarezip.h"
 
 u8 border[] = {    /* Order of the bit length code lengths */

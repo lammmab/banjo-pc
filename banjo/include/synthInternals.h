@@ -23,7 +23,7 @@
 #ifndef __audioInternals__
 #define __audioInternals__
 
-#include <libaudio.h>
+#include <libultraship/libultra.h>
 
 /*
  * filter message ids

@@ -1,7 +1,7 @@
 #ifndef __BS_INT_H__
 #define __BS_INT_H__
 
-#include <ultra64.h>
+#include <libultraship/libultra.h>
 #include "functions.h"
 #include "variables.h"
 

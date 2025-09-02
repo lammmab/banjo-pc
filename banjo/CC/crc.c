@@ -1,4 +1,4 @@
-#include <ultratypes.h>
+#include <libultraship/libultra.h>
 
 /* .data */
 //TODO Implement CRC calculation in Makefile(?)

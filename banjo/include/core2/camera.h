@@ -1,6 +1,6 @@
 #ifndef _CAMERA_H_
 #define _CAMERA_H_
-#include <ultratypes.h>
+#include <libultraship/libultra.h>
 #include <core2/file.h>
 
 typedef struct {

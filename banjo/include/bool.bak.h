@@ -1,4 +1,4 @@
-#include <ultra64.h>
+#include <libultraship/libultra.h>
 
 #ifndef BANJO_KAZOOIE_BOOL_H
 #define BANJO_KAZOOIE_BOOL_H

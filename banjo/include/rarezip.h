@@ -1,6 +1,6 @@
 #ifndef RAREZIP_H
 #define RAREZIP_H
-#include <ultra64.h>
+#include <libultraship/libultra.h>
 
 extern struct huft *D_80007270;
 

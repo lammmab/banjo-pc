@@ -1,7 +1,7 @@
 #ifndef CORE2_COMMON_PARTICLE_H
 #define CORE2_COMMON_PARTICLE_H
 
-#include <ultra64.h>
+#include <libultraship/libultra.h>
 #include "functions.h"
 #include "variables.h"
 #include "core2/anim/sprite.h"

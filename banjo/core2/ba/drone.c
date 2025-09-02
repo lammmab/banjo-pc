@@ -1,4 +1,4 @@
-#include <ultra64.h>
+#include <libultraship/libultra.h>
 #include "functions.h"
 
 #include "core2/ba/drone.h"

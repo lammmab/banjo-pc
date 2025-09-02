@@ -1,7 +1,7 @@
 #ifndef __CORE2_ANIM_SPRITE_H__
 #define __CORE2_ANIM_SPRITE_H__
 
-#include <ultra64.h>
+#include <libultraship/libultra.h>
 
 
 typedef struct{

@@ -1,5 +1,4 @@
-#include <ultra64.h>
-#include "bool.h"
+#include <libultraship/libultra.h>
 
 void coords_copy(s32 min_out[3], s32 max_out[3], s32 min_in[3], s32 max_in[3]);
 s32 coords_func_8033EAF8(s32 min[3], s32 max[3], f32 position[3], f32 direction[3]);

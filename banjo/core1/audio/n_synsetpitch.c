@@ -1,4 +1,4 @@
-#include <ultra64.h>
+#include <libultraship/libultra.h>
 #include "n_synth.h"
 
 void    n_alSynSetPitch( N_ALVoice *v, f32 pitch)

@@ -1,7 +1,7 @@
 #ifndef __CORE2_C9E70_H__
 #define __CORE2_C9E70_H__
 
-#include <ultra64.h>
+#include <libultraship/libultra.h>
 #include "structs.h"
 
 #include "gc/zoombox.h"

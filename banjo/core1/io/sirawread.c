@@ -1,4 +1,4 @@
-#include <ultra64.h>
+#include <libultraship/libultra.h>
 
 s32 __osSiRawReadIo(u32 devAddr, u32 *data)
 {

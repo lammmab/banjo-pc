@@ -1,4 +1,4 @@
-#include <ultra64.h>
+#include <libultraship/libultra.h>
 #include "n_synth.h"
 
 void func_8025F5C0(N_ALSeqPlayer *arg0, u8 arg1){

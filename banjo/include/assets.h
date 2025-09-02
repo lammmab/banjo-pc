@@ -1,7 +1,7 @@
 #ifndef ASSETS_H
 #define ASSETS_H
 
-#include <ultra64.h>
+#include <libultraship/libultra.h>
 #include "structs.h"
 
 typedef struct asset_rom_table_head_s{

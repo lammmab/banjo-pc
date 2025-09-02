@@ -1,4 +1,4 @@
-#include <ultra64.h>
+#include <libultraship/libultra.h>
 #include "functions.h"
 #include "variables.h"
 extern void func_802EFF9C(ParticleEmitter *, f32);

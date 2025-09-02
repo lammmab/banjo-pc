@@ -1,6 +1,6 @@
 #ifndef __TIMED_FUNC_H__
 #define __TIMED_FUNC_H__
-#include <ultra64.h>
+#include <libultraship/libultra.h>
 
 #include "generic.h"
 

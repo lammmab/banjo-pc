@@ -1,4 +1,4 @@
-#include <ultra64.h>
+#include <libultraship/libultra.h>
 #include <n_libaudio.h>
 
 void n_alSynSetPriority(N_ALVoice *voice, s16 priority){

@@ -1,7 +1,7 @@
 #ifndef _MODEL_RENDER_H_
 #define _MODEL_RENDER_H_
 
-#include <ultra64.h>
+#include <libultraship/libultra.h>
 #include "model.h"
 #include "generic.h"
 

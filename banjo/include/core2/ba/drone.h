@@ -1,7 +1,7 @@
 #ifndef __BA_DRONE_H__
 #define __BA_DRONE_H__
 
-#include <ultra64.h>
+#include <libultraship/libultra.h>
 #include "prop.h"
 
 typedef enum ba_drone_type_e{

@@ -1,4 +1,4 @@
-#include <ultra64.h>
+#include <libultraship/libultra.h>
 #include "osint.h"
 
 void osStartThread(OSThread *t)

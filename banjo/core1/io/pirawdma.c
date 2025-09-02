@@ -1,4 +1,4 @@
-#include <ultra64.h>
+#include <libultraship/libultra.h>
 
 #ifndef WAIT_ON_IOBUSY
 #define WAIT_ON_IOBUSY(stat)                                \

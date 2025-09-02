@@ -1,7 +1,7 @@
 #ifndef FUNCTIONS_H
 #define FUNCTIONS_H
 
-#include <ultra64.h>
+#include "libultraship/libultra.h"
 
 #include "enums.h"
 #include "structs.h"

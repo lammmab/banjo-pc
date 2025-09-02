@@ -20,4 +20,8 @@ foreach(dir ${INCLUDE_DIRS})
     endif()
 endforeach()
 
-include_directories(${INCLUDE_DIRS_FILTERED})
+include_directories(
+  banjo/include
+  ${INCLUDE_DIRS_FILTERED}
+  libultraship/include
+)

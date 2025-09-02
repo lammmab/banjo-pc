@@ -1,7 +1,7 @@
 #ifndef __BA_CARRY_H__
 #define __BA_CARRY_H__
 
-#include <ultra64.h>
+#include <libultraship/libultra.h>
 #include "prop.h"
 
 void bacarry_init(void);

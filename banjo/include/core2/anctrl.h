@@ -1,7 +1,7 @@
 #ifndef __ANIM_CTRL_H__
 #define __ANIM_CTRL_H__
 
-#include <ultra64.h>
+#include <libultraship/libultra.h>
 #include "generic.h"
 
 #ifndef NONMATCHING

@@ -1,4 +1,4 @@
-#include <ultra64.h>
+#include <libultraship/libultra.h>
 #include "n_synth.h"
 
 static s32 _n_allocatePVoice(N_PVoice **pvoice, s16 priority);

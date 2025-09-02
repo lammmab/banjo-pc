@@ -1,4 +1,4 @@
-#include <ultra64.h>
+#include <libultraship/libultra.h>
 #include "core1/core1.h"
 
 void dummy_func_8025AFB0(void) {}

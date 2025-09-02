@@ -1,6 +1,6 @@
 #ifndef _LIGHTING_H_
 #define _LIGHTING_H_
-#include <ultratypes.h>
+#include <libultraship/libultra.h>
 
 typedef struct { 
     f32 position[3];

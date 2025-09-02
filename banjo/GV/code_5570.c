@@ -1,4 +1,4 @@
-#include <ultra64.h>
+#include <libultraship/libultra.h>
 #include "functions.h"
 #include "variables.h"
 
@@ -180,7 +180,11 @@ void GV_func_8038BEA0(Actor *this){
         }
         if(this->partnerActor == NULL){
             this->partnerActor = func_8032B16C(JIGGY_3E_GV_GRABBA);
-            local->unk0 =  this->partnerActor != NULL ? this->partnerActor->unk5C : NULL;
+            if(this->partnerActor != NULL) {
+                local->unk0 = this->partnerActor->unk5C;
+            } else {
+                local->unk0 = NULL;
+            }
         }
         subaddie_set_state_with_direction(this, this->state, 0.01f, 1);
         this->unk58_0 = FALSE;

@@ -1,4 +1,4 @@
-#include <ultra64.h>
+#include <libultraship/libultra.h>
 #include "synthInternals.h"
 
 #ifdef AUD_PROFILE

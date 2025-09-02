@@ -1,4 +1,4 @@
-#include <ultra64.h>
+#include <libultraship/libultra.h>
 
 #define SI_Q_BUF_LEN 1
 u32 __osSiAccessQueueEnabled = 0;

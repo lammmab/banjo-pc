@@ -1,4 +1,4 @@
-#include <ultra64.h>
+#include <libultraship/libultra.h>
 #include "rarezip.h"
 
 #define ENTRY_STACK_LEN 0x2000

@@ -1,7 +1,7 @@
 #ifndef __BANJO_KAZOOIE_CORE2_GC_ZOOMBOX_H__
 #define __BANJO_KAZOOIE_CORE2_GC_ZOOMBOX_H__
 
-#include <ultra64.h>
+#include <libultraship/libultra.h>
 #include "structs.h"
 
 #define ZOOMBOX_MAX_STRING_COUNT 8

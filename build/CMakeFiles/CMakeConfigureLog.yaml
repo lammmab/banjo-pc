@@ -24,7 +24,7 @@ events:
       The output was:
       0
       MSBuild version 17.13.19+0d9f5a35a for .NET Framework
-      Build started 9/2/2025 6:08:47 PM.
+      Build started 9/2/2025 7:21:36 PM.
       
       Project "C:\\Users\\Sholl\\Code\\C\\banjo-pc\\build\\CMakeFiles\\4.0.2\\CompilerIdC\\CompilerIdC.vcxproj" on node 1 (default targets).
       PrepareForBuild:
@@ -53,7 +53,7 @@ events:
           0 Warning(s)
           0 Error(s)
       
-      Time Elapsed 00:00:00.61
+      Time Elapsed 00:00:00.46
       
       
       Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
@@ -72,8 +72,8 @@ events:
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "C:/Users/Sholl/Code/C/banjo-pc/build/CMakeFiles/CMakeScratch/TryCompile-zwh4vu"
-      binary: "C:/Users/Sholl/Code/C/banjo-pc/build/CMakeFiles/CMakeScratch/TryCompile-zwh4vu"
+      source: "C:/Users/Sholl/Code/C/banjo-pc/build/CMakeFiles/CMakeScratch/TryCompile-3tmzzr"
+      binary: "C:/Users/Sholl/Code/C/banjo-pc/build/CMakeFiles/CMakeScratch/TryCompile-3tmzzr"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
       CMAKE_C_FLAGS_DEBUG: "/MDd /Zi /Ob0 /Od /RTC1"
@@ -82,40 +82,40 @@ events:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/Sholl/Code/C/banjo-pc/build/CMakeFiles/CMakeScratch/TryCompile-zwh4vu'
+        Change Dir: 'C:/Users/Sholl/Code/C/banjo-pc/build/CMakeFiles/CMakeScratch/TryCompile-3tmzzr'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_9eccd.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_9661c.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         MSBuild version 17.13.19+0d9f5a35a for .NET Framework
-        Build started 9/2/2025 6:08:48 PM.
+        Build started 9/2/2025 7:21:37 PM.
         
-        Project "C:\\Users\\Sholl\\Code\\C\\banjo-pc\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zwh4vu\\cmTC_9eccd.vcxproj" on node 1 (default targets).
+        Project "C:\\Users\\Sholl\\Code\\C\\banjo-pc\\build\\CMakeFiles\\CMakeScratch\\TryCompile-3tmzzr\\cmTC_9661c.vcxproj" on node 1 (default targets).
         PrepareForBuild:
-          Creating directory "cmTC_9eccd.dir\\Debug\\".
+          Creating directory "cmTC_9661c.dir\\Debug\\".
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Creating directory "C:\\Users\\Sholl\\Code\\C\\banjo-pc\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zwh4vu\\Debug\\".
-          Creating directory "cmTC_9eccd.dir\\Debug\\cmTC_9eccd.tlog\\".
+          Creating directory "C:\\Users\\Sholl\\Code\\C\\banjo-pc\\build\\CMakeFiles\\CMakeScratch\\TryCompile-3tmzzr\\Debug\\".
+          Creating directory "cmTC_9661c.dir\\Debug\\cmTC_9661c.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_9eccd.dir\\Debug\\cmTC_9eccd.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_9eccd.dir\\Debug\\cmTC_9eccd.tlog\\unsuccessfulbuild".
+          Creating "cmTC_9661c.dir\\Debug\\cmTC_9661c.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_9661c.dir\\Debug\\cmTC_9661c.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.43.34808\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_9eccd.dir\\Debug\\\\" /Fd"cmTC_9eccd.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.0\\Modules\\CMakeCCompilerABI.c"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.43.34808\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_9661c.dir\\Debug\\\\" /Fd"cmTC_9661c.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.0\\Modules\\CMakeCCompilerABI.c"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.43.34810 for x64
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_9eccd.dir\\Debug\\\\" /Fd"cmTC_9eccd.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.0\\Modules\\CMakeCCompilerABI.c"
+          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_9661c.dir\\Debug\\\\" /Fd"cmTC_9661c.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.0\\Modules\\CMakeCCompilerABI.c"
           CMakeCCompilerABI.c
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.43.34808\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\Sholl\\Code\\C\\banjo-pc\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zwh4vu\\Debug\\cmTC_9eccd.exe" /INCREMENTAL /ILK:"cmTC_9eccd.dir\\Debug\\cmTC_9eccd.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Sholl/Code/C/banjo-pc/build/CMakeFiles/CMakeScratch/TryCompile-zwh4vu/Debug/cmTC_9eccd.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Sholl/Code/C/banjo-pc/build/CMakeFiles/CMakeScratch/TryCompile-zwh4vu/Debug/cmTC_9eccd.lib" /MACHINE:X64  /machine:x64 cmTC_9eccd.dir\\Debug\\CMakeCCompilerABI.obj
-          cmTC_9eccd.vcxproj -> C:\\Users\\Sholl\\Code\\C\\banjo-pc\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zwh4vu\\Debug\\cmTC_9eccd.exe
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.43.34808\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\Sholl\\Code\\C\\banjo-pc\\build\\CMakeFiles\\CMakeScratch\\TryCompile-3tmzzr\\Debug\\cmTC_9661c.exe" /INCREMENTAL /ILK:"cmTC_9661c.dir\\Debug\\cmTC_9661c.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Sholl/Code/C/banjo-pc/build/CMakeFiles/CMakeScratch/TryCompile-3tmzzr/Debug/cmTC_9661c.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Sholl/Code/C/banjo-pc/build/CMakeFiles/CMakeScratch/TryCompile-3tmzzr/Debug/cmTC_9661c.lib" /MACHINE:X64  /machine:x64 cmTC_9661c.dir\\Debug\\CMakeCCompilerABI.obj
+          cmTC_9661c.vcxproj -> C:\\Users\\Sholl\\Code\\C\\banjo-pc\\build\\CMakeFiles\\CMakeScratch\\TryCompile-3tmzzr\\Debug\\cmTC_9661c.exe
         FinalizeBuildStatus:
-          Deleting file "cmTC_9eccd.dir\\Debug\\cmTC_9eccd.tlog\\unsuccessfulbuild".
-          Touching "cmTC_9eccd.dir\\Debug\\cmTC_9eccd.tlog\\cmTC_9eccd.lastbuildstate".
-        Done Building Project "C:\\Users\\Sholl\\Code\\C\\banjo-pc\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zwh4vu\\cmTC_9eccd.vcxproj" (default targets).
+          Deleting file "cmTC_9661c.dir\\Debug\\cmTC_9661c.tlog\\unsuccessfulbuild".
+          Touching "cmTC_9661c.dir\\Debug\\cmTC_9661c.tlog\\cmTC_9661c.lastbuildstate".
+        Done Building Project "C:\\Users\\Sholl\\Code\\C\\banjo-pc\\build\\CMakeFiles\\CMakeScratch\\TryCompile-3tmzzr\\cmTC_9661c.vcxproj" (default targets).
         
         Build succeeded.
             0 Warning(s)
             0 Error(s)
         
-        Time Elapsed 00:00:00.43
+        Time Elapsed 00:00:00.45
         
       exitCode: 0
   -

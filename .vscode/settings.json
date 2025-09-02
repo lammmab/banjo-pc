@@ -1,5 +1,9 @@
 {
   "files.associations": {
-    "ultratypes.h": "c"
+    "ultratypes.h": "c",
+    "libultra.h": "c",
+    "structs.h": "c",
+    "functions.h": "c",
+    "variables.h": "c"
   }
 }

@@ -6,7 +6,7 @@
  *    after they become stall, and are cleaned up much later in memory 
  *    defragmentation.
  */
-#include <ultra64.h>
+#include <libultraship/libultra.h>
 #include "functions.h"
 #include "variables.h"
 

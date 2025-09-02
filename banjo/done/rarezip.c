@@ -1,4 +1,4 @@
-#include <ultra64.h>
+#include <libultraship/libultra.h>
 #include "rarezip.h"
 
 struct huft *D_80007270;

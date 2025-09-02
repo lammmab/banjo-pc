@@ -1,4 +1,4 @@
-#include <ultra64.h>
+#include <libultraship/libultra.h>
 #include "synthInternals.h"
 
 void alFilterNew(ALFilter *f, ALCmdHandler h, ALSetParam s, s32 type)

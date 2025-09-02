@@ -1,4 +1,4 @@
-#include <ultra64.h>
+#include <libultraship/libultra.h>
 #include "core1/core1.h"
 
 #define IA8_I(ia) ((ia) >> 4)

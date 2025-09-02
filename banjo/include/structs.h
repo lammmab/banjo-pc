@@ -1,11 +1,10 @@
 #ifndef STRUCTS_H
 #define STRUCTS_H
 
-#include <ultra64.h>
+#include <libultraship/libultra.h>
 #include "model.h"
 #include "core2/vla.h"
 #include "enums.h"
-#include "bool.h"
 
 #define MERGE(a, b) a ## b
 
@@ -46,10 +45,6 @@ typedef struct freelist_s{
 
 #define FREE_LIST(T) struct freelist_s
 //^defined to keep element type with sla
-
-typedef struct {
-    f32 m[4][4];
-} MtxF;
 
 typedef struct bk_sprite_s{
     s16 frameCnt;
@@ -793,6 +788,8 @@ typedef struct{
     // u8 pad16[2];
     void *unk18;
 }struct86s;
+
+typedef struct ALHeap ALHeap;
 
 typedef struct {
     s32 unk0; //sound state cnt
