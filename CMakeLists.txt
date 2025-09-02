@@ -11,7 +11,13 @@ list(APPEND SOURCES ${BANJO_SOURCES})
 
 add_executable(banjo ${SOURCES})
 
-include_directories(
-  platform/pc/include
-  banjo/include
-)
+file(GLOB_RECURSE INCLUDE_DIRS LIST_DIRECTORIES true "${CMAKE_SOURCE_DIR}/banjo/include/*")
+
+set(INCLUDE_DIRS_FILTERED "")
+foreach(dir ${INCLUDE_DIRS})
+    if(IS_DIRECTORY ${dir})
+        list(APPEND INCLUDE_DIRS_FILTERED ${dir})
+    endif()
+endforeach()
+
+include_directories(${INCLUDE_DIRS_FILTERED})

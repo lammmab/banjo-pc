@@ -69,7 +69,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\Sholl\Code\C\banjo-pc\platform\pc\include;C:\Users\Sholl\Code\C\banjo-pc\banjo\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Sholl\Code\C\banjo-pc\banjo\include\2.0L;C:\Users\Sholl\Code\C\banjo-pc\banjo\include\2.0L\PR;C:\Users\Sholl\Code\C\banjo-pc\banjo\include\core1;C:\Users\Sholl\Code\C\banjo-pc\banjo\include\core2;C:\Users\Sholl\Code\C\banjo-pc\banjo\include\core2\anim;C:\Users\Sholl\Code\C\banjo-pc\banjo\include\core2\ba;C:\Users\Sholl\Code\C\banjo-pc\banjo\include\core2\nc;C:\Users\Sholl\Code\C\banjo-pc\banjo\include\gc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -79,7 +79,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\Sholl\Code\C\banjo-pc\platform\pc\include;C:\Users\Sholl\Code\C\banjo-pc\banjo\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Sholl\Code\C\banjo-pc\banjo\include\2.0L;C:\Users\Sholl\Code\C\banjo-pc\banjo\include\2.0L\PR;C:\Users\Sholl\Code\C\banjo-pc\banjo\include\core1;C:\Users\Sholl\Code\C\banjo-pc\banjo\include\core2;C:\Users\Sholl\Code\C\banjo-pc\banjo\include\core2\anim;C:\Users\Sholl\Code\C\banjo-pc\banjo\include\core2\ba;C:\Users\Sholl\Code\C\banjo-pc\banjo\include\core2\nc;C:\Users\Sholl\Code\C\banjo-pc\banjo\include\gc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -89,7 +89,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\Sholl\Code\C\banjo-pc\platform\pc\include;C:\Users\Sholl\Code\C\banjo-pc\banjo\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Sholl\Code\C\banjo-pc\banjo\include\2.0L;C:\Users\Sholl\Code\C\banjo-pc\banjo\include\2.0L\PR;C:\Users\Sholl\Code\C\banjo-pc\banjo\include\core1;C:\Users\Sholl\Code\C\banjo-pc\banjo\include\core2;C:\Users\Sholl\Code\C\banjo-pc\banjo\include\core2\anim;C:\Users\Sholl\Code\C\banjo-pc\banjo\include\core2\ba;C:\Users\Sholl\Code\C\banjo-pc\banjo\include\core2\nc;C:\Users\Sholl\Code\C\banjo-pc\banjo\include\gc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -99,7 +99,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\Sholl\Code\C\banjo-pc\platform\pc\include;C:\Users\Sholl\Code\C\banjo-pc\banjo\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Sholl\Code\C\banjo-pc\banjo\include\2.0L;C:\Users\Sholl\Code\C\banjo-pc\banjo\include\2.0L\PR;C:\Users\Sholl\Code\C\banjo-pc\banjo\include\core1;C:\Users\Sholl\Code\C\banjo-pc\banjo\include\core2;C:\Users\Sholl\Code\C\banjo-pc\banjo\include\core2\anim;C:\Users\Sholl\Code\C\banjo-pc\banjo\include\core2\ba;C:\Users\Sholl\Code\C\banjo-pc\banjo\include\core2\nc;C:\Users\Sholl\Code\C\banjo-pc\banjo\include\gc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
