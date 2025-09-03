@@ -23,7 +23,7 @@ void dustEmitter_empty(ParticleEmitter *this) {
 }
 
 bool dustEmitter_isActive(s32 index) {
-    return (index < EMITTER_COUNT) ? !particleEmitter_isDone(pem_getEmitterByIndex(emitterIndexes[index])) : FALSE;
+    return (index < EMITTER_COUNT) ? !particleEmitter_isDone(pem_getEmitterByIndex(emitterIndexes[index])) : false;
 }
 
 void dustEmitter_init(void) {
@@ -79,7 +79,7 @@ void dustEmitter_emit(f32 position[3], f32 velocity[3], s32 color[4], bool useDe
         particleEmitter_setAlpha(emitter, color[3]);
     }
 
-    if (useDefaultDrawMode == FALSE) {
+    if (useDefaultDrawMode == false) {
         draw_mode = PART_EMIT_NO_OPA | PART_EMIT_NO_DEPTH | PART_EMIT_NO_LOOP;
     }
 

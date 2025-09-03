@@ -97,7 +97,7 @@ typedef struct actorMarker_s{
     s16         unk38[3];
     u16         pad3E_15:1;
     u16         modelId:13;
-    u16         isBanjoOnTop: TRUE;
+    u16         isBanjoOnTop: true;
     u16         unk3E_0:1; //scaled
     u32         unk40_31:4;
     u32         unk40_27:4;

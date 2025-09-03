@@ -1,6 +1,5 @@
-#include <os_internal.h>
-#include <R4300.h>
-#include <rcp.h>
+#include <libultraship/libultra.h>
+
 #include "viint.h"
 
 static __OSViContext vi[2] = {0};

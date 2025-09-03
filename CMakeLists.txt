@@ -1,6 +1,10 @@
 cmake_minimum_required(VERSION 3.10)
 project(banjo_pc C)
 
+if(MSVC)
+    add_compile_options(/w)
+endif()
+
 set(CMAKE_C_STANDARD 11)
 
 set(SOURCES src/main.c)
@@ -24,4 +28,5 @@ include_directories(
   banjo/include
   ${INCLUDE_DIRS_FILTERED}
   libultraship/include
+  include
 )

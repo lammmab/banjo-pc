@@ -1,7 +1,6 @@
-#include <os_internal.h>
+#include <libultraship/libultra.h>
 #include "controller.h"
 #include "siint.h"
-#include <rcp.h>
 
 static void __osPackEepWriteData(u8 address, u8 *buffer);
 s32 osEepromWrite(OSMesgQueue *mq, u8 address, u8 *buffer)

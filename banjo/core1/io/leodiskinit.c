@@ -1,6 +1,4 @@
-#include <os_internal.h>
-#include <rcp.h>
-#include <os_libc.h>
+#include <libultraship/libultra.h>
 
 OSPiHandle LeoDiskHandle;
 OSPiHandle *__osDiskHandle;

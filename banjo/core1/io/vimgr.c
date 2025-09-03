@@ -1,5 +1,4 @@
-#include <os_internal.h>
-#include <rcp.h>
+#include <libultraship/libultra.h>
 #include "viint.h"
 #include "osint.h"
 
@@ -73,7 +72,7 @@ static void viMgrMain(void *arg)
 	if (retrace == 0)
 		retrace = 1;
 	dm = (OSDevMgr *)arg;
-	while (TRUE)
+	while (true)
 	{
 		osRecvMesg(dm->evtQueue, (OSMesg)&mb, OS_MESG_BLOCK);
 		switch (mb->hdr.type)

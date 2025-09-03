@@ -1,4 +1,4 @@
-#include <os_internal.h>
+#include <libultraship/libultra.h>
 #include "osint.h"
 
 __OSEventState __osEventStateTab[OS_NUM_EVENTS];

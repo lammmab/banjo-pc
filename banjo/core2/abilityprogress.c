@@ -14,7 +14,7 @@ void ability_use(enum ability_used ability) {
     bool play_ding;
 
     dialog_id = 0;
-    play_ding = TRUE;
+    play_ding = true;
 
     // Has this ability been used before?
     if (usedAbilities & (1 << ability)) {
@@ -23,18 +23,18 @@ void ability_use(enum ability_used ability) {
 
     switch (ability) {
         case ABILITY_USED_JUMP:
-            mapSpecificFlags_set(SM_SPECIFIC_FLAG_8_ABILITY_HOLD_A_JUMP_HIGHER_UNLOCKED, TRUE);
-            play_ding = TRUE;
+            mapSpecificFlags_set(SM_SPECIFIC_FLAG_8_ABILITY_HOLD_A_JUMP_HIGHER_UNLOCKED, true);
+            play_ding = true;
             break;
 
         case ABILITY_USED_FLAP:
-            mapSpecificFlags_set(SM_SPECIFIC_FLAG_9_ABILITY_FEATHERY_UNLOCKED, TRUE);
-            play_ding = TRUE;
+            mapSpecificFlags_set(SM_SPECIFIC_FLAG_9_ABILITY_FEATHERY_UNLOCKED, true);
+            play_ding = true;
             break;
 
         case ABILITY_USED_FLIP:
-            mapSpecificFlags_set(SM_SPECIFIC_FLAG_A_ABILITY_FLIP_UNLOCKED, TRUE);
-            play_ding = TRUE;
+            mapSpecificFlags_set(SM_SPECIFIC_FLAG_A_ABILITY_FLIP_UNLOCKED, true);
+            play_ding = true;
             break;
 
         case ABILITY_USED_SWIM:
@@ -56,7 +56,7 @@ void ability_use(enum ability_used ability) {
             break;
 
         case ABILITY_USED_SLIDE:
-            play_ding = FALSE;
+            play_ding = false;
             if (!ability_isUnlocked(ABILITY_10_TALON_TROT)) {
                 if (map_get() == MAP_2_MM_MUMBOS_MOUNTAIN) {
                     dialog_id = ASSET_B4D_DIALOG_BOTTLES_SLIPPERY;

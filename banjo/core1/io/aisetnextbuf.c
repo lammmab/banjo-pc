@@ -1,5 +1,4 @@
-#include <os_internal.h>
-#include <rcp.h>
+#include <libultraship/libultra.h>
 #include "osint.h"
 
 s32 osAiSetNextBuffer(void *bufPtr, u32 size)

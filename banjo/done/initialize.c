@@ -23,7 +23,7 @@ void __osInitialize_common()
 {
    u32 pifdata;
    u32 clock = 0;
-   __osFinalrom = TRUE;
+   __osFinalrom = true;
    __osSetSR(__osGetSR() | SR_CU1);    //enable fpu
    __osSetFpcCsr(FPCSR_FS | FPCSR_EV); //flush denorm to zero, enable invalid operation
 

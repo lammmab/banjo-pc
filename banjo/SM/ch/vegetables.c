@@ -2,6 +2,8 @@
 #include "functions.h"
 #include "variables.h"
 
+#include "n64_compat.h"
+
 extern f32 mapModel_getFloorY(f32*);
 extern void spawnQueue_bundle_f32(s32, f32, f32, f32);
 extern void timed_mapSpecificFlags_setTrue(f32 time, enum sm_specific_flags flag);
@@ -33,7 +35,7 @@ static void __chVegetables_update(Actor*);
 
 /* .data */
 static ActorAnimationInfo sChCarrotAnimations[5] = {
-    {NULL, NULL},
+    {N64_NULL, N64_NULL},
     {ASSET_223_ANIM_TOPPER_UNKNOWN, 1000000.0f},
     {ASSET_223_ANIM_TOPPER_UNKNOWN, 1.0f},
     {ASSET_224_ANIM_TOPPER_UNKNOWN, 0.75f},
@@ -53,7 +55,7 @@ ActorInfo gChVegetablesTopperB = {
 };
 
 static ActorAnimationInfo sChOnionAnimations[5] = {
-    {NULL, NULL},
+    {N64_NULL, N64_NULL},
     {ASSET_226_ANIM_BAWL_UNKNOWN, 1000000.0f},
     {ASSET_226_ANIM_BAWL_UNKNOWN, 1.0f},
     {ASSET_227_ANIM_BAWL_UNKNOWN, 0.75f},
@@ -73,7 +75,7 @@ ActorInfo gChVegetablesBawlB = {
 };
 
 static ActorAnimationInfo sChCauliflowerAnimations[5] = {
-    {NULL, NULL},
+    {N64_NULL, N64_NULL},
     {ASSET_225_ANIM_COLLYWOBBLE_UNKNOWN, 10000000.0f},
     {ASSET_225_ANIM_COLLYWOBBLE_UNKNOWN, 1.0f},
     {ASSET_225_ANIM_COLLYWOBBLE_UNKNOWN, 10000000.0f},
@@ -151,7 +153,7 @@ static ParticleSettingsVelocityAccelerationPosition sD_8038AF0C = {
 
 /* .code */
 static void __chVegetables_setSpriteDustParticles(ParticleEmitter *emitter, f32 *position, s32 emit_count) {
-    s32 sp24[3] = sChVegetablesParticleRGB;
+    s32 *sp24 = sChVegetablesParticleRGB;
     particleEmitter_setRGB(emitter, sp24);
     particleEmitter_setSprite(emitter, ASSET_700_SPRITE_DUST);
     particleEmitter_setStartingFrameRange(emitter, 0, 7);
@@ -289,9 +291,9 @@ static bool __chVegetables_func_80387FA8(Actor* this, sChVegetable* local, s32 y
     sp24[2] = sp18[2] + local->unk0_z;
 
     if (func_80307258(sp24, this->unk10_25 - 1, this->unk10_18 - 1) == -1)
-        return FALSE;
+        return false;
     else
-        return TRUE;
+        return true;
 }
 
 static void __chVegetables_update(Actor* this) {
@@ -323,7 +325,7 @@ static void __chVegetables_update(Actor* this) {
         }
 
         actor_collisionOff(this);
-        marker_setCollisionScripts(this->marker, NULL, NULL, __chVegetables_vegetableMarkerDeathParticles);
+        marker_setCollisionScripts(this->marker, N64_NULL, N64_NULL, __chVegetables_vegetableMarkerDeathParticles);
         this->unk1C_x = this->position_x;
         this->unk1C_y = this->position_y;
         this->unk1C_z = this->position_z;
@@ -343,10 +345,10 @@ static void __chVegetables_update(Actor* this) {
         this->velocity_x = temp_velX;
         this->velocity_y = (local->vegetable_type == CH_VEGETABLE_3_COLLIWOBBLE) ? 90.0f : 70.0f;
         this->velocity_z = temp_velZ;
-        this->has_met_before = TRUE;
+        this->has_met_before = true;
         this->unk138_23 = 0;
         this->unk38_0 = 0;
-        this->initialized = TRUE;
+        this->initialized = true;
         this->scale = 0.5;
     }
 
@@ -503,7 +505,7 @@ static void __chVegetables_update(Actor* this) {
             sp54[2] = this->position_z;
             if (local->vegetable_type == CH_VEGETABLE_1_TOPPER)
                 sp54[1] += 150.0f;
-            this->has_met_before = FALSE;
+            this->has_met_before = false;
             __chVegetables_setParticlesForModel2(partEmitMgr_newEmitter(3), sp54, 3, (local->vegetable_type == CH_VEGETABLE_1_TOPPER) ? ASSET_4F0_MODEL_TOPPER_UNKNOWN: ASSET_4F1_MODEL_BAWL_OR_COLLIWOBBLE_UNKNOWN);
         }
         

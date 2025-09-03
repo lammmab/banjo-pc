@@ -6,8 +6,10 @@
 
 #include "lockup.h"
 
+#include "n64_compat.h"
+
 ActorAnimationInfo chLockupAnimations[6] = {
-    { NULL, NULL },
+    { N64_NULL, N64_NULL },
     { ASSET_BC_ANIM_LOCKUP, 8000000.0f },
     { ASSET_BC_ANIM_LOCKUP, 4.0f },
     { ASSET_BC_ANIM_LOCKUP, 8000000.0f },
@@ -48,7 +50,7 @@ static Actor *chLockup_draw(ActorMarker *marker, Gfx **gfx, Mtx **mtx, Vtx **vtx
 
 static void close(Actor *this) {
     subaddie_set_state_with_direction(this, CH_LOCKUP_STATE_CLOSED, 0.2f, 1);
-    this->marker->collidable = FALSE;
+    this->marker->collidable = false;
     this->unk38_31 = 0;
     sfx_playFadeShorthandDefault(SFX_6C_LOCKUP_CLOSING, 1.0f, 32000, this->position, 1250, 2500);
 }
@@ -72,23 +74,23 @@ static void chLockup_update(Actor *this) {
         && subaddie_playerIsWithinSphereAndActive(this, 320)
         && !subaddie_playerIsWithinSphereAndActive(this, 160)
         && !player_movementGroup()
-        && gcdialog_showDialog(ASSET_A15_DIALOG_TTC_LOCKUP_SPAWNED, 0, NULL, NULL, NULL, NULL)) {
+        && gcdialog_showDialog(ASSET_A15_DIALOG_TTC_LOCKUP_SPAWNED, 0, N64_NULL, N64_NULL, N64_NULL, N64_NULL)) {
 
-        this->has_met_before = TRUE;
+        this->has_met_before = true;
     }
 
     if (!this->volatile_initialized) {
-        this->volatile_initialized = TRUE;
+        this->volatile_initialized = true;
     }
 
     switch (this->state) {
         case CH_LOCKUP_STATE_CLOSED:
             if (!this->initialized) {
-                this->marker->propPtr->unk8_3 = TRUE;
+                this->marker->propPtr->unk8_3 = true;
                 subaddie_set_state_with_direction(this, CH_LOCKUP_STATE_CLOSED, 0.2f, 1);
-                this->marker->collidable = FALSE;
+                this->marker->collidable = false;
                 this->unk38_31 = 0;
-                this->initialized = TRUE;
+                this->initialized = true;
             }
 
             local->closedTicksCounter++;
@@ -115,7 +117,7 @@ static void chLockup_update(Actor *this) {
             }
 
             if (0.15 < anctrl_getAnimTimer(this->anctrl)) {
-                this->marker->collidable = TRUE;
+                this->marker->collidable = true;
             }
 
             break;
@@ -142,7 +144,7 @@ static void chLockup_update(Actor *this) {
                 // Spawn smoke particles
                 for (i = 5; i < 0xE; i++) {
                     func_8034A174(this->marker->unk44, i, this->unk1C);
-                    dustEmitter_emit(this->unk1C, SMOKE_VELOCITY, SMOKE_COLOR, TRUE, 0.4f, 50.0f, 0xB4, 0xA0, DUST_EMITTER_TYPE_DUST);
+                    dustEmitter_emit(this->unk1C, SMOKE_VELOCITY, SMOKE_COLOR, true, 0.4f, 50.0f, 0xB4, 0xA0, DUST_EMITTER_TYPE_DUST);
                 }
             }
 

@@ -477,7 +477,7 @@ void gcStaticCamera_activate(s32 cameraId) {
 
 void func_802BB200(void){
     if(D_80364E00){
-        D_80364E00 = FALSE;
+        D_80364E00 = false;
         D_80364E04 = -1;
     }
 }
@@ -485,7 +485,7 @@ void func_802BB200(void){
 void func_802BB22C(void){
     if(D_80364E00){
         timedFuncQueue_flush();
-        D_80364E00 = FALSE;
+        D_80364E00 = false;
         D_80364E04 = -1;
     }
 }

@@ -1,5 +1,5 @@
-#include <os_internal.h>
-#include <rcp.h>
+#include <libultraship/libultra.h>
+
 
 void osDpSetStatus(u32 data)
 {

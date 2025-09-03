@@ -1,5 +1,4 @@
-#include <os.h>
-#include <rcp.h>
+#include <libultraship/libultra.h>
 #include "viint.h"
 
 OSViMode osViModeMpalLan1 = {

@@ -2,6 +2,8 @@
 #include "functions.h"
 #include "variables.h"
 
+#include "n64_compat.h"
+
 extern f32 mapModel_getFloorY(f32[3]);
 extern void func_8028F45C(s32, f32[3]);
 
@@ -37,21 +39,21 @@ static s32 sChTreasurehunt_StepActors[6] = {
 
 ActorInfo gChTreasurehuntRedArrow = {
     MARKER_62_RED_ARROW, ACTOR_53_RED_ARROW, ASSET_3E9_MODEL_RED_ARROW, 
-    0, NULL, 
+    0, N64_NULL, 
     __chTreasurehunt_updateFunc, actor_update_func_80326224, __chTreasurehunt_animFunc,
     0, 0x400, 0.0f, 0
 }; 
 
 ActorInfo gChTreasurehuntRedQuestionMark = {
     MARKER_63_RED_QUESTION_MARK, ACTOR_54_RED_QUESTION_MARK, ASSET_3EB_MODEL_RED_QUESTION_MARK, 
-    0, NULL, 
+    0, N64_NULL, 
     __chTreasurehunt_updateFunc, actor_update_func_80326224, __chTreasurehunt_animFunc,
     0, 0x400, 0.0f, 0
 }; 
 
 ActorInfo gChTreasurehuntRedX = {
     MARKER_64_RED_X, ACTOR_55_RED_X, ASSET_3EA_MODEL_RED_X, 
-    0, NULL, 
+    0, N64_NULL, 
     __chTreasurehunt_updateFunc, actor_update_func_80326224, __chTreasurehunt_animFunc,
     0, 0x400, 0.0f, 0
 }; 
@@ -84,9 +86,9 @@ static bool __chTreasurehunt_isActiveHitboxBeakBusterHitbox(void) {
             music_volume = 0x7FFF;
         }
         coMusicPlayer_playMusic(comusic_id, music_volume);
-        return TRUE;
+        return true;
     }
-    return FALSE;
+    return false;
 }
 
 static void __chTreasurehunt_spawnRedXForNextStep(void) {
@@ -116,10 +118,10 @@ static void __chTreasurehunt_spawnActorForNextStep(void) {
 static void __chTreasurehunt_checkStepProgress(s32 currentStep){
     if(chtreasureHunt_puzzleCurrentStep == currentStep && __chTreasurehunt_isActiveHitboxBeakBusterHitbox()){
         if(currentStep == 0 && !jiggyscore_isCollected(JIGGY_11_TTC_RED_X)){
-            gcdialog_showDialog(ASSET_A18_DIALOG_TREASUREHUNT_FOLLOW_CLUES, 4, NULL, NULL, NULL, NULL);
+            gcdialog_showDialog(ASSET_A18_DIALOG_TREASUREHUNT_FOLLOW_CLUES, 4, N64_NULL, N64_NULL, N64_NULL, N64_NULL);
         }
         else if(currentStep == 4){
-            gcdialog_showDialog(ASSET_A19_DIALOG_TREASUREHUNT_SECOND_STEP, 4, NULL, NULL, NULL, NULL);
+            gcdialog_showDialog(ASSET_A19_DIALOG_TREASUREHUNT_SECOND_STEP, 4, N64_NULL, N64_NULL, N64_NULL, N64_NULL);
         }
 
         chtreasureHunt_puzzleCurrentStep++;
@@ -170,7 +172,7 @@ void chTreasurehunt_checkStepProgress5(NodeProp *this, ActorMarker *arg1){
         gcpausemenu_80314AC8(0);
         timedFunc_set_2(0.1f, (GenFunction_2) func_8028F45C, 9, (s32)&particleTargetPosition);
         timedFunc_set_1(0.1f, (GenFunction_1) gcpausemenu_80314AC8, 1);
-        gcdialog_showDialog(ASSET_A17_DIALOG_BURIED_TREASURE_SPAWNED, 4, NULL, NULL, NULL, NULL);
+        gcdialog_showDialog(ASSET_A17_DIALOG_BURIED_TREASURE_SPAWNED, 4, N64_NULL, N64_NULL, N64_NULL, N64_NULL);
         chtreasureHunt_puzzleCurrentStep++;
     }
 }
@@ -186,8 +188,8 @@ static void __chTreasurehunt_updateFunc(Actor *this){
 
     if(!this->initialized){
         actor_collisionOff(this);
-        this->marker->collidable = FALSE;
-        this->initialized = TRUE;
+        this->marker->collidable = false;
+        this->initialized = true;
     }
 
     switch(this->state){
@@ -240,6 +242,6 @@ static Actor *__chTreasurehunt_animFunc(ActorMarker *marker, Gfx **gfx, Mtx **mt
 
     func_8032AA58(actor, sp3C);
     modelRender_preDraw(actor_predrawMethod, actor);
-    modelRender_draw(gfx, mtx, sp40, sp4C, sp3C, NULL, marker_loadModelBin(marker));
+    modelRender_draw(gfx, mtx, sp40, sp4C, sp3C, N64_NULL, marker_loadModelBin(marker));
     return actor;
 }

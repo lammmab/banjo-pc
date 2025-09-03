@@ -63,7 +63,7 @@ Actor *func_802D7484(s32 position[3], s32 yaw, ActorInfo *arg2, u32 arg3) {
     dustEmitter_emit(sp34->position, D_80367AA4, D_80367A90, 0, D_80367A80, D_80367A84, D_80367A88, D_80367A8C, D_80367AA0);
     local = (ActorLocal_core2_50490 *)&sp34->local;
     local->unk0 = sp3C;
-    sp34->marker->collidable = FALSE;
+    sp34->marker->collidable = false;
     return sp34;
 }
 
@@ -95,7 +95,7 @@ void func_802D766C(Actor *this) {
     ActorLocal_core2_50490 * local = (ActorLocal_core2_50490 *)&this->local;
     if (!this->initialized) {
         marker_setFreeMethod(this->marker, func_802D7420);
-        this->initialized = TRUE;
+        this->initialized = true;
     }
     if (dustEmitter_isActive(local->unk0) == 0) {
         func_802D7420(this);

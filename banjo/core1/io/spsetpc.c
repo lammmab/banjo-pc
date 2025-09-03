@@ -1,5 +1,4 @@
-#include <os_internal.h>
-#include <rcp.h>
+#include <libultraship/libultra.h>
 
 s32 __osSpSetPc(u32 data)
 {

@@ -78,7 +78,7 @@ void alCSeqNextEvent(ALCSeq *seq,ALEvent *evt)
 
 /*
   Note: If there are no valid tracks (ie. all tracks have
-  reached the end of their data stream), then return FALSE
+  reached the end of their data stream), then return false
   to indicate that there is no next event.
 */
 char __alCSeqNextDelta(ALCSeq *seq, s32 *pDeltaTicks)
@@ -88,7 +88,7 @@ char __alCSeqNextDelta(ALCSeq *seq, s32 *pDeltaTicks)
     u32     lastTicks = seq->lastDeltaTicks;
 
     if (!seq->validTracks)
-	return FALSE;
+	return false;
 
     for(i = 0; i < 16 ; i++)
     {
@@ -105,7 +105,7 @@ char __alCSeqNextDelta(ALCSeq *seq, s32 *pDeltaTicks)
     seq->deltaFlag = 0;
     *pDeltaTicks = firstTime;
 
-    return TRUE;
+    return true;
 }
 
 /* only call alCSeqGetTrackEvent with a valid track !! */
@@ -216,7 +216,7 @@ static u32 __alCSeqGetTrackEvent(ALCSeq *seq, u32 track, ALEvent *event)
         else
             event->msg.midi.byte2 = 0;
     }
-    return TRUE;
+    return true;
 }
 
 f32 alCSeqTicksToSec(ALCSeq *seq, s32 ticks, u32 tempo)

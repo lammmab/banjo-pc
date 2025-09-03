@@ -185,7 +185,7 @@ static u32 __n_alCSeqGetTrackEvent(ALCSeq *seq, u32 track, N_ALEvent *event)
         else
             event->msg.midi.byte2 = 0;
     }
-    return TRUE;
+    return true;
 }
 
 

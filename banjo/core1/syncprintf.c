@@ -1,6 +1,5 @@
 #include <stdarg.h>
-#include <rmon.h>
-#include <os.h>
+#include <libultraship/libultra.h>
 
 void osSyncPrintf(const char *fmt, ...)
 {

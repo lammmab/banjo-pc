@@ -1,4 +1,4 @@
-#include <os_internal.h>
+#include <libultraship/libultra.h>
 #include "osint.h"
 int osSetTimer(OSTimer *t, OSTime value, OSTime interval, OSMesgQueue *mq, OSMesg msg)
 {

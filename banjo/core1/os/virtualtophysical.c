@@ -1,5 +1,4 @@
-#include <os_internal.h>
-#include <R4300.h>
+#include <libultraship/libultra.h>
 #include "osint.h"
 
 u32 osVirtualToPhysical(void *addr)

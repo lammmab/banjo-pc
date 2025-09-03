@@ -1,4 +1,4 @@
-#include <os_internal.h>
+#include <libultraship/libultra.h>
 #include "viint.h"
 
 __OSViContext *__osViGetCurrentContext(void)

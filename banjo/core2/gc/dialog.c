@@ -114,10 +114,10 @@ void gcdialog_init(void) {
     }
 
     g_Dialog.state = DIALOG_STATE_0;
-    g_Dialog.unk128_31 = g_Dialog.queueZoomboxYPositionModify = FALSE;
+    g_Dialog.unk128_31 = g_Dialog.queueZoomboxYPositionModify = false;
     g_Dialog.unk12C_31 = g_Dialog.unk12C_29 = g_Dialog.unk12C_27 = g_Dialog.unk12C_25 = 0;
-    g_Dialog.unk128_15 = g_Dialog.active_zoombox = FALSE;
-    g_Dialog.unk128_6 = TRUE; 
+    g_Dialog.unk128_15 = g_Dialog.active_zoombox = false;
+    g_Dialog.unk128_6 = true; 
     g_Dialog.playerHasConfirmed = -1;
     g_Dialog.unk12C_15 = g_Dialog.unk12C_11 = 0;
     g_Dialog.currentTextId = (s16) -1;
@@ -126,7 +126,7 @@ void gcdialog_init(void) {
     g_Dialog.unk140 = NULL;
     g_Dialog.conditionalCallback = 0;
     g_Dialog.yPositionModifierIndex = 12; // Length of array is 11, so intentionally setting out of bounds
-    g_Dialog.unk128_3 = TRUE;
+    g_Dialog.unk128_3 = true;
 }
 
 static void freeZoomboxes(void) {
@@ -422,7 +422,7 @@ void dialog_update(void) {
                         g_Dialog.unk11A[g_Dialog.u8.active_zoombox].unk0_7 = 1;
                         g_Dialog.unk11A[g_Dialog.u8.active_zoombox].unk0_5 = 1;
                         g_Dialog.u8.active_zoombox ^= 1;
-                        g_Dialog.unk128_6 = TRUE;
+                        g_Dialog.unk128_6 = true;
                         break;
         
                     case -1: // Choice
@@ -436,7 +436,7 @@ void dialog_update(void) {
                         g_Dialog.unk11A[g_Dialog.u8.active_zoombox].unk0_7 = 0;
                         g_Dialog.unk11A[g_Dialog.u8.active_zoombox].unk0_5 = 1;
                         g_Dialog.u8.active_zoombox ^= 1;
-                        g_Dialog.unk128_6 = TRUE;
+                        g_Dialog.unk128_6 = true;
                         break;
         
                     case -7: // Trigger
@@ -476,7 +476,7 @@ void dialog_update(void) {
                         g_Dialog.unk11A[g_Dialog.u8.active_zoombox].unk0_7 = 0;
                         g_Dialog.string_index[g_Dialog.u8.active_zoombox]++;
                         g_Dialog.u8.active_zoombox ^= 1;
-                        g_Dialog.unk128_6 = TRUE;
+                        g_Dialog.unk128_6 = true;
                         break;
         
                     case -5:
@@ -484,7 +484,7 @@ void dialog_update(void) {
                         g_Dialog.unk11A[g_Dialog.u8.active_zoombox].unk0_7 = 0;
                         g_Dialog.string_index[g_Dialog.u8.active_zoombox]++;
                         g_Dialog.u8.active_zoombox ^= 1;
-                        g_Dialog.unk128_6 = TRUE;
+                        g_Dialog.unk128_6 = true;
                         break;
         
                     case -3:
@@ -557,12 +557,12 @@ void dialog_update(void) {
         
                             if (gczoombox_loadSprite(g_Dialog.zoombox[g_Dialog.u8.active_zoombox], g_Dialog.string_cmd[g_Dialog.u8.active_zoombox] + 12)) {
                                 gczoombox_minimize(g_Dialog.zoombox[g_Dialog.u8.active_zoombox]);
-                                g_Dialog.unk128_6 = TRUE;
+                                g_Dialog.unk128_6 = true;
                             }
         
                             if (g_Dialog.unk128_6) {
                                 gczoombox_maximize(g_Dialog.zoombox[g_Dialog.u8.active_zoombox]);
-                                g_Dialog.unk128_6 = FALSE;
+                                g_Dialog.unk128_6 = false;
                             }
         
                             if (ret == -1) {
@@ -665,7 +665,7 @@ s32 getYPositionForZoombox(s32 dialogPosition) {
 }
 
 bool isDialogTop(s32 dialogIterator) {
-    return dialogIterator ? TRUE : FALSE;
+    return dialogIterator ? true : false;
 }
 
 void loadAndCreateDialogs(s32 text_id, s32 arg1, ActorMarker *marker, void(*callback)(ActorMarker *, s32, s32), void(*arg4)(ActorMarker *, s32, s32), s32 arg5) {
@@ -782,7 +782,7 @@ void updateDialogYPositions(void) {
         }
 
         if (g_Dialog.yPositionModifierIndex == 12) {
-            g_Dialog.queueZoomboxYPositionModify = FALSE;
+            g_Dialog.queueZoomboxYPositionModify = false;
         }
     } else {
         g_Dialog.yPositionModifierIndex--;
@@ -798,7 +798,7 @@ void updateDialogYPositions(void) {
         }
 
         if (g_Dialog.yPositionModifierIndex == 0) {
-            g_Dialog.queueZoomboxYPositionModify = FALSE;
+            g_Dialog.queueZoomboxYPositionModify = false;
         }
     }
 }
@@ -1006,12 +1006,12 @@ void func_803114D0(void) {
 
 bool func_803115C4(s32 textId) {
     if (gcdialog_getCurrentTextId() != textId) {
-        return FALSE;
+        return false;
     }
 
     dialog_setState(DIALOG_STATE_6);
 
-    return TRUE;
+    return true;
 }
 
 void gcdialog_incrementYPositionModifier(void) {
@@ -1019,8 +1019,8 @@ void gcdialog_incrementYPositionModifier(void) {
         return;
     }
 
-    g_Dialog.queueZoomboxYPositionModify = TRUE;
-    g_Dialog.zoomboxYPositionIndexDecremented = FALSE;
+    g_Dialog.queueZoomboxYPositionModify = true;
+    g_Dialog.zoomboxYPositionIndexDecremented = false;
     g_Dialog.yPositionModifierIndex++;
 }
 
@@ -1029,8 +1029,8 @@ void gcdialog_decrementYPositionModifier(void) {
         return;
     }
 
-    g_Dialog.queueZoomboxYPositionModify = TRUE;
-    g_Dialog.zoomboxYPositionIndexDecremented = TRUE;
+    g_Dialog.queueZoomboxYPositionModify = true;
+    g_Dialog.zoomboxYPositionIndexDecremented = true;
     g_Dialog.yPositionModifierIndex--;
 }
 

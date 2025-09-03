@@ -1,4 +1,4 @@
-#include <rcp.h>
+#include <libultraship/libultra.h>
 #include "controller.h"
 #include "siint.h"
 

@@ -293,7 +293,7 @@ ALMicroTime __n_seqpVoiceHandler(void *node)
 	  case (AL_SEQ_END_EVT):
 	  case (AL_TEMPO_EVT):
       case (AL_SEQ_MIDI_EVT):
-          matching_assert(FALSE, n_seqplayer.c, 0x12d);
+          matching_assert(false, n_seqplayer.c, 0x12d);
               break;
         }
 
@@ -344,7 +344,7 @@ __n_handleNextSeqEvent(N_ALSeqPlayer *seqp)
 	break;
 
     default:
-    matching_assert(FALSE, n_seqplayer.c, 0x162); /* Sequence event type not supported. */
+    matching_assert(false, n_seqplayer.c, 0x162); /* Sequence event type not supported. */
     }
 }
 
@@ -982,7 +982,7 @@ char __n_voiceNeedsNoteKill (N_ALSeqPlayer *seqp, N_ALVoice *voice, ALMicroTime 
     ALLink              *nextNode;
     N_ALEventListItem     *thisItem;
     ALMicroTime		itemTime = 0;
-    char		needsNoteKill = TRUE;
+    char		needsNoteKill = true;
 
 #if VOICENEEDSNOTEKILL_DEBUG
     alEvtqPrintAllocEvts (&seqp->evtq);
@@ -1007,7 +1007,7 @@ char __n_voiceNeedsNoteKill (N_ALSeqPlayer *seqp, N_ALVoice *voice, ALMicroTime 
 		    alLink(thisNode, &seqp->evtq.freeList);
 		}
 		else
-		    needsNoteKill = FALSE;
+		    needsNoteKill = false;
 		break;
 	    }
 	}

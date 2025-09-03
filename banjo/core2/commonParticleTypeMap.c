@@ -20,7 +20,7 @@ void commonParticleTypeMap_freeAll(void) {
     s32 i;
 
     for (i = 1; i < PARTICLE_LIMIT; i++) {
-        typeMaps[i].occupied = FALSE;
+        typeMaps[i].occupied = false;
     }
 }
 
@@ -52,7 +52,7 @@ void commonParticleTypeMap_freeByIndex(u8 index) {
         commonParticleType_getFreeMethod(typeMaps[index].currentParticleType)();
     }
 
-    typeMaps[index].occupied = FALSE;
+    typeMaps[index].occupied = false;
 }
 
 void commonParticleTypeMap_advanceParticleType(u8 index, enum common_particle_e nextType) {

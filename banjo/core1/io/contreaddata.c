@@ -1,5 +1,5 @@
-#include <os_internal.h>
-#include <rcp.h>
+#include <libultraship/libultra.h>
+
 #include "siint.h"
 #include "controller.h"
 

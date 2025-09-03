@@ -1,5 +1,4 @@
-#include <os_internal.h>
-#include <rcp.h>
+#include <libultraship/libultra.h>
 #include "viint.h"
 
 void __osViSwapContext()

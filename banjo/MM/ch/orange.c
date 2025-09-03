@@ -32,7 +32,7 @@ void __chorange_collisionCallback(ActorMarker *marker, ActorMarker *other_marker
         !mapSpecificFlags_get(MM_SPECIFIC_FLAG_8_HIT_WITH_ORANGE) &&
         gcdialog_showDialog(ASSET_B3A_DIALOG_CONGA_HITS_PLAYER, 0, 0, 0, NULL, NULL)) {
 
-        mapSpecificFlags_set(MM_SPECIFIC_FLAG_8_HIT_WITH_ORANGE, TRUE);
+        mapSpecificFlags_set(MM_SPECIFIC_FLAG_8_HIT_WITH_ORANGE, true);
     }
 
     if (marker);
@@ -70,7 +70,7 @@ void chorange_update(Actor *this) {
 
         case ORANGE_STATE_2_LANDED:
             if (this->lifetime_value < 324.0) {
-                this->marker->collidable = FALSE;
+                this->marker->collidable = false;
             }
 
             this->lifetime_value -= 4.0;
@@ -84,8 +84,8 @@ void chorange_update(Actor *this) {
 
 Actor *chorange_draw(ActorMarker *this, Gfx **dl, Mtx **mptr, Vtx **vtx) {
     Actor *actorPtr = actor_drawFullDepth(this, dl, mptr, vtx);
-    f32 sp60[3] = D_803899F4;
-    f32 rotation[3] = D_80389A00;
+    f32 *sp60 = (f32 *)D_803899F4;
+    f32 *rotation = (f32 *)D_80389A00;
     f32 position[3];
 
     if (actorPtr->state == ORANGE_STATE_2_LANDED) {

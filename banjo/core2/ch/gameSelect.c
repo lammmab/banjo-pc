@@ -157,7 +157,7 @@ Actor *gameSelect_zoomboxDraw(ActorMarker *marker, Gfx **gfx, Mtx **mtx, Vtx **v
 void topZoomboxCallback(s32 portraitId, s32 state) {
     // Is the zoombox state in finished?
     if (state == 3) {
-        isTopTextNotFinishedDisplaying = FALSE;
+        isTopTextNotFinishedDisplaying = false;
     }
 }
 
@@ -370,7 +370,7 @@ void gameSelect_update(Actor *this) {
             func_802C74F4(this, 1, 1.0f);
         }
 
-        this->initialized = TRUE;
+        this->initialized = true;
     }
 
     func_802C7478(this);
@@ -447,7 +447,7 @@ void gameSelect_update(Actor *this) {
 
             case GAME_SELECT_ERASE_CONFIRMATION:
                 // Don't let the player make a decision until the text has gone through                
-                if (isTopTextNotFinishedDisplaying == FALSE 
+                if (isTopTextNotFinishedDisplaying == false 
                     && (face_buttons[FACE_BUTTON(BUTTON_A)] == 1 || face_buttons[FACE_BUTTON(BUTTON_B)] == 1)) {
 
                     if (face_buttons[FACE_BUTTON(BUTTON_A)] == 1) {
@@ -497,7 +497,7 @@ void gameSelect_update(Actor *this) {
                     if (gameFile_isNotEmpty(game_number)) {
                         func_8031877C(chGameSelectTopZoombox);
                         func_803183A4(chGameSelectTopZoombox, (&ERASE_CONFIRMATION)[code94620_func_8031B5B0()]);
-                        isTopTextNotFinishedDisplaying = TRUE;
+                        isTopTextNotFinishedDisplaying = true;
                         subaddie_set_state(this, GAME_SELECT_ERASE_CONFIRMATION);
                     } else {
                         coMusicPlayer_playMusic(COMUSIC_2C_BUZZER, 22000);
@@ -548,17 +548,17 @@ void gameSelect_update(Actor *this) {
                     actor_playAnimationOnce(this);
 
                 } else {
-                    if ((0.7 < ((0.0f <= joystick) ? joystick : -joystick)) && isFileMoving == FALSE) {
+                    if ((0.7 < ((0.0f <= joystick) ? joystick : -joystick)) && isFileMoving == false) {
                         previous_game_number = gameNumber;
 
                         // Joystick went left
                         if (joystick < 0.0f) {
-                            isFileMoving = TRUE;
+                            isFileMoving = true;
 
                             // Switch to file to the left
                             switch (gameNumber) {
                                 case 0:
-                                    isFileMoving = FALSE;
+                                    isFileMoving = false;
                                     break;
 
                                 case 1:
@@ -570,7 +570,7 @@ void gameSelect_update(Actor *this) {
                                     break;
                             }
                         } else { // Joystick went right
-                            isFileMoving = TRUE;
+                            isFileMoving = true;
 
                             // Switch to file to the right
                             switch (gameNumber) {
@@ -578,7 +578,7 @@ void gameSelect_update(Actor *this) {
                                     gameNumber = 2;
                                     break;
                                 case 1:
-                                    isFileMoving = FALSE;
+                                    isFileMoving = false;
                                     break;
                                 case 2:
                                     gameNumber = 1;
@@ -592,12 +592,12 @@ void gameSelect_update(Actor *this) {
                         }
                     } else {
                         if (((0.0f <= joystick) ? joystick : -joystick) < 0.3) {
-                            isFileMoving = FALSE;
+                            isFileMoving = false;
                         }
                     }
                 }
 
-                if (isTopTextNotFinishedDisplaying == FALSE) {
+                if (isTopTextNotFinishedDisplaying == false) {
                     cycleInstructionsTimer += delta_time;
                     if (20.0 < cycleInstructionsTimer) {
                         func_8031877C(chGameSelectTopZoombox);
@@ -657,7 +657,7 @@ void gameSelect_initAndUpdate(Actor * this){
         }
 
         marker_setFreeMethod(this->marker, gameSelect_free);
-        isFileMoving = FALSE;
+        isFileMoving = false;
         debugScoreStates();
         clearScoreStates();
         previousGameNumber = 0;

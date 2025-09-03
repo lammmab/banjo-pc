@@ -45,7 +45,7 @@ void chLongSwampSwitch_update(Actor *this){
 
     // If the switch has been pressed, hitting it again resets the timer
     if (mapSpecificFlags_get(BGS_SPECIFIC_FLAG_7)) {
-        mapSpecificFlags_set(BGS_SPECIFIC_FLAG_7, FALSE);
+        mapSpecificFlags_set(BGS_SPECIFIC_FLAG_7, false);
         if (!mapSpecificFlags_get(BGS_SPECIFIC_FLAG_WALKWAY_JIGGY_TIMER_RUNNING) || (item_getCount(ITEM_0_HOURGLASS_TIMER) > 0)) {
             func_802D68F0(45);
         }
@@ -57,10 +57,10 @@ void chLongSwampSwitch_update(Actor *this){
 
     if (mapSpecificFlags_get(BGS_SPECIFIC_FLAG_WALKWAY_JIGGY_RESET)) {
         this->velocity_x = 0.0f;
-        mapSpecificFlags_set(BGS_SPECIFIC_FLAG_WALKWAY_JIGGY_TIMER_RUNNING, FALSE);
-        mapSpecificFlags_set(BGS_SPECIFIC_FLAG_WALKWAY_JIGGY, FALSE);
-        mapSpecificFlags_set(BGS_SPECIFIC_FLAG_1, FALSE);
-        mapSpecificFlags_set(BGS_SPECIFIC_FLAG_WALKWAY_JIGGY_RESET, FALSE);
+        mapSpecificFlags_set(BGS_SPECIFIC_FLAG_WALKWAY_JIGGY_TIMER_RUNNING, false);
+        mapSpecificFlags_set(BGS_SPECIFIC_FLAG_WALKWAY_JIGGY, false);
+        mapSpecificFlags_set(BGS_SPECIFIC_FLAG_1, false);
+        mapSpecificFlags_set(BGS_SPECIFIC_FLAG_WALKWAY_JIGGY_RESET, false);
     }
 
     if (this->velocity_x == 0.0f && mapSpecificFlags_get(BGS_SPECIFIC_FLAG_1)) {
@@ -70,7 +70,7 @@ void chLongSwampSwitch_update(Actor *this){
     } //L8038EFB4
 
     if (this->velocity_x != 0.0f && !mapSpecificFlags_get(BGS_SPECIFIC_FLAG_WALKWAY_JIGGY_TIMER_RUNNING) && func_802BB270()) {
-        mapSpecificFlags_set(BGS_SPECIFIC_FLAG_WALKWAY_JIGGY_TIMER_RUNNING, TRUE);
+        mapSpecificFlags_set(BGS_SPECIFIC_FLAG_WALKWAY_JIGGY_TIMER_RUNNING, true);
         func_802D68F0(45); //adjusts timer
         item_set(ITEM_6_HOURGLASS, 1);
     } //L8038EFB4
@@ -108,10 +108,10 @@ void chShortSwampSwitch_update(Actor *this){
 
     if (mapSpecificFlags_get(BGS_SPECIFIC_FLAG_MAZE_JIGGY_RESET)) {
         this->velocity_x = 0.0f;
-        mapSpecificFlags_set(BGS_SPECIFIC_FLAG_MAZE_JIGGY_TIMER_RUNNING, FALSE);
-        mapSpecificFlags_set(BGS_SPECIFIC_FLAG_MAZE_JIGGY, FALSE);
-        mapSpecificFlags_set(BGS_SPECIFIC_FLAG_A, FALSE);
-        mapSpecificFlags_set(BGS_SPECIFIC_FLAG_MAZE_JIGGY_RESET, FALSE);
+        mapSpecificFlags_set(BGS_SPECIFIC_FLAG_MAZE_JIGGY_TIMER_RUNNING, false);
+        mapSpecificFlags_set(BGS_SPECIFIC_FLAG_MAZE_JIGGY, false);
+        mapSpecificFlags_set(BGS_SPECIFIC_FLAG_A, false);
+        mapSpecificFlags_set(BGS_SPECIFIC_FLAG_MAZE_JIGGY_RESET, false);
     }
 
     if (this->velocity_x == 0.0f && mapSpecificFlags_get(BGS_SPECIFIC_FLAG_A)) {
@@ -121,7 +121,7 @@ void chShortSwampSwitch_update(Actor *this){
     } //L8038EFB4
 
     if (this->velocity_x != 0.0f && !mapSpecificFlags_get(BGS_SPECIFIC_FLAG_MAZE_JIGGY_TIMER_RUNNING) && func_802BB270()) {
-        mapSpecificFlags_set(BGS_SPECIFIC_FLAG_MAZE_JIGGY_TIMER_RUNNING, TRUE);
+        mapSpecificFlags_set(BGS_SPECIFIC_FLAG_MAZE_JIGGY_TIMER_RUNNING, true);
         func_802D68F0(10); //adjusts timer
         item_set(ITEM_6_HOURGLASS,1);
     } //L8038EFB4

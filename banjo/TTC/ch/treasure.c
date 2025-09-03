@@ -2,14 +2,16 @@
 #include "functions.h"
 #include "variables.h"
 
+#include "n64_compat.h"
+
 static void __chTreasure_updateFunc(Actor *this);
 
 /* .data */
 ActorAnimationInfo gChTreasureAnimations[4] = {
-    {NULL, NULL},
+    {N64_NULL, N64_NULL},
     {ASSET_153_ANIM_BURIED_TREASURE_APPEAR, 2.0f},
     {ASSET_166_ANIM_BURIED_TREASURE_BOUNCE, 0.33f},
-    {NULL, NULL}
+    {N64_NULL, N64_NULL}
 };
 
 ActorInfo gChTreasure = {
@@ -47,7 +49,7 @@ static void __chTreasure_updateFunc(Actor *this){
     s16 sp34[3];
 
     if(!this->initialized){
-        this->initialized = TRUE;
+        this->initialized = true;
         if(this->actorTypeSpecificField == 1 && !volatileFlag_get(VOLATILE_FLAG_C1_IN_FINAL_CHARACTER_PARADE)){
             marker_despawn(this->marker);
             return;
@@ -61,7 +63,7 @@ static void __chTreasure_updateFunc(Actor *this){
         this->unk1C[2] = this->position[2];
         
         actor_playAnimationOnce(this);
-        marker_setCollisionScripts(this->marker, NULL, NULL, __chTreasure_die);
+        marker_setCollisionScripts(this->marker, N64_NULL, N64_NULL, __chTreasure_die);
     }
     __chTreasure_updateFuncPosition(this);
     func_8034A174(this->marker->unk44, 5, sp3C);

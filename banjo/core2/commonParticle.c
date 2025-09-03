@@ -116,7 +116,7 @@ void commonParticle_init(void) {
     int i;
 
     for (i = 0; i < PARTICLE_LIMIT; i++) {
-        particles[i].isInUse = FALSE;
+        particles[i].isInUse = false;
     }
 
     indexStash.index = indexStash.previous = 0;
@@ -181,7 +181,7 @@ s32 commonParticle_findFree(void) {
     int i;
 
     for (i = 0; i < PARTICLE_LIMIT; i++) {
-        if (particles[i].isInUse == FALSE) {
+        if (particles[i].isInUse == false) {
             particles[i].isInUse++;
             return i;
         }
@@ -233,7 +233,7 @@ int commonParticle_new(enum common_particle_e particle_id, int arg1) {
             func_80344D70(reference);
         }
 
-        particles[currentIndex].isInUse = FALSE;
+        particles[currentIndex].isInUse = false;
 
         return -1;
     }
@@ -242,7 +242,7 @@ int commonParticle_new(enum common_particle_e particle_id, int arg1) {
     particles[currentIndex].marker_30 = func_8032FBE4(sp34, commonParticle_markerDrawFunction, 1, commonParticleType_80352C7C(particle_id));
     particles[currentIndex].marker_30->unk40_22 = 1;
     marker_setCommonParticleIndex(particles[currentIndex].marker_30, (u32) currentIndex);
-    particles[currentIndex].marker_30->collidable = FALSE;
+    particles[currentIndex].marker_30->collidable = false;
     commonParticleTypeMap_advanceParticleType(particles[currentIndex].typeMapIndex, particle_id);
     func_8033FFB8(particles[currentIndex].projectileIndex, animsprite_get_frame(particles[currentIndex].animSprite));
     projectile_getPosition(particles[currentIndex].projectileIndex, sp34);
@@ -323,7 +323,7 @@ CommonParticle *commonParticle_getCurrentParticle(void) {
 }
 
 void commonParticle_setCurrentInUseFalse(void) {
-    particles[currentIndex].isInUse = FALSE;
+    particles[currentIndex].isInUse = false;
 }
 
 void commonParticle_freeParticleByIndex(s32 index) {
@@ -354,8 +354,8 @@ void func_8033EA40(s32 arg0, f32 arg1) {
 
 void commonParticle_setActive(s32 arg0, s32 arg1) {
     if (arg1 == 2) {
-        commonParticleActive = TRUE;
+        commonParticleActive = true;
     } else {
-        commonParticleActive = FALSE;
+        commonParticleActive = false;
     }
 }

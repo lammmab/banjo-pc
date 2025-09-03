@@ -2,6 +2,8 @@
 #include "functions.h"
 #include "variables.h"
 
+#include "n64_compat.h"
+
 typedef struct chleafboat_s{
     f32 unk0[3];
     f32 unkC[3];
@@ -48,7 +50,7 @@ void chLeafBoat_update(Actor *this){
     f32 sp64[3];
     f32 player_position[3];
     ActorLocal_Leafboat *local;
-    u8 tmp[6] = D_80390DA0;
+    u8 *tmp = D_80390DA0;
     f32 pad0;
     f32 sp44;
     f32 sp40;
@@ -57,7 +59,7 @@ void chLeafBoat_update(Actor *this){
 
     local = (ActorLocal_Leafboat *)&this->local;
     if(!this->initialized){
-        this->initialized = TRUE;
+        this->initialized = true;
         marker_setCollisionScripts(this->marker, func_8038FD88, NULL, NULL);
         local->unk6C = randf2(80.0f, 100.0f);
         this->unk1C[0] = this->unk1C[1] = this->unk1C[2] = 0.0f;
@@ -120,7 +122,7 @@ void chLeafBoat_update(Actor *this){
             if (this->marker->unk2C_2) {
                 actor_update_func_80326224(this);
             }
-            this->marker->propPtr->unk8_3 = FALSE;
+            this->marker->propPtr->unk8_3 = false;
             this->unk1C[0] = 0.0f;
             this->alpha_124_19 = 0;
             if (this->unk54 == 0.0f) {

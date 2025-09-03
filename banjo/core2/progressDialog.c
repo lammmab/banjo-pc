@@ -79,7 +79,7 @@ bool showProgressFlagDialog(enum file_progress_e progressFlag, s32 dialogMask) {
     s32 index;
 
     if (fileProgressFlag_get(progressFlag) != 0) {
-        return FALSE;
+        return false;
     }
 
     index = __findIndex(fileProgressDialogMap, progressFlag);
@@ -91,7 +91,7 @@ bool showProgressFlagDialog(enum file_progress_e progressFlag, s32 dialogMask) {
         return fileProgressFlag_get(progressFlag);
     }
 
-    return FALSE;
+    return false;
 }
 
 void progressDialog_showDialogMaskZero(enum file_progress_e progressFlag) {

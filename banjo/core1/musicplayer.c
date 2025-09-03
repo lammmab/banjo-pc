@@ -158,7 +158,7 @@ void coMusicPlayer_update(void) {
         return;
     }
 
-    D_80276E34 = FALSE;
+    D_80276E34 = false;
 
     for (var_s0 = musicTracks; var_s0 < &musicTracks[6]; var_s0++) {
         if (var_s0->track_id < 0) {
@@ -170,7 +170,7 @@ void coMusicPlayer_update(void) {
 
             if (var_s0->unk0 > 0.0f) {
                 var_s0->unk0 -= time_getDelta();
-                D_80276E34 = TRUE;
+                D_80276E34 = true;
                 continue;
             }
 
@@ -185,7 +185,7 @@ void coMusicPlayer_update(void) {
                         var_s0->volume = var_s0->unkC;
                         var_s0->unk12 = 0;
                     } else {
-                        D_80276E34 = TRUE;
+                        D_80276E34 = true;
                     }
                     musicTrack_setVolume(temp_lo, (s16)var_s0->volume);
                 }
@@ -202,7 +202,7 @@ void coMusicPlayer_update(void) {
                     var_s0->volume = var_s0->unkC;
                     var_s0->unk12 = 0;
                 } else {
-                    D_80276E34 = TRUE;
+                    D_80276E34 = true;
                 }
                 musicTrack_setVolume(temp_lo, (s16)var_s0->volume);
 
@@ -455,12 +455,12 @@ void playMusic(enum comusic_e comusic_id, s32 volume, s32 forceReInit) {
 
 // If findTrack returns the track, then do not re-initialize; just adust the volume
 void coMusicPlayer_playMusicWeak(enum comusic_e track_id, s32 volume) {
-    playMusic(track_id, volume, FALSE);
+    playMusic(track_id, volume, false);
 }
 
 // Plays the track and reinitializes it
 void coMusicPlayer_playMusic(enum comusic_e track_id, s32 volume) {
-    playMusic(track_id, volume, TRUE);
+    playMusic(track_id, volume, true);
 }
 
 //comusic_queueTrack

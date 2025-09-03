@@ -1,5 +1,5 @@
-#include <os_internal.h>
-#include <rcp.h>
+#include <libultraship/libultra.h>
+
 #include "osint.h"
 
 s32 __osSpRawStartDma(s32 direction, u32 devAddr, void *dramAddr, u32 size)

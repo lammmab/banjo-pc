@@ -1,4 +1,4 @@
-#include <os_internal.h>
+#include <libultraship/libultra.h>
 #include "piint.h"
 
 s32 osPiReadIo(u32 devAddr, u32 *data)

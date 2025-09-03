@@ -95,12 +95,12 @@ void chOrangePad_update(Actor *this) {
     if (!this->initialized) {
         this->marker->propPtr->unk8_3 = 1;
         actor_collisionOff(this);
-        this->initialized = TRUE;
+        this->initialized = true;
     }
 
     if (!this->volatile_initialized) {
         this->partnerActor = actorArray_findClosestActorFromActorId(this->position, ACTOR_8_CONGA, -1, &min_distance)->marker;
-        this->volatile_initialized = TRUE;
+        this->volatile_initialized = true;
     }
 
     if (this->partnerActor) {
@@ -113,7 +113,7 @@ void chOrangePad_update(Actor *this) {
         && conga->state != CONGA_STATE_MOPEY) {
 
         if (gcdialog_showDialog(ASSET_B3D_DIALOG_CONGA_DONT_TOUCH_BLOCKS, 0, NULL, NULL, NULL, NULL)) {
-            mapSpecificFlags_set(MM_SPECIFIC_FLAG_CONGA_WARNED_BLOCKS, TRUE);
+            mapSpecificFlags_set(MM_SPECIFIC_FLAG_CONGA_WARNED_BLOCKS, true);
         }
     }
 

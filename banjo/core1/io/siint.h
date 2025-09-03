@@ -1,7 +1,6 @@
 #ifndef _SIINT_H
 #define _SIINT_H
-#include <os_internal.h>
-#include <rcp.h>
+#include <libultraship/libultra.h>
 
 void __osSiGetAccess(void);
 void __osSiRelAccess(void);

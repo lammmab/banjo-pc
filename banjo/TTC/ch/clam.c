@@ -2,6 +2,8 @@
 #include "functions.h"
 #include "variables.h"
 
+#include "n64_compat.h"
+
 extern Actor *spawnQueue_bundle_f32(s32, s32, s32, s32);
 extern ActorProp * func_80320EB0(ActorMarker *, f32, s32);
 
@@ -9,7 +11,7 @@ static void __chClam_updateFunc(Actor *this);
 
 /* .data */
 ActorAnimationInfo gChClamAnimations[4] = {
-    {NULL, NULL},
+    {N64_NULL, N64_NULL},
     {ASSET_AA_ANIM_CLAM_IDLE, 2.0f},
     {ASSET_24_ANIM_CLAM_HOP,  1.0f},
     {ASSET_AB_ANIM_CLAM_EAT,  0.6f}
@@ -75,7 +77,7 @@ static bool __chClam_updateFuncTarget(Actor *this, f32 arg1) {
         sp38 = 1;
     }
     else{
-        return FALSE;
+        return false;
     }
 
     this->actor_specific_1_f = phi_f2 / arg1;
@@ -85,7 +87,7 @@ static bool __chClam_updateFuncTarget(Actor *this, f32 arg1) {
     } else if (sp38 == 0) {
         __chClam_playSfx(SFX_AE_YUMYUM_TALKING, randf2(0.9f, 1.0f), 22000, this->position, 500.0f, 2000.0f);
     }
-    return TRUE;
+    return true;
 
 }
 
@@ -94,7 +96,7 @@ static bool __chClam_rotateTowardTarget(Actor *this, s32 arg1) {
     s32 position;
     s32 sp2C;
 
-    if(this->unk10_25 == 0) return FALSE;
+    if(this->unk10_25 == 0) return false;
 
 
     anctrl_setDuration(this->anctrl, 1.0f);
@@ -116,18 +118,18 @@ static bool __chClam_rotateTowardTarget(Actor *this, s32 arg1) {
         }
         else{
             this->unk1C[0] = 0.0f;
-            return FALSE;
+            return false;
         }
     }
     temp_f0_2 = this->actor_specific_1_f * sp2C;
     this->velocity[1] = ((f32)(0.3*temp_f0_2) / sp2C) - (f32) ((s32) (sp2C * -5) / 2);
     if (func_80329078(this, this->yaw_ideal, temp_f0_2)) {
-        return TRUE;
+        return true;
     }
     this->unk1C[0] = 1.0f;
     this->actor_specific_1_f = 0.0f;
     this->yaw_ideal = this->yaw;
-    return FALSE;
+    return false;
 }
 
 
@@ -220,8 +222,8 @@ static void __chClam_takeDamage(ActorMarker *this_marker, ActorMarker *other_mar
     Actor *this;
 
     this = marker_getActor(this_marker);
-    this->marker->collidable = FALSE;
-    this->unk138_27 = TRUE;
+    this->marker->collidable = false;
+    this->unk138_27 = true;
     __chClam_playSfx(SFX_1D_HITTING_AN_ENEMY_1, 1.0f, 26000, this->position, 1500.0f, 2000.0f);
     __chClam_playSfx(SFX_115_BUZZBOMB_DEATH, 1.2f, 26000, this->position, 1500.0f, 2000.0f);
     __chClam_emitLargeShellParticles(this->position, 2);
@@ -244,8 +246,8 @@ static void __chClam_attackOther(ActorMarker *this_marker, ActorMarker *other_ma
     
     if(baiFrame_getState() == 3) return;
 
-    if( !mapSpecificFlags_get(TTC_SPECIFIC_FLAG_5_CLAM_FIRST_MEET_TEXT_SHOWN) && gcdialog_showDialog(ASSET_A14_DIALOG_CLAM_TAUNT, 0, NULL, NULL, NULL, NULL)){
-        mapSpecificFlags_set(TTC_SPECIFIC_FLAG_5_CLAM_FIRST_MEET_TEXT_SHOWN, TRUE);
+    if( !mapSpecificFlags_get(TTC_SPECIFIC_FLAG_5_CLAM_FIRST_MEET_TEXT_SHOWN) && gcdialog_showDialog(ASSET_A14_DIALOG_CLAM_TAUNT, 0, N64_NULL, N64_NULL, N64_NULL, N64_NULL)){
+        mapSpecificFlags_set(TTC_SPECIFIC_FLAG_5_CLAM_FIRST_MEET_TEXT_SHOWN, true);
     }
 
     if (item_getCount(ITEM_D_EGGS) != 0) {
@@ -264,18 +266,18 @@ static void __chClam_updateFunc(Actor *this){
     f32 sp38[3];
 
     if(!this->initialized){
-        this->initialized = TRUE;
+        this->initialized = true;
         anctrl_setDuration(this->anctrl, 2.0f);
     }
 
     if(!this->volatile_initialized){
-        this->volatile_initialized = TRUE;
-        marker_setCollisionScripts(this->marker, NULL, __chClam_attackOther, __chClam_takeDamage);
+        this->volatile_initialized = true;
+        marker_setCollisionScripts(this->marker, N64_NULL, __chClam_attackOther, __chClam_takeDamage);
     }
 
     if(this->state != 3){
         sp48 = mapModel_getFloorY(this->position);
-        if(sp4C != NULL){
+        if(sp4C != N64_NULL){
             sp44 = sp4C->marker->id;
         }
 

@@ -86,7 +86,7 @@ s32 getLevelSpecificOpenFlag(Actor *this) {
 void activateDoubleHealth(void) {
     func_802FAFD4(ITEM_14_HEALTH, SFX_417_DOUBLE_HEALTH_UPGRADE);
     func_802FAFC0(ITEM_14_HEALTH, COMUSIC_2B_DING_B);
-    fileProgressFlag_set(FILEPROG_B9_DOUBLE_HEALTH, TRUE);
+    fileProgressFlag_set(FILEPROG_B9_DOUBLE_HEALTH, true);
     func_80347958();
     item_adjustByDiffWithHud(ITEM_14_HEALTH, 0);
     gcpausemenu_80314AC8(1);
@@ -99,7 +99,7 @@ void afterPictureComplete(ActorMarker *marker) {
 
     // Normal world pictures
     if (this->actorTypeSpecificField < 0xA) {
-        levelSpecificFlags_set(getLevelSpecificOpenFlag(this), TRUE);
+        levelSpecificFlags_set(getLevelSpecificOpenFlag(this), true);
         return;
     }
 
@@ -107,7 +107,7 @@ void afterPictureComplete(ActorMarker *marker) {
     if (this->actorTypeSpecificField == 0xA) {
         func_8028F918(0);
         func_8028F918(2);
-        levelSpecificFlags_set(LEVEL_FLAG_3F_LAIR_GRUNTY_DOOR_OPEN, TRUE);
+        levelSpecificFlags_set(LEVEL_FLAG_3F_LAIR_GRUNTY_DOOR_OPEN, true);
         return;
     }
 
@@ -119,7 +119,7 @@ void afterPictureComplete(ActorMarker *marker) {
 }
 
 void onJigsawPodiumCollide(ActorMarker *marker, ActorMarker *_) {
-    marker->isBanjoOnTop = TRUE;
+    marker->isBanjoOnTop = true;
 }
 
 bool isBanjoOnPodium(ActorMarker *marker) {
@@ -228,7 +228,7 @@ void walkToPodium(Actor *this) {
     f32 player_position[3];
     f32 target_position[3];
 
-    this->has_met_before = FALSE;
+    this->has_met_before = false;
     player_getPosition(player_position);
     target_position[0] = this->position[0];
     target_position[1] = this->position[1];
@@ -301,7 +301,7 @@ void unlockAdditionalActions(Actor *this) {
         && !fileProgressFlag_get(FILEPROG_DF_CAN_REMOVE_ALL_PUZZLE_PIECES)) {
 
         if (gcdialog_showDialog(ASSET_F7C_DIALOG_BOTTLES_REMOVE_PIECE_INSTRUCTIONS, 2, NULL, NULL, NULL, NULL)) {
-            fileProgressFlag_set(FILEPROG_DF_CAN_REMOVE_ALL_PUZZLE_PIECES, TRUE);
+            fileProgressFlag_set(FILEPROG_DF_CAN_REMOVE_ALL_PUZZLE_PIECES, true);
         }
     } else if ((this->actorTypeSpecificField >= 3) // Trigger at CC
         && (local->placedJiggyCount >= 2) // Trigger after the player put 2 jiggies in the picture
@@ -309,7 +309,7 @@ void unlockAdditionalActions(Actor *this) {
         && !fileProgressFlag_get(FILEPROG_E0_CAN_PLACE_ALL_PUZZLE_PIECES)) {
 
         if (gcdialog_showDialog(ASSET_F7D_DIALOG_BOTTLES_EXPLAINS_PLACE_ALL, 2, NULL, NULL, NULL, NULL)) {
-            fileProgressFlag_set(FILEPROG_E0_CAN_PLACE_ALL_PUZZLE_PIECES, TRUE);
+            fileProgressFlag_set(FILEPROG_E0_CAN_PLACE_ALL_PUZZLE_PIECES, true);
         }
     }
 }
@@ -462,7 +462,7 @@ void addPieces(Actor *this, s32 nextState) {
 
     // Bottles tells the player they need more jiggies, then sets flag; on future attempts it'll kick the player out
     gcdialog_showDialog(ASSET_FBC_DIALOG_BOTTLES_OUT_OF_JIGGIES, 4, NULL, NULL, NULL, NULL);
-    fileProgressFlag_set(FILEPROG_DE_USED_ALL_YOUR_PUZZLE_PIECES, TRUE);
+    fileProgressFlag_set(FILEPROG_DE_USED_ALL_YOUR_PUZZLE_PIECES, true);
 }
 
 void updateJigsawPictureActor(Actor *this) {
@@ -478,7 +478,7 @@ void updateJigsawPictureActor(Actor *this) {
     delta_time = time_getDelta();
 
     if (!this->initialized) {
-        this->initialized = TRUE;
+        this->initialized = true;
     }
 
     if (!this->volatile_initialized) {
@@ -486,7 +486,7 @@ void updateJigsawPictureActor(Actor *this) {
         local->placedPieces = 0;
         local->placedJiggyCount = 0;
         local->unk8 = (isBanjoOnPodium(this->marker)) ? 0xFF : 1;
-        this->has_met_before = TRUE;
+        this->has_met_before = true;
 
         // Initialize which jiggies have been placed
         for (i = 0; i < jiggiesPlaced; i ++) {
@@ -496,8 +496,8 @@ void updateJigsawPictureActor(Actor *this) {
 
         setInitialJigsawPictureOpacity(this);
         marker_setCollisionScripts(this->marker, onJigsawPodiumCollide, NULL, NULL);
-        this->marker->propPtr->unk8_3 = TRUE;
-        this->volatile_initialized = TRUE;
+        this->marker->propPtr->unk8_3 = true;
+        this->volatile_initialized = true;
 
         // Click Clock Wood specific
         if (this->actorTypeSpecificField == 9) {
@@ -555,7 +555,7 @@ void updateJigsawPictureActor(Actor *this) {
     switch (this->state) {
         case JIGSAW_PICTURE_LEAVE_PODIUM:
             if (!this->has_met_before && (!func_8028F20C() || !func_8028FB48(0x08000000))) {
-                this->has_met_before = TRUE;
+                this->has_met_before = true;
             }
 
             if (subaddie_playerIsWithinSphereAndActive(this, 300)) {
@@ -563,7 +563,7 @@ void updateJigsawPictureActor(Actor *this) {
                     text_id = (item_getCount(ITEM_26_JIGGY_TOTAL) < PICTURE_INFO[this->actorTypeSpecificField - 1].cost) 
                         ? ASSET_FAB_DIALOG_GRUNTY_DOOR_NEED_JIGGIES : ASSET_FC0_DIALOG_GRUNTY_DOOR_HAVE_JIGGIES;
                     if (gcdialog_showDialog(text_id, 0, NULL, NULL, NULL, NULL)) {
-                        fileProgressFlag_set(FILEPROG_F6_SEEN_DOOR_OF_GRUNTY_PUZZLE_PODIUM, TRUE);
+                        fileProgressFlag_set(FILEPROG_F6_SEEN_DOOR_OF_GRUNTY_PUZZLE_PODIUM, true);
                     }
                 } else if (this->actorTypeSpecificField == 1) { // MM
                     progressDialog_showDialogMaskZero(FILEPROG_A7_NEAR_PUZZLE_PODIUM_TEXT);
@@ -581,19 +581,19 @@ void updateJigsawPictureActor(Actor *this) {
                 && (gcdialog_getCurrentTextId() != ASSET_F7D_DIALOG_BOTTLES_EXPLAINS_PLACE_ALL)) {
                 
                 // Add piece
-                if (face_buttons[FACE_BUTTON(BUTTON_A)] == TRUE) {
+                if (face_buttons[FACE_BUTTON(BUTTON_A)] == true) {
                     addPieces(this, JIGSAW_PICTURE_ADD_PIECE);
 
                 // Leave Podium
-                } else if (face_buttons[FACE_BUTTON(BUTTON_B)] == TRUE) {
+                } else if (face_buttons[FACE_BUTTON(BUTTON_B)] == true) {
                     jigsawPicture_setState(this, JIGSAW_PICTURE_LEAVE_PODIUM);
 
                 // Add all pieces
-                } else if ((side_buttons[SIDE_BUTTON(BUTTON_Z)] == TRUE) && fileProgressFlag_get(FILEPROG_E0_CAN_PLACE_ALL_PUZZLE_PIECES)) {
+                } else if ((side_buttons[SIDE_BUTTON(BUTTON_Z)] == true) && fileProgressFlag_get(FILEPROG_E0_CAN_PLACE_ALL_PUZZLE_PIECES)) {
                     addPieces(this, JIGSAW_PICTURE_ADD_ALL);
 
                 // Remove piece
-                } else if (face_buttons[FACE_BUTTON(BUTTON_C_DOWN)] == TRUE) {
+                } else if (face_buttons[FACE_BUTTON(BUTTON_C_DOWN)] == true) {
                     if (local->placedJiggyCount) {
                         jigsawPicture_setState(this, JIGSAW_PICTURE_REMOVE_PIECE);
                     } else { // No pieces to remove in picture, exit
@@ -629,19 +629,19 @@ void updateJigsawPictureActor(Actor *this) {
         s32 pad;
         f32 sp44[3];
         s32 pad2;
-        this->marker->isBanjoOnTop = FALSE;
+        this->marker->isBanjoOnTop = false;
         player_getPosition(sp44);
 
         if (ml_distanceSquared_vec3f(sp44, this->position) < 250000.0f) {
             if (!this->unk38_0) {
                 itemPrint_reset();
-                this->unk38_0 = TRUE;
+                this->unk38_0 = true;
             }
 
             func_802FACA4(0x2B);
         } else if (this->unk38_0) {
             func_802FAD64(0x2B);
-            this->unk38_0 = FALSE;
+            this->unk38_0 = false;
         }
     }
 }

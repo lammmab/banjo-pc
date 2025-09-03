@@ -213,7 +213,7 @@ bool isPlayerInHazard(void) {
             return player_inWater();
     }
 
-    return FALSE;
+    return false;
 }
 
 bool canTakeGroundDamage(void) {
@@ -250,7 +250,7 @@ bool canTakeGroundDamage(void) {
                 && player_isDead() < 1U;
     }
 
-    return FALSE;
+    return false;
 }
 
 void hazards_update(void) {

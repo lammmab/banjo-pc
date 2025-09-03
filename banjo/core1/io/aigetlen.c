@@ -1,4 +1,4 @@
-#include <rcp.h>
+#include <libultraship/libultra.h>
 
 u32 osAiGetLength(void)
 {

@@ -112,7 +112,7 @@ void chAncientOne_update(Actor *this){
 
     
     if(!this->volatile_initialized){
-        this->volatile_initialized = TRUE;
+        this->volatile_initialized = true;
         if(jiggyscore_isSpawned(JIGGY_46_GV_ANCIENT_ONES)){
             marker_despawn(this->marker);
             return;
@@ -126,9 +126,9 @@ void chAncientOne_update(Actor *this){
         this->position_y -= 1100.0f;
         D_80390C28[this->actorTypeSpecificField - 1] = this->marker;
         if(this->actorTypeSpecificField != 1){
-            this->marker->propPtr->unk8_4 = FALSE;
+            this->marker->propPtr->unk8_4 = false;
         }
-        this->marker->propPtr->unk8_3 = TRUE;
+        this->marker->propPtr->unk8_3 = true;
         actor_collisionOff(this);
         func_80386620(this);
     }
@@ -146,7 +146,7 @@ void chAncientOne_update(Actor *this){
                         if((sp44[0]*sp44[0] + sp44[1]*sp44[1] + sp44[2]*sp44[2]) < (f32)LOCAL_CH_ANCIENT_ONE(this)->unk4_30){
                             coMusicPlayer_playMusic(COMUSIC_2B_DING_B, 28000);
                             for(sp38= 7; sp38< 0xC && mapSpecificFlags_get(sp38);sp38++);
-                            mapSpecificFlags_set(sp38, TRUE);
+                            mapSpecificFlags_set(sp38, true);
                             if(sp38== 0xB){
                                 if(!jiggyscore_isCollected(JIGGY_46_GV_ANCIENT_ONES)){
                                     gcdialog_showDialog(ASSET_A80_DIALOG_ANICIENT_ONES_DONE, 0xE, NULL, this->marker, func_80386850, NULL);
@@ -166,7 +166,7 @@ void chAncientOne_update(Actor *this){
                                 actor_playAnimationOnce(this);
 
                                 if(this->actorTypeSpecificField < 5){
-                                    D_80390C28[this->actorTypeSpecificField]->propPtr->unk8_4 = TRUE;
+                                    D_80390C28[this->actorTypeSpecificField]->propPtr->unk8_4 = true;
                                     gcStaticCamera_activate(GV_D_80390C20[this->actorTypeSpecificField - 1]);
                                     core1_7090_initSfxSource(2, 0x86, 0x7ff8, 0.3f);
                                     timedFunc_set_0(0.45f, func_8038678C);
@@ -208,7 +208,7 @@ void chAncientOne_update(Actor *this){
                     this->position_y -= 10.0;
                 }
                 else{
-                    this->marker->propPtr->unk8_4 = FALSE;
+                    this->marker->propPtr->unk8_4 = false;
                 }
                 break;
         }//L80386E60
@@ -245,16 +245,16 @@ Actor *chAncientOne_draw(ActorMarker *this_marker, Gfx **gfx, Mtx **mtx, Vtx **v
         sp28[2] -= sp40[2];
 
         if(0.0f <= sp28[0] *LOCAL_CH_ANCIENT_ONE(this)->unk0[0] + sp28[1]*LOCAL_CH_ANCIENT_ONE(this)->unk0[1] + sp28[2]*LOCAL_CH_ANCIENT_ONE(this)->unk0[2])
-            LOCAL_CH_ANCIENT_ONE(this)->unk4_31 = FALSE;
+            LOCAL_CH_ANCIENT_ONE(this)->unk4_31 = false;
         else
-            LOCAL_CH_ANCIENT_ONE(this)->unk4_31 = TRUE;
+            LOCAL_CH_ANCIENT_ONE(this)->unk4_31 = true;
 
         LOCAL_CH_ANCIENT_ONE(this)->unk10[0] = (f32)sp40[0];
         LOCAL_CH_ANCIENT_ONE(this)->unk10[1] = (f32)sp40[1];
         LOCAL_CH_ANCIENT_ONE(this)->unk10[2] = (f32)sp40[2];
         tmp_v0 = (sp34[1]- sp40[1]);
         LOCAL_CH_ANCIENT_ONE(this)->unk4_30 = (s32)(0.95*(f32)(tmp_v0*tmp_v0));
-        this->initialized = TRUE;
+        this->initialized = true;
     }
     return this;
 }

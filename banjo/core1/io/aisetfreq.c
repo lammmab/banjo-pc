@@ -1,4 +1,4 @@
-#include <rcp.h>
+#include <libultraship/libultra.h>
 #include "osint.h"
 
 s32 osAiSetFrequency(u32 frequency)

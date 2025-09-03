@@ -76,11 +76,11 @@ s16 largeYCoordinate = 0;
 s16 cursorPosition = 0;
 s16 startingYCoordinate = 0;
 s16 currentColor = 0;
-s16 isThreadLocked = FALSE;
+s16 isThreadLocked = false;
 s16 currentFontSize = 0; // "Font size", but really it's closer to pixel size
 s16 largeValueCursorPosition = 0;
 s16 longestLineLengthPosition = 0;
- u8 shouldClearText = FALSE;
+ u8 shouldClearText = false;
 s32 clearTime = 0;
 
 char CHARACTER_RANGE[] = { 'a','z','A','Z','0','9','.',':', '-', ' ' };
@@ -143,7 +143,7 @@ void gcdebugText_flashSquare(s32 color) {
         gcdebugText_stallOnThread();
         drawSquare(0, 0, 0);
         gcdebugText_stallOnThread();
-    } while (TRUE);
+    } while (true);
 }
 
 // Draws a colored square in the middle of the screen and replaces it with black
@@ -214,7 +214,7 @@ void gcdebugText_clearText(void) {
     }
 
     if (globalTimer_getTime() != clearTime) {
-        shouldClearText = FALSE;
+        shouldClearText = false;
         clearTime = globalTimer_getTime();
     }
 
@@ -229,8 +229,8 @@ void gcdebugText_clearText(void) {
 
 // Draw both the character and the background
 void printCharacter(s32 colorSelect, s32 displayCharacter, s32 fontSize) {
-    drawCharacter(colorSelect, displayCharacter, fontSize, TRUE, TRUE, 0, 0, 0);
-    drawCharacter(colorSelect, displayCharacter, fontSize, FALSE, TRUE, 
+    drawCharacter(colorSelect, displayCharacter, fontSize, true, true, 0, 0, 0);
+    drawCharacter(colorSelect, displayCharacter, fontSize, false, true, 
         RGB_VALUES[COLOR_SELECTOR[colorSelect]][0], 
         RGB_VALUES[COLOR_SELECTOR[colorSelect]][1], 
         RGB_VALUES[COLOR_SELECTOR[colorSelect]][2]);
@@ -276,7 +276,7 @@ void printValue(s32 colorSelect, s32 displayValue, s32 fontSize) {
 // Prints a value to the screen, but always in the same place in the upper left. 
 // Subsequent calls in the same frame will overwrite what's there
 void gcdebugText_showLargeValue(s32 colorSelect, s32 displayValue) {
-    isThreadLocked = FALSE;
+    isThreadLocked = false;
     currentColor = colorSelect;
     startingXCoordinate = 0xE;
     startingYCoordinate = 0xA;
@@ -284,7 +284,7 @@ void gcdebugText_showLargeValue(s32 colorSelect, s32 displayValue) {
     gcdebugText_wrapToTop();
     largeYCoordinate = startingYCoordinate;
     longestLineLengthPosition = startingXCoordinate;
-    shouldClearText = TRUE;
+    shouldClearText = true;
 }
 
 void gcdebugText_showValue(s32 displayValue) {
@@ -413,7 +413,7 @@ void gcdebugText_showText(u8 *text) {
 // Lock up the thread and show what's on the screen permanently.
 // Likely used for showing a value and keeping it there.
 void gcdebugText_lockScreen(void) {
-    isThreadLocked = TRUE;
+    isThreadLocked = true;
     do { } while (1);
 }
 
@@ -421,24 +421,24 @@ void gcdebugText_lockScreen(void) {
 void gcdebugText_pauseThread(void) {
     s32 i;
 
-    isThreadLocked = TRUE;
+    isThreadLocked = true;
 
     for (i = 30000000; i != 0; i--) { }
 
-    isThreadLocked = FALSE;
+    isThreadLocked = false;
 }
 
 void gcdebugText_pauseThreadForTime(s32 time) {
     s32 i;
 
-    isThreadLocked = TRUE;
+    isThreadLocked = true;
 
     while (time != 0) {
         for (i = 30000000; i != 0; i--) { }
         time--;
     }
 
-    isThreadLocked = FALSE;
+    isThreadLocked = false;
 }
 
 void checkYAndgcdebugText_wrapToTop(s32 lineHeight) {

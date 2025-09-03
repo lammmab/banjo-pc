@@ -1,5 +1,5 @@
-#include <os_internal.h>
-#include <rcp.h>
+#include <libultraship/libultra.h>
+
 #include "piint.h"
 
 s32 osEPiRawReadIo(OSPiHandle *pihandle, u32 devAddr, u32 *data)

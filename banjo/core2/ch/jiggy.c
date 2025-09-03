@@ -47,18 +47,18 @@ enum jiggy_e getJiggyId(Actor *this) {
 void playJiggyDestroyedSoundsAndReset(ActorMarker *marker, u32 resetSwitchFlag) {
     func_8030E6D4(SFX_30_MAGIC_POOF);
     coMusicPlayer_playMusic(COMUSIC_3C_MINIGAME_LOSS, 0x7FF8);
-    mapSpecificFlags_set(resetSwitchFlag, TRUE);
+    mapSpecificFlags_set(resetSwitchFlag, true);
     marker_despawn(marker);
 }
 
 void spawnJiggyDestroyedEffects(u32 x, u32 y, u32 z, u32 resetSwitchFlag) {
     __spawnQueue_add_4((GenFunction_4)spawnQueue_actor_s32, ACTOR_4C_STEAM, x, y, z);
     __spawnQueue_add_4((GenFunction_4)spawnQueue_actor_s32, ACTOR_14F_DESTROYED_JIGGY, x, y, z);
-    mapSpecificFlags_set(resetSwitchFlag, TRUE);
+    mapSpecificFlags_set(resetSwitchFlag, true);
 }
 
 void resetFlag(enum bgs_specific_flags flag) {
-    mapSpecificFlags_set(flag, FALSE);
+    mapSpecificFlags_set(flag, false);
 }
 
 void destroyJiggy(Actor *this, s32 jiggyFlag, s32 timerRunningFlag, s32 cameraId, s32 switchPressedFlag, s32 resetSwitchFlag, enum volatile_flags_e dialogFlag) {
@@ -82,7 +82,7 @@ void destroyJiggy(Actor *this, s32 jiggyFlag, s32 timerRunningFlag, s32 cameraId
     timedFunc_set_2(0.6f, (GenFunction_2)playJiggyDestroyedSoundsAndReset, (s32)this->marker, resetSwitchFlag);
     timedFunc_set_0(1.0f, (GenFunction_0)func_802BE720);
     timedFunc_set_1(3.9f, (GenFunction_1)resetFlag, switchPressedFlag);
-    mapSpecificFlags_set(jiggyFlag, TRUE);
+    mapSpecificFlags_set(jiggyFlag, true);
 }
 
 void chjiggy_updateRotation(Actor *this) {
@@ -138,7 +138,7 @@ void chjiggy_update(Actor *this) {
 
     switch (this->state) {
         case JIGGY_STATE_1_INIT:
-            local->isHidden = FALSE;
+            local->isHidden = false;
 
             if (local->id == 0) {
                 local->id = getJiggyId(this);
@@ -215,7 +215,7 @@ enum jiggy_e chjiggy_getJiggyId(Actor *this) {
 
 void chjiggy_hide(Actor *this) {
     ActorLocal_Jiggy *local = (ActorLocal_Jiggy *)&this->local;
-    local->isHidden = TRUE;
+    local->isHidden = true;
     actor_collisionOff(this);
 }
 

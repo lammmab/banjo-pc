@@ -10,8 +10,7 @@
  *									  *
  **************************************************************************/
 
-#include "mbi.h"
-#include "gu.h"
+#include <libultraship/libultra.h>
 
 typedef union
 {

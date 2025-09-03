@@ -1,4 +1,5 @@
-#include <os_internal.h>
+#include <libultraship/libultra.h>
+
 
 u8 __osContAddressCrc(u16 addr)
 {
