@@ -6,6 +6,7 @@
 /*
 int start_game(void) {
     core1_init();
+    // bool WindowIsRunning <- defined in public/bridge/windowbridge.h
 
     while (1) {
         mainLoop();
@@ -31,3 +32,4 @@ int main(void) {
     // start_game();
     return 0;
 }
+
