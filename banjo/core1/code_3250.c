@@ -1,4 +1,3 @@
-#include <libultraship/libultra.h>
 #include "core1/core1.h"
 
 extern f32 gu_sqrtf(f32);

@@ -20,7 +20,7 @@
 #ifndef __N_LIBAUDIO__
 #define __N_LIBAUDIO__
 
-#include <libaudio.h>
+#include <libaudio_pch.h>
 
 #ifdef _LANGUAGE_C_PLUS_PLUS
 extern "C" {

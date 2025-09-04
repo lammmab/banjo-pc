@@ -1,4 +1,3 @@
-#include <libultraship/libultra.h>
 #include "core1/core1.h"
 
 /* static */ int huft_build(b, n, s, d, e, t, m)

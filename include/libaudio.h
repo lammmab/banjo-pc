@@ -33,7 +33,8 @@
 extern "C" {
 #endif
 
-#include <libultraship/libultra.h>
+#include <libultraship/libultra/types.h>
+#include <libultraship/libultra/abi.h>
     
 /***********************************************************************
  * misc defines

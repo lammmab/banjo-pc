@@ -1,8 +1,6 @@
-#include <libultraship/libultra.h>
 #include "core1/core1.h"
 #include "functions.h"
 #include "variables.h"
-#include "n_libaudio.h"
 #include "n_synth.h"
 
 void  func_802444C0(N_AL_Struct81s *arg0);

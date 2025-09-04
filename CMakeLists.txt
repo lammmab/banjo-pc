@@ -7,6 +7,7 @@ if(MSVC)
     set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /Od /Zi /DDEBUG")
 endif()
 
+
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_C_STANDARD 11)
@@ -20,6 +21,8 @@ add_definitions(-DENABLE_DX11)
 list(APPEND SOURCES ${BANJO_SOURCES})
 
 add_executable(banjo ${SOURCES})
+
+target_precompile_headers(banjo PRIVATE "include/libaudio_pch.h")
 
 file(GLOB_RECURSE INCLUDE_DIRS LIST_DIRECTORIES true "${CMAKE_SOURCE_DIR}/banjo/include/*")
 
