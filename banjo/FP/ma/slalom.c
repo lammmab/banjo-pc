@@ -2,7 +2,6 @@
 #include "functions.h"
 #include "variables.h"
 
-
 #include "core2/statetimer.h"
 extern void player_stateTimer_set(s32, f32);
 

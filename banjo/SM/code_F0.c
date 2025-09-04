@@ -8,6 +8,8 @@ int ability_hasLearned(s32);
 
 extern s32 D_80275650;
 
+static bool __codeF0_areRomCrcsCorrect(void);
+static bool __codeF0_areCrcsValid(void);
 
 extern ActorInfo gQuarrie;
 extern ActorInfo gCodeBF0;

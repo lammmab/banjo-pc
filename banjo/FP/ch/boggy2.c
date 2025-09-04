@@ -2,6 +2,8 @@
 #include "functions.h"
 #include "variables.h"
 
+bool func_8038A1A0(ActorMarker *marker);
+
 extern void func_8028E668(f32[3], f32, f32, f32);
 extern Actor *func_80328230(enum actor_e id, f32 pos[3], f32 rot[3]);
 extern NodeProp *cubeList_findNodePropByActorIdAndPosition_s32(enum actor_e, s32[3]);

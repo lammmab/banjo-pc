@@ -19,7 +19,14 @@
     "random": "c",
     "stdarg.h": "c",
     "os.h": "c",
-    "n64_compat.h": "c"
+    "n64_compat.h": "c",
+    "synthinternals.h": "c",
+    "core1.h": "c",
+    "framebufferdraw.h": "c",
+    "mem.h": "c",
+    "main.h": "c",
+    "cmath": "cpp",
+    "fast_wrapper.h": "c"
   },
   "C_Cpp.errorSquiggles": "disabled"
 }
