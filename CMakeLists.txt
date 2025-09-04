@@ -3,6 +3,8 @@ project(banjo_pc C CXX)
 
 if(MSVC)
     add_compile_options(/w)
+    set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} /Od /Zi /DDEBUG")
+    set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /Od /Zi /DDEBUG")
 endif()
 
 set(CMAKE_CXX_STANDARD 20)

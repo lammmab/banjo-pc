@@ -1,5 +1,6 @@
 #include <libultraship/libultra.h>
 
+#include <libaudio.h>
 
 void alCSPStop(ALCSPlayer *seqp)
 {

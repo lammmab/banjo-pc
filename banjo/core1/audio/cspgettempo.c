@@ -2,6 +2,8 @@
 #include "functions.h"
 #include "variables.h"
 
+#include <libaudio.h>
+
 s32 alCSPGetTempo(ALCSPlayer *seqp){
     if(seqp->target == NULL)
         return 0;

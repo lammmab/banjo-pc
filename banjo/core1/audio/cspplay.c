@@ -2,6 +2,7 @@
 #include "functions.h"
 #include "variables.h"
 
+#include <libaudio.h>
 
 void alCSPPlay(ALCSPlayer *seqp)
 {

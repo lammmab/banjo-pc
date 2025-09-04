@@ -1,5 +1,4 @@
-#include <libultraship/libultra.h>
-#include "synthInternals.h"
+#include "n_synth.h"
 
 Acmd *alAuxBusPull(void *filter, s16 *outp, s32 outCount, s32 sampleOffset, Acmd *p) 
 {

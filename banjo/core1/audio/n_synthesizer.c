@@ -1,4 +1,3 @@
-#include <libultraship/libultra.h>
 #include "functions.h"
 #include "variables.h"
 

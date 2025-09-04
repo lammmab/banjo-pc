@@ -1,7 +1,6 @@
-#include <libultraship/libultra.h>
-#include "functions.h"
-#include "variables.h"
-#include "n_synth.h"
+#include "libultraship/libultra/types.h"
+
+typedef struct N_ALCSPlayer N_ALCSPlayer;
 
 u8 func_8025F4A0(N_ALCSPlayer *seqp, u8 chan)
 {

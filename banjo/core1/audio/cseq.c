@@ -1,4 +1,4 @@
-#include <libultraship/libultra.h>
+#include <libaudio.h>
 
 static u32 __readVarLen(ALCSeq *s,u32 track);
 static u8  __getTrackByte(ALCSeq *s,u32 track);

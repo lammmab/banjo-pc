@@ -28,4 +28,4 @@ extern "C" {
     gfx.EndFrame();
   }
 
-} // extern "C"
+}

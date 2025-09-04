@@ -2,6 +2,8 @@
 #include "functions.h"
 #include "variables.h"
 
+#include <libaudio.h>
+
 void alEvtqNew(ALEventQueue *evtq, ALEventListItem *items, s32 itemCount)
 {
     s32 i;

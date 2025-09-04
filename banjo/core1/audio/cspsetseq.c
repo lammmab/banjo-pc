@@ -1,4 +1,5 @@
 #include <libultraship/libultra.h>
+#include <libaudio.h>
 
 void alCSPSetSeq(ALCSPlayer *seqp, ALCSeq *seq)
 {

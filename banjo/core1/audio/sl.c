@@ -2,6 +2,8 @@
 #include "functions.h"
 #include "variables.h"
 
+#include <libaudio.h>
+
 ALGlobals *alGlobals = NULL;
 
 void alInit(ALGlobals *g, ALSynConfig *c){

@@ -1,6 +1,6 @@
 #ifndef MUSIC_H
 #define MUSIC_H
-#include <libultraship/libultra.h>
+
 #include "structs.h"
 
 typedef struct struct_B_s{

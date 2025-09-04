@@ -1,6 +1,7 @@
 #include <libultraship/libultra.h>
 #include "functions.h"
 #include "variables.h"
+#include <libaudio.h>
 
 void alCSPSetBank(ALCSPlayer *seqp, ALBank *b)
 {

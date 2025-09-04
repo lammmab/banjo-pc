@@ -26,7 +26,11 @@
     "mem.h": "c",
     "main.h": "c",
     "cmath": "cpp",
-    "fast_wrapper.h": "c"
+    "fast_wrapper.h": "c",
+    "n_abi.h": "c",
+    "libaudio.h": "c",
+    "n_synth.h": "c",
+    "n_libaudio.h": "c"
   },
   "C_Cpp.errorSquiggles": "disabled"
 }

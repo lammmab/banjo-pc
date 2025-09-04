@@ -1,7 +1,4 @@
-#include <libultraship/libultra.h>
-#include "functions.h"
-#include "variables.h"
-
+#include <n_synth.h>
 
 /* copt used??? */
 
