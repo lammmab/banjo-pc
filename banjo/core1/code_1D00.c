@@ -2,8 +2,10 @@
 #include "functions.h"
 #include "variables.h"
 #include "version.h"
-#include "2.0L/PR/sched.h"
 #include "n_libaudio.h"
+
+#include <n64_compat.h>
+#include <os_system.h>
 
 #define AUDIO_HEAP_SIZE VER_SELECT(0x21000, 0x23A00, 0x21000, 0x21000)
 #define AUDIOMANAGER_THREAD_STACK_SIZE 0xE78
@@ -122,8 +124,8 @@ s32 D_8027577C[] = {
     0x4500   /* low-pass filter */
 };
 
-Struct_1D00_2 *D_80275844 = NULL;
-AudioInfo *D_80275848 = NULL;
+Struct_1D00_2 *D_80275844 = N64_NULL;
+AudioInfo *D_80275848 = N64_NULL;
 // extern int D_8027584C;//static int D_8027584C = 0;
 
 extern s32 osViClock; //0x80277128
@@ -168,7 +170,7 @@ s32 D_8027DD7C;
 s32 D_8027DD80; 
 OscState *freeOscStateList;
 OscState oscStates[48];
-
+bool audioManager_handleFrameMsg(AudioInfo *info, AudioInfo *prev_info);
 
 /* .code */
 f32 _depth2Cents(u8 depth)
@@ -193,7 +195,7 @@ ALMicroTime initOsc(void **oscState, f32 *initVal, u8 oscType, u8 oscRate, u8 os
 	OscState *state;
 	ALMicroTime result = 0;
 
-	if (freeOscStateList != NULL) {
+	if (freeOscStateList != N64_NULL) {
 		state = freeOscStateList;
 		freeOscStateList = freeOscStateList->next;
 		state->type = oscType;
@@ -275,7 +277,7 @@ void func_8023FA64(ALSeqpConfig *arg0) {
         item->next = &oscStates[i+1];
 		item = item->next;
     }
-    item->next = NULL;
+    item->next = N64_NULL;
     arg0->initOsc   = initOsc;
     arg0->updateOsc = updateOsc;
     arg0->stopOsc   = stopOsc;
@@ -321,8 +323,8 @@ void audioManager_create(void) {
     D_8027DD50.heap = &D_8027CFF0;
     D_8027DD50.outputRate = osAiSetFrequency(22000);
     n_alInit(&D_8027DCD8, &D_8027DD50);
-    D_8027D5C0[0].unk0.prev = NULL;
-    D_8027D5C0[0].unk0.next = NULL;
+    D_8027D5C0[0].unk0.prev = N64_NULL;
+    D_8027D5C0[0].unk0.next = N64_NULL;
     for(i = 0; i < 89; i++){
         alLink((ALLink *)&D_8027D5C0[i+1], (ALLink *)&D_8027D5C0[i]);
         D_8027D5C0[i].unk10 = alHeapDBAlloc(0, 0, D_8027DD50.heap, 1, VER_SELECT(0x200, 0x270, 0x200, 0x200));
@@ -348,7 +350,7 @@ void audioManagerThread_entry(void *arg) {
 
     phi_s1 = 1;
     while(1){
-        osRecvMesg(&audioManager.audioFrameMsgQ, NULL, OS_MESG_BLOCK);
+        osRecvMesg(&audioManager.audioFrameMsgQ, N64_NULL, OS_MESG_BLOCK);
         if (audioManager_handleFrameMsg(audioManager.audioInfo[D_8027DCC8 % 3], D_80275848)){
             if(phi_s1 == 0){
                 osRecvMesg(&audioManager.audioReplyMsgQ, &D_80275844, OS_MESG_BLOCK);
@@ -449,8 +451,8 @@ s32 func_80240204(s32 addr, s32 len, void *state){
     Struct_1D00_3 *sp30;
 
     phi_s0 = D_8027D5B0.unk4;
-    sp30 = NULL;
-    while (phi_s0 != NULL ) {
+    sp30 = N64_NULL;
+    while (phi_s0 != N64_NULL ) {
         new_var = (phi_s0->unk8 + 0x200);
         if ((phi_s0->unk8 > addr)) break;
         
@@ -463,26 +465,26 @@ s32 func_80240204(s32 addr, s32 len, void *state){
 
     }
     phi_s0 = D_8027D5B0.unk8;
-    if (phi_s0 == NULL) {
+    if (phi_s0 == N64_NULL) {
         gcdebugText_showLargeValue(2, 0x7D1);
         gcdebugText_pauseThread();
         return osVirtualToPhysical(D_8027D5B0.unk4);
     }
     D_8027D5B0.unk8 = phi_s0->unk0.next;
     alUnlink(&phi_s0->unk0);
-    if (sp30 != NULL) {
+    if (sp30 != N64_NULL) {
         alLink(&phi_s0->unk0, &sp30->unk0);
     } else {
         phi_v0 = D_8027D5B0.unk4;
-        if (phi_v0 != NULL) {
+        if (phi_v0 != N64_NULL) {
             D_8027D5B0.unk4 = phi_s0;
             phi_s0->unk0.next = (ALLink *)phi_v0;
-            phi_s0->unk0.prev = NULL;
+            phi_s0->unk0.prev = N64_NULL;
             phi_v0->unk0.prev = (ALLink *)phi_s0;
         } else {
             D_8027D5B0.unk4 = phi_s0;
-            phi_s0->unk0.next = NULL;
-            phi_s0->unk0.prev = NULL;
+            phi_s0->unk0.next = N64_NULL;
+            phi_s0->unk0.prev = N64_NULL;
         }
     }
     sp44 = phi_s0->unk10;
@@ -507,8 +509,8 @@ s32 func_80240204(s32 addr, s32 len, void *state){
     Struct_1D00_3 *sp30;
 
     phi_v0 = D_8027D5B0.unk4;
-    sp30 = NULL;
-    for(phi_s0 = phi_v0; phi_s0 != NULL; phi_s0 = phi_s0->unk0.next) {
+    sp30 = N64_NULL;
+    for(phi_s0 = phi_v0; phi_s0 != N64_NULL; phi_s0 = phi_s0->unk0.next) {
         sp40 = (phi_s0->unk8 + 0x270);
         if ((phi_s0->unk8 > addr)) break;
         
@@ -519,24 +521,24 @@ s32 func_80240204(s32 addr, s32 len, void *state){
         }
     }
     phi_s0 = D_8027D5B0.unk8;
-    if (phi_s0 == NULL) {
+    if (phi_s0 == N64_NULL) {
         return osVirtualToPhysical(phi_v0);
     }
     D_8027D5B0.unk8 = phi_s0->unk0.next;
     alUnlink(phi_s0);
-    if (sp30 != NULL) {
+    if (sp30 != N64_NULL) {
         alLink(phi_s0, sp30);
     } else {
         phi_v0 = D_8027D5B0.unk4;
-        if (phi_v0 != NULL) {
+        if (phi_v0 != N64_NULL) {
             D_8027D5B0.unk4 = phi_s0;
             phi_s0->unk0.next = (ALLink *)phi_v0;
-            phi_s0->unk0.prev = NULL;
+            phi_s0->unk0.prev = N64_NULL;
             phi_v0->unk0.prev = (ALLink *)phi_s0;
         } else {
             D_8027D5B0.unk4 = phi_s0;
-            phi_s0->unk0.next = NULL;
-            phi_s0->unk0.prev = NULL;
+            phi_s0->unk0.next = N64_NULL;
+            phi_s0->unk0.prev = N64_NULL;
         }
     }
     
@@ -553,7 +555,7 @@ s32 func_80240204(s32 addr, s32 len, void *state){
 
 void *func_802403B8(void *state) {
     if (D_8027D5B0.unk0 == 0) {
-        D_8027D5B0.unk4 = NULL;
+        D_8027D5B0.unk4 = N64_NULL;
         D_8027D5B0.unk8 = D_8027D5C0;
         D_8027D5B0.unk0 = 1;
     }
@@ -567,7 +569,7 @@ void func_802403F0(void) {
     Struct_1D00_3 *phi_s1;
     Struct_1D00_3 *phi_s0_2;
 
-    sp40 = NULL;
+    sp40 = (OSMesg){N64_NULL};
     for(phi_s0 = 0; phi_s0 < D_8027DCCC; phi_s0++){
 
 #if VERSION == VERSION_USA_1_0
@@ -582,19 +584,19 @@ void func_802403F0(void) {
 #endif
     }
     phi_s0_2 = D_8027D5B0.unk4;
-    while(phi_s0_2 != NULL){
+    while(phi_s0_2 != N64_NULL){
         phi_s1 = (Struct_1D00_3 *)phi_s0_2->unk0.next;
         if (phi_s0_2->unkC + 1 < D_8027DCC8) {
             if (phi_s0_2 == D_8027D5B0.unk4) {
                 D_8027D5B0.unk4 = (Struct_1D00_3 *)phi_s0_2->unk0.next;
             }
             alUnlink(&phi_s0_2->unk0);
-            if (D_8027D5B0.unk8 != NULL) {
+            if (D_8027D5B0.unk8 != N64_NULL) {
                 alLink(&phi_s0_2->unk0, &D_8027D5B0.unk8->unk0);
             } else {
                 D_8027D5B0.unk8 = phi_s0_2;
-                phi_s0_2->unk0.next = NULL;
-                phi_s0_2->unk0.prev = NULL;
+                phi_s0_2->unk0.next = N64_NULL;
+                phi_s0_2->unk0.prev = N64_NULL;
             }
         }
         phi_s0_2 = phi_s1;

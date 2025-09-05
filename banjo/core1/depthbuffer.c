@@ -27,7 +27,7 @@ void func_80253208(Gfx **gfx, s32 x, s32 y, s32 w, s32 h, void *color_buffer){
     }
 }
 
-int func_80253400(void){
+bool func_80253400(void){
     return sDepthBuffer.unk4;
 }
 

@@ -2,6 +2,8 @@
 #include "functions.h"
 #include "variables.h"
 
+#include <n64_compat.h>
+
 typedef struct {
     u8 pad0[0xC];
     f32 unkC[3];
@@ -9,13 +11,15 @@ typedef struct {
 
 extern f32 vtxList_getGlobalNorm(BKVertexList *);
 
-struct4Cs *D_80369280 = NULL;
+struct4Cs *D_80369280 = N64_NULL;
 
 s32 D_80369284 = 0;
 
-BKModelBin *D_80369288 = NULL;
+BKModelBin *D_80369288 = N64_NULL;
 
 s32 D_8036928C = 0;
+
+bool func_802F989C(Gfx **gfx, Mtx **mtx, f32 arg2[3]);
 
 Gfx D_80369290[] = 
 {
@@ -64,7 +68,7 @@ void func_802F8FFC(void){
         free(D_80369280->unk1C);
         func_8033BD20(&D_80369288);
         free(D_80369280);
-        D_80369280 = NULL;
+        D_80369280 = N64_NULL;
         D_80369284 = 0;
     }
 }
@@ -110,7 +114,7 @@ void func_802F919C(void) {
     struct4Ds *sp40;
 
 
-    if (D_80369280 != NULL) {
+    if (D_80369280 != N64_NULL) {
         if (func_802BEF64() != 0) {
             D_80369284 = 0;
             return;
@@ -191,7 +195,7 @@ void func_802F962C(Gfx **gfx, Mtx **mtx, Vtx **vtx) {
     struct4Ds *phi_s0;
     void *phi_s0_2;
 
-    if ((D_80369280 != NULL) && (D_80369284 != 0)) {
+    if ((D_80369280 != N64_NULL) && (D_80369284 != 0)) {
         viewport_getPosition_vec3f(D_80381050);
         viewport_getRotation_vec3f(D_80381060);
         D_80381090 = (Gfx*)((s32)D_80369288 + D_80369288->gfx_list_offset_C + sizeof(BKGfxList));

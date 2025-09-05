@@ -36,7 +36,12 @@
     "version.h": "c",
     "libaudio_pch.h": "c",
     "music.h": "c",
-    "musicplayer.h": "c"
+    "musicplayer.h": "c",
+    "vimgr.h": "c",
+    "ultraerror.h": "c",
+    "internal.h": "c",
+    "os_system.h": "c",
+    "ucode.h": "c"
   },
   "C_Cpp.errorSquiggles": "disabled"
 }

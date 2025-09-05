@@ -4,6 +4,8 @@
 #include "version.h"
 #include "gc/gctransition.h"
 
+#include <os_system.h>
+
 #define MAIN_THREAD_STACK_SIZE 0x17F0
 
 #if VERSION == VERSION_PAL

@@ -1,5 +1,10 @@
 #include "core1/core1.h"
 
+#define gDPPipeSync(pkt)        ((void)0)
+#define gDPSetPrimColor(pkt, a,b,r,g,b,a2) ((void)0)
+#define gSP2Triangles(pkt, v0,v1,v2,c0, v3,v4,v5,c1) ((void)0)
+#define gSP1Quadrangle(pkt, v0,v1,v2,v3,c) ((void)0)
+
 // all functions in this file are unsued
 
 static Gfx sGfxSublist[] = {

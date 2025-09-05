@@ -256,7 +256,6 @@ void func_802C8C5C(Actor *actor) {
     f32 sp84[3];
     Struct25s *temp_s2 = actor->unk40;
     Struct24s *phi_s0;
-    s32 sp70[3] = D_80366418;
 
     for(phi_s0 = temp_s2->begin; phi_s0 < temp_s2->current; phi_s0++){
         if (phi_s0->unk0 == 2) {
@@ -282,7 +281,7 @@ void func_802C8C5C(Actor *actor) {
                 phi_s0->unk0 = 1;
                 phi_s0->unk3C = dustEmitter_returnGiven(1);
                 if (phi_s0->unk3C != 0) {
-                    dustEmitter_emit(phi_s0->unk8, sp70, phi_s0->unk40, 1, D_80366330, D_80366334, (s32)D_80366338, (s32)D_8036633C, DUST_EMITTER_TYPE_BREAK_DUST);
+                    dustEmitter_emit(phi_s0->unk8, D_80366418, phi_s0->unk40, 1, D_80366330, D_80366334, (s32)D_80366338, (s32)D_8036633C, DUST_EMITTER_TYPE_BREAK_DUST);
                 }
             }
         }

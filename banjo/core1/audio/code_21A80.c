@@ -1,4 +1,4 @@
-#include "libultraship/libultra/types.h"
+#include "n_synth.h"
 
 typedef struct N_ALCSPlayer N_ALCSPlayer;
 

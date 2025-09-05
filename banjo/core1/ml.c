@@ -3,6 +3,8 @@
 #include "variables.h"
 #include "version.h"
 
+#include <n64_compat.h>
+
 #if VERSION == VERSION_USA_1_0
 u32 D_80276CB0 = 0xD22FFFD8; //WHAT IS THIS?
 u32 D_80276CB4 = 0xDEFEF692; //WHAT IS THIS?

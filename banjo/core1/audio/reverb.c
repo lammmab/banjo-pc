@@ -9,7 +9,7 @@
 #define assert(s) 
 #endif
 
-
+#include <ultraerror.h>
 
 #define RANGE 2.0
 extern ALGlobals *alGlobals;

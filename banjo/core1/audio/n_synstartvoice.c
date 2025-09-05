@@ -16,7 +16,7 @@
  * DOD or NASA FAR Supplement. Unpublished - rights reserved under the
  * Copyright Laws of the United States.
  *====================================================================*/
-#include <os_internal.h>
+#include <libultraship/libultra/internal.h>
 #include <ultraerror.h>
 #include "n_synth.h"
 

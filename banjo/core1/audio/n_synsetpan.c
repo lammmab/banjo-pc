@@ -1,6 +1,8 @@
 #include <libultraship/libultra.h>
 #include "n_synth.h"
 
+#include <ultraerror.h>
+
 void    n_alSynSetPan(N_ALVoice *v, u8 pan)
 {
     ALParam  *update;

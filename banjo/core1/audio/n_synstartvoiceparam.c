@@ -2,6 +2,7 @@
 #include "synthInternals.h"
 #include "n_synth.h"
 
+#include <ultraerror.h>
 
 void n_alSynStartVoiceParams(N_ALVoice *v, ALWaveTable *w,
                            f32 pitch, s16 vol, ALPan pan, u8 fxmix,

@@ -2,6 +2,8 @@
 #include "functions.h"
 #include "variables.h"
 
+#include <n64_compat.h>
+
 extern void coMusicPlayer_playMusicWeak(enum comusic_e arg0, s32 arg1);
 extern void chBottlesBonusCursor_func_802DF99C(void);
 extern f32 *chBottlesBonusCursor_func_802E05AC(s32);

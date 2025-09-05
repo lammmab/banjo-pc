@@ -29,7 +29,7 @@ void func_8032ACA8(Actor *arg0);
 void func_8032B5C0(ActorMarker *arg0, ActorMarker *arg1, struct5Cs *arg2);
 void subaddie_set_state_with_direction(Actor * this, s32 arg1, f32 arg2, s32 arg3);
 void func_8032BB88(Actor *this, s32 arg1, s32 arg2);
-int  subaddie_playerIsWithinSphere(Actor *this, s32 dist);
+bool  subaddie_playerIsWithinSphere(Actor *this, s32 dist);
 extern void func_8033A4A0(enum asset_e mode_id, f32, f32);
 extern void func_80338338(s32, s32, s32);
 extern void func_803382FC(s32);
@@ -64,7 +64,7 @@ f32 D_8036E598[4] = {1000.f, 20.0f, 10.5f, 1.0f};
 Actor *suLastBaddie;
 s32 D_80383394;
 Actor *suBaddieJiggyArray[14]; //array of jiggy actor ptrs
-
+bool func_803296D8(Actor *this, s32 dist);
 
 Actor * marker_getActorAndRotation(ActorMarker *marker,f32 rotation[3])
 {   Actor *actor = &suBaddieActorArray->data[marker->actrArrayIdx];

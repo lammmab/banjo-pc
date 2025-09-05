@@ -14,6 +14,8 @@ extern ActorProp *func_803322F0(Cube *, ActorMarker *, f32, s32, s32 *);
 extern BKCollisionTri *func_803319C0(Cube *cube, f32 position[3], f32 radius, f32 arg2[3], u32 flags);
 extern BKCollisionTri *func_80331638(Cube *cube, f32 volume_p1[3], f32 volume_p2[3], f32 radius, f32 arg2[3], s32, u32 flags);
 
+
+
 typedef struct{
     s32 position[3];
     s32 radius;
@@ -36,6 +38,8 @@ void __code7AF80_func_80308984(void);
 void func_80308D2C(Gfx **gfx, Mtx **mtx, Vtx **vtx);
 void __code7AF80_func_80308F0C(Cube *cube);
 void func_80308EC8(void);
+bool func_80305C30(s32 arg0);
+bool func_80308F54(s32 cube_index);
 
 extern ActorInfo D_803675F0;
 extern ActorInfo D_80367838;

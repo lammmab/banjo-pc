@@ -1,6 +1,8 @@
 #include <libultraship/libultra.h>
 #include "n_synth.h"
 
+#include <ultraerror.h>
+
 static s32 _n_allocatePVoice(N_PVoice **pvoice, s16 priority);
 
 s32 n_alSynAllocVoice( N_ALVoice *voice, ALVoiceConfig *vc)
@@ -11,10 +13,10 @@ s32 n_alSynAllocVoice( N_ALVoice *voice, ALVoiceConfig *vc)
     
 #ifdef _DEBUG
     /* need two updates if voice is stolen */
-    if (drvr->paramList == 0) {
+    if (n_syn->paramList == 0) {
         __osError(ERR_ALSYN_NO_UPDATE, 0);
         return 0;
-    } else if (drvr->paramList->next == 0) {
+    } else if (n_syn->paramList->next == 0) {
         __osError(ERR_ALSYN_NO_UPDATE, 0);
         return 0;
     }

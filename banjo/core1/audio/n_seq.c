@@ -2,6 +2,7 @@
 #include "functions.h"
 #include "variables.h"
 
+#include <ultraerror.h>
 
 #define IFF_FILE_HDR    0x4d546864	/* 'MThd' */
 #define IFF_TRACK_HDR   0x4d54726b	/* 'MTrk' */

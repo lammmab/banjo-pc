@@ -1,6 +1,8 @@
 #include <libultraship/libultra.h>
 #include "n_synth.h"
 
+#include <ultraerror.h>
+
 void n_alSynFreeVoice(N_ALVoice *voice)
 {
     ALFilter *f;

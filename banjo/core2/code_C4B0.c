@@ -17,6 +17,7 @@ extern BKCollisionTri *func_8031C5F4(struct0 *);
 void func_80294378(s32 arg0);
 void func_80294384(s32 arg0);
 void func_80294390(void);
+bool func_802946FC(f32 arg0[3][3], s32 arg1);
 
 BKCollisionTri *func_8029463C(void);
 
@@ -506,11 +507,11 @@ BKCollisionTri *func_802946F0(void){
 
 bool func_802946FC(f32 arg0[3][3], s32 arg1){
      if(arg1 == 0){
-          return 0;
+          return false;
      }
      else{
           func_802E73C8(arg0);
-          return 1;
+          return true;
      }
 }
 

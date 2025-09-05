@@ -35,7 +35,7 @@ s32 osPfsChecker(OSPfs *pfs)
             cc = 0;
             cl = 0;
             bank = 255;
-            while (next_page.ipage >= pfs->inode_start_page && next_page.inode_t.bank < pfs->banks && next_page.inode_t.page > 0 && next_page.inode_t.page < 128)
+            while (next_page.ipage >= pfs->inodeStartPage && next_page.inode_t.bank < pfs->banks && next_page.inode_t.page > 0 && next_page.inode_t.page < 128)
             {
                 if (bank != next_page.inode_t.bank)
                 {
@@ -48,7 +48,7 @@ s32 osPfsChecker(OSPfs *pfs)
                 if (cc != 0)
                     break;
                 cl = 1;
-                next_page = tmp_inode.inode_page[next_page.inode_t.page];
+                next_page = tmp_inode.inodePage[next_page.inode_t.page];
             }
             if (cc == 0 && next_page.ipage == 1)
                 continue;
@@ -82,7 +82,7 @@ s32 osPfsChecker(OSPfs *pfs)
         ERRCK(__osContRamRead(pfs->queue, pfs->channel, pfs->dir_table + j, (u8*)&tmp_dir));
 
         if (tmp_dir.company_code != 0 && tmp_dir.game_code != 0 &&
-            tmp_dir.start_page.ipage >= ((__OSInodeUnit *)&(pfs->inode_start_page) + 1)->ipage) //weird
+            tmp_dir.start_page.ipage >= ((__OSInodeUnit *)&(pfs->inodeStartPage) + 1)->ipage) //weird
         {
             file_next_node[j].ipage = tmp_dir.start_page.ipage;
         }
@@ -102,22 +102,22 @@ s32 osPfsChecker(OSPfs *pfs)
         }
         else
         {
-            offset = pfs->inode_start_page;
+            offset = pfs->inodeStartPage;
         }
         for (j = 0; j < offset; j++)
         {
-            checked_inode.inode_page[j].ipage = tmp_inode.inode_page[j].ipage;
+            checked_inode.inodePage[j].ipage = tmp_inode.inodePage[j].ipage;
         }
         for (; j < 128; j++)
         {
-            checked_inode.inode_page[j].ipage = 3;
+            checked_inode.inodePage[j].ipage = 3;
         }
         for (j = 0; j < pfs->dir_size; j++)
         {
-            while (file_next_node[j].inode_t.bank == bank && file_next_node[j].ipage >= ((__OSInodeUnit *)&(pfs->inode_start_page) + 1)->ipage)
+            while (file_next_node[j].inode_t.bank == bank && file_next_node[j].ipage >= ((__OSInodeUnit *)&(pfs->inodeStartPage) + 1)->ipage)
             {
                 u8 pp = file_next_node[j].inode_t.page;
-                file_next_node[j] = checked_inode.inode_page[pp] = tmp_inode.inode_page[pp];
+                file_next_node[j] = checked_inode.inodePage[pp] = tmp_inode.inodePage[pp];
             }
         }
         ERRCK(__osPfsRWInode(pfs, &checked_inode, OS_WRITE, bank));
@@ -148,15 +148,15 @@ s32 corrupted_init(OSPfs *pfs, __OSInodeCache *cache)
         if (bank > 0)
             offset = 1;
         else
-            offset = pfs->inode_start_page;
+            offset = pfs->inodeStartPage;
 
         ret = __osPfsRWInode(pfs, &tmp_inode, OS_READ, bank);
         if (ret != 0 && ret != PFS_ERR_INCONSISTENT)
             return ret;
-        for (i = offset; i < ARRLEN(tmp_inode.inode_page); i++)
+        for (i = offset; i < ARRLEN(tmp_inode.inodePage); i++)
         {
-            tpage = tmp_inode.inode_page[i];
-            if (tpage.ipage >= pfs->inode_start_page && tpage.inode_t.bank != bank)
+            tpage = tmp_inode.inodePage[i];
+            if (tpage.ipage >= pfs->inodeStartPage && tpage.inode_t.bank != bank)
             {
                 n = (tpage.inode_t.page / 4) + ((tpage.inode_t.bank % PFS_ONE_PAGE) * BLOCKSIZE);
                 cache->map[n] |= 1 << (bank % PFS_ONE_PAGE);
@@ -183,7 +183,7 @@ s32 corrupted(OSPfs *pfs, __OSInodeUnit fpage, __OSInodeCache *cache)
         if (bank > 0)
             offset = 1;
         else
-            offset = pfs->inode_start_page;
+            offset = pfs->inodeStartPage;
         if (bank == fpage.inode_t.bank || cache->map[n] & (1 << (bank % 8)))
         {
             if (bank != cache->bank)
@@ -194,9 +194,9 @@ s32 corrupted(OSPfs *pfs, __OSInodeUnit fpage, __OSInodeCache *cache)
                 cache->bank = bank;
             }
 
-            for (j = offset; hit < 2 && (j < ARRLEN(cache->inode.inode_page)); j++)
+            for (j = offset; hit < 2 && (j < ARRLEN(cache->inode.inodePage)); j++)
             {
-                if (cache->inode.inode_page[j].ipage == fpage.ipage)
+                if (cache->inode.inodePage[j].ipage == fpage.ipage)
                     hit++;
             }
             if (1 < hit)

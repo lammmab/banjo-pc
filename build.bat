@@ -4,7 +4,7 @@ setlocal
 REM === Config ===
 set BUILD_DIR=build
 set BIN_DIR=bin
-set CONFIG=Release
+set CONFIG=Debug
 set EXE_NAME=banjo.exe
 
 REM === Clean previous build folder ===

@@ -2,6 +2,7 @@
 #include "n_libaudio.h"
 #include "n_synth.h"
 
+#include <ultraerror.h>
 
 #define RANGE 2.0
 extern ALGlobals *alGlobals;

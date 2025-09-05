@@ -1,4 +1,5 @@
 #include <n_synth.h>
+#include <ultraerror.h>
 
 /* copt used??? */
 

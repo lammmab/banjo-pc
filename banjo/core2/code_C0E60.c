@@ -2,6 +2,8 @@
 #include "functions.h"
 #include "variables.h"
 
+#include <n64_compat.h>
+
 extern void func_80355C60(f32[3], f32);
 
 void func_80348044(Gfx **gfx, BKSprite* sprite, s32 frame, s32 tmem, s32 rtile, s32 uls, s32 ult, s32 cms, s32 cmt, s32 *width, s32 *height, s32 *frame_width, s32 *frame_height, s32 *texture_x, s32 *texture_y, s32 *textureCount);
@@ -226,54 +228,86 @@ void func_80348044(Gfx **gfx, BKSprite* sprite, s32 frame, s32 tmem, s32 rtile, 
     }
 
     if ( sprite->type & SPRITE_TYPE_I4) {
-        rare_gDPLoadMultiBlock_4b((*gfx)++, timg, tmem, rtile, G_IM_FMT_I, *width, *height, uls, ult, 0, cms, cmt, masks, maskt, G_TX_NOLOD, G_TX_NOLOD);
+        rare_gDPLoadMultiBlock_4b(
+            (*gfx)++, timg, tmem, rtile, G_IM_FMT_I, 
+            *width, *height, uls, ult, 0, cms, cmt, 
+            masks, maskt, G_TX_NOLOD, G_TX_NOLOD
+        );
         if (sp144 == 0) {
             D_8038607C = (s32) D_8038607C >> 4;
         } else {
             D_80386098 = (s32) D_80386098 >> 4;
         }
     } else if (sprite->type & SPRITE_TYPE_IA4) {
-        rare_gDPLoadMultiBlock_4b((*gfx)++, timg, tmem, rtile, G_IM_FMT_IA, *width, *height, uls, ult, 0, cms, cmt, masks, maskt, G_TX_NOLOD, G_TX_NOLOD);
+        rare_gDPLoadMultiBlock_4b(
+            (*gfx)++, timg, tmem, rtile, G_IM_FMT_IA,
+             *width, *height, uls, ult, 0, cms, cmt,
+              masks, maskt, G_TX_NOLOD, G_TX_NOLOD
+        );
         if (sp144 == 0) {
             D_8038607C = (s32) D_8038607C >> 4;
         } else {
             D_80386098 = (s32) D_80386098 >> 4;
         }
     } else if (sprite->type & SPRITE_TYPE_I8) {
-        rare_gDPLoadMultiBlock((*gfx)++, timg, tmem, rtile, G_IM_FMT_I, G_IM_SIZ_8b, *width, *height, uls, ult, 0, cms, cmt, masks, maskt, G_TX_NOLOD, G_TX_NOLOD);
+        rare_gDPLoadMultiBlock(
+            (*gfx)++, timg, tmem, rtile, G_IM_FMT_I, G_IM_SIZ_8b, 
+            *width, *height, uls, ult, 0, cms, cmt, 
+            masks, maskt, G_TX_NOLOD, G_TX_NOLOD
+        );
         if (sp144 == 0) {
             D_8038607C = (s32) D_8038607C >> 3;
         } else {
             D_80386098 = (s32) D_80386098 >> 3;
         }
     } else if (sprite->type & SPRITE_TYPE_IA8) {
-       rare_gDPLoadMultiBlock((*gfx)++, timg, tmem, rtile, G_IM_FMT_IA, G_IM_SIZ_8b, *width, *height, uls, ult, 0, cms, cmt, masks, maskt, G_TX_NOLOD, G_TX_NOLOD);
+       rare_gDPLoadMultiBlock(
+        (*gfx)++, timg, tmem, rtile, G_IM_FMT_IA, G_IM_SIZ_8b, 
+        *width, *height, uls, ult, 0, cms, cmt, 
+        masks, maskt, G_TX_NOLOD, G_TX_NOLOD
+        );
         if (sp144 == 0) {
             D_8038607C = (s32) D_8038607C >> 3;
         } else {
             D_80386098 = (s32) D_80386098 >> 3;
         }
     } else if (sprite->type & SPRITE_TYPE_RGBA16) {
-        rare_gDPLoadMultiBlock((*gfx)++, timg, tmem, rtile, G_IM_FMT_RGBA, G_IM_SIZ_16b, *width, *height, uls, ult, 0, cms, cmt, masks, maskt, G_TX_NOLOD, G_TX_NOLOD);
+        rare_gDPLoadMultiBlock(
+            (*gfx)++, timg, tmem, rtile, G_IM_FMT_RGBA, G_IM_SIZ_16b
+            , *width, *height, uls, ult, 0, cms, cmt,
+             masks, maskt, G_TX_NOLOD, G_TX_NOLOD
+            );
         if (sp144 == 0) {
             D_8038607C = (s32) D_8038607C >> 2;
         } else {
             D_80386098 = (s32) D_80386098 >> 2;
         }
     } else if (sprite->type & SPRITE_TYPE_RGBA32) {
-        rare_gDPLoadMultiBlock((*gfx)++, timg, tmem, rtile, G_IM_FMT_RGBA, G_IM_SIZ_32b, *width, *height, uls, ult, 0, cms, cmt, masks, maskt, G_TX_NOLOD, G_TX_NOLOD);
+        rare_gDPLoadMultiBlock(
+            (*gfx)++, timg, tmem, rtile, G_IM_FMT_RGBA, G_IM_SIZ_32b, 
+            *width, *height, uls, ult, 0, cms, cmt, 
+            masks, maskt, G_TX_NOLOD, G_TX_NOLOD
+        );
         if (sp144 == 0) {
             D_8038607C = (s32) D_8038607C >> 1;
         } else {
             D_80386098 = (s32) D_80386098 >> 1;
         }
     } else if (sprite->type & SPRITE_TYPE_CI4) {
-        rare_gDPLoadMultiBlock_4b((*gfx)++, timg, tmem, rtile, G_IM_FMT_RGBA, *width, *height, uls, ult, 0, cms, cmt, masks, maskt, G_TX_NOLOD, G_TX_NOLOD);
+        rare_gDPLoadMultiBlock_4b(
+            (*gfx)++, timg, tmem, rtile, G_IM_FMT_RGBA, 
+            *width, *height, uls, ult, 0, cms, cmt, 
+            masks, maskt, G_TX_NOLOD, G_TX_NOLOD
+        );
         D_8038607C = D_8038607C >> 4;
     } else if (sprite->type & SPRITE_TYPE_CI8) {
-        rare_gDPLoadMultiBlock((*gfx)++, timg, tmem, rtile, G_IM_FMT_CI, G_IM_SIZ_8b, *width, *height, uls, ult, 0, cms, cmt, masks, maskt, G_TX_NOLOD, G_TX_NOLOD);
+        rare_gDPLoadMultiBlock(
+            (*gfx)++, timg, tmem, rtile, G_IM_FMT_CI, G_IM_SIZ_8b, 
+            *width, *height, uls, ult, 0, cms, cmt, 
+            masks, maskt, G_TX_NOLOD, G_TX_NOLOD
+        );
         D_8038607C = (s32) D_8038607C >> 3;
-    }
+    } 
     if( D_8038607C != 0 
         && D_80386098 != 0
         && (D_80386094 < (D_80386078 + D_8038607C))

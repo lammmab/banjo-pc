@@ -230,7 +230,7 @@ void baanim_playForDuration_loopStartingAt(enum asset_e anim_id, f32, f32);
 void baanim_playForDuration_onceStartingAt(enum asset_e anim_id, f32 duration, f32 arg2);
 void baanim_playForDuration_onceSmooth(enum asset_e, f32);
 void baanim_setEndAndDuration(f32, f32);
-int  func_8028AED4(f32*, f32);
+bool  func_8028AED4(f32*, f32);
 void func_8028E668(f32[3], f32, f32, f32);
 bool player_setCarryObjectPoseInCylinder(f32[3], f32, f32, enum actor_e actor_id, Actor**);
 void player_setThrowTargetPosition(f32[3]);
@@ -307,7 +307,7 @@ void ncDynamicCamD_func_802BF2C0(f32);
 f32  func_802B6F9C(void);
 
 void func_802C1B20(f32);
-int  ncDynamicCamA_func_802C1DB0(f32);
+bool  ncDynamicCamA_func_802C1DB0(f32);
 
 void func_802D6264(f32, enum map_e, s32, s32, s32, enum file_progress_e);
 
@@ -381,8 +381,8 @@ bool subaddie_maybe_set_state_position_direction(Actor *, s32, f32, s32, f32 );
 void func_80328CEC(Actor *, s32, s32, s32);
 void func_80328FB0(Actor *, f32);
 int  func_80329030(Actor *, s32);
-int  func_80329078(Actor *, s32, s32);
-int  func_80329480(Actor *);
+bool  func_80329078(Actor *, s32, s32);
+bool  func_80329480(Actor *);
 s32  func_80329784(Actor *);
 void func_80329878(Actor *, f32);
 struct5Bs *func_80329934(void);

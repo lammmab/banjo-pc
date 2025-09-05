@@ -3,6 +3,8 @@
 #include "variables.h"
 #include "core2/particle.h"
 
+#include <n64_compat.h>
+
 #define ABS(s) (((s) >= 0) ? (s) : -(s))
 
 extern f32 func_80309B24(f32[3]);

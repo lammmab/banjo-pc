@@ -1,7 +1,7 @@
 #ifndef _PIINT_H
 #define _PIINT_H
-#include <os_internal.h>
-#include <rcp.h>
+#include <libultraship/libultra/internal.h>
+#include <libultraship/libultra/rcp.h>
 
 //https://github.com/LuigiBlood/64dd/wiki/Memory-Map
 

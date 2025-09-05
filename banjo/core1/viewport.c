@@ -2,6 +2,7 @@
 #include "functions.h"
 #include "variables.h"
 
+#include <n64_compat.h>
 
 extern void guPerspective(Mtx *, u16*, f32, f32, f32, f32, f32);
 

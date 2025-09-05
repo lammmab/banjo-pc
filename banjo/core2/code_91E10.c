@@ -120,6 +120,7 @@ static u8 sPortraits[SELECTABLE_PORTAIT_COUNT+1] = {
 
 /* .bss */
 Struct_Core2_91E10 *sD_803830E0;
+bool gcquiz_isNotInInitialState(void);
 
 /* .code */
 static void __gcquiz_uniquelyRandomizeValuesInPointer(s8 *ptr, u8 min_index, u8 max_index, s32 min_value, s32 max_value){
@@ -629,7 +630,7 @@ void __gcquiz_unused2(u8 arg0, u8 arg1) {
     }
 }
 
-bool gcquiz_isNotInInitialState(){
+bool gcquiz_isNotInInitialState(void){
     return (sD_803830E0 != NULL) ? sD_803830E0->state != GCQUIZ_STATE_0_INITIAL: false;
 }
 

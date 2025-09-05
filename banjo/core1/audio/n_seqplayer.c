@@ -6,6 +6,8 @@
 // #include "functions.h"
 // #include "variables.h"
 
+#include <ultraerror.h>
+
 #define KILL_TIME 50000
 
 void __n_postNextSeqEvent(N_ALSeqPlayer *seqp);

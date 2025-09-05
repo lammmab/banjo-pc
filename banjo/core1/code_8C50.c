@@ -3,6 +3,11 @@
 #include "variables.h"
 #include "version.h"
 
+#include <n64_compat.h>
+#include <n_ucode.h>
+
+#include <os_system.h>
+
 typedef struct {
     s32 unk0;
     s32 unk4;
@@ -32,25 +37,25 @@ extern u8 gSPL3DEX_fifoDataStart[];
 OSTask D_80275910 = {
     /* type */ M_AUDTASK, 
     /* flags */ 0,
-    NULL, 0,                  /* ucode_boot */
-    NULL, SP_UCODE_SIZE,      /* ucode */
-    NULL, SP_UCODE_DATA_SIZE, /* ucode_data */
-    NULL, 0,                  /* dram_stack */
-    NULL, NULL,               /* output_buff */
-    NULL, 0,                  /* data */
-    NULL, 0,                  /* yield_data */
+    N64_NULL, 0,                  /* ucode_boot */
+    N64_NULL, SP_UCODE_SIZE,      /* ucode */
+    N64_NULL, SP_UCODE_DATA_SIZE, /* ucode_data */
+    N64_NULL, 0,                  /* dram_stack */
+    N64_NULL, N64_NULL,               /* output_buff */
+    N64_NULL, 0,                  /* data */
+    N64_NULL, 0,                  /* yield_data */
 };
 
 OSTask D_80275950 = {
     /* type */ M_GFXTASK, 
     /* flags */ 0,
-    NULL, 0,                  /* ucode_boot */
-    NULL, SP_UCODE_SIZE,      /* ucode */
-    NULL, SP_UCODE_DATA_SIZE, /* ucode_data */
+    N64_NULL, 0,                  /* ucode_boot */
+    N64_NULL, SP_UCODE_SIZE,      /* ucode */
+    N64_NULL, SP_UCODE_DATA_SIZE, /* ucode_data */
     0x80000400, 0x400,        /* dram_stack */
     0x80000800, 0x8000E800,   /* output_buff */
-    NULL, 0,                  /* data */
-    NULL, OS_YIELD_DATA_SIZE, /* yield_data */
+    N64_NULL, 0,                  /* data */
+    N64_NULL, OS_YIELD_DATA_SIZE, /* yield_data */
 };
 
 s32 D_80275990 = 0;
@@ -92,13 +97,13 @@ void func_80246670(OSMesg arg0){
     static s32 D_802759A0 = 1;
     
     osSendMesg(&D_8027FB60, arg0, 1);
-    if((s32) arg0 == 3 ){
+    if((s32)arg0.data32 == 3 ){
         D_80275994 = 0x1e;
         if(D_802759A0){
             osDpSetStatus(DPC_CLR_FREEZE);
             D_802759A0 = 0;
         }
-        osRecvMesg(&D_8027FBC8, NULL, 1);
+        osRecvMesg(&D_8027FBC8, N64_NULL, 1);
         D_80275994 = 0;
     }
 }
@@ -207,7 +212,7 @@ void func_80246B94(void){
         && D_8028062C == D_80280628
         && !(osDpGetStatus() & DPC_STATUS_FREEZE)
     ){
-        osSendMesg(&D_8027FBC8, NULL, OS_MESG_NOBLOCK);
+        osSendMesg(&D_8027FBC8, N64_NULL, OS_MESG_NOBLOCK);
     }
     else{
         D_8027FC0C++;
@@ -228,7 +233,7 @@ void func_80246C2C(void){
     }
     else{
         if(D_8027FC0C && D_8028062C == D_80280628 && !(osDpGetStatus() & DPC_STATUS_FREEZE)){
-            osSendMesg(&D_8027FBC8, NULL, 0);
+            osSendMesg(&D_8027FBC8, N64_NULL, 0);
             D_8027FC0C--;
         }
     }
@@ -253,7 +258,7 @@ void func_80246D78(void){
         }
 
         if(sp2C){
-            osSendMesg(&D_8027FBC8, NULL, OS_MESG_NOBLOCK);
+            osSendMesg(&D_8027FBC8, N64_NULL, OS_MESG_NOBLOCK);
             D_8027FC0C--;
         }
     }
@@ -326,7 +331,7 @@ void func_80247000(void) {
     }
     
     if ((D_8027FC0C != 0) && (D_8027FC14 == 2) && !(osDpGetStatus() & 2)) {
-        osSendMesg(&D_8027FBC8, NULL, 0);
+        osSendMesg(&D_8027FBC8, N64_NULL, 0);
         D_8027FC0C -= 1;
     }
 }
@@ -336,7 +341,7 @@ void func_802471D8(OSMesg arg0){
 }
 
 void func_802471EC(void){
-    osSendMesg(audioManager_getFrameMesgQueue(), NULL, OS_MESG_NOBLOCK);
+    osSendMesg(audioManager_getFrameMesgQueue(), N64_NULL, OS_MESG_NOBLOCK);
     func_80247224();
 }
 
@@ -442,7 +447,7 @@ void func_80247380(void){
 
 //resetproc
 void func_802473B4(void *arg0){
-    OSMesg msg = NULL;
+    OSMesg msg = N64_NULL;
     do{
         osRecvMesg(&D_8027FB60, &msg, OS_MESG_BLOCK);
         func_80247380();
@@ -490,7 +495,7 @@ void func_80247560(void){
     }
 
     D_80275950.t.yield_data_ptr = tmp_v0;
-    osCreateThread(&D_80280428, 5, func_802473B4, NULL, &D_8027FC28[2048], 60);
+    osCreateThread(&D_80280428, 5, func_802473B4, N64_NULL, &D_8027FC28[2048], 60);
     osStartThread(&D_80280428);
 }
 

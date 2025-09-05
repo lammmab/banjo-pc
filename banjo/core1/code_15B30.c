@@ -1,6 +1,8 @@
 #include "core1/core1.h"
 
-static Gfx *sGfxStack[2] = { NULL, NULL };
+#include <n64_compat.h>
+
+static Gfx *sGfxStack[2] = { N64_NULL, N64_NULL };
 s32 gFramebufferWidth = DEFAULT_FRAMEBUFFER_WIDTH;
 s32 gFramebufferHeight = DEFAULT_FRAMEBUFFER_HEIGHT;
 
@@ -19,11 +21,11 @@ u16  gScissorBoxBottom;
 Gfx *D_80283214;
 
 void func_80253550(void){
-    osRecvMesg(&D_802831F0, NULL, OS_MESG_BLOCK);
+    osRecvMesg(&D_802831F0, N64_NULL, OS_MESG_BLOCK);
 }
 
 void func_8025357C(void){
-    osSendMesg(&D_802831F0, NULL, OS_MESG_BLOCK);
+    osSendMesg(&D_802831F0, (OSMesg){N64_NULL}, OS_MESG_BLOCK);
 }
 
 void func_802535A8(Acmd *arg0, Acmd *arg1, OSMesgQueue *arg2, UNK_TYPE(s32) arg3) {
@@ -121,7 +123,7 @@ void func_80253E14(Gfx *arg0, Gfx *arg1, s32 arg2){
     sp1C->unk4 = arg2;
     sp1C->unk8 = arg0;
     sp1C->unkC = arg1;
-    func_80246670((OSMesg) sp1C);
+    func_80246670((OSMesg){ .ptr = sp1C });
 }
 
 void func_80253EA4(Gfx *arg0, Gfx *arg1){
@@ -172,7 +174,7 @@ void func_80254008(void){
 void func_80254028(void){
     D_802831E8 = 0;
     osCreateMesgQueue(&D_802831F0, &D_80283208, 1);
-    osSendMesg(&D_802831F0, NULL, 1);
+    osSendMesg(&D_802831F0, (OSMesg){N64_NULL}, 1);
     func_80247560();
     scissorBox_setDefault();
 }
@@ -194,12 +196,12 @@ void graphicsCache_release(void) {
         free(sMtxStack[1]);
         free(sVtxStack[0]);
         free(sVtxStack[1]);
-        sGfxStack[0] = NULL;
+        sGfxStack[0] = N64_NULL;
     }
 }
 
 void graphicsCache_init(void){
-    if(sGfxStack[0] == NULL){
+    if(sGfxStack[0] == N64_NULL){
         sGfxStack[0] = (Gfx *)malloc(29600); // 3700 dlist commands
         sGfxStack[1] = (Gfx *)malloc(29600);
         sMtxStack[0] = (Mtx *)malloc(44800); // 700 matrices

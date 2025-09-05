@@ -5,6 +5,7 @@
 
 #include "version.h"
 
+#include <n64_compat.h>
 
 #define PFSMANAGER_THREAD_STACK_SIZE 0x200
 
@@ -288,7 +289,7 @@ void pfsManager_entry(void *arg) {
 void pfsManager_init(void) {
     osCreateMesgQueue(&pfsManagerContPollingMsqQ, &pfsManagerContPollingMsqBuf, 1);
     osCreateMesgQueue(&pfsManagerContReplyMsgQ, &pfsManagerContReplyMsgBuf, 1);
-    osCreateThread(&sPfsManagerThread, 7, pfsManager_entry, NULL, sPfsManagerThreadStack + PFSMANAGER_THREAD_STACK_SIZE, 40);
+    osCreateThread(&sPfsManagerThread, 7, pfsManager_entry, N64_NULL, sPfsManagerThreadStack + PFSMANAGER_THREAD_STACK_SIZE, 40);
     osSetEventMesg(OS_EVENT_SI, &pfsManagerContPollingMsqQ, &pfsManagerContPollingMsqBuf);
     osContInit(&pfsManagerContPollingMsqQ, &pfsManagerBitPattern, &pfsManagerContStatus);
     osContSetCh(1);
@@ -319,33 +320,31 @@ void pfsManager_getStartReadData(void){
 }
 
 void func_8024F1F0(void){
-    osRecvMesg(&pfsManagerContPollingMsqQ, NULL, 1);
+    osRecvMesg(&pfsManagerContPollingMsqQ, N64_NULL, 1);
     pfsManager_update();
 }
 
 void func_8024F224(void){
-    s32 iCont, j;
-
     // for(iCont = 0; iCont < 4; iCont++){
     //     D_80281250[iCont].unk0 = 0;
     // }
 
-    for(iCont = 0; iCont < 4; iCont++){
-        D_80281250[iCont].unk0 = 0;
-        D_80281250[iCont].unk2 = 0;
-        D_80281250[iCont].unk4 = 0;
-        D_80281250[iCont].unk6 = 0;
-        D_80281250[iCont].joystick[0] = 0.0f;
-        D_80281250[iCont].joystick[1] = 0.0f;
-        D_80281250[iCont].unk8[0] = 0.0f;
-        D_80281250[iCont].unk8[1] = 0.0f;
-        for(j = 0; j < 5; j++){
-            D_802810E0[iCont][j] = 0;
+    for(s32 i = 0; i < 4; i++){
+        D_80281250[i].unk0 = 0;
+        D_80281250[i].unk2 = 0;
+        D_80281250[i].unk4 = 0;
+        D_80281250[i].unk6 = 0;
+        D_80281250[i].joystick[0] = 0.0f;
+        D_80281250[i].joystick[1] = 0.0f;
+        D_80281250[i].unk8[0] = 0.0f;
+        D_80281250[i].unk8[1] = 0.0f;
+        for(s32 j = 0; j < 5; j++){
+            D_802810E0[i][j] = 0;
         }
-        for(j = 0; j < 14; j++){
-            D_80281138[iCont].face_button[j] = 0;
+        for(s32 j = 0; j < 14; j++){
+            D_80281138[i].face_button[j] = 0;
         }
-        D_80281308[iCont] = 0.0f;
+        D_80281308[i] = 0.0f;
     }
 }
 
@@ -398,10 +397,10 @@ void func_8024F400(void) {
 void func_8024F450(void){
     if(!D_80275D38)
         func_8024F400();
-    osRecvMesg(&D_802816E8, NULL, OS_MESG_BLOCK);
+    osRecvMesg(&D_802816E8, N64_NULL, OS_MESG_BLOCK);
     osSetEventMesg(OS_EVENT_SI, &pfsManagerContPollingMsqQ, &pfsManagerContPollingMsqBuf);
 }
 
 void func_8024F4AC(void){
-    osSendMesg(&D_802816E8, NULL, OS_MESG_NOBLOCK);
+    osSendMesg(&D_802816E8, N64_NULL, OS_MESG_NOBLOCK);
 }

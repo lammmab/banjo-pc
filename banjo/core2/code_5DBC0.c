@@ -59,7 +59,6 @@ void func_802E6820(s32 arg0);
 
 /* .code */
 struct5DBC0s *func_802E4B50(void){
-    u8 sp24[3] = D_80368830;
     D_8037E900 = (struct5DBC0s *)malloc(sizeof(struct5DBC0s));
     D_8037E900->unk0 = (struct5DBC0_1s *) malloc(sizeof(struct5DBC0_1s));
     D_8037E900->unkC = 0;
@@ -68,9 +67,9 @@ struct5DBC0s *func_802E4B50(void){
     D_8037E900->string = (char *) malloc(sizeof(char));
     D_8037E900->string_len = 0;
     D_8037E900->flags = 0;
-    D_8037E900->unk1C[0] = sp24[0];
-    D_8037E900->unk1C[1] = sp24[1];
-    D_8037E900->unk1C[2] = sp24[2];
+    D_8037E900->unk1C[0] = D_80368830[0];
+    D_8037E900->unk1C[1] = D_80368830[1];
+    D_8037E900->unk1C[2] = D_80368830[2];
     return D_8037E900;
 }
 
@@ -349,28 +348,25 @@ void func_802E5F68(void){
 
 void func_802E5F88(s32 arg0, s32 arg1, char *arg2) {
     s32 sp24;
-    u8 sp20[3] = D_80368834;
     
     sp24 =  func_802E4E54(0);
-    func_802E502C(arg0, arg1, sp24, arg2, sp20);
+    func_802E502C(arg0, arg1, sp24, arg2, D_80368834);
 }
 
 void func_802E5FE4(s32 arg0, s32 arg1, char *arg2) {
     s32 sp24;
-    u8 sp20[3] = D_80368838;
     
     sp24 =  func_802E4E54(0);
-    func_802E502C(arg0, arg1, sp24, arg2, sp20);
+    func_802E502C(arg0, arg1, sp24, arg2, D_80368838);
 }
 
 void func_802E6040(s32 arg0, s32 arg1, char *arg2) {
     s32 sp2C;
-    u8 sp28[3] = D_8036883C;
 
     sp2C = func_802E4E54(0);
     arg0 *= D_8037E900->unk4[sp2C].half_width;
     arg1 *= D_8037E900->unk4[sp2C].height;
-    func_802E502C(arg0, arg1, sp2C, arg2, sp28);
+    func_802E502C(arg0, arg1, sp2C, arg2, D_8036883C);
 }
 
 void func_802E60D4(s32 arg0, s32 arg1, s32 arg2, char *arg3, u8 arg4[3], u8 arg5[3], s32 arg6) {
@@ -399,13 +395,11 @@ void func_802E60D4(s32 arg0, s32 arg1, s32 arg2, char *arg3, u8 arg4[3], u8 arg5
 
 void func_802E6270(s32 arg0, s32 arg1, char *arg2, s32 arg3) {
     s32 temp_v0;
-    u8 sp30[3] = D_80368840;
-    u8 sp2C[3] = D_80368844;
 
     temp_v0 = func_802E4E54(0);
     arg0 *= D_8037E900->unk4[temp_v0].half_width;
     arg1 *= D_8037E900->unk4[temp_v0].height;
-    func_802E60D4(arg0, arg1, temp_v0, arg2, sp30, sp2C, arg3);
+    func_802E60D4(arg0, arg1, temp_v0, arg2, D_80368840, D_80368844, arg3);
 }
 
 void func_802E632C(u8 arg0, u8 arg1, u8 arg2){
@@ -477,11 +471,10 @@ void func_802E65E8(char *str){
 
 void func_802E6628(s32 arg0, char *arg1) {
     s32 sp2C;
-    u8 sp28[3] = D_80368848;
 
     sp2C = func_802E4E54(0);
     arg0 *= D_8037E900->unk4[sp2C].height;
-    func_802E502C((s32) (((f32) gFramebufferWidth - (f32) func_802E51A4(arg1, sp2C, 0, D_8037E900->flags)) / 2), arg0, sp2C, arg1, sp28);
+    func_802E502C((s32) (((f32) gFramebufferWidth - (f32) func_802E51A4(arg1, sp2C, 0, D_8037E900->flags)) / 2), arg0, sp2C, arg1, D_80368848);
 }
 
 void func_802E66F0(s32 arg0, char *arg1) {

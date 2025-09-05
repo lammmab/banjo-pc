@@ -1,6 +1,8 @@
 #include <libultraship/libultra.h>
 #include "n_synth.h"
 
+#include <ultraerror.h>
+
 void    n_alSynSetPitch( N_ALVoice *v, f32 pitch)
 {
     ALParam  *update;

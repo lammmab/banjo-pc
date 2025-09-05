@@ -1,6 +1,7 @@
 #include <libultraship/libultra.h>
 #include "n_synth.h"
 
+#include <ultraerror.h>
 
 void n_alSynSetVol( N_ALVoice *v, s16 volume, ALMicroTime t)
 {
