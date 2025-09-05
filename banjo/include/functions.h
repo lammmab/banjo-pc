@@ -37,6 +37,16 @@ extern f32 fabsf(f32);
     _SHIFTL(e, 0, 16) + _SHIFTL(f, 16, 16)\
 )
 
+// added for code_2270.c
+bool func_8028F428(s32 arg0, ActorMarker *marker);
+s32 mapSpecificFlags_get(s32 i);
+bool func_8028F55C(s32 arg0, ActorMarker *marker);
+int jiggyscore_isSpawned(enum jiggy_e jiggy_id);
+s32 item_empty(enum item_e item);
+
+// code_2270.c + code_98CB0.c
+s32 fileProgressFlag_getN(enum file_progress_e offset, s32 numBits);
+
 void func_80241304(Mtx *m, float x, float y, float z);
 
 void _guMtxIdentF_80245D44(float mf[4][4]); //static should NOT be here
