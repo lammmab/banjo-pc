@@ -9,7 +9,7 @@ struct {
     u8 unk4;
     u8 sfxsourceIdx;
     u8 pad6[2];
-}D_803720A0 = {NULL, 0, 0};
+}D_803720A0 = {N64_NULL, 0, 0};
 
 extern f32 D_803792F0;
 
@@ -36,7 +36,7 @@ void func_8034F774(void){
     s0 = nodeProp_findPositionFromActorId(0x2F, &sp38);
     s1 = nodeProp_findPositionFromActorId(0x30, &sp2C);
     if( !s0 || !s1){
-        D_803720A0.unk0 = NULL;
+        D_803720A0.unk0 = N64_NULL;
     }else{
         D_803720A0.unk0 = particleEmitter_new(10);
         particleEmitter_setSprite(D_803720A0.unk0, ASSET_70E_SPRITE_SMOKE_2);

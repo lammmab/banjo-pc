@@ -130,13 +130,13 @@ void func_80299EC0(f32 arg0[3]) {
     _player_getPosition(spEC);
     sp6C = func_8029463C();
     spC8 = func_802946A8();
-    if (spC8 == NULL) {
-        sp6C = NULL;
+    if (spC8 == N64_NULL) {
+        sp6C = N64_NULL;
     }
     if ((spEC[1] - func_80294438()) > 100) {
-        sp6C = NULL;
+        sp6C = N64_NULL;
     }
-    if (sp6C == NULL) return;
+    if (sp6C == N64_NULL) return;
     if (sp6C->unk6 &2) return;
 
     vtx_buffer = vtxList_getVertices(model_getVtxList(spC8));

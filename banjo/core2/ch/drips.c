@@ -18,7 +18,7 @@ void chdrips_update(Actor *this);
 /* .data */
 ActorInfo gChDripsInfo = {
     0x246, ACTOR_354_DRIPS, 0, 
-    0, NULL, 
+    0, N64_NULL, 
     chdrips_update, actor_update_func_80326224, func_80325340,
     5000, 0, 0.0f, 0
 }; 

@@ -69,7 +69,7 @@ void rumbleThread_entry(void *arg) {
     s32 var_v1;
 
     do{
-        osRecvMesg(&D_80282390, NULL, 1);
+        osRecvMesg(&D_80282390, N64_NULL, 1);
         D_802827E0++;
         if (!D_802823B0 && ((D_802827E0 % FRAMERATE) == 0)) {
             func_80250930();
@@ -123,7 +123,7 @@ void baMotor_init(void) {
     D_802823B0 = D_802823AC;
     if(D_802823AC){
         osCreateMesgQueue(&D_80282390, &D_802823A8, 1);
-        osCreateThread(&sRumbleThread, 8, rumbleThread_entry, NULL, sRumbleThreadStack + RUMBLE_THREAD_STACK_SIZE, 25);
+        osCreateThread(&sRumbleThread, 8, rumbleThread_entry, N64_NULL, sRumbleThreadStack + RUMBLE_THREAD_STACK_SIZE, 25);
         osStartThread(&sRumbleThread);
         viMgr_func_8024BDAC(&D_80282390, (OSMesg){0});
     }

@@ -59,8 +59,8 @@ bool func_802BB720(s32 arg0, f32 arg1[3], f32 arg2[3], s32 *arg3) {
     if ((arg0 >= 0x5B) && (arg0 < 0x63)) {
         arg0 -= 0x40;
     }
-    temp_v0 = cubeList_findNodePropByActorIdAndPosition_s32(D_803657E0[arg0], NULL);
-    if (temp_v0 != NULL) {
+    temp_v0 = cubeList_findNodePropByActorIdAndPosition_s32(D_803657E0[arg0], N64_NULL);
+    if (temp_v0 != N64_NULL) {
         nodeprop_getPosition(temp_v0, arg1);
         *arg3 = nodeprop_getScale(temp_v0);
         temp_f6 = (f32) nodeprop_getYaw(temp_v0) - 180.0f;
@@ -215,7 +215,7 @@ f32 func_802BBEA4(f32 arg0[3], f32 arg1[3], f32 arg2, s32 arg3, s32 arg4) {
     func_802BEAAC(arg1, arg0, arg2, sp58[1], sp58[4], sp58[2], sp58[5]);
     ml_vec3f_copy(sp4C, sp58[D_8037D8D0.unk30]);
     sp38 = func_80320B98(arg0, sp4C, sp3C, arg4);
-    if (sp38 != NULL) {
+    if (sp38 != N64_NULL) {
         phi_f2 = ml_vec3f_distance(arg0, sp4C);
         D_8037D8D0.unk0[D_8037D8D0.unk30] = sp38->flags;
     } else {

@@ -10,7 +10,7 @@
 extern f32 func_802FB0E4(struct8s *);
 
 /* .data */
-static BKSprite *s_sprite = NULL;
+static BKSprite *s_sprite = N64_NULL;
 static Gfx s_fxairscore_context[] ={
     gsDPPipeSync(),
     gsSPClearGeometryMode(G_ZBUFFER | G_SHADE | G_CULL_BOTH | G_FOG | G_LIGHTING | G_TEXTURE_GEN | G_TEXTURE_GEN_LINEAR | G_LOD | G_SHADING_SMOOTH),
@@ -44,9 +44,9 @@ void func_803016F0(void) {
 }
 
 void fxairscore_free(s32 arg0, struct7s *arg1) {
-    if (s_sprite != NULL) {
+    if (s_sprite != N64_NULL) {
         assetCache_free(s_sprite);
-        s_sprite = NULL;
+        s_sprite = N64_NULL;
     }
     func_803016F0();
 }
@@ -142,7 +142,7 @@ void fxairscore_update(enum item_e item_id, struct7s *arg1) {
         case 2:
             break;
         case 1: //load sprite
-            if (s_sprite == NULL) {
+            if (s_sprite == N64_NULL) {
                 s_sprite = (BKSprite *)assetcache_get(ASSET_7E5_SPRITE_WATER_HONEYCOMB);
             }
             break;

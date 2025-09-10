@@ -33,7 +33,7 @@ void sfxInstruments_init(void){
     bnkf = (ALBankFile *)malloc(size);
     osWritebackDCache(bnkf, size);
     osPiStartDma(func_802405D0(), 0, 0, (u32)soundfont1ctl_ROM_START, bnkf, size, func_802405C4());
-    osRecvMesg(func_802405C4(), NULL, 1);
+    osRecvMesg(func_802405C4(), N64_NULL, 1);
     alBnkfNew(bnkf, soundfont1tbl_ROM_START);
     bnk = bnkf->bankArray[0];
     inst = bnk->instArray[0];
@@ -73,7 +73,7 @@ void func_80335418(s32 arg0, s32 arg1){
 }
 
 void func_8033543C(Struct81s *arg0){
-    if(arg0 != NULL && func_802445AC(arg0) != 0){
+    if(arg0 != N64_NULL && func_802445AC(arg0) != 0){
         func_80244814(arg0);
     }
 }

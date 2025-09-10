@@ -50,7 +50,7 @@ void animsprite_init(void){
 
 /**
  * @brief Returns pointer to first free AnimSprite slot.
- * Returns NULL if not slots are free
+ * Returns N64_NULL if not slots are free
  * 
  * @return AnimSprite* 
  */
@@ -71,7 +71,7 @@ AnimSprite * animsprite_new(void){
             return &s_animsprite_list[i];
         }
     }
-    return NULL;
+    return N64_NULL;
 }
 
 /**
@@ -126,7 +126,7 @@ void animsprite_update(AnimSprite *this){
 void animsprite_default(AnimSprite *this){
     this->current_step = 0;
     this->remaining_time = 0.0f;
-    animsprite_set_steps(this, NULL, 1);
+    animsprite_set_steps(this, N64_NULL, 1);
     animsprite_set_speed(this, 1.0f);
     animsprite_set_start_step(this, 0);
     animsprite_set_state(this, ANIM_SPRITE_STATE_LOOP);

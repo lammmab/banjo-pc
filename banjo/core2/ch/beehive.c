@@ -40,7 +40,7 @@ void chBeehive_die(ActorMarker *this, ActorMarker *other){
 
 void chBeehive_update(Actor *this){
     if(!this->volatile_initialized){
-        marker_setCollisionScripts(this->marker, NULL, NULL, chBeehive_die);
+        marker_setCollisionScripts(this->marker, N64_NULL, N64_NULL, chBeehive_die);
         this->marker->propPtr->unk8_3 = 1;
         this->unk44_31 = sfxsource_createSfxsourceAndReturnIndex();
         this->volatile_initialized = true;
@@ -62,7 +62,7 @@ void chBeehive_update(Actor *this){
             ){
                 if(player_movementGroup() == BSGROUP_0_NONE || player_movementGroup() == BSGROUP_8_TROT){
                     if( player_getTransformation() == TRANSFORM_1_BANJO
-                        && gcdialog_showDialog(ASSET_D96_DIALOG_BEEHIVE_MEET, 0, NULL, NULL, NULL, 0)
+                        && gcdialog_showDialog(ASSET_D96_DIALOG_BEEHIVE_MEET, 0, N64_NULL, N64_NULL, N64_NULL, 0)
                     ){
                         fileProgressFlag_set(FILEPROG_D_BEEHIVE_TEXT, 1);
                     }

@@ -16,7 +16,7 @@ Actor *chnapper_draw(ActorMarker *marker, Gfx **gfx, Mtx **mtx, Vtx **vtx);
 /* .data */
 ActorInfo chNapper = {  
     MARKER_48_NAPPER, ACTOR_39_NAPPER, ASSET_55E_MODEL_NAPPER, 
-    0x0, NULL,
+    0x0, N64_NULL,
     chnapper_update, chnapper_update, chnapper_draw, 
     0, 0, 0.0f, 0
 };
@@ -62,7 +62,7 @@ void func_80386ACC(ActorMarker *this_marker, ActorMarker *other_marker){
     Actor *this = marker_getActor(this_marker);
 
     if(!this->has_met_before){
-        if(gcdialog_showDialog(0xad8, 0, NULL, NULL, NULL, NULL)){
+        if(gcdialog_showDialog(0xad8, 0, N64_NULL, N64_NULL, N64_NULL, N64_NULL)){
             this->has_met_before = true;
         }
     }
@@ -79,7 +79,7 @@ Actor *chnapper_draw(ActorMarker *marker, Gfx **gfx, Mtx **mtx, Vtx **vtx){
     }
     else {
         func_8033A45C(1, false);
-        func_8033A45C(2, BOOL(local->unk10));
+        func_8033A45C(2, (local->unk10));
         func_8033A45C(3, (local->unk10) ? false : true);
     }
 
@@ -110,9 +110,9 @@ void chnapper_update(Actor *this){
     if(!this->volatile_initialized){
         this->volatile_initialized = true;
         this->scale = 0.5f;
-        marker_setCollisionScripts(this->marker, func_80386ACC, NULL, NULL);
+        marker_setCollisionScripts(this->marker, func_80386ACC, N64_NULL, N64_NULL);
         local->unk10 = true;
-        local->jiggy_marker = NULL;
+        local->jiggy_marker = N64_NULL;
         local->unk4 = 0.0f;
         local->unk8 = 0.0f;
         local->unkC = 1.0f;

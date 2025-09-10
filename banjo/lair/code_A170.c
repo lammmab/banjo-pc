@@ -58,7 +58,7 @@ void func_803906A0(Actor *this) {
     s32 phi_s4;
 
     if (!this->initialized) {
-        marker_setCollisionScripts(this->marker, func_803905CC, NULL, NULL);
+        marker_setCollisionScripts(this->marker, func_803905CC, N64_NULL, N64_NULL);
         this->initialized = true;
         this->marker->propPtr->unk8_3 = true;
     }

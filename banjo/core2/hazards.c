@@ -267,13 +267,13 @@ void hazards_update(void) {
 
         collision = func_802946F0();
 
-        if (collision != NULL) {
+        if (collision != N64_NULL) {
             sp1C = collision->flags & 0x4000;
         }
 
         collision = func_8029463C();
 
-        if (collision != NULL) {
+        if (collision != N64_NULL) {
             sp18 = (collision->flags & 0x4000) && player_isStable();
         }
 

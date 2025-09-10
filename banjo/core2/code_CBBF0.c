@@ -22,7 +22,7 @@ CommonParticleType D_80386260[0x12];
 void commonParticleType_init(void){
     int i;
     for(i = 1; i < 0x12; i++){
-        commonParticleType_set(i, NULL, NULL, NULL, 0, 0);
+        commonParticleType_set(i, N64_NULL, N64_NULL, N64_NULL, 0, 0);
     }
 }
 

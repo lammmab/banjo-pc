@@ -47,16 +47,16 @@ s32 osContInit(OSMesgQueue *mq, u8 *bitpattern, OSContStatus *data)
 void __osContGetInitData(u8 *pattern, OSContStatus *data)
 {
     u8 *ptr;
-    __OSContRequesFormat requestformat;
+    __OSContRequestHeader requestformat;
     int i;
     u8 bits;
     bits = 0;
     ptr = (u8 *)&__osContPifRam;
-    for (i = 0; i < __osMaxControllers; i++, ptr += sizeof(__OSContRequesFormat), data++)
+    for (i = 0; i < __osMaxControllers; i++, ptr += sizeof(__OSContRequestHeader), data++)
     {
-        requestformat = *(__OSContRequesFormat *)ptr;
-        data->errno = CHNL_ERR(requestformat);
-        if (data->errno == 0)
+        requestformat = *(__OSContRequestHeader *)ptr;
+        data->err_no = CHNL_ERR(requestformat);
+        if (data->err_no == 0)
         {
             data->type = (requestformat.typel << 8) | requestformat.typeh;
             data->status = requestformat.status;
@@ -68,27 +68,27 @@ void __osContGetInitData(u8 *pattern, OSContStatus *data)
 void __osPackRequestData(u8 cmd)
 {
     u8 *ptr;
-    __OSContRequesFormat requestformat;
+    __OSContRequestHeader requestformat;
     int i;
-    for (i = 0; i < ARRLEN(__osContPifRam.ramarray) + 1; i++)
+    for (i = 0; i < ARRLEN(__osContPifRam.ram) + 1; i++)
     {
-        __osContPifRam.ramarray[i] = 0;
+        __osContPifRam.ram[i] = 0;
     }
-    __osContPifRam.pifstatus = CONT_CMD_EXE;
-    ptr = (u8 *)&__osContPifRam.ramarray;
-    requestformat.dummy = CONT_CMD_NOP;
+    __osContPifRam.status = CONT_CMD_EXE;
+    ptr = (u8 *)&__osContPifRam.ram;
+    requestformat.align = CONT_CMD_NOP;
     requestformat.txsize = CONT_CMD_REQUEST_STATUS_TX;
     requestformat.rxsize = CONT_CMD_REQUEST_STATUS_RX;
-    requestformat.cmd = cmd;
+    requestformat.poll = cmd;
     requestformat.typeh = CONT_CMD_NOP;
     requestformat.typel = CONT_CMD_NOP;
     requestformat.status = CONT_CMD_NOP;
-    requestformat.dummy1 = CONT_CMD_NOP;
+    requestformat.align1 = CONT_CMD_NOP;
 
     for (i = 0; i < __osMaxControllers; i++)
     {
-        *(__OSContRequesFormat *)ptr = requestformat;
-        ptr += sizeof(__OSContRequesFormat);
+        *(__OSContRequestHeader *)ptr = requestformat;
+        ptr += sizeof(__OSContRequestHeader);
     }
     ptr[0] = CONT_CMD_END;
 }

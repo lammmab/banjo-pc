@@ -6,8 +6,8 @@ void __codeBF0_draw(Actor *this);
 
 /* .data */
 ActorInfo gCodeBF0 = {
-    MARKER_134_UNKNOWN, ACTOR_16E_UNKNOWN, NULL,
-    1, NULL,
+    MARKER_134_UNKNOWN, ACTOR_16E_UNKNOWN, N64_NULL,
+    1, N64_NULL,
     __codeBF0_draw, actor_update_func_80326224, func_80325340,
     2000, 0, 0.0f, 0
 };

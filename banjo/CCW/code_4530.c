@@ -16,8 +16,8 @@ void func_8038AA8C(Actor *this);
 /* .data */
 ActorInfo D_8038F190 = {
     0x1B6, 0x2A3, 0x487,
-    0x0, NULL,
-    func_8038AA8C, NULL, func_8038AA38,
+    0x0, N64_NULL,
+    func_8038AA8C, N64_NULL, func_8038AA38,
     0, 0, 0.0f, 0
 };
 
@@ -44,7 +44,7 @@ void func_8038A950(Actor *this, s32 next_state) {
         skeletalAnim_set(this->unk148, 0x199, 0.0f, 6.5f);
     }
     if (next_state == 2) {
-        gcdialog_showDialog(0xCDC, 0xA, this->position, this->marker, func_8038A920, NULL);
+        gcdialog_showDialog(0xCDC, 0xA, this->position, this->marker, func_8038A920, N64_NULL);
     }
     if (next_state == 3) {
         skeletalAnim_set(this->unk148, 0x19A, 0.0f, 7.0f);

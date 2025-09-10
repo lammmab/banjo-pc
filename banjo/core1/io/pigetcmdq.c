@@ -2,10 +2,10 @@
 #include "functions.h"
 #include "variables.h"
 
-extern OSDevMgr __osPiDevMgr;
+extern OSMgrArgs __osPiDevMgr;
 
 OSMesgQueue *osPiGetCmdQueue(void){
-    if (!__osPiDevMgr.active)
-        return NULL;
+    if (!__osPiDevMgr.initialized)
+        return N64_NULL;
     return __osPiDevMgr.cmdQueue;
 }

@@ -55,7 +55,7 @@ void __chLoggo_collide(ActorMarker *this_marker, ActorMarker *other_marker) {
     }
 
     if ((player_getTransformation() == TRANSFORM_1_BANJO) && !fileProgressFlag_get(FILEPROG_88_TRIED_LOGGO_AS_BEAR)) {
-        if (gcdialog_showDialog(ASSET_ADE_DIALOG_LOGGO_AS_BEAR, 0x2A, this->position, NULL, NULL, NULL)) {
+        if (gcdialog_showDialog(ASSET_ADE_DIALOG_LOGGO_AS_BEAR, 0x2A, this->position, N64_NULL, N64_NULL, N64_NULL)) {
             fileProgressFlag_set(FILEPROG_88_TRIED_LOGGO_AS_BEAR, true);
         }
     }
@@ -73,7 +73,7 @@ void chLoggo_update(Actor *this) {
         this->marker->propPtr->unk8_3 = true;
 
         actor_collisionOn(this);
-        marker_setCollisionScripts(this->marker, __chLoggo_collide, NULL, NULL);
+        marker_setCollisionScripts(this->marker, __chLoggo_collide, N64_NULL, N64_NULL);
 
         subaddie_set_state_with_direction(this, LOGGO_STATE_1_IDLE, 0.01f, 1);
         actor_loopAnimation(this);
@@ -81,7 +81,7 @@ void chLoggo_update(Actor *this) {
         this->lifetime_value = 0.0f;
 
         if (!fileProgressFlag_get(FILEPROG_8A_EXITED_LOGGO) && levelSpecificFlags_get(LEVEL_FLAG_33_MMM_UNKNOWN)) {
-            if (gcdialog_showDialog(ASSET_AE0_DIALOG_EXIT_LOGGO, 4, NULL, NULL, NULL, NULL)) {
+            if (gcdialog_showDialog(ASSET_AE0_DIALOG_EXIT_LOGGO, 4, N64_NULL, N64_NULL, N64_NULL, N64_NULL)) {
                 fileProgressFlag_set(FILEPROG_8A_EXITED_LOGGO, true);
             }
         }

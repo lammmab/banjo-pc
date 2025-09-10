@@ -1,6 +1,8 @@
 #ifndef FUNCTIONS_H
 #define FUNCTIONS_H
 
+#include "n64_compat.h"
+
 #include "libultraship/libultra.h"
 
 #include "enums.h"

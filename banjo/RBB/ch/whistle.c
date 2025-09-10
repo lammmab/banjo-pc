@@ -29,20 +29,20 @@ Struct_RBB_4C70 D_80390950[] = {
 };
 
 ActorInfo D_803909B0 = {
-    0x2A, 0x1C2, 0x416, 0x0, NULL,
-    func_8038B340, NULL, func_8038B230,
+    0x2A, 0x1C2, 0x416, 0x0, N64_NULL,
+    func_8038B340, N64_NULL, func_8038B230,
     0, 0, 0.0f, 0
 };
 
 ActorInfo D_803909D4 = {
-    0x2B, 0x1C3, 0x416, 0x0, NULL,
-    func_8038B340, NULL, func_8038B230,
+    0x2B, 0x1C3, 0x416, 0x0, N64_NULL,
+    func_8038B340, N64_NULL, func_8038B230,
     0, 0, 0.0f, 0
 };
 
 ActorInfo RBB_D_803909F8 = {
-    0x2C, 0x1C4, 0x416, 0x0, NULL,
-    func_8038B340, NULL, func_8038B230,
+    0x2C, 0x1C4, 0x416, 0x0, N64_NULL,
+    func_8038B340, N64_NULL, func_8038B230,
     0, 0, 0.0f, 0
 };
 
@@ -62,7 +62,7 @@ Struct_RBB_4C70 *func_8038B060(Actor *this){
         if(iPtr->unk0 == this->modelCacheIndex)
             return iPtr;
     }
-    return NULL;
+    return N64_NULL;
 }
 
 void RBB_func_8038B0B8(Actor *this, s32 arg1){
@@ -113,7 +113,7 @@ Actor *func_8038B230(ActorMarker *marker, Gfx** gdl, Mtx** mptr, Vtx **arg3){
     sp3C[2] = actor->roll;
     modelRender_preDraw((GenFunction_1)actor_predrawMethod, (s32)actor);
     func_8033A450(func_80329934());
-    modelRender_draw(gdl, mptr, actor->position, sp3C, actor->scale, NULL, marker_loadModelBin(marker));
+    modelRender_draw(gdl, mptr, actor->position, sp3C, actor->scale, N64_NULL, marker_loadModelBin(marker));
     func_8034A174(func_80329934(), 5, local->unk4);
     local->unk4[0] -= 60.0f;
     return actor;

@@ -71,7 +71,7 @@ static void __gcquiz_closeZoomboxes(void);
 #define SELECTABLE_PORTAIT_COUNT 0x2C
 
 static u8 sPortraits[SELECTABLE_PORTAIT_COUNT+1] = {
-    NULL,
+    N64_NULL,
     ZOOMBOX_SPRITE_11_CHIMPY,
     ZOOMBOX_SPRITE_12_CONGA,
     ZOOMBOX_SPRITE_13_BLUBBER,
@@ -231,7 +231,7 @@ void gcquiz_init() {
     gczoombox_func_803184C8(sD_803830E0->zoomboxes[0], (f32)sD_803830E0->unk16, 5, 2, __gcquiz_animation_duration(0), __gcquiz_isZero(0), 0);
     for(i = 1; i < 4; i++){
         sD_803830E0->portait_ids[i] = 0;
-        sD_803830E0->zoomboxes[i] = NULL;
+        sD_803830E0->zoomboxes[i] = N64_NULL;
     }
     __gcquiz_advanceStateTo(GCQUIZ_STATE_0_INITIAL);
 }
@@ -239,22 +239,22 @@ void gcquiz_init() {
 void gcquiz_free() {
     s32 i;
 
-    if (sD_803830E0 != NULL) {
+    if (sD_803830E0 != N64_NULL) {
         free(sD_803830E0->unkC);
-        sD_803830E0->unkC = NULL;
+        sD_803830E0->unkC = N64_NULL;
         for(i = 0; i < 4; i++){
             gczoombox_free(sD_803830E0->zoomboxes[i]);
-            sD_803830E0->zoomboxes[i] = NULL;
+            sD_803830E0->zoomboxes[i] = N64_NULL;
         }
         free(sD_803830E0);
-        sD_803830E0 = NULL;
+        sD_803830E0 = N64_NULL;
     }
 }
 
 void gcquiz_draw(Gfx **gfx, Mtx **mtx, Vtx **vtx) {
     s32 i;
 
-    if (sD_803830E0 != NULL) {
+    if (sD_803830E0 != N64_NULL) {
         for(i = 0; i < 4; i++){
             gczoombox_draw(sD_803830E0->zoomboxes[i], gfx, mtx, vtx);
         }
@@ -371,7 +371,7 @@ static void __gcquiz_advanceStateTo(enum gcquiz_state state){
             sD_803830E0->question_type = 0;
             sD_803830E0->question_index = 0;
             sD_803830E0->quiz_question_time = 0;
-            sD_803830E0->unk8 = NULL;
+            sD_803830E0->unk8 = N64_NULL;
             sD_803830E0->selected_answer_index = -1;
             sD_803830E0->unk14 = 0;
             sD_803830E0->unk11 = -2;
@@ -381,7 +381,7 @@ static void __gcquiz_advanceStateTo(enum gcquiz_state state){
             for(i = 0; i < 4; i++){
                 sD_803830E0->answer_values[i] = -1;
                 for(j = 0; j < 4; j++){
-                    sD_803830E0->quiz_question.answer_options[i][j] = NULL;
+                    sD_803830E0->quiz_question.answer_options[i][j] = N64_NULL;
                 }
             }
             break;
@@ -423,7 +423,7 @@ static void __gcquiz_advanceStateTo(enum gcquiz_state state){
             sD_803830E0->answer_cursor_index = 1U;
 
             for (i = 1; i < 4; i++) {
-                __gcquiz_set_box_highlight(i, BOOL(i == sD_803830E0->answer_cursor_index));
+                __gcquiz_set_box_highlight(i, (i == sD_803830E0->answer_cursor_index));
             }
 
             break;
@@ -464,12 +464,12 @@ static void __gcquiz_advanceStateTo(enum gcquiz_state state){
             break;
 
         case GCQUIZ_STATE_A_UNKNOWN:
-            if (sD_803830E0->unk8 != NULL) {
+            if (sD_803830E0->unk8 != N64_NULL) {
                 sD_803830E0->unk8(sD_803830E0->unk4, sD_803830E0->unk11);
             }
             for(i = 1; i < 4; i++){
                 gczoombox_free(sD_803830E0->zoomboxes[i]);
-                sD_803830E0->zoomboxes[i] = NULL;
+                sD_803830E0->zoomboxes[i] = N64_NULL;
             }
             func_8025A55C(-1, 500, 10);
             break;
@@ -483,7 +483,7 @@ static void __gcquiz_advanceStateTo(enum gcquiz_state state){
 void __gcquiz_func_80319E20(s32 portrait_id, s32 zoombox_state) {
     if (zoombox_state == 3) {
         if (portrait_id == sD_803830E0->portait_ids[0]) {
-            if (sD_803830E0->unk8 != NULL) {
+            if (sD_803830E0->unk8 != N64_NULL) {
                 sD_803830E0->unk8(sD_803830E0->unk4, sD_803830E0->unk11);
             }
         } else {
@@ -504,7 +504,7 @@ void gcquiz_func_80319EA4(void) {
     if(getGameMode() != GAME_MODE_3_NORMAL && func_802E4A08() == false)
         return;
     
-    if(sD_803830E0 == NULL)
+    if(sD_803830E0 == N64_NULL)
         return;
 
     controller_copyFaceButtons(0, face_button_states);
@@ -608,7 +608,7 @@ bool __gcquiz_unused(u8 *arg0, s8 *arg1, QuizQuestionStruct *arg2, s32 arg3, voi
         }
         sD_803830E0->answer_values[i] = i;
     }
-    if (sD_803830E0->portait_ids[0] != NULL) {
+    if (sD_803830E0->portait_ids[0] != N64_NULL) {
         gczoombox_loadSprite(sD_803830E0->zoomboxes[0], sD_803830E0->portait_ids[0]);
     }
     sD_803830E0->question_type = -1;
@@ -624,19 +624,19 @@ bool __gcquiz_unused(u8 *arg0, s8 *arg1, QuizQuestionStruct *arg2, s32 arg3, voi
 
 // unused but making this static differs checksum
 void __gcquiz_unused2(u8 arg0, u8 arg1) {
-    if (sD_803830E0 != NULL) {
+    if (sD_803830E0 != N64_NULL) {
         sD_803830E0->unk16 = arg0;
         sD_803830E0->unk17 = arg1;
     }
 }
 
 bool gcquiz_isNotInInitialState(void){
-    return (sD_803830E0 != NULL) ? sD_803830E0->state != GCQUIZ_STATE_0_INITIAL: false;
+    return (sD_803830E0 != N64_NULL) ? sD_803830E0->state != GCQUIZ_STATE_0_INITIAL: false;
 }
 
 static void __gcquiz_closeZoomboxes(){
     s32 i;
-    if(sD_803830E0 != NULL){
+    if(sD_803830E0 != N64_NULL){
         for(i = 0; i < 4; i++){
             gczoombox_minimize(sD_803830E0->zoomboxes[i]);
             gczoombox_close(sD_803830E0->zoomboxes[i]);
@@ -654,7 +654,7 @@ s32 gcquiz_getLastIndexOfQuestionType(enum ff_question_type_e question_type) {
 }
 
 void gcquiz_func_8031A48C(void) {
-    if ((sD_803830E0 != NULL) && (sD_803830E0->state == GCQUIZ_STATE_1_SHOW_QUESTION_VIA_ZOOMBOX)) {
+    if ((sD_803830E0 != N64_NULL) && (sD_803830E0->state == GCQUIZ_STATE_1_SHOW_QUESTION_VIA_ZOOMBOX)) {
         __gcquiz_advanceStateTo(GCQUIZ_STATE_2_SHOW_PORTRAITS_FOR_QUESTION);
     }
 }
@@ -662,7 +662,7 @@ void gcquiz_func_8031A48C(void) {
 void gcquiz_defrag() {
     s32 i;
 
-    if (sD_803830E0 != NULL) {
+    if (sD_803830E0 != N64_NULL) {
         for(i = 0; i < 4; i++){
             gczoombox_defrag(sD_803830E0->zoomboxes[i]);
             sD_803830E0->zoomboxes[i] = (GcZoombox *)defrag(sD_803830E0->zoomboxes[i]);

@@ -20,7 +20,7 @@ typedef struct chspellbarrier_s {
     u8 sfxsourceIdx;
 } ActorLocal_SpellBarrier;
 
-ActorInfo chSpellBarrier = { MARKER_284_GRUNTY_SPELL_BARRIER, ACTOR_3AB_GRUNTY_SPELL_BARRIER, ASSET_546_MODEL_GRUNTY_SPELL_BARRIER, 1, NULL, chspellbarrier_update, actor_update_func_80326224, actor_draw, 0, 0, 0.0f, 0 };
+ActorInfo chSpellBarrier = { MARKER_284_GRUNTY_SPELL_BARRIER, ACTOR_3AB_GRUNTY_SPELL_BARRIER, ASSET_546_MODEL_GRUNTY_SPELL_BARRIER, 1, N64_NULL, chspellbarrier_update, actor_update_func_80326224, actor_draw, 0, 0, 0.0f, 0 };
 
 void chspellbarrier_collisionPassive(ActorMarker *this, ActorMarker *other) {
     Actor *actor_spellbarrier = marker_getActor(this);
@@ -59,7 +59,7 @@ void chspellbarrier_update(Actor *this) {
 
     if (!this->volatile_initialized){
         this->volatile_initialized = true;
-        marker_setCollisionScripts(this->marker, NULL, chspellbarrier_collisionPassive, NULL);
+        marker_setCollisionScripts(this->marker, N64_NULL, chspellbarrier_collisionPassive, N64_NULL);
         marker_setFreeMethod(this->marker, chspellbarrier_free);
         this->marker->propPtr->unk8_3 = 0;
         actor_collisionOn(this);

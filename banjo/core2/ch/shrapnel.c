@@ -126,7 +126,7 @@ void chShrapnel_explode(ActorMarker *marker, ActorMarker *other_marker) {
 void chShrapnel_func_802D0FC8(Actor *this) {
     this->unk4C += time_getDelta();
     if (MAX(0.25, (12.0 - this->actor_specific_1_f) / 12.0) < this->unk4C) {
-        *(s32 *)(&this->local) = NOT(*(s32 *)(&this->local));
+        *(s32 *)(&this->local) = !(*(s32 *)(&this->local));
         this->unk4C = 0.0f;
         if (*(s32 *)(&this->local)) {
             sfx_playFadeShorthandDefault(SFX_2A_CLOCK_TIC_1, 0.5f, 12000, this->position, 1250, 2500);
@@ -143,7 +143,7 @@ void chshrapnel_update(Actor *this) {
 
     tick = time_getDelta();
     if (!this->initialized) {
-        marker_setCollisionScripts(this->marker, NULL, NULL, chShrapnel_explode);
+        marker_setCollisionScripts(this->marker, N64_NULL, N64_NULL, chShrapnel_explode);
         this->unk138_25 = true;
         this->initialized = true;
         this->unk4C = 0.0f;

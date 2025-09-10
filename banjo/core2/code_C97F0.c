@@ -105,7 +105,7 @@ Struct_core2_C97F0_0 *func_803507CC(enum map_e map_id) {
             return i_ptr;
         }
     }
-    return NULL;
+    return N64_NULL;
 }
 
 void func_80350818(Gfx **gfx, Mtx **mtx, Vtx **vtx) {
@@ -122,12 +122,12 @@ void func_80350818(Gfx **gfx, Mtx **mtx, Vtx **vtx) {
     s32 sp80[4];
 
     temp_s2 = D_80386170.unk0;
-    if(temp_s2 != NULL){
+    if(temp_s2 != N64_NULL){
 
     }
 
     temp_s1 = D_80386170.unk4;
-    if (( temp_s1 != NULL) && D_8038617C.unk0) {
+    if (( temp_s1 != N64_NULL) && D_8038617C.unk0) {
         viewport_getPosition_vec3f(spDC);
         viewport_getRotation_vec3f(spD0);
         sp9C[0] = temp_s1->unk4[0];
@@ -162,7 +162,7 @@ void func_80350818(Gfx **gfx, Mtx **mtx, Vtx **vtx) {
                     sp80[3] = temp_s2->unk4[i].unk4[3];
                     sp80[3] *= var_f22;
                     modelRender_setPrimAndEnvColors(sp80, D_803725A8);
-                    modelRender_draw(gfx, mtx, spB8, spD0, temp_s2->unk4[i].unk14*0.25, NULL, D_80386170.unk8);
+                    modelRender_draw(gfx, mtx, spB8, spD0, temp_s2->unk4[i].unk14*0.25, N64_NULL, D_80386170.unk8);
                 }
             }
         }
@@ -170,14 +170,14 @@ void func_80350818(Gfx **gfx, Mtx **mtx, Vtx **vtx) {
 }
 
 void func_80350BC8(void){
-    if(D_80386170.unk4 != NULL){
+    if(D_80386170.unk4 != N64_NULL){
         assetcache_release(D_80386170.unk8);
     }
 }
 
 void func_80350BFC(void) {
     D_80386170.unk4 = func_803507CC(map_get());
-    if (D_80386170.unk4 != NULL) {
+    if (D_80386170.unk4 != N64_NULL) {
         D_80386170.unk0 = func_80350780(D_80386170.unk4->unk10);
         D_80386170.unk8 = assetcache_get(0x882);
         ml_vec3f_set_length(D_80386170.unk4->unk4, (2*(f32)gFramebufferWidth) / 2);
@@ -194,7 +194,7 @@ void func_80350CA4(void) {
     f32 sp24[3];
     s32 var_v0;
 
-    if (D_80386170.unk4 != NULL) {
+    if (D_80386170.unk4 != N64_NULL) {
         viewport_getPosition_vec3f(sp54);
         sp48[0] = D_80386170.unk4->unk4[0];
         sp48[1] = D_80386170.unk4->unk4[1];

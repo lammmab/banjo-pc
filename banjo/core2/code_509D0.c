@@ -20,14 +20,14 @@ ActorAnimationInfo D_80367B50[] = {
 
 ActorInfo D_80367B80 = {
     MARKER_36_ORANGE_COLLECTIBLE, ACTOR_29_ORANGE_COLLECTIBLE, ASSET_2D2_MODEL_ORANGE,
-    0x5, NULL,
+    0x5, N64_NULL,
     chLevelCollectible_update, actor_update_func_80326224, actor_draw,
     0, 0, 0.6f,0
 };
 
 ActorInfo D_80367BA4 = {
     MARKER_37_GOLD_BULLION, ACTOR_2A_GOLD_BULLION, ASSET_3C7_MODEL_GOLD_BULLION,
-    0x5, NULL,
+    0x5, N64_NULL,
     chLevelCollectible_update, actor_update_func_80326224, actor_draw,
     0, 0, 0.6f, 0
 };
@@ -90,7 +90,7 @@ s32 __chLevelCollectible_dialogCallback(ActorMarker *marker, enum asset_e text_i
 
 
 void __chLevelCollectible_callDialog(enum asset_e text_id){
-    gcdialog_showDialogConditional(text_id, 0, NULL, NULL, NULL, NULL, __chLevelCollectible_dialogCallback);
+    gcdialog_showDialogConditional(text_id, 0, N64_NULL, N64_NULL, N64_NULL, N64_NULL, __chLevelCollectible_dialogCallback);
 }
 
 void __chLevelCollectible_collide(ActorMarker *marker, ActorMarker *other_marker) {

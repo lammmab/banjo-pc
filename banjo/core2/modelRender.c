@@ -676,14 +676,14 @@ void modelRender_reset(void){
     D_80383710 = false;
     modelRenderColorMode = COLOR_MODE_STATIC_OPAQUE;
     D_80383650 = 0;
-    modelRenderDisplayList = NULL;
-    D_8038371C = NULL;
-    modelRenderTextureList = NULL;
+    modelRenderDisplayList = N64_NULL;
+    D_8038371C = N64_NULL;
+    modelRenderTextureList = N64_NULL;
     modelRenderAnimatedTexturesCacheId = 0;
-    modelRendervertexList = NULL;
+    modelRendervertexList = N64_NULL;
     D_8038372C = 0;
-    modelRenderCallback.pre_method = NULL;
-    modelRenderCallback.post_method = NULL;
+    modelRenderCallback.pre_method = N64_NULL;
+    modelRenderCallback.post_method = N64_NULL;
     D_803837B0.unk0 = 0;
     D_803837C8.model_id = 0;
     modelRenderDepthMode = MODEL_RENDER_DEPTH_NONE;
@@ -1102,18 +1102,18 @@ BKModelBin *modelRender_draw(Gfx **gfx, Mtx **mtx, f32 position[3], f32 rotation
         return 0;
     }
 
-    if(modelRenderCallback.pre_method != NULL){
+    if(modelRenderCallback.pre_method != N64_NULL){
         modelRenderCallback.pre_method(modelRenderCallback.pre_arg);
     }
     func_80349AD0();
-    if(model_bin == NULL){
+    if(model_bin == N64_NULL){
         model_bin = assetcache_get(D_803837C8.model_id);
     }
     modelRenderModelBin = model_bin;
     modelRenderDisplayList = modelRenderDisplayList ? modelRenderDisplayList : (BKGfxList *)((s32)modelRenderModelBin + modelRenderModelBin->gfx_list_offset_C),
     modelRenderTextureList = modelRenderTextureList ? modelRenderTextureList : (BKTextureList *)((s32)modelRenderModelBin + modelRenderModelBin->texture_list_offset_8),
     modelRendervertexList = modelRendervertexList ? modelRendervertexList : (BKVertexList *)((s32)modelRenderModelBin + modelRenderModelBin->vtx_list_offset_10),
-    D_8038372C = (modelRenderModelBin->unk20 == NULL) ? NULL : (BKModelUnk20List *)((u8*)model_bin + model_bin->unk20);
+    D_8038372C = (modelRenderModelBin->unk20 == N64_NULL) ? N64_NULL : (BKModelUnk20List *)((u8*)model_bin + model_bin->unk20);
 
     if(D_80383710){
         tmp_f0 = D_80383708 - 500.0f;
@@ -1232,7 +1232,7 @@ BKModelBin *modelRender_draw(Gfx **gfx, Mtx **mtx, f32 position[3], f32 rotation
         D_8038371C = 0;
     }
     else if(D_8038371C == 0 && modelRenderModelBin->animation_list_offset_18){
-        if(modelRenderBoneTransformList == NULL){
+        if(modelRenderBoneTransformList == N64_NULL){
             animMtxList_setBoneless(&modelRenderAnimMtxList, (u8*)model_bin + model_bin->animation_list_offset_18);
         }
         else{
@@ -1245,7 +1245,7 @@ BKModelBin *modelRender_draw(Gfx **gfx, Mtx **mtx, f32 position[3], f32 rotation
         func_802ED52C(D_8038372C, modelRenderCameraPosition, scale);
     }
 
-    if(model_bin->unk28 != NULL && D_8038371C != NULL){
+    if(model_bin->unk28 != N64_NULL && D_8038371C != N64_NULL){
         func_802E6BD0((s32)modelRenderModelBin + modelRenderModelBin->unk28, modelRendervertexList, D_8038371C);
     }
 
@@ -1278,7 +1278,7 @@ BKModelBin *modelRender_draw(Gfx **gfx, Mtx **mtx, f32 position[3], f32 rotation
     func_80339124(gfx, mtx, (BKGeoList *)((u8 *)model_bin + model_bin->geo_list_offset_4));
     gSPPopMatrix((*gfx)++, G_MTX_MODELVIEW);
 
-    if(modelRenderCallback.post_method != NULL){
+    if(modelRenderCallback.post_method != N64_NULL){
         modelRenderCallback.post_method(modelRenderCallback.post_arg);
     }
 
@@ -1292,7 +1292,7 @@ BKModelBin *modelRender_draw(Gfx **gfx, Mtx **mtx, f32 position[3], f32 rotation
 
 BKModelUnk28List *func_8033A048(BKModelBin *arg0){
     if(arg0->unk28 == 0)
-        return NULL;
+        return N64_NULL;
     return (BKModelUnk28List *)((s32)arg0 + arg0->unk28);
 }
 
@@ -1309,18 +1309,18 @@ BKGfxList *model_getDisplayList(BKModelBin *arg0){
 }
 
 BKCollisionList *model_getCollisionList(BKModelBin *arg0){
-    if(arg0 == NULL)
-        return NULL;
+    if(arg0 == N64_NULL)
+        return N64_NULL;
     
     if(arg0->collision_list_offset_1C == 0)
-        return NULL;
+        return N64_NULL;
 
     return (BKCollisionList *)((s32)arg0 + arg0->collision_list_offset_1C);
 }
 
 BKEffectsList *func_8033A0B0(BKModelBin *arg0){
     if(arg0->effects_list_setup_24 == 0)
-        return NULL;
+        return N64_NULL;
 
     return (BKEffectsList *)((s32)arg0 + arg0->effects_list_setup_24);
 }
@@ -1331,7 +1331,7 @@ f32 func_8033A0CC(UNK_TYPE(void *) arg0){
 
 BKAnimationList *model_getAnimationList(BKModelBin *arg0){
     if(arg0->animation_list_offset_18 == 0)
-        return NULL;
+        return N64_NULL;
 
     return (BKAnimationList *)((s32)arg0 + arg0->animation_list_offset_18);
 }
@@ -1346,7 +1346,7 @@ BKTextureList *model_getTextureList(BKModelBin *model_bin){
 
 AnimTexture *model_getAnimTextureList(BKModelBin *model_bin){
     if(model_bin->animated_texture_list_offset == 0)
-        return NULL;
+        return N64_NULL;
     return (void*)((s32)model_bin + model_bin->animated_texture_list_offset);
 }
 
@@ -1361,7 +1361,7 @@ BKVertexList *model_getVtxList(BKModelBin *arg0){
 }
 
 BKModelUnk20List *func_8033A154(BKModelBin *arg0){
-    return (arg0->unk20 == 0) ? NULL : (BKModelUnk20List *)((s32)arg0 + arg0->unk20);
+    return (arg0->unk20 == 0) ? N64_NULL : (BKModelUnk20List *)((s32)arg0 + arg0->unk20);
 }
 
 s32 func_8033A170(void){
@@ -1370,7 +1370,7 @@ s32 func_8033A170(void){
 
 void modelRender_free(void){
     animMtxList_free(modelRenderAnimMtxList);
-    modelRenderAnimMtxList = NULL;
+    modelRenderAnimMtxList = N64_NULL;
 }
 
 void modelRender_init(void){
@@ -1400,7 +1400,7 @@ f32 func_8033A244(f32 arg0){
 }
 
 void func_8033A25C(bool arg0){
-    D_80383704 = BOOL(arg0);
+    D_80383704 = (arg0);
 }  
 
 void func_8033A280(f32 arg0){
@@ -1518,7 +1518,7 @@ void modelRender_setDepthMode(enum model_render_depth_mode_e renderMode){
 }
 
 void modelRender_defrag(void){
-    if(modelRenderAnimMtxList != NULL){
+    if(modelRenderAnimMtxList != N64_NULL){
         modelRenderAnimMtxList = animMtxList_defrag(modelRenderAnimMtxList);
     }
 }

@@ -23,7 +23,7 @@ void func_8034F268(Struct75s *arg0, BKModel *arg1, s32 arg2) {
     void *temp_v0;
 
     temp_v0 = func_8034C448(arg2 - 0x64);
-    if (temp_v0 != NULL) {
+    if (temp_v0 != N64_NULL) {
         arg0->unk0 = func_8034F560(temp_v0) / 255.0;
     } else {
         arg0->unk0 = 0.0f;

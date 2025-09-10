@@ -121,7 +121,7 @@ void __baMarker_8028B848(void){
         if(player_getTransformation() ==  TRANSFORM_1_BANJO){
             __baMarker_8028B7F4();
         }
-        gcdialog_showDialog(s0, 0x2A, NULL, NULL, NULL, 0);
+        gcdialog_showDialog(s0, 0x2A, N64_NULL, N64_NULL, N64_NULL, 0);
     }
 }
 
@@ -155,7 +155,7 @@ void __baMarker_8028B9A8(s32 arg0){
     NodeProp *tmp_v0;
     s32 ideal_yaw[3];
 
-    tmp_v0 = cubeList_findNodePropByActorIdAndPosition_s32(0x1F6, NULL);
+    tmp_v0 = cubeList_findNodePropByActorIdAndPosition_s32(0x1F6, N64_NULL);
     nodeprop_getPosition_s32(tmp_v0, &ideal_yaw);
     func_802CA1CC(arg0);
     actor_spawnWithYaw_s32(ACTOR_47_EMPTY_HONEYCOMB, &ideal_yaw, 0);
@@ -226,7 +226,7 @@ int __baMarker_8028BC20(ActorMarker *marker){
 }
 
 int __baMarker_8028BC60(void){
-    return D_8037BF90 == 1 && player_getActiveHitbox(NULL) == HITBOX_5_PECK;
+    return D_8037BF90 == 1 && player_getActiveHitbox(N64_NULL) == HITBOX_5_PECK;
 } 
 
 void __baMarker_resolveCollision(Prop *other_prop){
@@ -255,7 +255,7 @@ void __baMarker_resolveCollision(Prop *other_prop){
         plyr_collision_type = MARKER_COLLISION_FUNC_0;
         obj_collision_type = MARKER_COLLISION_FUNC_0;
         marker = other_prop->actorProp.marker;
-        actor = NULL;
+        actor = N64_NULL;
         if(marker->unk3E_0){
             actor = marker_getActor(marker);
             if(actor->despawn_flag)
@@ -875,7 +875,7 @@ void baMarker_init(void){
     _player_getPosition(sp1C);
     playerMarker = func_8032FBE4(sp1C, baModel_80291AAC, 1, 0);
     playerMarker->unk2C_1 = 1;
-    marker_setCollisionScripts(playerMarker, NULL, func_80291634, func_80291610);
+    marker_setCollisionScripts(playerMarker, N64_NULL, func_80291634, func_80291610);
     func_803300B8(playerMarker, baMarker_8028D7B8);
     baflag_clear(BA_FLAG_1_ON_FLIGHT_PAD);
     baflag_clear(BA_FLAG_2_ON_SPRING_PAD);
@@ -889,7 +889,7 @@ void baMarker_init(void){
 
 void baMarker_free(void){
     marker_free(playerMarker);
-    playerMarker = NULL;
+    playerMarker = N64_NULL;
 }
 
 
@@ -917,7 +917,7 @@ void baMarker_update(void){
         baflag_clear(BA_FLAG_2_ON_SPRING_PAD);
         _player_getPosition(sp168);
         func_8032F64C(sp168, playerMarker);
-        for(D_8037BF8C = NULL, i = 0, temp_s2 = 0; i < 2;i++){//L8028D3DC
+        for(D_8037BF8C = N64_NULL, i = 0, temp_s2 = 0; i < 2;i++){//L8028D3DC
             D_8037BF90 = i;
             baModel_80292284(sp174, i); //get top of player?
             playerMarker->unk38[0] = sp174[0] - sp168[0];
@@ -957,7 +957,7 @@ void baMarker_collisionOn(void){ //player_collisionOn
 }
 
 bool baMarker_isCollidable(void){ //player_isCollidable
-    return BOOL(playerMarker->collidable);
+    return (playerMarker->collidable);
 }
 
 void baMarker_8028D638(s32 arg0, s32 arg1){
@@ -994,7 +994,7 @@ s32 baMarker_8028D694(void) {
     s32 phi_v1;
 
     phi_v1 = 0;
-    if (D_8037BF8C != NULL) {
+    if (D_8037BF8C != N64_NULL) {
         temp_a0 = D_8037BF8C->unk40_31 - 0xB;
         if ((temp_a0 >= 0) && (temp_a0 < 4) && (((1 << temp_a0) & D_8037BF8C->unk40_27))) {
             phi_v1 = 0x08000000 << temp_a0;

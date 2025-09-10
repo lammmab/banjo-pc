@@ -353,7 +353,7 @@ s32 func_802EB8A0(BKModelUnk14List *arg0, f32 *position, f32 *rotation, f32 scal
 }
 
 bool func_802EBA98(BKModelUnk14List *arg0, f32 arg1[3], f32 rotation[3], f32 scale, f32 arg4[3], f32 arg5[3], f32 arg6, f32 arg7[3]){
-    return func_802EBAE0(arg0, arg1, rotation, scale, arg4, NULL, arg5, arg6, arg7);
+    return func_802EBAE0(arg0, arg1, rotation, scale, arg4, N64_NULL, arg5, arg6, arg7);
 }
 
 s32 func_802EBAE0(BKModelUnk14List *arg0, f32 position[3], f32 rotation[3], f32 scale, f32 arg4[3], AnimMtxList* arg5, f32 arg6[3], f32 arg7, f32 arg8[3])
@@ -540,13 +540,13 @@ s32 func_802EC394(BKModelUnk14List *arg0, f32 position[3], f32 rotation[3], f32 
 
     //transform type 0
     phi_v0 = func_802EBD3C(arg0, position, rotation, scale, arg4, arg5, arg6);
-    if (phi_v0 != NULL) {
+    if (phi_v0 != N64_NULL) {
         return phi_v0;
     }
 
     //transform type 1
     phi_v0 = func_802EC000(arg0, position, rotation, scale, arg4, arg5, arg6);
-    if (phi_v0 != NULL) {
+    if (phi_v0 != N64_NULL) {
         return phi_v0;
     }
 

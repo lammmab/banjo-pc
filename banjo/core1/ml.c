@@ -13,7 +13,7 @@ u32 D_80276CB0 = 0x90FA97CB; //WHAT IS THIS?
 u32 D_80276CB4 = 0x8D96D002; //WHAT IS THIS?
 #endif
 
-u16 *D_80276CB8 = NULL; //! ml_acosPrecValTblPtr
+u16 *D_80276CB8 = N64_NULL; //! ml_acosPrecValTblPtr
 
 //! Might not be 90, but 91 or 92? Initial lowerIdx is OOB if 90
 f32 sLookupTableAcosDegrees[90] = {
@@ -531,7 +531,7 @@ void ml_init(void)
 void ml_free(void)
 {
     free(D_80276CB8);
-    D_80276CB8 = NULL;
+    D_80276CB8 = N64_NULL;
 }
 
 f32 func_802575BC(f32 val)
@@ -566,7 +566,7 @@ f32 func_80257680(f32 val1, f32 val2, f32 val3)
 void ml_defrag(void)
 {
 
-    if (!func_802559A0() && D_80276CB8 != NULL)
+    if (!func_802559A0() && D_80276CB8 != N64_NULL)
         // Updates heap location for asin/acos value table?
         D_80276CB8 = (u16*) defrag(D_80276CB8);
 }

@@ -41,8 +41,8 @@ Actor *chBeeSwarm_draw(ActorMarker *marker, Gfx **gfx, Mtx **mtx, Vtx **vtx);
 /* .data */
 ActorInfo D_80367310 = {
     MARKER_217_BEE_SWARM, ACTOR_34D_BEE_SWARM, ASSET_49E_SPRITE_BEE_SWARM, 
-    1, NULL, 
-    chBeeSwarm_update, NULL, chBeeSwarm_draw,
+    1, N64_NULL, 
+    chBeeSwarm_update, N64_NULL, chBeeSwarm_draw,
     0, 0, 1.0f, 0
 }; 
 
@@ -54,7 +54,7 @@ void func_802CEB60(Actor *this){
 
     local = (ActorLocal_core2_47BD0 *)&this->local;
     if(this->volatile_initialized){
-        if(local->unk8 != NULL){
+        if(local->unk8 != N64_NULL){
             local->unk8 = (Struct_core2_47BD0_0 *)defrag(local->unk8);
         }
     }
@@ -64,13 +64,13 @@ void chBeeSwarm_802CEBA8(Actor *this){
     ActorLocal_core2_47BD0 *local;
 
     local = (ActorLocal_core2_47BD0 *)&this->local;
-    this->partnerActor = NULL;
+    this->partnerActor = N64_NULL;
     
     free(local->unk8);
-    local->unk8 = NULL;
+    local->unk8 = N64_NULL;
     
     assetcache_release(local->unk20);
-    local->unk20 = NULL;
+    local->unk20 = N64_NULL;
 
     D_8037DCBC = 0;
 }
@@ -98,13 +98,13 @@ Actor *chBeeSwarm_draw(ActorMarker *marker, Gfx **gfx, Mtx **mtx, Vtx **vtx){
 
         modelRender_setDepthMode(MODEL_RENDER_DEPTH_COMPARE);
         modelRender_setAlpha(0xFF);
-        modelRender_draw(gfx, mtx, sp8C, sp80, 0.25f, NULL, phi_fp);
+        modelRender_draw(gfx, mtx, sp8C, sp80, 0.25f, N64_NULL, phi_fp);
         local->unk5 |= func_8033A170();
         if(phi_s2 < 10){
             sp8C[1] = local->unk18 + 6.0f;
             modelRender_setAlpha(0xC0);
             modelRender_setDepthMode(MODEL_RENDER_DEPTH_COMPARE);
-            modelRender_draw(gfx, mtx, sp8C, sp80, 0.1f, NULL, local->unk20);
+            modelRender_draw(gfx, mtx, sp8C, sp80, 0.1f, N64_NULL, local->unk20);
             local->unk5 |= func_8033A170();
         }
         phi_s0++;
@@ -269,7 +269,7 @@ bool chBeeSwarm_802CF5E4(Actor *this){
     bool out = 1;
 
     local = (ActorLocal_core2_47BD0 *) &this->local;
-    out = (this->partnerActor != NULL) ? out = local->unk24 != this->partnerActor->unk5C
+    out = (this->partnerActor != N64_NULL) ? out = local->unk24 != this->partnerActor->unk5C
         : 1;
     return out;
 }
@@ -322,9 +322,9 @@ void chBeeSwarm_update(Actor *this) {
     if (!this->initialized) {
         this->initialized = true;
         beehive = actorArray_findClosestActorFromActorId(this->position, ACTOR_12_BEEHIVE, -1, &distance_to_home);
-        this->partnerActor = (beehive != NULL) ? beehive->marker : NULL;
+        this->partnerActor = (beehive != N64_NULL) ? beehive->marker : N64_NULL;
         if(500.0f < distance_to_home){
-            this->partnerActor = NULL;
+            this->partnerActor = N64_NULL;
         }
         sp78 = 1;
         local->unk18 = (f32) this->position[1];
@@ -360,21 +360,21 @@ void chBeeSwarm_update(Actor *this) {
         local->unk20 = assetcache_get(ASSET_3BF_MODEL_PLAYER_SHADOW);
         if (sp78 == 0) {
             beehive = actorArray_findClosestActorFromActorId(this->position, ACTOR_12_BEEHIVE, -1, &distance_to_home);
-            if (beehive != NULL) {
+            if (beehive != N64_NULL) {
                 this->partnerActor = beehive->marker;
             } else {
-                this->partnerActor = NULL;
+                this->partnerActor = N64_NULL;
             }
             if (distance_to_home > 500.0f) {
-                this->partnerActor = NULL;
+                this->partnerActor = N64_NULL;
             }
         }
-         local->unk24 = (this->partnerActor != NULL) ? this->partnerActor->unk5C : 0;
+         local->unk24 = (this->partnerActor != N64_NULL) ? this->partnerActor->unk5C : 0;
         local->unk5 = 1;
-        if (this->partnerActor != NULL) {
+        if (this->partnerActor != N64_NULL) {
             fileProgressFlag_set(FILEPROG_D_BEEHIVE_TEXT, true);
         }
-        subaddie_set_state(this, (this->partnerActor != NULL) ? 1 : 2);
+        subaddie_set_state(this, (this->partnerActor != N64_NULL) ? 1 : 2);
         this->lifetime_value = 0.0f;
         chBeeSwarm_802CF040(this);
         this->unk38_0 = volatileFlag_get(VOLATILE_FLAG_1) | volatileFlag_get(VOLATILE_FLAG_1F_IN_CHARACTER_PARADE);
@@ -447,7 +447,7 @@ void chBeeSwarm_update(Actor *this) {
         if (!fileProgressFlag_get(FILEPROG_8F_MET_BEE_INFESTED_BEEHIVE) && subaddie_playerIsWithinCylinder(this, 250, 300) 
             && ((player_movementGroup() == BSGROUP_0_NONE) || (player_movementGroup() == BSGROUP_8_TROT)) 
             && (player_getTransformation() == TRANSFORM_1_BANJO) 
-            && (gcdialog_showDialog(0xDA6, 0, NULL, NULL, NULL, NULL) != 0)
+            && (gcdialog_showDialog(0xDA6, 0, N64_NULL, N64_NULL, N64_NULL, N64_NULL) != 0)
         ) {
             fileProgressFlag_set(FILEPROG_8F_MET_BEE_INFESTED_BEEHIVE, true);
         }

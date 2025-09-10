@@ -135,7 +135,7 @@ bool func_8035FC98(Actor *this, f32 arg1){
     TUPLE_COPY(sp1C, sp28);
     sp1C[1] += arg1;
 
-    if (func_80309B48(sp28, sp1C, sp34, 0x5E0000) != NULL)
+    if (func_80309B48(sp28, sp1C, sp34, 0x5E0000) != N64_NULL)
         return true;
     return false;
 
@@ -397,7 +397,7 @@ void chbat_update(Actor *this){
 
     if(!this->initialized){
         this->initialized = true;
-        marker_setCollisionScripts(this->marker, NULL, chBat_attackCollision, chBat_dieCollision);
+        marker_setCollisionScripts(this->marker, N64_NULL, chBat_attackCollision, chBat_dieCollision);
         this->unk38_0 = false;
         this->actor_specific_1_f = 0.0f;
         this->velocity_x = 0.0f;

@@ -29,7 +29,14 @@ extern u32 load_num, load_cnt, load_max, load_min, save_num, save_cnt, save_max,
      in = t;		\
 }
 
+#define aSaveBufferWrapper(pkt, d) \
+    aSaveBuffer(pkt, 0, d, 1)  // DMEM offset=0, count=1
 
+#define aInterleaveWrapper(pkt, l, r) \
+    aInterleave(pkt, 0, l, r, 1)
+
+#define aLoadBufferWrapper(pkt, s) \
+    aLoadBuffer(pkt, s, 0, 1)
 
 Acmd *_loadOutputBuffer(ALFx *r, ALDelay *d, s32 buff, s32 incount, Acmd *p);
 Acmd *_loadBuffer(ALFx *r, s16 *curr_ptr, s32 buff, s32 count, Acmd *p);
@@ -322,12 +329,12 @@ Acmd *_loadBuffer(ALFx *r, s16 *curr_ptr, s32 buff, s32 count, Acmd *p)
         before_end = delay_end - curr_ptr;
         
         aSetBuffer(ptr++, 0, buff, 0, before_end<<1);
-        aLoadBuffer(ptr++, osVirtualToPhysical(curr_ptr));
+        aLoadBufferWrapper(ptr++, osVirtualToPhysical(curr_ptr));
         aSetBuffer(ptr++, 0, buff+(before_end<<1), 0, after_end<<1);
-        aLoadBuffer(ptr++, osVirtualToPhysical(r->base));
+        aLoadBufferWrapper(ptr++, osVirtualToPhysical(r->base));
     } else {
         aSetBuffer(ptr++, 0, buff, 0, count<<1);
-        aLoadBuffer(ptr++, osVirtualToPhysical(curr_ptr));
+        aLoadBufferWrapper(ptr++, osVirtualToPhysical(curr_ptr));
     }
 
     aSetBuffer(ptr++, 0, 0, 0, count<<1);
@@ -365,13 +372,13 @@ Acmd *_saveBuffer(ALFx *r, s16 *curr_ptr, s32 buff, s32 count, Acmd *p)
         before_end = delay_end - curr_ptr;
 
         aSetBuffer(ptr++, 0, 0, buff, before_end<<1);
-        aSaveBuffer(ptr++, osVirtualToPhysical(curr_ptr));
+        aSaveBufferWrapper(ptr++, osVirtualToPhysical(curr_ptr));
         aSetBuffer(ptr++, 0, 0, buff+(before_end<<1), after_end<<1);
-        aSaveBuffer(ptr++, osVirtualToPhysical(r->base));
+        aSaveBufferWrapper(ptr++, osVirtualToPhysical(r->base));
         aSetBuffer(ptr++, 0, 0, 0, count<<1);
     } else {
         aSetBuffer(ptr++, 0, 0, buff, count<<1);
-        aSaveBuffer(ptr++, osVirtualToPhysical(curr_ptr));
+        aSaveBufferWrapper(ptr++, osVirtualToPhysical(curr_ptr));
     }
 
 #ifdef AUD_PROFILE

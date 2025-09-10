@@ -9,8 +9,8 @@ void chAnchorCtrl_update(Actor *this);
 
 /* .data */
 ActorInfo RBB_D_80390B10 = {
-    0x199, 0x1CB, 0x0, 0x0, NULL,
-    chAnchorCtrl_update, NULL, func_80325340,
+    0x199, 0x1CB, 0x0, 0x0, N64_NULL,
+    chAnchorCtrl_update, N64_NULL, func_80325340,
     0, 0, 0.0f, 0
 };
 
@@ -45,7 +45,7 @@ void __chAnchorCtrl_setState(Actor *this, s32 new_state){
         timed_playSfx(2.1f, SFX_3F6_RUBBING, 0.6f, 32700);
         timedFunc_set_2(2.7f, (GenFunction_2)mapSpecificFlags_set, 4, true);
         timedFunc_set_0(3.0f, func_8038C058);
-        func_80324DBC(3.0f, 0xb9C, 7, NULL, this->marker, __chAnchorCtrl_spawnJiggy, NULL);
+        func_80324DBC(3.0f, 0xb9C, 7, N64_NULL, this->marker, __chAnchorCtrl_spawnJiggy, N64_NULL);
     }//L8038C1D8
     this->state = new_state;
 }

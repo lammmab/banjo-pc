@@ -87,7 +87,7 @@ void _strIToA(char *str, s32 num, char prefix){
             i /= 10;
         }
     }
-    //Terminate the string with NULL
+    //Terminate the string with N64_NULL
     *str = '\0';
 }
 

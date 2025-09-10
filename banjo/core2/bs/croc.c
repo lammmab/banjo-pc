@@ -604,7 +604,7 @@ void func_802AD2A8(Gfx **gdl, Mtx **mPtr, void *arg2){
     player_getRotation(player_rotation);
     func_8028E9C4(2, sp28);
     modelRender_setDepthMode(MODEL_RENDER_DEPTH_FULL);
-    modelRender_draw(gdl, mPtr, sp28, player_rotation, D_8037D3F0, NULL, D_8037D3E8);
+    modelRender_draw(gdl, mPtr, sp28, player_rotation, D_8037D3F0, N64_NULL, D_8037D3E8);
 
 }
 

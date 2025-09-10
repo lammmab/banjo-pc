@@ -202,7 +202,7 @@ void func_8035B900(Actor *this){
     f32 sp2C = time_getDelta();
     if(!this->volatile_initialized){
         this->volatile_initialized = true;
-        marker_setCollisionScripts(this->marker, NULL, func_8035B3B4, func_8035B1CC);
+        marker_setCollisionScripts(this->marker, N64_NULL, func_8035B3B4, func_8035B1CC);
         this->marker->propPtr->unk8_3 = false;
         actor_collisionOn(this);
         this->velocity_z = 0.0f;
@@ -302,7 +302,7 @@ void func_8035BD48(Actor *this){
         this->volatile_initialized = true;
         this->marker->propPtr->unk8_3 = false;
         actor_collisionOn(this);
-        marker_setCollisionScripts(this->marker, NULL, func_8035B3B4, func_8035B2C4);
+        marker_setCollisionScripts(this->marker, N64_NULL, func_8035B3B4, func_8035B2C4);
         mapSpecificFlags_set(3, false);
         mapSpecificFlags_set(4, false);
         if(map_get() == MAP_24_MMM_TUMBLARS_SHED){
@@ -337,7 +337,7 @@ void func_8035BD48(Actor *this){
             actor_collisionOn(this);
             if(mapSpecificFlags_getClear(4)){
                 this->unk38_0 = true;
-                func_8035B2C4(this->marker, NULL);
+                func_8035B2C4(this->marker, N64_NULL);
             }
             else{//L8035BF14
                 if(this->alpha_124_19 == 0xFF || func_8035BC5C(this, 0xff, 0xA)){

@@ -6,7 +6,7 @@ void dummy_func_8033EF08(void);
 void dummy_func_8033EF10(void);
 
 /* .data */
-void *gUnusedBlock = NULL;
+void *gUnusedBlock = N64_NULL;
 
 /* .code */
 void dummy_func_8033EED0(void){
@@ -30,7 +30,7 @@ void unallocUnusedBlock(void){
     if(gUnusedBlock){
         free(gUnusedBlock);
     }
-    gUnusedBlock = NULL;
+    gUnusedBlock = N64_NULL;
 }
 
 void allocUnusedBlock(void){

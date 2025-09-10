@@ -14,22 +14,22 @@ u8 D_80389E40[] = {3, 3, 2, 0};
 
 ActorInfo D_80389E44 = { 
     0x1A9, 0x28C, 0x435, 
-    0, NULL, 
-    func_80389900, NULL, actor_draw, 
+    0, N64_NULL, 
+    func_80389900, N64_NULL, actor_draw, 
     0, 0, 0.0f, 0
 };
 
 ActorInfo D_80389E68 = { 
     0x1A9, 0x28D, 0x436, 
-    0, NULL, 
-    func_80389900, NULL, actor_draw, 
+    0, N64_NULL, 
+    func_80389900, N64_NULL, actor_draw, 
     0, 0, 0.0f, 0
 };
 
 ActorInfo D_80389E8C = { 
     0x1A9, 0x28E, 0x437, 
-    0, NULL, 
-    func_80389900, NULL, actor_draw, 
+    0, N64_NULL, 
+    func_80389900, N64_NULL, actor_draw, 
     0, 0, 0.0f, 0
 };
 
@@ -76,7 +76,7 @@ void func_80389900(Actor * this){
         this->marker->propPtr->unk8_3 = 1;
         local->unk0 = &D_80389E40[this->modelCacheIndex - 0x28C];
         local->unk8 = 0;
-        marker_setCollisionScripts(this->marker, NULL, func_80389890, func_803898BC);
+        marker_setCollisionScripts(this->marker, N64_NULL, func_80389890, func_803898BC);
         func_803897F0(this, 1);
         if(this->modelCacheIndex == 0x28E && jiggyscore_isSpawned(JIGGY_18_CC_BOLT)){
             marker_despawn(this->marker);

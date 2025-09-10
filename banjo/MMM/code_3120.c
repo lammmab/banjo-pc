@@ -81,7 +81,7 @@ void func_8038966C(void){
         MMM_D_8038C4E0.unk2 = true;
         func_80324E38(0.0f, 3);
         timed_setStaticCameraToNode(0.2f, 1);
-        func_80324DBC(0.2f, 0xad9, 6, NULL, NULL, func_803895D8, NULL);
+        func_80324DBC(0.2f, 0xad9, 6, N64_NULL, N64_NULL, func_803895D8, N64_NULL);
     }//L80389700
 
     if(MMM_D_8038C4E0.unk1 != 1) 
@@ -100,7 +100,7 @@ void func_8038966C(void){
 
     tmp_v0 = func_80309B48(sp48, sp3C, sp30, 0);
 
-    if(tmp_v0 != NULL){
+    if(tmp_v0 != N64_NULL){
         if((s32)(tmp_v0->flags << 4) < 0){
             FUNC_8030E624(SFX_6B_LOCKUP_OPENING, 1.4f, 32750);
             MMM_D_8038C4E0.unk1 = 2;
@@ -108,7 +108,7 @@ void func_8038966C(void){
             if (!levelSpecificFlags_get(LEVEL_FLAG_1B_MMM_UNKNOWN)) {
                 func_80324E38(0.0f, 3);
                 timed_setStaticCameraToNode(0.0f, 0);
-                func_80324DBC(0.0f, 0xad7, 6, NULL, NULL, func_803895D8, NULL);
+                func_80324DBC(0.0f, 0xad7, 6, N64_NULL, N64_NULL, func_803895D8, N64_NULL);
                 levelSpecificFlags_set(LEVEL_FLAG_1B_MMM_UNKNOWN, true);
             }
         }

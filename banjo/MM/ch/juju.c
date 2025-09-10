@@ -33,7 +33,7 @@ enum chjuju_animation_state_e {
 
 ActorInfo chjujuInfo = {
     MARKER_67_JUJU, ACTOR_59_JUJU, ASSET_2E6_MODEL_JUJU,
-    0, NULL,
+    0, N64_NULL,
     chjuju_update, actor_update_func_80326224, chjuju_draw,
     0, 0, 0.0f, 0
 };
@@ -65,7 +65,7 @@ Actor *chjuju_draw(ActorMarker *this, Gfx **dl, Mtx **mPtr, Vtx **arg2) {
 
     if (jujuPtr->animation_state != JUJU_ANIMATION_STATE_2_DESPAWNED) {
         modelRender_setDepthMode(MODEL_RENDER_DEPTH_FULL);
-        modelRender_draw(dl, mPtr, actorPtr->position, rotation, jujuPtr->scale, NULL, marker_loadModelBin(this));
+        modelRender_draw(dl, mPtr, actorPtr->position, rotation, jujuPtr->scale, N64_NULL, marker_loadModelBin(this));
     }
 
     return actorPtr;

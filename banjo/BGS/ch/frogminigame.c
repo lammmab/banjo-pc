@@ -10,8 +10,8 @@ void timed_exitStaticCamera(f32);
 
 
 ActorInfo chFrogMinigame = {MARKER_C4_YELLOW_FLIBBIT_CTRL, ACTOR_136_YELLOW_FLIBBIT_CONTROLLER, 0x00, 
-    0x00, NULL,
-    chfrogminigame_update, NULL, func_80325340,
+    0x00, N64_NULL,
+    chfrogminigame_update, N64_NULL, func_80325340,
     0, 0, 0.0f, 0
 };
 

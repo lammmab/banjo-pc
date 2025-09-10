@@ -8,8 +8,8 @@ Actor *chGobi3_draw(ActorMarker *this_marker, Gfx **gfx, Mtx **mtx, Vtx **vtx);
 
 /* .data */
 ActorInfo chGobi3 = { MARKER_C3_GOBI_3, ACTOR_135_GOBI_3, ASSET_3E0_MODEL_GOBI, 
-    0, NULL, 
-    NULL, chGobi3_update, chGobi3_draw, 
+    0, N64_NULL, 
+    N64_NULL, chGobi3_update, chGobi3_draw, 
     0, 0, 0.0f, 0
 };
 
@@ -72,7 +72,7 @@ void chGobi3_setState(Actor *this, s32 next_state){
 
     if(next_state == 5){
         skeletalAnim_set(this->unk148, 0xd9, 0.5f, 4.0f);
-        gcdialog_showDialog(ASSET_A77_DIALOG_GOBI3_DONE, 0xe, this->position, this->marker, __chGobi3_runaway, NULL);
+        gcdialog_showDialog(ASSET_A77_DIALOG_GOBI3_DONE, 0xe, this->position, this->marker, __chGobi3_runaway, N64_NULL);
     }
 
     if(next_state == 4){
@@ -104,7 +104,7 @@ void chGobi3_ow(ActorMarker *this_marker, ActorMarker *other_marker){
     Actor *this = marker_getActor(this_marker);
     enum hitbox_e hitbox;
 
-    hitbox = player_getActiveHitbox(NULL);
+    hitbox = player_getActiveHitbox(N64_NULL);
     if(hitbox  == HITBOX_1_BEAK_BUSTER){
         if(this->state == 2)
             chGobi3_setState(this, 3);
@@ -117,7 +117,7 @@ void chGobi3_ow(ActorMarker *this_marker, ActorMarker *other_marker){
 void chGobi3_update(Actor *this){
     if(!this->volatile_initialized){
         this->volatile_initialized = true;
-        marker_setCollisionScripts(this->marker, chGobi3_ow, NULL, NULL);
+        marker_setCollisionScripts(this->marker, chGobi3_ow, N64_NULL, N64_NULL);
         this->unk1C[0] = 0.0f;
         this->unk1C[1] = 0.0f;
         chGobi3_setState(this, 1);

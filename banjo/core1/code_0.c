@@ -219,7 +219,7 @@ void setBootMap(enum map_e map_id){
 }
 
 void mainThread_create(void) {
-    osCreateThread(&sMainThread, 6, mainThread_entry, NULL, sMainThreadStack + MAIN_THREAD_STACK_SIZE, 20);
+    osCreateThread(&sMainThread, 6, mainThread_entry, N64_NULL, sMainThreadStack + MAIN_THREAD_STACK_SIZE, 20);
 }
 
 OSThread *mainThread_get(void) {

@@ -8,7 +8,7 @@ void chXmasTree_update(Actor *this);
 /* .data */
 ActorInfo chXmasTree = { 
     MARKER_BA_XMAS_TREE, ACTOR_15F_XMAS_TREE, ASSET_488_MODEL_XMAS_TREE, 
-    0x1, NULL, 
+    0x1, N64_NULL, 
     chXmasTree_update, actor_update_func_80326224, chXmasTree_draw,
     0, 0, 0.0f, 0
 };
@@ -128,7 +128,7 @@ void chXmasTree_update(Actor *this){
             this->lifetime_value = 2.0f;
             coMusicPlayer_playMusic(COMUSIC_61_XMAS_TREE_LIGHTS_UP, 28000);
             gcStaticCamera_activate(0x1A);
-            gcdialog_showDialog(0xC14, 0, NULL, NULL, NULL, NULL);
+            gcdialog_showDialog(0xC14, 0, N64_NULL, N64_NULL, N64_NULL, N64_NULL);
             break;
 
         case 3: // L803872F0

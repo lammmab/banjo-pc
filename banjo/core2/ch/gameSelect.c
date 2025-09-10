@@ -292,12 +292,12 @@ void gameSelect_free(Actor *this){
 
     if (chGameSelectTopZoombox) {
         gczoombox_free(chGameSelectTopZoombox);
-        chGameSelectTopZoombox = NULL;
+        chGameSelectTopZoombox = N64_NULL;
     }
 
     if (chGameSelectBottomZoombox) {
         gczoombox_free(chGameSelectBottomZoombox);
-        chGameSelectBottomZoombox = NULL;
+        chGameSelectBottomZoombox = N64_NULL;
     }
 
     for (i = 0; i < 3; i++) {
@@ -306,7 +306,7 @@ void gameSelect_free(Actor *this){
 
     if (cookingSoundEffectIndex) {
         func_802F9D38(cookingSoundEffectIndex);
-        cookingSoundEffectIndex = NULL;
+        cookingSoundEffectIndex = N64_NULL;
     }
 
     comusic_8025AB44(COMUSIC_73_GAMEBOY, 0, 4000);
@@ -355,7 +355,7 @@ void gameSelect_update(Actor *this) {
     game_numbers_match = (game_number == gameNumber);
     delta_time = time_getDelta();
 
-    if (chGameSelectBottomZoombox == NULL) {
+    if (chGameSelectBottomZoombox == N64_NULL) {
         return;
     }
 
@@ -438,7 +438,7 @@ void gameSelect_update(Actor *this) {
                     func_802FA060(cookingSoundEffectIndex, 15000, 15000, 0.0f);
                 } else if (cookingSoundEffectIndex) {
                     func_802F9D38(cookingSoundEffectIndex);
-                    cookingSoundEffectIndex = NULL;
+                    cookingSoundEffectIndex = N64_NULL;
                 }
 
                 setGameInformationZoombox(game_number);
@@ -643,13 +643,13 @@ void gameSelect_initAndUpdate(Actor * this){
     if (!this->initialized) {
         gameFile_8033CE40();
 
-        if (chGameSelectBottomZoombox == NULL) {
-            chGameSelectBottomZoombox = gczoombox_new(0xA0, ZOOMBOX_SPRITE_C_BANJO_2, 2, 0, NULL);
+        if (chGameSelectBottomZoombox == N64_NULL) {
+            chGameSelectBottomZoombox = gczoombox_new(0xA0, ZOOMBOX_SPRITE_C_BANJO_2, 2, 0, N64_NULL);
             gczoombox_open(chGameSelectBottomZoombox);
             gczoombox_func_803184C8(chGameSelectBottomZoombox, 30.0f, 5, 2, 0.4f, 0, 0);
         }
 
-        if (chGameSelectTopZoombox == NULL) {
+        if (chGameSelectTopZoombox == N64_NULL) {
             chGameSelectTopZoombox = gczoombox_new(0xA, ZOOMBOX_SPRITE_D_KAZOOIE_1, 2, 1, topZoomboxCallback);
             gczoombox_setStrings(chGameSelectTopZoombox, 2, (char **)&selectInstructions);
             gczoombox_open(chGameSelectTopZoombox);

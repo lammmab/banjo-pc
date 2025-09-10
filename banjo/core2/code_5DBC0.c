@@ -83,17 +83,17 @@ void func_802E4C0C(struct5DBC0_2s *arg0, u32 arg1)
 }
 
 void func_802E4C78(void){
-    if(D_8037E900->unk0 != NULL){
+    if(D_8037E900->unk0 != N64_NULL){
         free(D_8037E900->unk0);
     }
-    if(D_8037E900->unk4 != NULL){
+    if(D_8037E900->unk4 != N64_NULL){
         func_802E4C0C(D_8037E900->unk4, D_8037E900->unk10);
     }
-    if(D_8037E900->string != NULL){
+    if(D_8037E900->string != N64_NULL){
         free(D_8037E900->string);
     }
     free(D_8037E900);
-    D_8037E900 = NULL;
+    D_8037E900 = N64_NULL;
 }
 
 s32 func_802E4CF8(u8 arg0) {
@@ -510,19 +510,19 @@ void func_802E6820(s32 arg0) {
     s32 var_s5;
     s32 var_s6;
 
-    if (D_8037E900 != NULL) {
+    if (D_8037E900 != N64_NULL) {
         for(var_s6 = 0; var_s6 < arg0; var_s6++){
             D_8037E900 = (struct5DBC0s *) defrag(D_8037E900);
             D_8037E900->unk0 = (struct5DBC0_1s *)defrag(D_8037E900->unk0);
             D_8037E900->unk4 = (struct5DBC0_2s *)defrag(D_8037E900->unk4);
             D_8037E900->string = (char *)defrag(D_8037E900->string);
             for(var_s5 = 0; var_s5 < D_8037E900->unk10; var_s5++) {
-                if (D_8037E900->unk4[var_s5].letter_texture != NULL) {
+                if (D_8037E900->unk4[var_s5].letter_texture != N64_NULL) {
                     D_8037E900->unk4[var_s5].letter_texture = (BKSpriteTextureBlock **)defrag(D_8037E900->unk4[var_s5].letter_texture);
                 }
                 
                 prev_sprite_ptr = D_8037E900->unk4[var_s5].font_bin;
-                if (D_8037E900->unk4[var_s5].font_bin != NULL) {
+                if (D_8037E900->unk4[var_s5].font_bin != N64_NULL) {
                     chunk_count = sprite_getFramePtr(prev_sprite_ptr, 0U)->chunkCnt;
                     D_8037E900->unk4[var_s5].font_bin = (BKSprite *)defrag_asset(D_8037E900->unk4[var_s5].font_bin);
                     for(i_chunk = 0; i_chunk < chunk_count; i_chunk++){

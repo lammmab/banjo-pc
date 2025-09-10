@@ -1,5 +1,7 @@
 #include <libultraship/libultra.h>
 
+#include "os_system.h"
+
 void __osResetGlobalIntMask(OSHWIntr interrupt)
 {
     register u32 saveMask = __osDisableInt();

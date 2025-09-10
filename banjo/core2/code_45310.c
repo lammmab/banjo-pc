@@ -29,8 +29,8 @@ void func_802CCC5C(Actor *this);
 /* .data */
 ActorInfo D_80367130 = { 
     MARKER_C2_BUZZBOMB, ACTOR_134_BUZZBOMB, ASSET_3ED_MODEL_BUZZBOMB, 
-    0, NULL, 
-    func_802CCC5C, NULL, func_802CCA7C, 
+    0, N64_NULL, 
+    func_802CCC5C, N64_NULL, func_802CCA7C, 
     0, 0, 1.0f, 0
 }; 
 
@@ -307,7 +307,7 @@ void func_802CCC5C(Actor *this) {
         local->unk39 = 0;
         local->unk3A = 0;
         local->unk28 = 0.0f;
-        marker_setCollisionScripts(this->marker, func_802CC9FC, NULL, func_802CCA3C);
+        marker_setCollisionScripts(this->marker, func_802CC9FC, N64_NULL, func_802CCA3C);
         local->unk30[0] = (s16) this->position[0];
         local->unk30[1] = (s16) this->position[1];
         local->unk30[2] = (s16) this->position[2];

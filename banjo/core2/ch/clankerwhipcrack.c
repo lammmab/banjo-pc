@@ -7,8 +7,8 @@ void func_803567EC(Actor *this);
 /* .data */
 ActorInfo D_80372810 = { 
     MARKER_1A7_CLANKER_WHIPCRACK, ACTOR_28A_CLANKER_WHIPCRACK, ASSET_432_MODEL_CLANKER_WHIPCRACK, 
-    0, NULL, 
-    func_803567EC, NULL, actor_draw, 
+    0, N64_NULL, 
+    func_803567EC, N64_NULL, actor_draw, 
     0, 0, 0.0f, 0
 };
 

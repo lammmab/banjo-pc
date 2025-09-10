@@ -20,13 +20,13 @@ s32 osRecvMesg(OSMesgQueue *mq, OSMesg *msg, s32 flags)
         __osEnqueueAndYield(&mq->mtqueue);
     }
 
-    if (msg != NULL)
+    if (msg != N64_NULL)
     {
         *msg = mq->msg[mq->first];
     }
     mq->first = (mq->first + 1) % mq->msgCount;
     mq->validCount--;
-    if (mq->fullqueue->next != NULL)
+    if (mq->fullqueue->next != N64_NULL)
     {
         osStartThread(__osPopThread(&mq->fullqueue));
     }

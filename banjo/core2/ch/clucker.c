@@ -16,8 +16,8 @@ void func_8035765C(Actor *this);
 /* .data */
 extern ActorInfo D_80372870 = { 
     MARKER_1B2_CLUCKER_A, ACTOR_29F_CLUCKER, ASSET_482_MODEL_CLUCKER, 
-    0, NULL, 
-    func_8035765C, NULL, func_803575B8,
+    0, N64_NULL, 
+    func_8035765C, N64_NULL, func_803575B8,
     0, 0, 0.0f, 0
 };
 
@@ -138,7 +138,7 @@ void func_8035765C(Actor *this){
         this->volatile_initialized = true;
         this->unk16C_0 = true;
         if(this->state != 6){
-            marker_setCollisionScripts(this->marker, NULL, func_80357564, func_8035758C);
+            marker_setCollisionScripts(this->marker, N64_NULL, func_80357564, func_8035758C);
             local->unk0 = 0xff;
             func_80357264(this, 1);
         }

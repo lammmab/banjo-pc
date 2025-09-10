@@ -41,7 +41,7 @@ struct{
 
 /* .code */
 void func_80290070(void){
-    D_8037C000.unk0 = NULL;
+    D_8037C000.unk0 = N64_NULL;
     D_8037C000.unk9 = false;
     D_8037C000.unk8 = 0;
     D_8037C000.unk4 = 0.0f;

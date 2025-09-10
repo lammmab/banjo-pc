@@ -187,7 +187,7 @@ void __chConga_sendOrangeProjectile(ActorMarker *congaMarker){
     congaPtr->actor_specific_1_f = 2.0f;
     orangePtr = actor_spawnWithYaw_s32(ACTOR_14_ORANGE_PROJECTILE, conga_localPtr->orangeSpawnPosition, congaPtr->yaw);
 
-    if(orangePtr != NULL){
+    if(orangePtr != N64_NULL){
         player_getPosition(plyr.pos);
         orangePtr->velocity_x = plyr.pos_x - orangePtr->position_x;
         orangePtr->velocity_y = (60.0)*((conga_state == 7) ? 0.5: 1.0);
@@ -232,7 +232,7 @@ void chConga_update(Actor *this) {
     }
 
     if (0.0f == this->actor_specific_1_f) {
-        this->actor_specific_1_f = (actorArray_findActorFromMarkerId(MARKER_36_ORANGE_COLLECTIBLE) != NULL)? 2.0f: 1.0f;
+        this->actor_specific_1_f = (actorArray_findActorFromMarkerId(MARKER_36_ORANGE_COLLECTIBLE) != N64_NULL)? 2.0f: 1.0f;
     }
 
     if (0.0f != this->velocity_x) {
@@ -242,7 +242,7 @@ void chConga_update(Actor *this) {
         }
     }
 
-    marker_setCollisionScripts(this->marker, NULL, NULL, func_80387168);
+    marker_setCollisionScripts(this->marker, N64_NULL, N64_NULL, func_80387168);
 
     if (!subaddie_playerIsWithinSphereAndActive(this, 2100)
         && this->state != 2
@@ -369,7 +369,7 @@ void chConga_update(Actor *this) {
 
             if (actor_animationIsAt(this, 0.99f)) {
                 subaddie_set_state_with_direction(this, CONGA_STATE_MOPEY, 0.0f, 1);
-                gcdialog_showDialog(ASSET_B38_DIALOG_CONGA_DEFEAT, 0xe, this->position, this->marker, func_80387370, NULL);
+                gcdialog_showDialog(ASSET_B38_DIALOG_CONGA_DEFEAT, 0xe, this->position, this->marker, func_80387370, N64_NULL);
             }
 
             break;

@@ -153,8 +153,8 @@ typedef struct {
 s32 func_80341BC8(struct56s *arg0, SplineList * arg1);
 
 /* .data */
-struct56s **D_80371E70 = NULL;
-SplineList **D_80371E74 = NULL;
+struct56s **D_80371E70 = N64_NULL;
+SplineList **D_80371E74 = N64_NULL;
 s32 D_80371E78 = 0;
 s32 D_80371E7C = 0;
 s32 D_80371E80 = 0;
@@ -543,10 +543,10 @@ void func_80341A54(void) {
     free(D_80371E70);
     free(D_80371E74);
     free(D_803858A0);
-    D_80371E70 = NULL;
-    D_80371E74 = NULL;
+    D_80371E70 = N64_NULL;
+    D_80371E74 = N64_NULL;
     D_80371E78 = 0;
-    D_803858A0 = NULL;
+    D_803858A0 = N64_NULL;
 }
 
 void func_80341BA0(void){
@@ -652,7 +652,7 @@ s32 func_80341F2C(s32 arg0){
 struct56s *func_80341F64(s32 arg0){
     s32 sp1C[3];
     if(!nodeprop_findPositionFromActorId(arg0, sp1C)){
-        return NULL;
+        return N64_NULL;
     }
     return D_80371E70[func_80341C78(sp1C)];
 }
@@ -670,7 +670,7 @@ f32 func_80341FB0(s32 arg0, f32 arg1, s32 arg2, f32 arg3) {
 
 struct56s *func_80342038(s32 indx){
     if(indx == -1)
-        return NULL;
+        return N64_NULL;
     return D_80371E70[indx];
 }
 

@@ -34,7 +34,7 @@ void alSynNew(ALSynth *drvr, ALSynConfig *c)
     ALParam     *params;
     ALParam     *paramPtr;
     
-    drvr->head            = NULL;
+    drvr->head            = N64_NULL;
     drvr->numPVoices      = c->maxPVoices;
     drvr->curSamples      = 0;
     drvr->paramSamples    = 0;

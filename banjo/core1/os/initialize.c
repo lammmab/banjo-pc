@@ -2,6 +2,7 @@
 #include "functions.h"
 #include "variables.h"
 
+#include "os_system.h"
 
 typedef struct
 {

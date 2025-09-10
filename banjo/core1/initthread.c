@@ -10,7 +10,7 @@ OSThread sInitThread;
 void initThread_entry(void *arg);
 
 void initThread_create(void) {
-    osCreateThread(&sInitThread, 1, initThread_entry, NULL, sInitThreadStack + INIT_THREAD_STACK_SIZE, OS_PRIORITY_IDLE);
+    osCreateThread(&sInitThread, 1, initThread_entry, N64_NULL, sInitThreadStack + INIT_THREAD_STACK_SIZE, OS_PRIORITY_IDLE);
     osStartThread(&sInitThread);
 }
 

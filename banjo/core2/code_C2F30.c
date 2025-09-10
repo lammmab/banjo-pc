@@ -98,6 +98,6 @@ void demo_load(enum map_e map, s32 demo_id){
 void demo_free(void){
     if(D_803860D4){
         assetcache_release(D_803860D4);
-        D_803860D4 = NULL;
+        D_803860D4 = N64_NULL;
     }
 }

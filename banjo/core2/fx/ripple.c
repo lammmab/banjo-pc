@@ -66,7 +66,7 @@ ParticleEmitter *__fxRipple_create(s32 arg0, f32 position[3], bool arg2){
 
     ml_vec3f_copy(spawn_position, position);
     if(!__fxRipple_802F3370(spawn_position, &sp44, arg2)){
-        return NULL;
+        return N64_NULL;
     }
     spawn_position[1] += 3.0f;
     p_emitter = pem_getEmitterByIndex(D_80380A60);
@@ -94,14 +94,14 @@ ParticleEmitter *__fxRipple_create(s32 arg0, f32 position[3], bool arg2){
 
 void fxRipple_802F3554(s32 arg0, f32 position[3]){
     ParticleEmitter *p_emitter = __fxRipple_create(arg0, position, 0);
-    if(p_emitter != NULL){
+    if(p_emitter != N64_NULL){
         particleEmitter_emitN(p_emitter, 1);
     }
 }
 
 void fxRipple_802F3584(s32 arg0, f32 position[3], s32 arg2){
     ParticleEmitter *p_emitter = __fxRipple_create(arg0, position, arg2);
-    if(p_emitter != NULL){
+    if(p_emitter != N64_NULL){
         particleEmitter_emitN(p_emitter, 1);
     }
 }

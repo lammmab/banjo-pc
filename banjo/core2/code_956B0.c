@@ -87,22 +87,22 @@ void cutscenetrigger_check(s32 cs_map, s32 arg1, s32 return_map, s32 return_exit
 
 //check cutscene interrupts
 s32 cutscenetrigger_update(void){
-    cutscenetrigger_check(MAP_86_CS_SPIRAL_MOUNTAIN_4,        0, MAP_89_CS_INTRO_BANJOS_HOUSE_2,  -1, NULL);
-    cutscenetrigger_check(MAP_7D_CS_SPIRAL_MOUNTAIN_1,        0, MAP_7C_CS_INTRO_BANJOS_HOUSE_1,  -1, NULL);
-    cutscenetrigger_check(MAP_7C_CS_INTRO_BANJOS_HOUSE_1,     0, MAP_86_CS_SPIRAL_MOUNTAIN_4,     -1, NULL);
-    cutscenetrigger_check(MAP_89_CS_INTRO_BANJOS_HOUSE_2,     0, MAP_1_SM_SPIRAL_MOUNTAIN,      0x12, NULL);
-    cutscenetrigger_check(MAP_85_CS_SPIRAL_MOUNTAIN_3,        0, MAP_7B_CS_INTRO_GL_DINGPOT_1,    -1, NULL);
-    cutscenetrigger_check(MAP_7B_CS_INTRO_GL_DINGPOT_1,       1, MAP_81_CS_INTRO_GL_DINGPOT_2,    -1, NULL);
-    cutscenetrigger_check(MAP_81_CS_INTRO_GL_DINGPOT_2,       0, MAP_7D_CS_SPIRAL_MOUNTAIN_1,     -1, NULL);
+    cutscenetrigger_check(MAP_86_CS_SPIRAL_MOUNTAIN_4,        0, MAP_89_CS_INTRO_BANJOS_HOUSE_2,  -1, N64_NULL);
+    cutscenetrigger_check(MAP_7D_CS_SPIRAL_MOUNTAIN_1,        0, MAP_7C_CS_INTRO_BANJOS_HOUSE_1,  -1, N64_NULL);
+    cutscenetrigger_check(MAP_7C_CS_INTRO_BANJOS_HOUSE_1,     0, MAP_86_CS_SPIRAL_MOUNTAIN_4,     -1, N64_NULL);
+    cutscenetrigger_check(MAP_89_CS_INTRO_BANJOS_HOUSE_2,     0, MAP_1_SM_SPIRAL_MOUNTAIN,      0x12, N64_NULL);
+    cutscenetrigger_check(MAP_85_CS_SPIRAL_MOUNTAIN_3,        0, MAP_7B_CS_INTRO_GL_DINGPOT_1,    -1, N64_NULL);
+    cutscenetrigger_check(MAP_7B_CS_INTRO_GL_DINGPOT_1,       1, MAP_81_CS_INTRO_GL_DINGPOT_2,    -1, N64_NULL);
+    cutscenetrigger_check(MAP_81_CS_INTRO_GL_DINGPOT_2,       0, MAP_7D_CS_SPIRAL_MOUNTAIN_1,     -1, N64_NULL);
     cutscenetrigger_check(MAP_82_CS_ENTERING_GL_MACHINE_ROOM, 0, MAP_69_GL_MM_LOBBY,            0x12, cutscene_skipEnterLairCutsceneCheck);
     cutscenetrigger_check(MAP_83_CS_GAME_OVER_MACHINE_ROOM,   0, MAP_1F_CS_START_RAREWARE,        -1, cutscene_skipGameOverCutsceneCheck);
-    cutscenetrigger_check(MAP_87_CS_SPIRAL_MOUNTAIN_5,        0, MAP_88_CS_SPIRAL_MOUNTAIN_6,     -1, NULL);
-    cutscenetrigger_check(MAP_94_CS_INTRO_SPIRAL_7,           0, MAP_8E_GL_FURNACE_FUN,            4, NULL);
-    cutscenetrigger_check(MAP_88_CS_SPIRAL_MOUNTAIN_6,        1, MAP_96_CS_END_BEACH_1,           -1, NULL);
-    cutscenetrigger_check(MAP_98_CS_END_SPIRAL_MOUNTAIN_1,    0, MAP_1F_CS_START_RAREWARE,        -1, NULL);
-    cutscenetrigger_check(MAP_99_CS_END_SPIRAL_MOUNTAIN_2,    0, MAP_1F_CS_START_RAREWARE,        -1, NULL);
-    cutscenetrigger_check(MAP_20_CS_END_NOT_100,              0, MAP_98_CS_END_SPIRAL_MOUNTAIN_1, -1, NULL);
-    cutscenetrigger_check(MAP_95_CS_END_ALL_100,              0, MAP_99_CS_END_SPIRAL_MOUNTAIN_2, -1, NULL);
+    cutscenetrigger_check(MAP_87_CS_SPIRAL_MOUNTAIN_5,        0, MAP_88_CS_SPIRAL_MOUNTAIN_6,     -1, N64_NULL);
+    cutscenetrigger_check(MAP_94_CS_INTRO_SPIRAL_7,           0, MAP_8E_GL_FURNACE_FUN,            4, N64_NULL);
+    cutscenetrigger_check(MAP_88_CS_SPIRAL_MOUNTAIN_6,        1, MAP_96_CS_END_BEACH_1,           -1, N64_NULL);
+    cutscenetrigger_check(MAP_98_CS_END_SPIRAL_MOUNTAIN_1,    0, MAP_1F_CS_START_RAREWARE,        -1, N64_NULL);
+    cutscenetrigger_check(MAP_99_CS_END_SPIRAL_MOUNTAIN_2,    0, MAP_1F_CS_START_RAREWARE,        -1, N64_NULL);
+    cutscenetrigger_check(MAP_20_CS_END_NOT_100,              0, MAP_98_CS_END_SPIRAL_MOUNTAIN_1, -1, N64_NULL);
+    cutscenetrigger_check(MAP_95_CS_END_ALL_100,              0, MAP_99_CS_END_SPIRAL_MOUNTAIN_2, -1, N64_NULL);
     cutscenetrigger_check(MAP_97_CS_END_BEACH_2,              0, MAP_99_CS_END_SPIRAL_MOUNTAIN_2, -1, cutscene_skipBeachCutsceneCheck);
     cutscenetrigger_check(MAP_85_CS_SPIRAL_MOUNTAIN_3,      0xC, MAP_1_SM_SPIRAL_MOUNTAIN,      0x12, cutscene_skipIntroCutsceneCheck);
     cutscenetrigger_check(MAP_7B_CS_INTRO_GL_DINGPOT_1,     0xC, MAP_1_SM_SPIRAL_MOUNTAIN,      0x12, cutscene_skipIntroCutsceneCheck);
@@ -158,7 +158,7 @@ void func_8031CC8C(s32 arg0, s32 arg1) {
                 ml_vec3h_to_vec3f(vec, arg0);
                 func_8031CE70(vec, arg1 >> 8, arg1 & 0xFF);
             } else {
-                func_8031CE70(NULL, arg1 >> 8, arg1 & 0xFF);
+                func_8031CE70(N64_NULL, arg1 >> 8, arg1 & 0xFF);
             }
         }
     }
@@ -183,7 +183,7 @@ void func_8031CD44(enum map_e arg0, s32 arg1, f32 arg2, f32 yaw, s32 arg4) {
     sp30[2] = sp24[2];
     ncDynamicCamera_setUpdateEnabled(0);
     func_8031CB50(arg0, arg1, 1);
-    player_walkToPosition(sp30, 1.0f, NULL, NULL);
+    player_walkToPosition(sp30, 1.0f, N64_NULL, N64_NULL);
 }
 
 void func_8031CE28(s32 arg0, s32 arg1, f32 arg2) {
@@ -203,10 +203,10 @@ void func_8031CE70(f32 *arg0, enum map_e arg1, s32 arg2) {
         if (arg0 != 0) {
             phi_s0 = func_80304ED0(&D_8036DDD0[1], arg0);
         } else {
-            phi_s0 = NULL;
+            phi_s0 = N64_NULL;
         }
         player_getPosition(playerPos);
-        if (phi_s0 != NULL) {
+        if (phi_s0 != N64_NULL) {
             nodeprop_getPosition(phi_s0, sp38);
             phi_f2 = 500.0f;
             if (phi_s0->unk8 == 0x186) {
@@ -216,7 +216,7 @@ void func_8031CE70(f32 *arg0, enum map_e arg1, s32 arg2) {
                 if (phi_s0->unk8 == 0x184) {
                     ncDynamicCamera_setUpdateEnabled(0);
                     func_8031CB50(arg1, arg2, 1);
-                    player_walkToPosition(sp38, 1.0f, NULL, NULL);
+                    player_walkToPosition(sp38, 1.0f, N64_NULL, N64_NULL);
                 } else if (phi_s0->unk8 == 0x185) {
                     func_8031CD44(arg1, arg2, sp38[1], (f32) phi_s0->yaw, phi_s0->scale);
                 } else {

@@ -28,7 +28,7 @@ Struct_CCW_1B20_0 D_8038EC40[4] ={
     {0x183, 1, 1, 0x000, 0x000, 0x00, 0}
 };
 
-ActorInfo D_8038EC70 = { 0x1B0, 0x29D, 0x447, 0x0, NULL, func_80388478, NULL, CCW_func_803882F4, 0, 0, 1.0f, 0};
+ActorInfo D_8038EC70 = { 0x1B0, 0x29D, 0x447, 0x0, N64_NULL, func_80388478, N64_NULL, CCW_func_803882F4, 0, 0, 1.0f, 0};
 f32 D_8038EC94[3] = {200.0f,  2120.0f, -5570.0f};
 
 /* .code */
@@ -144,7 +144,7 @@ void func_80388478(Actor *this) {
     if (!this->volatile_initialized) {
         this->volatile_initialized = true;
         func_803300C0(this->marker, func_80388260);
-        marker_setCollisionScripts(this->marker, NULL, CCW_func_80388278, func_803882A4);
+        marker_setCollisionScripts(this->marker, N64_NULL, CCW_func_80388278, func_803882A4);
         actor_collisionOn(this);
         if (!jiggyscore_isSpawned(JIGGY_4D_CCW_FLOWER)) {
             fileProgressFlag_set(FILEPROG_E5_CCW_FLOWER_AUTUMN, false);

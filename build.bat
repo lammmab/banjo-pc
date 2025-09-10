@@ -1,5 +1,6 @@
 @echo off
 setlocal
+cls
 
 REM === Config ===
 set BUILD_DIR=build

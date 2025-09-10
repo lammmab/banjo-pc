@@ -27,7 +27,7 @@ Gfx D_80368978[] = {
     gsSPEndDisplayList()
 };
 
-ParticleEmitter **partEmitMgr = NULL; //particlePtrArrayPtr
+ParticleEmitter **partEmitMgr = N64_NULL; //particlePtrArrayPtr
 s32 partEmitMgrLength = 0; //particlePtrArraySize
 
 //particle
@@ -159,7 +159,7 @@ void __particleEmitter_drawOnPass(ParticleEmitter *this, Gfx **gfx, Mtx **mtx, V
     if(reinterpret_cast(u32, draw_pass) != (this->draw_mode & 0x4) != 0)
         return;
 
-    if(this->model_20 != NULL){
+    if(this->model_20 != N64_NULL){
         for(iPtr = this->pList_start_124; iPtr < this->pList_end_128; iPtr++){
             position[0] = iPtr->position[0] + this->unk4[0];
             position[1] = iPtr->position[1] + this->unk4[1];
@@ -168,7 +168,7 @@ void __particleEmitter_drawOnPass(ParticleEmitter *this, Gfx **gfx, Mtx **mtx, V
                 modelRender_setAlpha((s32) (iPtr->fade*this->alpha));
             }//L802EEF5C
             modelRender_setDepthMode((this->draw_mode & PART_EMIT_NO_DEPTH)? MODEL_RENDER_DEPTH_NONE : MODEL_RENDER_DEPTH_FULL);
-            modelRender_draw(gfx, mtx, position, iPtr->rotation, iPtr->scale, NULL, this->model_20);
+            modelRender_draw(gfx, mtx, position, iPtr->rotation, iPtr->scale, N64_NULL, this->model_20);
         }
         return;
     }
@@ -293,9 +293,9 @@ ParticleEmitter * particleEmitter_new(u32 capacity){
     this->auto_free = 0;
     this->doneSpawning_0_23 = 1;
     this->draw_mode = 0;
-    this->sprite_1C = NULL;
+    this->sprite_1C = N64_NULL;
     this->unk0_16 = 0;
-    this->model_20 = NULL;
+    this->model_20 = N64_NULL;
     this->unk34 = 0;
     this->assetId_0_15 = 0;
     this->rgb[0] = 0xff;
@@ -760,7 +760,7 @@ void partEmitMgr_free(void){
         particleEmitter_free(partEmitMgr[i]);
     }
     free(partEmitMgr);
-    partEmitMgr = NULL;
+    partEmitMgr = N64_NULL;
     partEmitMgrLength = 0;
 }
 
@@ -872,7 +872,7 @@ void partEmitMgr_defrag(void){
 }
 
 void func_802F0E80(void* arg0, s32 arg1){
-    partEmitMgrEnable = BOOL(arg1 == 2);
+    partEmitMgrEnable = (arg1 == 2);
 }
 
 void func_802F0EAC(ParticleEmitter *this, f32 arg1){

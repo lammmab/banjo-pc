@@ -83,7 +83,7 @@ void sky_draw(Gfx **gfx, Mtx **mtx, Vtx **vtx){
                 rotation[0] = 0.0f;
                 rotation[1] = gcSky.sky_info->sky_list[i].rotation_speed * gcSky.timer;
                 rotation[2] = 0.0f;
-                modelRender_draw(gfx, mtx, position, rotation, gcSky.sky_info->sky_list[i].scale, NULL, iAsset);
+                modelRender_draw(gfx, mtx, position, rotation, gcSky.sky_info->sky_list[i].scale, N64_NULL, iAsset);
             }
         }
     }
@@ -111,8 +111,8 @@ void sky_reset(void){
 
     gcSky.sky_info = sky_getMapSkyInfo(map_get());
     for(i = 0; i< 3; i++){
-        gcSky.model[i] = NULL;
-        gcSky.model_bins[i] = NULL;
+        gcSky.model[i] = N64_NULL;
+        gcSky.model_bins[i] = N64_NULL;
         if(gcSky.sky_info->sky_list[i].model_id){
             gcSky.model_bins[i] = assetcache_get(gcSky.sky_info->sky_list[i].model_id);
             if(func_8033A0B0(gcSky.model_bins[i])){

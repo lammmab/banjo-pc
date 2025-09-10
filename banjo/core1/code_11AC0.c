@@ -230,15 +230,15 @@ void musicInstruments_init(void){
     D_80282104 = 0xAD;
     D_802820E0 = (MusicTrack **) malloc(D_80282104 * sizeof(MusicTrack *));
     for(i = 0; i < D_80282104; i++){
-        D_802820E0[i] = NULL;
+        D_802820E0[i] = N64_NULL;
     }
     D_802820E8.maxVoices = 0x18;
     D_802820E8.maxEvents = 0x55;
     D_802820E8.maxChannels = 0x10;
     D_802820E8.heap = func_802405B8();
-    D_802820E8.initOsc = NULL;
-    D_802820E8.updateOsc = NULL;
-    D_802820E8.stopOsc = NULL;
+    D_802820E8.initOsc = N64_NULL;
+    D_802820E8.updateOsc = N64_NULL;
+    D_802820E8.stopOsc = N64_NULL;
     func_8023FA64(&D_802820E8);
     for(i = 0; i < 6; i++){
         n_alCSPNew(&D_80281720[i].cseqp, &D_802820E8);
@@ -265,7 +265,7 @@ ALBank *music_get_sound_bank(void){
 }
 
 void func_8024F764(s32 arg0){//music track load
-    if(D_802820E0[arg0] == NULL){
+    if(D_802820E0[arg0] == N64_NULL){
         func_8033B788();
 #if VERSION == VERSION_USA_1_0
         D_802820E0[arg0] = assetcache_get(arg0 + 0x1516);
@@ -277,7 +277,7 @@ void func_8024F764(s32 arg0){//music track load
 
 void func_8024F7C4(s32 arg0){
     s32 i;
-    if(D_802820E0[arg0] != NULL){
+    if(D_802820E0[arg0] != N64_NULL){
         i = 0;
         for(i = 0; i != 6; i++){
             if(D_80281720[i].index == arg0)

@@ -55,7 +55,7 @@ Actor *chOverlayNoController_draw(ActorMarker *marker, Gfx **gdl, Mtx **mptr, Vt
 }  
 
 void chOverlayNoController_freeMethod(Actor *this){
-    chOverlayNoController_marker = NULL;
+    chOverlayNoController_marker = N64_NULL;
 }
 
 void chOverlayNoController_update(Actor *this) {
@@ -74,13 +74,13 @@ void chOverlayNoController_update(Actor *this) {
 }
 
 void __chOverlayNoController_spawn(void){
-    if(chOverlayNoController_marker == NULL){
+    if(chOverlayNoController_marker == N64_NULL){
         chOverlayNoController_marker = actor_spawnWithYaw_f32(ACTOR_1DF_NO_CONTROLLER_OVERLAY, D_80368168, 0)->marker;
     }
 }
 
 void chOverlayNoController_spawn(s32 arg0, s32 arg1){
-    if(chOverlayNoController_marker == NULL){
+    if(chOverlayNoController_marker == N64_NULL){
         __spawnQueue_add_0(__chOverlayNoController_spawn);
     }
 }

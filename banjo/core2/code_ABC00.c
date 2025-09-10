@@ -32,106 +32,106 @@ void jiggy_free(Actor *);
 /* .data */
 u8 D_8036E830 = 0;
 Struct_core2_ABC00_0 jiggylist_list[] = {
-    {func_80347E34, func_80347E60, func_80347FA4, func_80347FB8, {0x7,  NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347E34, func_80347E60, func_80347FA4, func_80347FB8, {0x4,  NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347E34, func_80347E60, func_80347FA4, func_80347FB8, {0x4,  NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347E34, func_80347E60, func_80347FA4, func_80347FB8, {0x7,  NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347E34, func_80347E60, func_80347FA4, func_80347FB8, {0x15, NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347E34, func_80347E60, func_80347FA4, func_80347FB8, {0x4,  NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347E34, func_80347E60, func_80347FA4, func_80347FB8, {0x7,  NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347CC8, func_80347CF4, func_80347DD0, func_80347DE4, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347E34, func_80347E60, func_80347FA4, func_80347FB8, {0xC,  NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347E34, func_80347E60, func_80347FA4, func_80347FB8, {0x7,  NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347E34, func_80347E60, func_80347FA4, func_80347FB8, {0xC,  NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347E34, func_80347E60, func_80347FA4, func_80347FB8, {0x9,  NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347E34, func_80347E60, func_80347FA4, func_80347FB8, {0x8,  NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347E34, func_80347E60, func_80347FA4, func_80347FB8, {0x9,  NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347E34, func_80347E60, func_80347FA4, func_80347FB8, {0x7,  NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347E34, func_80347E60, func_80347FA4, func_80347FB8, {0x12, NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0x1E, NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347E34, func_80347E60, func_80347FA4, func_80347FB8, {0xC,  NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347E34, func_80347E60, func_80347FA4, func_80347FB8, {0xC,  NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347E34, func_80347E60, func_80347FA4, func_80347FB8, {0xC,  NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347E34, func_80347E60, func_80347FA4, func_80347FB8, {0xC,  NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347E34, func_80347E60, func_80347FA4, func_80347FB8, {0x7,  NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347E34, func_80347E60, func_80347FA4, func_80347FB8, {0x8,  NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347E34, func_80347E60, func_80347FA4, func_80347FB8, {0x8,  NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347E34, func_80347E60, func_80347FA4, func_80347FB8, {0x4,  NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
-    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    NULL, {0.0f, 0.0f, 0.0f}, NULL, NULL}},
+    {func_80347E34, func_80347E60, func_80347FA4, func_80347FB8, {0x7,  N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347E34, func_80347E60, func_80347FA4, func_80347FB8, {0x4,  N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347E34, func_80347E60, func_80347FA4, func_80347FB8, {0x4,  N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347E34, func_80347E60, func_80347FA4, func_80347FB8, {0x7,  N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347E34, func_80347E60, func_80347FA4, func_80347FB8, {0x15, N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347E34, func_80347E60, func_80347FA4, func_80347FB8, {0x4,  N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347E34, func_80347E60, func_80347FA4, func_80347FB8, {0x7,  N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347CC8, func_80347CF4, func_80347DD0, func_80347DE4, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347E34, func_80347E60, func_80347FA4, func_80347FB8, {0xC,  N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347E34, func_80347E60, func_80347FA4, func_80347FB8, {0x7,  N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347E34, func_80347E60, func_80347FA4, func_80347FB8, {0xC,  N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347E34, func_80347E60, func_80347FA4, func_80347FB8, {0x9,  N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347E34, func_80347E60, func_80347FA4, func_80347FB8, {0x8,  N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347E34, func_80347E60, func_80347FA4, func_80347FB8, {0x9,  N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347E34, func_80347E60, func_80347FA4, func_80347FB8, {0x7,  N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347E34, func_80347E60, func_80347FA4, func_80347FB8, {0x12, N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0x1E, N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347E34, func_80347E60, func_80347FA4, func_80347FB8, {0xC,  N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347E34, func_80347E60, func_80347FA4, func_80347FB8, {0xC,  N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347E34, func_80347E60, func_80347FA4, func_80347FB8, {0xC,  N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347E34, func_80347E60, func_80347FA4, func_80347FB8, {0xC,  N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347E34, func_80347E60, func_80347FA4, func_80347FB8, {0x7,  N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347E34, func_80347E60, func_80347FA4, func_80347FB8, {0x8,  N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347E34, func_80347E60, func_80347FA4, func_80347FB8, {0x8,  N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347E34, func_80347E60, func_80347FA4, func_80347FB8, {0x4,  N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
+    {func_80347B54, func_80347B80, func_80347C5C, func_80347C70, {0,    N64_NULL, {0.0f, 0.0f, 0.0f}, N64_NULL, N64_NULL}},
 };
 
 /* .bss */
@@ -165,7 +165,7 @@ void jiggylist_set_level(enum map_e map_id) {
     s_jiggyList_level_start_index = level_index * 0xA;
     s_jiggyList_level_end_index = (level_index + 1) * 0xA;
     for(s_jiggylist_current_index = s_jiggyList_level_start_index; s_jiggylist_current_index < s_jiggyList_level_end_index; s_jiggylist_current_index++){
-            jiggylist_list[s_jiggylist_current_index].unk10.marker = NULL;
+            jiggylist_list[s_jiggylist_current_index].unk10.marker = N64_NULL;
     }
     D_8036E830 = 0;
 }
@@ -175,7 +175,7 @@ void jiggylist_map_actors(void) {
     s32 i;
 
     jiggy_actors = actorArray_findJiggyActors();
-    for(s_jiggylist_current_index = 0; jiggy_actors[s_jiggylist_current_index] != NULL; s_jiggylist_current_index++){
+    for(s_jiggylist_current_index = 0; jiggy_actors[s_jiggylist_current_index] != N64_NULL; s_jiggylist_current_index++){
         if(!jiggy_actors[s_jiggylist_current_index]->unk44_2){
             jiggylist_list[chjiggy_getJiggyId(jiggy_actors[s_jiggylist_current_index]) - 1].unk10.marker = jiggy_actors[s_jiggylist_current_index]->marker;
         }
@@ -201,7 +201,7 @@ void func_80332E08(void) {
     void *temp_v1;
 
     for(s_jiggylist_current_index = s_jiggyList_level_start_index; s_jiggylist_current_index < s_jiggyList_level_end_index; s_jiggylist_current_index++) {
-            if (jiggylist_list[s_jiggylist_current_index].unk10.marker != NULL) {
+            if (jiggylist_list[s_jiggylist_current_index].unk10.marker != N64_NULL) {
                 jiggylist_list[s_jiggylist_current_index].update(&jiggylist_list[s_jiggylist_current_index].unk10);
                 var_v0 = s_jiggylist_current_index;
             }
@@ -219,7 +219,7 @@ void func_80332E08(void) {
 
 void jiggylist_draw(Gfx **gfx, Mtx **mtx, Vtx **vtx) {
     for(s_jiggylist_current_index = s_jiggyList_level_start_index; s_jiggylist_current_index < s_jiggyList_level_end_index; s_jiggylist_current_index++) {
-        if (jiggylist_list[s_jiggylist_current_index].unk10.marker != NULL) {
+        if (jiggylist_list[s_jiggylist_current_index].unk10.marker != N64_NULL) {
             jiggylist_list[s_jiggylist_current_index].draw(&jiggylist_list[s_jiggylist_current_index].unk10, gfx, mtx, vtx);
         }
     }
@@ -227,7 +227,7 @@ void jiggylist_draw(Gfx **gfx, Mtx **mtx, Vtx **vtx) {
 
 void func_8033301C(void) {
     for(s_jiggylist_current_index = s_jiggyList_level_start_index; s_jiggylist_current_index < s_jiggyList_level_end_index; s_jiggylist_current_index++) {
-        if (jiggylist_list[s_jiggylist_current_index].unk10.marker != NULL) {
+        if (jiggylist_list[s_jiggylist_current_index].unk10.marker != N64_NULL) {
             jiggy_free(marker_getActor(jiggylist_list[s_jiggylist_current_index].unk10.marker));
         }
     }
@@ -238,7 +238,7 @@ void jiggy_spawn(enum jiggy_e jiggy_id, f32 pos[3]) {
 
     jiggy_id = ((jiggy_id <= 0) || (jiggy_id >= (s_jiggyList_level_jiggy_count * 10))) ? JIGGY_A_MM_CONGA : jiggy_id;
     temp_v0 = &jiggylist_list[jiggy_id - 1];
-    if (jiggylist_list[jiggy_id - 1].unk10.marker == NULL) {
+    if (jiggylist_list[jiggy_id - 1].unk10.marker == N64_NULL) {
         temp_v0->unk10.position[0] = pos[0];
         temp_v0->unk10.position[1] = pos[1];
         temp_v0->unk10.position[2] = pos[2];
@@ -308,7 +308,7 @@ void func_803333DC(Struct81s *arg0, Actor *arg1) {
     s32 jiggy_id;
 
     arg0->marker = arg1->marker;
-    if (arg0->unk14 != NULL) {
+    if (arg0->unk14 != N64_NULL) {
         arg0->unk14(arg1, arg0->unk18);
     }
     marker_setFreeMethod(arg1->marker, jiggy_free);

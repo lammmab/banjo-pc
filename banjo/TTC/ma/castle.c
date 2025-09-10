@@ -650,7 +650,7 @@ void maCastle_update(void)
 // is used to determine whether to spawn the crab or not
 bool maCastle_hasBanjoKazooieCodeBeenEntered(void)
 {
-    return NOT(sMapState.banjoKazooieCodeEnteredState < 2);
+    return !(sMapState.banjoKazooieCodeEnteredState < 2);
 }
 
 static s32 sThirdForbiddenSecretCheatCodeIndex = N64_NULL;

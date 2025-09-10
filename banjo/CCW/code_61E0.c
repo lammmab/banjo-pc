@@ -13,7 +13,7 @@ typedef struct {
 void func_8038C7A8(Actor *this);
 
 /* .data */
-ActorInfo D_8038F460 = { 0x1BC, 0x2A9, 0x48E, 0x0, NULL, func_8038C7A8, NULL, actor_draw, 0, 0, 0.8f, 0};
+ActorInfo D_8038F460 = { 0x1BC, 0x2A9, 0x48E, 0x0, N64_NULL, func_8038C7A8, N64_NULL, actor_draw, 0, 0, 0.8f, 0};
 
 /* .code */
 void CCW_func_8038C5D0(ActorMarker* marker) {

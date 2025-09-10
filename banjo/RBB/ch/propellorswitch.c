@@ -28,8 +28,8 @@ Struct_RBB_3CB0 D_80390720[2] = {
 };
 
 ActorInfo D_80390738 = {
-    0x186, 0x176, 0x404, 0x0, NULL,
-    chPropellorSwitch_update, NULL, chPropellorSwitch_draw,
+    0x186, 0x176, 0x404, 0x0, N64_NULL,
+    chPropellorSwitch_update, N64_NULL, chPropellorSwitch_draw,
     0, 0, 0.0f, 0
 };
 
@@ -78,10 +78,10 @@ Actor *chPropellorSwitch_draw(ActorMarker *marker, Gfx **gdl, Mtx **mptr, Vtx **
 
     modelRender_preDraw((GenFunction_1)actor_predrawMethod, (s32)actor);
     if(local->unk4){
-        modelRender_draw(gdl, mptr, actor->position, NULL, 1.0f, NULL, local->unk4);
+        modelRender_draw(gdl, mptr, actor->position, N64_NULL, 1.0f, N64_NULL, local->unk4);
     }
     else{
-        modelRender_draw(gdl, mptr, actor->position, NULL, 1.0f, NULL, marker_loadModelBin(marker));
+        modelRender_draw(gdl, mptr, actor->position, N64_NULL, 1.0f, N64_NULL, marker_loadModelBin(marker));
     }
     return actor;
 }
@@ -100,10 +100,10 @@ void chPropellorSwitch_update(Actor *this){
         this->volatile_initialized = true;
         local->unk0 = &D_80390720[((this->secondaryId == 2) ? 0:1)];
         if(local->unk0->unk6 == 0)
-            local->unk4 = NULL;
+            local->unk4 = N64_NULL;
         else
             local->unk4 = assetcache_get(local->unk0->unk6);
-        marker_setCollisionScripts(this->marker, NULL, func_8038A1C8, NULL);
+        marker_setCollisionScripts(this->marker, N64_NULL, func_8038A1C8, N64_NULL);
         this->position_x = (f32)local->unk0->unk0[0];
         this->position_y = (f32)local->unk0->unk0[1];
         this->position_z = (f32)local->unk0->unk0[2];

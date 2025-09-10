@@ -10,22 +10,22 @@ ActorMarker *D_8037D810;
 
 /* .code */
 Actor *func_802BABC0(ActorMarker *marker, Gfx **gfx, Mtx **mtx, Vtx **vtx){
-    return NULL;
+    return N64_NULL;
 }
 
 void func_802BABD8(void){
-    if(D_8037D810 != NULL){
+    if(D_8037D810 != N64_NULL){
         marker_free(D_8037D810);
-        D_8037D810 = NULL;
+        D_8037D810 = N64_NULL;
     }
 }
 
 void func_802BAC10(void){
-    D_8037D810 = NULL;
+    D_8037D810 = N64_NULL;
 }
 
 bool func_802BAC1C(void) {
-    return BOOL(func_80320EB0(D_8037D810, 100.0f, 1) != NULL);
+    return (func_80320EB0(D_8037D810, 100.0f, 1) != N64_NULL);
 }
 
 void func_802BAC58(void) {
@@ -36,7 +36,7 @@ void func_802BAC58(void) {
     viewport_getPosition_vec3f(vp_position);
     viewport_getRotation_vec3f(vp_rotation);
     func_802BEA4C(vp_rotation, vp_position, 150.0f, sp1C);
-    if (D_8037D810 == NULL) {
+    if (D_8037D810 == N64_NULL) {
         D_8037D810 = func_8032FBE4(sp1C, func_802BABC0, 1, 0x15D);
     }
     else{

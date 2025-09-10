@@ -12,7 +12,7 @@ s32 D_8036836C[4] = {0x60, 0x60, 0x60, 0xFF};
 s32 D_8036837C[4] = {0xFF, 0xFF, 0xFF, 0xFF};
 ActorInfo D_8036838C = { 
     0x17B, 0x2B5, 0x472,
-    0, NULL, 
+    0, N64_NULL, 
     func_802DF2C4, actor_update_func_80326224, func_80325340, 
     0, 0, 0.0f, 0
 };
@@ -33,21 +33,21 @@ Actor *func_802DF160(Gfx **gfx, Mtx **mtx, Vtx **vtx) {
     gSPSegment((*gfx)++, 0x04, osVirtualToPhysical(sp38));
     modelRender_preDraw((GenFunction_1)actor_predrawMethod, (s32)this);
     modelRender_postDraw((GenFunction_1)actor_postdrawMethod, (s32)D_8037E000);
-    modelRender_draw(gfx, mtx, &D_80368360, NULL, 1.0f, NULL, marker_loadModelBin(D_8037E000));
+    modelRender_draw(gfx, mtx, &D_80368360, N64_NULL, 1.0f, N64_NULL, marker_loadModelBin(D_8037E000));
     gDPSetTextureFilter((*gfx)++, G_TF_BILERP);
     return this;
 }
 
 void func_802DF270(void){
     Actor *this;
-    if(D_8037E000 == NULL){
+    if(D_8037E000 == N64_NULL){
         this = actor_spawnWithYaw_f32(0x2B5, D_80368360, 0);
         D_8037E000 = this->marker;
     }
 }
 
 void func_802DF2B4(Actor *this){
-    D_8037E000 = NULL;
+    D_8037E000 = N64_NULL;
 }
 
 void func_802DF2C4(Actor *this) {
@@ -70,7 +70,7 @@ void func_802DF2C4(Actor *this) {
     for( i = 0; i < 20; i++){
         prev_val = D_8037E008[i];
         temp_v0 = func_8034C2C4(this->marker, i + 0x190);
-        D_8037E008[i] = BOOL(i == temp_fp);
+        D_8037E008[i] = (i == temp_fp);
         if (prev_val != D_8037E008[i] ) {
             val = D_8037E008[i];
             switch(val){

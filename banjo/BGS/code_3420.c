@@ -37,8 +37,8 @@ void chvilegame_update(Actor *this);
 /* .data */
 ActorInfo D_80390960 = {
     MARKER_C6_VILE_GAME_CTRL, ACTOR_138_VILE_GAME_CTRL, 0,
-    0, NULL,
-    chvilegame_update, NULL, func_80325340,
+    0, N64_NULL,
+    chvilegame_update, N64_NULL, func_80325340,
     0, 0, 0.0f, 0
 };
 
@@ -221,7 +221,7 @@ void func_80389C58(ActorMarker *marker) {
     this = marker_getActor(marker);
     local = (ActorLocal_BGS_3420 *)&this->local;
     BGS_func_80389850(this, 0);
-    gcdialog_showDialog(D_80390984[local->unkC], 0xF, chVile_getPostion(local->vile_marker), this->marker, func_80389BF8, NULL);
+    gcdialog_showDialog(D_80390984[local->unkC], 0xF, chVile_getPostion(local->vile_marker), this->marker, func_80389BF8, N64_NULL);
 }
 
 void BGS_func_80389CD8(ActorMarker *marker, enum asset_e text_id, s32 arg2){
@@ -241,9 +241,9 @@ void func_80389D20(ActorMarker *marker) {
     local = (ActorLocal_BGS_3420 *)&this->local;
     BGS_func_80389850(this, 0);
     if (local->unkC == local->unkD) {
-        gcdialog_showDialog(D_803909A4[local->unkC], 0xF, chVile_getPostion(local->vile_marker), this->marker, BGS_func_80389CD8, NULL);
+        gcdialog_showDialog(D_803909A4[local->unkC], 0xF, chVile_getPostion(local->vile_marker), this->marker, BGS_func_80389CD8, N64_NULL);
     } else {
-        gcdialog_showDialog(D_803909C0[local->unkC], 0xF, chVile_getPostion(local->vile_marker), this->marker, BGS_func_80389CD8, NULL);
+        gcdialog_showDialog(D_803909C0[local->unkC], 0xF, chVile_getPostion(local->vile_marker), this->marker, BGS_func_80389CD8, N64_NULL);
     }
     func_80347A14(0);
 }
@@ -265,7 +265,7 @@ void func_80389E40(ActorMarker *marker) {
     local = (ActorLocal_BGS_3420 *)&this->local;
 
     BGS_func_80389850(this, 1);
-    gcdialog_showDialog(0xC6B, 0xF, chVile_getPostion(local->vile_marker), this->marker, func_80389DF8, NULL);
+    gcdialog_showDialog(0xC6B, 0xF, chVile_getPostion(local->vile_marker), this->marker, func_80389DF8, N64_NULL);
 }
 
 void func_80389EAC(ActorMarker *marker, enum asset_e text_id, s32 arg2){
@@ -305,7 +305,7 @@ void func_80389F08(ActorMarker *marker) {
             item_inc(ITEM_16_LIFE);
         }
     }
-    gcdialog_showDialog(0xC98, 0xF, chVile_getPostion(local->vile_marker), this->marker, func_80389EAC, NULL);
+    gcdialog_showDialog(0xC98, 0xF, chVile_getPostion(local->vile_marker), this->marker, func_80389EAC, N64_NULL);
 }
 
 
@@ -319,7 +319,7 @@ void func_8038A068(Actor *this, s32 next_state) {
     local = (ActorLocal_BGS_3420 *)&this->local;
     mapSpecificFlags_set(6, false);
     if (next_state == 1) {
-        if (local->vile_marker != NULL) {
+        if (local->vile_marker != N64_NULL) {
             func_8038C408(local->vile_marker);
         }
     }
@@ -327,22 +327,22 @@ void func_8038A068(Actor *this, s32 next_state) {
         func_8038C3B0(local->vile_marker);
         if (local->unkC == 3) {
             if (local->unkD >= 4) {
-                gcdialog_showDialog(0xC91, 0xE, chVile_getPostion(local->vile_marker), this->marker, func_80389B48, NULL);
+                gcdialog_showDialog(0xC91, 0xE, chVile_getPostion(local->vile_marker), this->marker, func_80389B48, N64_NULL);
             } else {
-                gcdialog_showDialog((local->unkC == local->unkD) ? 0xC8D : 0xC90, 0xE, chVile_getPostion(local->vile_marker), this->marker, func_80389B48, NULL);
+                gcdialog_showDialog((local->unkC == local->unkD) ? 0xC8D : 0xC90, 0xE, chVile_getPostion(local->vile_marker), this->marker, func_80389B48, N64_NULL);
             }
         } else {
-            gcdialog_showDialog((local->unkC == local->unkD) ? 0xC63 : 0xC6C, 0xE, chVile_getPostion(local->vile_marker), this->marker, func_80389B48, NULL);
+            gcdialog_showDialog((local->unkC == local->unkD) ? 0xC63 : 0xC6C, 0xE, chVile_getPostion(local->vile_marker), this->marker, func_80389B48, N64_NULL);
         }
     }
     if (next_state == 3) {
-        gcdialog_showDialog(D_803909DC[local->unkC], 4, chVile_getPostion(local->vile_marker), this->marker, func_80389B98, NULL);
+        gcdialog_showDialog(D_803909DC[local->unkC], 4, chVile_getPostion(local->vile_marker), this->marker, func_80389B98, N64_NULL);
     }
     if (next_state == 4) {
         if (local->unkC == local->unkD) {
-            gcdialog_showDialog(BGS_D_803909F8[local->unkC], 0xE | ((BGS_D_803909F8[local->unkC] == 0xC8E) ? 1 : 0) | 0xE, chVile_getPostion(local->vile_marker), this->marker, func_80389BC8, NULL);
+            gcdialog_showDialog(BGS_D_803909F8[local->unkC], 0xE | ((BGS_D_803909F8[local->unkC] == 0xC8E) ? 1 : 0) | 0xE, chVile_getPostion(local->vile_marker), this->marker, func_80389BC8, N64_NULL);
         } else {
-            gcdialog_showDialog(D_80390A18[local->unkC], 0xF , chVile_getPostion(local->vile_marker), this->marker, func_80389BC8, NULL);
+            gcdialog_showDialog(D_80390A18[local->unkC], 0xF , chVile_getPostion(local->vile_marker), this->marker, func_80389BC8, N64_NULL);
         }
         func_80347A14(0);
     }
@@ -517,7 +517,7 @@ s32 chvilegame_get_score_difference(ActorMarker *marker){
     return local->vile_score - local->player_score;
 }
 
-bool chvilegame_find_closest_piece(ActorMarker *marker, f32 position[0], f32 yaw, f32 dst[3]) {
+bool chvilegame_find_closest_piece(ActorMarker *marker, f32 *position, f32 yaw, f32 dst[3]) {
     f32 piece_direction[3];
     f32 target_direction[3];
     Actor *this;
@@ -535,7 +535,7 @@ bool chvilegame_find_closest_piece(ActorMarker *marker, f32 position[0], f32 yaw
     target_direction[1] = 0.0f;
     target_direction[2] = 100.0f;
     ml_vec3f_yaw_rotate_copy(target_direction, target_direction, yaw);
-    closest_piece = NULL;
+    closest_piece = N64_NULL;
     begin = (struct vilegame_piece *) vector_getBegin(local->game_pieces);
     end = (struct vilegame_piece *) vector_getEnd(local->game_pieces);
     for(i_ptr = begin; i_ptr < end; i_ptr++){
@@ -550,13 +550,13 @@ bool chvilegame_find_closest_piece(ActorMarker *marker, f32 position[0], f32 yaw
             if( (distance > 300.0f) 
                 || ((-0.8 < angle_diff) && (angle_diff < 0.8) && ((piece_direction[0]*target_direction[0] + piece_direction[1]*target_direction[1] + piece_direction[2]*target_direction[2]) >= 0.0f))
             ) {
-                if ((closest_piece == NULL) || (distance < ml_vec3f_distance(position, closest_piece->position))){
+                if ((closest_piece == N64_NULL) || (distance < ml_vec3f_distance(position, closest_piece->position))){
                     closest_piece = i_ptr;
                 }
             }
         }
     }
-    if (closest_piece != NULL) {
+    if (closest_piece != N64_NULL) {
         dst[0] = closest_piece->position[0];
         dst[1] = closest_piece->position[1];
         dst[2] = closest_piece->position[2];
@@ -625,7 +625,7 @@ void chvilegame_update(Actor *this) {
         local->game_pieces = vector_new(sizeof(struct vilegame_piece), 0x20);
         local->grumblie_model_bin = assetcache_get(0x3F7);
         local->unkC = 0;
-        local->vile_marker = NULL;
+        local->vile_marker = N64_NULL;
         if (this->state == 0) {
             local->unkD = 0;
         } else {
@@ -642,7 +642,7 @@ void chvilegame_update(Actor *this) {
         func_8038A068(this, 1);
         return;
     }
-    if (local->vile_marker == NULL) {
+    if (local->vile_marker == N64_NULL) {
         local->vile_marker = actorArray_findClosestActorFromActorId(this->position, 0x13A, -1, &sp4C)->marker;
     }
     if (this->state == 1) {
@@ -688,7 +688,7 @@ void chvilegame_update(Actor *this) {
             if (item_empty(ITEM_6_HOURGLASS)) {
                 if (volatileFlag_get(VOLATILE_FLAG_2_FF_IN_MINIGAME)) {
                     volatileFlag_set(VOLATILE_FLAG_3, 0);
-                    volatileFlag_set(VOLATILE_FLAG_5_FF_MINIGAME_WON, BOOL(local->vile_score < local->player_score));
+                    volatileFlag_set(VOLATILE_FLAG_5_FF_MINIGAME_WON, (local->vile_score < local->player_score));
                     func_8038A068(this, 1);
                 } else if (local->vile_score < local->player_score) {
                     if (local->unkC == 3) {

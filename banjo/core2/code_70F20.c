@@ -118,7 +118,7 @@ void func_802F8358(struct3s *this){
     if(!(tmp = this->unk0))
         return;
     func_802F9FD0(tmp, 0.0f, 0.0f, 3.0f);
-    this->unk0 = NULL;
+    this->unk0 = N64_NULL;
 }
 
 void func_802F83AC(struct3s *arg0) {

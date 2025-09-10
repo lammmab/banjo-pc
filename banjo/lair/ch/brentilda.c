@@ -46,7 +46,7 @@ void func_8038BADC(ActorMarker *marker, enum asset_e text_id, s32 arg2) {
                 return;
             }
         }
-        gcdialog_showDialog(ASSET_D38_DIALOG_EMPTY, 0xC, this->position, this->marker, func_8038BADC, NULL);
+        gcdialog_showDialog(ASSET_D38_DIALOG_EMPTY, 0xC, this->position, this->marker, func_8038BADC, N64_NULL);
         return;
     }
     subaddie_set_state(this, 1);
@@ -180,7 +180,7 @@ void chBrentilda_update(Actor *this) {
             && func_8028F20C()
             && !gcdialog_hasCurrentTextId()) {
             if (!fileProgressFlag_get(FILEPROG_96_MET_BRENTILDA)) {
-                gcdialog_showDialog(ASSET_10A1_DIALOG_BRENTILDA_MEET, 0xA, this->position, this->marker, func_8038BADC, NULL);
+                gcdialog_showDialog(ASSET_10A1_DIALOG_BRENTILDA_MEET, 0xA, this->position, this->marker, func_8038BADC, N64_NULL);
                 fileProgressFlag_set(FILEPROG_96_MET_BRENTILDA, true);
                 subaddie_set_state(this, 2);
                 return;
@@ -188,7 +188,7 @@ void chBrentilda_update(Actor *this) {
             if (func_8028EFC8() && (sp78[FACE_BUTTON(BUTTON_B)] == 1)) {
                 this->unk10_12++;
                 this->unk10_12 %= 3;
-                gcdialog_showDialogConditional(local->unk0 + this->unk10_12, 0xB, this->position, this->marker, func_8038BADC, NULL, func_8038BA30);
+                gcdialog_showDialogConditional(local->unk0 + this->unk10_12, 0xB, this->position, this->marker, func_8038BADC, N64_NULL, func_8038BA30);
                 subaddie_set_state(this, 2);
                 return;
             }

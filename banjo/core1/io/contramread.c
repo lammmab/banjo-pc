@@ -8,7 +8,7 @@ s32 __osContRamRead(OSMesgQueue *mq, int channel, u16 address, u8 *buffer)
     s32 ret;
     int i;
     u8 *ptr;
-    __OSContRamReadFormat ramreadformat;
+    __OSContRamHeader ramreadformat;
     int retry;
     ret = 0;
     ptr = (u8 *)&__osPfsPifRam;
@@ -17,11 +17,11 @@ s32 __osContRamRead(OSMesgQueue *mq, int channel, u16 address, u8 *buffer)
     __osContLastCmd = CONT_CMD_READ_MEMPACK;
     __osPackRamReadData(channel, address);
     ret = __osSiRawStartDma(OS_WRITE, &__osPfsPifRam);
-    osRecvMesg(mq, NULL, OS_MESG_BLOCK);
+    osRecvMesg(mq, N64_NULL, OS_MESG_BLOCK);
     do
     {
         ret = __osSiRawStartDma(OS_READ, &__osPfsPifRam);
-        osRecvMesg(mq, NULL, OS_MESG_BLOCK);
+        osRecvMesg(mq, N64_NULL, OS_MESG_BLOCK);
         ptr = (u8 *)&__osPfsPifRam;
         if (channel != 0)
         {
@@ -30,7 +30,7 @@ s32 __osContRamRead(OSMesgQueue *mq, int channel, u16 address, u8 *buffer)
                 ptr++;
             }
         }
-        ramreadformat = *(__OSContRamReadFormat *)ptr;
+        ramreadformat = *(__OSContRamHeader *)ptr;
         ret = CHNL_ERR(ramreadformat);
         if (ret == 0)
         {
@@ -68,21 +68,25 @@ s32 __osContRamRead(OSMesgQueue *mq, int channel, u16 address, u8 *buffer)
 static void __osPackRamReadData(int channel, u16 address)
 {
     u8 *ptr;
-    __OSContRamReadFormat ramreadformat;
+    __OSContRamHeader ramreadformat;
     int i;
 
-    ptr = (u8 *)__osPfsPifRam.ramarray;
+    ptr = (u8 *)__osPfsPifRam.ram;
 
-    for (i = 0; i < ARRLEN(__osPfsPifRam.ramarray) + 1; i++) { // also clear pifstatus
-        __osPfsPifRam.ramarray[i] = 0;
+    for (i = 0; i < ARRLEN(__osPfsPifRam.ram) + 1; i++) { // also clear pifstatus
+        __osPfsPifRam.ram[i] = 0;
     }
     
-    __osPfsPifRam.pifstatus = CONT_CMD_EXE;
-    ramreadformat.dummy = CONT_CMD_NOP;
+    __osPfsPifRam.status = CONT_CMD_EXE;
+    ramreadformat.unk_00 = CONT_CMD_NOP;
     ramreadformat.txsize = CONT_CMD_READ_MEMPACK_TX;
     ramreadformat.rxsize = CONT_CMD_READ_MEMPACK_RX;
-    ramreadformat.cmd = CONT_CMD_READ_MEMPACK;
-    ramreadformat.address = (address << 0x5) | __osContAddressCrc(address);
+    ramreadformat.poll = CONT_CMD_READ_MEMPACK;
+
+    // uhhh pray this is right lewl
+    uint16_t addr_with_crc = (address << 0x5) | __osContAddressCrc(address);
+    ramreadformat.hi = addr_with_crc >> 8;
+    ramreadformat.lo = addr_with_crc & 0xFF;
     ramreadformat.datacrc = CONT_CMD_NOP;
     for (i = 0; i < ARRLEN(ramreadformat.data); i++)
     {
@@ -95,7 +99,7 @@ static void __osPackRamReadData(int channel, u16 address)
             *ptr++ = 0;
         }
     }
-    *(__OSContRamReadFormat *)ptr = ramreadformat;
-    ptr += sizeof(__OSContRamReadFormat);
+    *(__OSContRamHeader *)ptr = ramreadformat;
+    ptr += sizeof(__OSContRamHeader);
     ptr[0] = CONT_CMD_END;
 }

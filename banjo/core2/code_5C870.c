@@ -582,7 +582,7 @@ void func_802E48B8(enum game_mode_e mode, s32 arg1){
 s32 game_defrag(void){
     func_802555C4(); //reset defragged flag in memory.c
     if( !level_get() )
-        return NULL;
+        return N64_NULL;
     
     glspline_defrag();
     animCache_defrag();

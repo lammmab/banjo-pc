@@ -6,7 +6,7 @@ void func_80390EB0(Actor *this);
 
 /* .data */
 ActorInfo FP_D_80392840 = { MARKER_245_XMAS_TREE_EGG_TOLL, ACTOR_353_XMAS_TREE_EGG_TOLL, ASSET_402_MODEL_EGG_TOLL,
-    0x0, NULL,
+    0x0, N64_NULL,
     func_80390EB0, actor_update_func_80326224, func_80325340,
     2000, 0, 0.0f, 0
 };
@@ -67,7 +67,7 @@ void func_80390EB0(Actor *this){
     if(!this->volatile_initialized){
         this->volatile_initialized = true;
         actor_collisionOn(this);
-        marker_setCollisionScripts(this->marker, func_80390E78, NULL, NULL);
+        marker_setCollisionScripts(this->marker, func_80390E78, N64_NULL, N64_NULL);
     }
 
     if(viewport_func_8024DB50(this->position, 150.0f) || subaddie_playerIsWithinSphereAndActive(this, 1200))

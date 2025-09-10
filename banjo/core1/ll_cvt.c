@@ -1,3 +1,4 @@
+/*
 long long __d_to_ll(double a0)
 {
     return a0;
@@ -37,3 +38,4 @@ float __ull_to_f(unsigned long long a0)
 {
     return a0;
 }
+*/

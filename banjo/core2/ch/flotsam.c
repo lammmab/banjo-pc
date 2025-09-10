@@ -24,8 +24,8 @@ Actor*  func_8035C71C(ActorMarker *marker, Gfx **gfx, Mtx **mtx, Vtx **vtx);
 /* .data */
 ActorInfo D_80372C80 = { 
     MARKER_C9_FLOTSAM, ACTOR_13B_FLOTSAM, ASSET_401_MODEL_FLOTSAM, 
-    0, NULL, 
-    func_8035C8F4, NULL, func_8035C71C, 
+    0, N64_NULL, 
+    func_8035C8F4, N64_NULL, func_8035C71C, 
     0, 0, 1.0f, 0
 };
 
@@ -215,7 +215,7 @@ Actor*  func_8035C71C(ActorMarker *marker, Gfx **gfx, Mtx **mtx, Vtx **vtx){
 
     if(this->state == 8){
         sp5C = skeletalAnim_getBoneTransformList(this->unk148);
-        if(sp5C != NULL){
+        if(sp5C != N64_NULL){
             sp40[0] = 0.0f;
             sp40[1] = 0.0f;
             sp40[2] = local->unk0 * -2200.0f;
@@ -262,7 +262,7 @@ void func_8035C8F4(Actor *this){
         this->marker->actorFreeFunc = func_8035C8C8;
         marker_setCollisionScripts(this->marker, func_8035C6C4, func_8035C6C4, func_8035C6F0);
         local->unk4 = mapModel_getFloorY(this->position);
-        local->pCtrl_8 = NULL;
+        local->pCtrl_8 = N64_NULL;
         local->unk34[0] = this->yaw;
         local->unk34[2] = local->unk34[1] = local->unk34[0];
         local->unk28[0] = this->position_x;

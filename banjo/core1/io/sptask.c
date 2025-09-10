@@ -1,7 +1,7 @@
 #include <libultraship/libultra.h>
 
 #define _osVirtualToPhysical(ptr)               \
-	if (ptr != NULL)                            \
+	if (ptr != N64_NULL)                            \
 	{                                           \
 		ptr = (void *)osVirtualToPhysical(ptr); \
 	}

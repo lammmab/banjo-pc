@@ -15,7 +15,7 @@ void func_8038AEBC(Actor *this);
 /* .data */
 ActorInfo D_8038F230 = {
     0x1C4, 0x30E, 0x487,
-    0x0, NULL,
+    0x0, N64_NULL,
     func_8038AEBC, func_8038AEBC, func_8038AE64,
     0, 0, 0.0f, 0
 };
@@ -28,7 +28,7 @@ Struct_CCW_4960_0 D_8038F254[] = {
 /* .code */
 void func_8038AD50(Actor *this, s32 next_state) {
     if (next_state == 2) {
-        gcdialog_showDialog(0xCDD, 0, NULL, NULL, NULL, NULL);
+        gcdialog_showDialog(0xCDD, 0, N64_NULL, N64_NULL, N64_NULL, N64_NULL);
         if (this->state == 1) {
             mapSpecificFlags_set(6, 0);
             timed_setStaticCameraToNode(0.0f, 1);

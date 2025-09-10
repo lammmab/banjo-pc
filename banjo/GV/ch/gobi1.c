@@ -19,8 +19,8 @@ Actor *chgobi1_draw(ActorMarker *this_marker, Gfx **gfx, Mtx **mtx, Vtx **vtx);
 
 /* .data */
 ActorInfo Gobi1 = { MARKER_BC_GOBI_1, ACTOR_12E_GOBI_1, ASSET_3E0_MODEL_GOBI, 
-    0, NULL, 
-    NULL, chGobi1_update, chgobi1_draw, 
+    0, N64_NULL, 
+    N64_NULL, chGobi1_update, chgobi1_draw, 
     0, 0x533, 0.0f, 0
 };
 
@@ -95,8 +95,8 @@ void func_8038736C(Actor *this){
 
 void func_803873B0(ActorMarker *this_marker, ActorMarker *other_marker){
     Actor *this = marker_getActor(this_marker);
-    if( player_getActiveHitbox(NULL) == HITBOX_A_FAST_FALLING
-        || player_getActiveHitbox(NULL) == HITBOX_1_BEAK_BUSTER
+    if( player_getActiveHitbox(N64_NULL) == HITBOX_A_FAST_FALLING
+        || player_getActiveHitbox(N64_NULL) == HITBOX_1_BEAK_BUSTER
     ){
         this->unk1C[0] = 1.0f;
     }
@@ -115,7 +115,7 @@ void chGobi1_update(Actor *this){
     tick = time_getDelta();
     if(!this->volatile_initialized){
         this->volatile_initialized = true;
-        marker_setCollisionScripts(this->marker, func_803873B0, NULL, NULL);
+        marker_setCollisionScripts(this->marker, func_803873B0, N64_NULL, N64_NULL);
         marker->actorFreeFunc = func_8038736C;
         marker->propPtr->unk8_3 = true;
         marker->collidable = true;
@@ -158,7 +158,7 @@ void chGobi1_update(Actor *this){
         timed_playSfx(1.0f, SFX_84_GOBI_CRYING, 1.1f, 30000);
         timed_playSfx(2.0f, SFX_84_GOBI_CRYING, 1.3f, 30000);
         timed_playSfx(2.5f, SFX_74_WALKING_NOISE_5, 0.5f, 30000);
-        func_80324DBC(3.0f, ASSET_A74_DIALOG_GOBI_HELPED, 0x2a, this->position, NULL, NULL, NULL);
+        func_80324DBC(3.0f, ASSET_A74_DIALOG_GOBI_HELPED, 0x2a, this->position, N64_NULL, N64_NULL, N64_NULL);
         timed_playSfx(5.0f, SFX_2E_BIGBUTT_RUNNING, 1.0f, 20000);
         timed_playSfx(5.6f, SFX_2E_BIGBUTT_RUNNING, 1.0f, 20000);
         timed_playSfx(6.5f, SFX_2E_BIGBUTT_RUNNING, 1.0f, 20000);
@@ -180,7 +180,7 @@ void chGobi1_update(Actor *this){
             && subaddie_playerIsWithinSphereAndActive(this, 250)
             && !subaddie_playerIsWithinSphereAndActive(this, 80)
             && func_8028F2A0()
-            && gcdialog_showDialog(0xa73, 0, NULL, NULL, NULL, NULL)
+            && gcdialog_showDialog(0xa73, 0, N64_NULL, N64_NULL, N64_NULL, N64_NULL)
         ){
             this->has_met_before = true;
         }

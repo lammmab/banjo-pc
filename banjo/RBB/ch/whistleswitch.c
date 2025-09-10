@@ -34,19 +34,19 @@ Struct_RBB_47D0 D_80390870[4] = {
 };
 
 extern ActorInfo D_803908C0 = {
-    0x195, 0x1BF, 0x413, 0x0, NULL,
-    func_8038AEB8, NULL, func_8038AD9C,
+    0x195, 0x1BF, 0x413, 0x0, N64_NULL,
+    func_8038AEB8, N64_NULL, func_8038AD9C,
     0, 0, 0.0f, 0
 };
 extern ActorInfo D_803908E4 = {
-    0x196, 0x1C0, 0x414, 0x0, NULL,
-    func_8038AEB8, NULL, func_8038AD9C,
+    0x196, 0x1C0, 0x414, 0x0, N64_NULL,
+    func_8038AEB8, N64_NULL, func_8038AD9C,
     0, 0, 0.0f, 0
 };
 
 extern ActorInfo D_80390908 = {
-    0x197, 0x1C1, 0x415, 0x0, NULL,
-    func_8038AEB8, NULL, func_8038AD9C,
+    0x197, 0x1C1, 0x415, 0x0, N64_NULL,
+    func_8038AEB8, N64_NULL, func_8038AD9C,
     0, 0, 0.0f, 0
 };
 
@@ -61,7 +61,7 @@ Struct_RBB_47D0 *RBB_func_8038ABC0(Actor *arg0){
             return iPtr;
         iPtr++;
     }
-    return NULL;
+    return N64_NULL;
 }   
 
 void func_8038AC18(Actor *this, s32 new_state){
@@ -134,7 +134,7 @@ void func_8038AEB8(Actor *this){
         this->volatile_initialized = true;
         this->marker->propPtr->unk8_3 = 1;
         this->marker->actorFreeFunc = func_8038AD7C;
-        marker_setCollisionScripts(this->marker, NULL, func_8038AD3C, NULL);
+        marker_setCollisionScripts(this->marker, N64_NULL, func_8038AD3C, N64_NULL);
         local->unk4 = RBB_func_8038ABC0(this);
         mapSpecificFlags_set(local->unk4->unk10, false);
         this->position_x = local->unk4->unk4[0];

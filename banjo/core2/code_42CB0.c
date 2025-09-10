@@ -13,13 +13,13 @@ void chHoneycomb_update(Actor *this);
 
 /* .data */
 ActorInfo D_80366C80 = { MARKER_53_EMPTY_HONEYCOMB, ACTOR_47_EMPTY_HONEYCOMB, ASSET_361_MODEL_EMPTY_HONEYCOMB, 
-    0, NULL, 
+    0, N64_NULL, 
     chHoneycomb_update, actor_update_func_80326224, actor_draw, 
     0, 0, 0.8f, 0
 };
 
 ActorInfo D_80366CA4 = { MARKER_55_HONEYCOMB, ACTOR_50_HONEYCOMB, ASSET_363_MODEL_HONEYCOMB, 
-    0, NULL, 
+    0, N64_NULL, 
     chHoneycomb_update, actor_update_func_80326224, actor_draw, 
     0, 0, 0.8f, 0
 };
@@ -62,7 +62,7 @@ void __chHoneycomb_free(Actor *this){
     D_8037DDCC &= ~(1 << local->uid);
     if(D_8037DDC8 == 0){
         freelist_free(D_8037DDC4);
-        D_8037DDC4 = NULL;
+        D_8037DDC4 = N64_NULL;
     }
 }
 
@@ -74,7 +74,7 @@ void func_802C9D80(void){
     ActorLocal_EmptyHoneycomb *i_local;
     u32 s2;
     ActorMarker *s5;
-    s5 = NULL;
+    s5 = N64_NULL;
     s2 = 0xFFFFFFFF;
     for(i = 1; i < freelist_size(D_8037DDC4); i++){
         if(D_8037DDCC & (1 << i)){
@@ -120,7 +120,7 @@ void chHoneycomb_update(Actor *this){
         ){
             marker_setFreeMethod(this->marker, __chHoneycomb_free);
             D_8037DDC8++;
-            if(D_8037DDC4 == NULL){
+            if(D_8037DDC4 == N64_NULL){
                 D_8037DDC4 = (FREE_LIST(s32) *) freelist_new(sizeof(s32), 10);
             }
             else if(D_8037DDC8 >= 11){

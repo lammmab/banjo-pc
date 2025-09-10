@@ -60,7 +60,7 @@ void chgloop_update(Actor *this){
             
             if( !mapSpecificFlags_get(2) 
                 && subaddie_playerIsWithinSphereAndActive(this, 350)
-                && gcdialog_showDialog(ASSET_D34_DIALOG_GLOOP_MEET, 0, NULL, NULL, NULL, NULL)
+                && gcdialog_showDialog(ASSET_D34_DIALOG_GLOOP_MEET, 0, N64_NULL, N64_NULL, N64_NULL, N64_NULL)
             ){
                 mapSpecificFlags_set(2, true);
             }

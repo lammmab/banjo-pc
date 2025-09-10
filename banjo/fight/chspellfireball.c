@@ -14,8 +14,8 @@ typedef struct chspellfireball_s {
 } ActorLocal_SpellFireball;
 
 /* .data */
-ActorInfo chSpellFireball = { MARKER_25C_GRUNTY_SPELL_FIREBALL,     ACTOR_389_GRUNTY_SPELL_FIREBALL,     ASSET_541_SPRITE_FIREBALL_SPELL_ATTACK, 1, NULL, chSpellFireball_update, actor_update_func_80326224, actor_draw,    0, 0, 1.0f, 0 };
-ActorInfo chSpellGreen =    { MARKER_280_GRUNTY_SPELL_GREEN_ATTACK, ACTOR_3AA_GRUNTY_SPELL_GREEN_ATTACK, ASSET_6C9_SPRITE_GREEN_SPELL_ATTACK,    1, NULL, chSpellFireball_update, actor_update_func_80326224, func_80325CAC, 0, 0, 1.0f, 0 };
+ActorInfo chSpellFireball = { MARKER_25C_GRUNTY_SPELL_FIREBALL,     ACTOR_389_GRUNTY_SPELL_FIREBALL,     ASSET_541_SPRITE_FIREBALL_SPELL_ATTACK, 1, N64_NULL, chSpellFireball_update, actor_update_func_80326224, actor_draw,    0, 0, 1.0f, 0 };
+ActorInfo chSpellGreen =    { MARKER_280_GRUNTY_SPELL_GREEN_ATTACK, ACTOR_3AA_GRUNTY_SPELL_GREEN_ATTACK, ASSET_6C9_SPRITE_GREEN_SPELL_ATTACK,    1, N64_NULL, chSpellFireball_update, actor_update_func_80326224, func_80325CAC, 0, 0, 1.0f, 0 };
 
 static s32 sFightSmokeColor[3] = { 186, 186, 186 };
 ParticleSettingsVelocityPosition sFightSmokeVelocityPosition = { { { -70.0f, 50.0f, -70.0f }, { 70.0f, 100.0f, 70.0f } }, { { -55.0f, 0.0f, -55.0f }, { 55.0f, 20.0f, 55.0f } } };
@@ -246,7 +246,7 @@ void chSpellFireball_update(Actor *this) {
 
     if (!this->volatile_initialized) {
         this->volatile_initialized = true;
-        marker_setCollisionScripts(this->marker, NULL, NULL, chSpellFireball_collisionDie);
+        marker_setCollisionScripts(this->marker, N64_NULL, N64_NULL, chSpellFireball_collisionDie);
         this->marker->propPtr->unk8_3 = 0;
         actor_collisionOn(this);
         this->lifetime_value = 8.0f;

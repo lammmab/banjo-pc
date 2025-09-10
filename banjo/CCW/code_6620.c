@@ -28,8 +28,8 @@ Struct_CCW_6620_0 D_8038F490[] ={
 
 ActorInfo D_8038F4A8 = { 
     0x1BD, 0x2AA, 0x48F,
-    0x0, NULL,
-    func_8038CC4C, NULL, CCW_func_8038CBF0,
+    0x0, N64_NULL,
+    func_8038CC4C, N64_NULL, CCW_func_8038CBF0,
     0, 0, 2.2f, 0
 };
 
@@ -120,7 +120,7 @@ void func_8038CC4C(Actor *this) {
         player_getPosition(sp38);
         if (ml_vec3f_distance(this->position, sp38) < 900.0f) {
             if (local->unk0->map_id != MAP_46_CCW_WINTER || func_8028F2FC()) {
-                gcdialog_showDialog(local->unk0->unk4, 4, NULL, NULL, NULL, NULL);
+                gcdialog_showDialog(local->unk0->unk4, 4, N64_NULL, N64_NULL, N64_NULL, N64_NULL);
                 this->has_met_before = true;
             }
         }

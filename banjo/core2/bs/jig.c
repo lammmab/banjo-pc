@@ -87,7 +87,7 @@ void bsjig_jiggy_update(void){
 void func_802B0CD8(void){
     if(bsjig_gJiggyMarker){
         chJigsawDance_setState(marker_getActor(bsjig_gJiggyMarker), 5);
-        bsjig_gJiggyMarker = NULL;
+        bsjig_gJiggyMarker = N64_NULL;
     }
 }
 

@@ -6,7 +6,7 @@ int osStopTimer(OSTimer *t)
     register u32 savedMask;
     OSTimer *timep;
 
-    if (t->next == NULL)
+    if (t->next == N64_NULL)
         return -1;
     savedMask = __osDisableInt();
     timep = t->next;
@@ -16,8 +16,8 @@ int osStopTimer(OSTimer *t)
     }
     t->prev->next = t->next;
     t->next->prev = t->prev;
-    t->next = NULL;
-    t->prev = NULL;
+    t->next = N64_NULL;
+    t->prev = N64_NULL;
     if (__osTimerList->next == __osTimerList)
     {
         __osSetCompare(0);

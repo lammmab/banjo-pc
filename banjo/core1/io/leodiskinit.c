@@ -1,5 +1,7 @@
 #include <libultraship/libultra.h>
 
+extern OSPiHandle *__osPiTable;
+
 OSPiHandle LeoDiskHandle;
 OSPiHandle *__osDiskHandle;
 OSPiHandle *osLeoDiskInit()

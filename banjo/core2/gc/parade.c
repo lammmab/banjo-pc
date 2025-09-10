@@ -296,7 +296,7 @@ void gcparade_update(void) {
                             if (D_803830F0.parade_element->exit >= 0) 
                                 sp34 = 0xA8;
                             timedFunc_set_1(1.0f, (GenFunction_1)func_80311714, 0);
-                            func_80324DBC(1.0f, D_803830F0.indx + 0x11AF, sp34, NULL, NULL, gcparade_textCallback, NULL);
+                            func_80324DBC(1.0f, D_803830F0.indx + 0x11AF, sp34, N64_NULL, N64_NULL, gcparade_textCallback, N64_NULL);
                             timedFunc_set_1(1.0f, (GenFunction_1)func_80311714, 1);
                         } else if (D_803830F0.parade_element->exit >= 0) {
                             func_8028F918(2);
@@ -381,11 +381,11 @@ void gcparade_init(void) {
 }
 
 int gcparade_8031B4CC(void){
-    return ((D_803830F0.parade_element != NULL) && (D_803830F0.parade_element->exit < 0));
+    return ((D_803830F0.parade_element != N64_NULL) && (D_803830F0.parade_element->exit < 0));
 }
 
 int gcparade_8031B4F4(void){
-    return (D_803830F0.parade_element != NULL) ? D_803830F0.parade_element->unk8 : 0;
+    return (D_803830F0.parade_element != N64_NULL) ? D_803830F0.parade_element->unk8 : 0;
 }
 
 void gcparade_beginFFParade(void){

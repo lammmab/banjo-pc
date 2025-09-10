@@ -18,8 +18,8 @@ enum chJumpTutorial_state_e {
 };
 
 ActorInfo gChJumpTutorial = {
-    MARKER_1ED_JUMP_TUTORIAL, ACTOR_3B9_JUMP_TUTORIAL, NULL,
-    1, NULL,
+    MARKER_1ED_JUMP_TUTORIAL, ACTOR_3B9_JUMP_TUTORIAL, N64_NULL,
+    1, N64_NULL,
     chJumpTutorial_update, actor_update_func_80326224, func_80325340,
     0, 0, 0.0f, 0
 };
@@ -42,7 +42,7 @@ void __chJumpTutorial_textCallback(ActorMarker *caller, enum asset_e text_id, s3
 void chJumpTutorial_setState(Actor *this, s32 state) {
     switch (state) {
         case JUMP_TUTORIAL_STATE_2_TEACHING://L8038A50C
-            this->sm_4070.dialog_id = NULL;
+            this->sm_4070.dialog_id = N64_NULL;
             player_getPosition(this->velocity);
             func_8028F918(0);
 
@@ -56,7 +56,7 @@ void chJumpTutorial_setState(Actor *this, s32 state) {
                 __chJumpTutorial_setStaticCameraToNode4(this);
                 ability_unlock(ABILITY_A_HOLD_A_JUMP_HIGHER);
 
-                gcdialog_showDialog(ASSET_DF6_DIALOG_BOTTLES_HIGH_JUMP_LEARN, 0xe, this->unk1C, this->marker, __chJumpTutorial_textCallback, NULL);
+                gcdialog_showDialog(ASSET_DF6_DIALOG_BOTTLES_HIGH_JUMP_LEARN, 0xe, this->unk1C, this->marker, __chJumpTutorial_textCallback, N64_NULL);
                 this->sm_4070.dialog_id = ASSET_E1A_DIALOG_BOTTLES_UNKNOWN;
                 mapSpecificFlags_set(SM_SPECIFIC_FLAG_8_ABILITY_HOLD_A_JUMP_HIGHER_UNLOCKED, false);
             }
@@ -112,7 +112,7 @@ void chJumpTutorial_update(Actor *this) {
                     __chJumpTutorial_setStaticCameraToNode4(this);
                     ability_unlock(ABILITY_7_FEATHERY_FLAP);
 
-                    gcdialog_showDialog(ASSET_DF7_DIALOG_BOTTLES_FEATHERY_FLAP_LEARN, 0xa, this->unk1C, this->marker, __chJumpTutorial_textCallback, NULL);
+                    gcdialog_showDialog(ASSET_DF7_DIALOG_BOTTLES_FEATHERY_FLAP_LEARN, 0xa, this->unk1C, this->marker, __chJumpTutorial_textCallback, N64_NULL);
                     this->sm_4070.dialog_id = ASSET_E1B_DIALOG_BOTTLES_UNKNOWN;
                     mapSpecificFlags_set(SM_SPECIFIC_FLAG_8_ABILITY_HOLD_A_JUMP_HIGHER_UNLOCKED, false);
                 }//L8038A730
@@ -121,7 +121,7 @@ void chJumpTutorial_update(Actor *this) {
                     __chJumpTutorial_setStaticCameraToNode4(this);
                     ability_unlock(ABILITY_8_FLAP_FLIP);
 
-                    gcdialog_showDialog(ASSET_DF8_DIALOG_BOTTLES_FLAP_FLIP_LEARN, 0xa, this->unk1C, this->marker, __chJumpTutorial_textCallback, NULL);
+                    gcdialog_showDialog(ASSET_DF8_DIALOG_BOTTLES_FLAP_FLIP_LEARN, 0xa, this->unk1C, this->marker, __chJumpTutorial_textCallback, N64_NULL);
                     this->sm_4070.dialog_id = ASSET_E1C_DIALOG_BOTTLES_UNKNOWN;
                     mapSpecificFlags_set(SM_SPECIFIC_FLAG_9_ABILITY_FEATHERY_UNLOCKED, false);
                 }//L8038A794
@@ -138,9 +138,9 @@ void chJumpTutorial_update(Actor *this) {
                         dialog_id = ASSET_DF9_DIALOG_BOTTLES_UNKNOWN;
                     }
 
-                    gcdialog_showDialog(dialog_id, 0xe, this->unk1C, this->marker, __chJumpTutorial_textCallback, NULL);
+                    gcdialog_showDialog(dialog_id, 0xe, this->unk1C, this->marker, __chJumpTutorial_textCallback, N64_NULL);
                     mapSpecificFlags_set(SM_SPECIFIC_FLAG_A_ABILITY_FLIP_UNLOCKED, false);
-                    this->sm_4070.dialog_id = NULL;
+                    this->sm_4070.dialog_id = N64_NULL;
                 }
             }//L8038A828
 
@@ -151,7 +151,7 @@ void chJumpTutorial_update(Actor *this) {
 
             if (func_8028EFC8() && face_buttons[FACE_BUTTON(BUTTON_B)] == true && func_8028F20C()) {
                 if (this->sm_4070.dialog_id) {
-                    gcdialog_showDialog(dialog_id = this->sm_4070.dialog_id, 0, NULL, NULL, NULL, NULL);
+                    gcdialog_showDialog(dialog_id = this->sm_4070.dialog_id, 0, N64_NULL, N64_NULL, N64_NULL, N64_NULL);
                 }
             }
             break;

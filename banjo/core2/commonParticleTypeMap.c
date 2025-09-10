@@ -48,7 +48,7 @@ u8 commonParticleTypeMap_findFree(void) {
 }
 
 void commonParticleTypeMap_freeByIndex(u8 index) {
-    if (commonParticleType_getFreeMethod(typeMaps[index].currentParticleType) != NULL) {
+    if (commonParticleType_getFreeMethod(typeMaps[index].currentParticleType) != N64_NULL) {
         commonParticleType_getFreeMethod(typeMaps[index].currentParticleType)();
     }
 
@@ -92,7 +92,7 @@ s32 commonParticleTypeMap_getNextType(u8 index) {
 }
 
 void commonParticleTypeMap_updateByIndex(u8 index) {
-    if (commonParticleType_getUpdateMethod(typeMaps[index].currentParticleType) != NULL) {
+    if (commonParticleType_getUpdateMethod(typeMaps[index].currentParticleType) != N64_NULL) {
         commonParticleType_getUpdateMethod(typeMaps[index].currentParticleType)();
     }
 }

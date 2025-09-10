@@ -60,7 +60,7 @@ s32 __codeAC520_pad_func_8033361C() {
         }
     }
 
-    return NULL;
+    return N64_NULL;
 }
 
 s32 __codeAC520_pad_func_80333698(s32 index) {
@@ -74,7 +74,7 @@ s32 __codeAC520_pad_func_80333698(s32 index) {
         }
     }
 
-    return NULL;
+    return N64_NULL;
 }
 
 void __codeAC520_pad_func_80333734(s32 index, f32 *arg1) {
@@ -140,11 +140,11 @@ s32 __codeAC520_pad_func_803339A4(f32 arg0[3]) {
     Lighting *beginPtr = vector_getBegin(sLightingVectorList.vector_ptr);
     Lighting *endPtr = vector_getEnd(sLightingVectorList.vector_ptr);
     Lighting *iPtr;
-    Lighting *tmp_s0 = NULL;
+    Lighting *tmp_s0 = N64_NULL;
     
     for(iPtr = beginPtr; iPtr < endPtr; iPtr++) {
         if(iPtr->unk34) {
-            if(tmp_s0 == NULL || ml_vec3f_distance(arg0, iPtr->position) < ml_vec3f_distance(arg0, tmp_s0->position)) {
+            if(tmp_s0 == N64_NULL || ml_vec3f_distance(arg0, iPtr->position) < ml_vec3f_distance(arg0, tmp_s0->position)) {
                 tmp_s0 = iPtr;
             }
         }

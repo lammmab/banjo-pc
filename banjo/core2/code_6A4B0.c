@@ -96,7 +96,7 @@ s16 *func_802F1804(Struct_Core2_6A4B0_2 *arg0, s32 arg1, s32 arg2, s32 arg3, s32
 }
 
 void func_802F1858(Struct_Core2_6A4B0_2 *arg0, Gfx **gfx, Mtx **mtx, Vtx **vtx){
-    if(arg0->draw_method != NULL){
+    if(arg0->draw_method != N64_NULL){
         arg0->draw_method(arg0, gfx, mtx, vtx);
     }
 }
@@ -108,9 +108,9 @@ void func_802F1884(Struct_Core2_6A4B0_2 *arg0){
 }
 
 void func_802F18B8(Struct_Core2_6A4B0_2 *arg0){
-    if(arg0->tmem_raw_ptr != NULL){
+    if(arg0->tmem_raw_ptr != N64_NULL){
         free(arg0->tmem_raw_ptr);
-        arg0->tmem_raw_ptr = NULL;
+        arg0->tmem_raw_ptr = N64_NULL;
     }
 }
 
@@ -119,7 +119,7 @@ Struct_Core2_6A4B0_2 *func_802F18F0(void){
 
     self = (Struct_Core2_6A4B0_2 *) malloc(sizeof(Struct_Core2_6A4B0_2));
     self->vtx_coord = malloc(6*9*2*3*3*sizeof(u16));
-    self->tmem_raw_ptr = NULL;
+    self->tmem_raw_ptr = N64_NULL;
     self->draw_method = 0;
     self->unk10 = 0;
     return self;

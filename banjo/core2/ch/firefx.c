@@ -8,7 +8,7 @@ void chfirefx_update(Actor *this);
 /* .data */
 ActorInfo gChFireFxInfo = {
     MARKER_256_FIRE_FX, ACTOR_383_FIRE_FX, ASSET_526_SPRITE_FIRE, 
-    0, NULL, 
+    0, N64_NULL, 
     chfirefx_update, actor_update_func_80326224, actor_draw,
     0, 0, 0.0f, 0
 }; 
@@ -62,7 +62,7 @@ void chfirefx_update(Actor *this){
         this->volatile_initialized = true;
         this->marker->propPtr->unk8_3 = false;
         actor_collisionOn(this);
-        marker_setCollisionScripts(this->marker, __chfirefx_hiss, NULL, NULL);
+        marker_setCollisionScripts(this->marker, __chfirefx_hiss, N64_NULL, N64_NULL);
         this->unk38_31 = (0.0f != this->yaw) ? 1 : 0;
         if(this->actorTypeSpecificField != 0x32){
             this->unk1C[0] = 1.0f;

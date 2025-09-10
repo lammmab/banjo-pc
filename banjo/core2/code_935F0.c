@@ -25,7 +25,7 @@ enum chminigame_state_e {
 /* .data */
 ActorInfo chMinigame = { 
     MARKER_1E1_FF_MINIGAME, ACTOR_376_FF_MINIGAME, 0x0, 
-    MINIGAME_STATE_1_INTRODUCE_GAME, NULL,
+    MINIGAME_STATE_1_INTRODUCE_GAME, N64_NULL,
     chMinigame_update, actor_update_func_80326224, func_80325340, 
     0, 0, 0.0f, 0
 };
@@ -56,7 +56,7 @@ void __chMinigame_hideSandcastleJiggy(Actor *this) {
 
     if (this->unk10_12 == MINIGAME_5_SANDCASTLE) {
         jiggy = actorArray_findActorFromActorId(ACTOR_46_JIGGY);
-        if (jiggy != NULL) {
+        if (jiggy != N64_NULL) {
             actor_collisionOff(jiggy);
             jiggy->position[1] -= 1000.0f;
         }
@@ -121,11 +121,11 @@ void __chMinigame_setState(Actor *this, u32 arg1) {
                 func_80347A14(0);
             }
             if (volatileFlag_get(this->unk10_12 + 6) == 0) {
-                func_80324DBC(2.0f, this->unk10_12 + 0x1026, 0xA2, NULL, this->marker, __chMinigame_textCallback1, __chMinigame_transformToCroc);
+                func_80324DBC(2.0f, this->unk10_12 + 0x1026, 0xA2, N64_NULL, this->marker, __chMinigame_textCallback1, __chMinigame_transformToCroc);
                 volatileFlag_set(this->unk10_12 + 6, 1);
                 this->unk138_23 = true;
             } else {
-                func_80324DBC(2.0f, 0xD38, 0x20, NULL, this->marker, __chMinigame_textCallback1, NULL);
+                func_80324DBC(2.0f, 0xD38, 0x20, N64_NULL, this->marker, __chMinigame_textCallback1, N64_NULL);
             }
             break;
         case MINIGAME_STATE_2_IN_PROGESS:

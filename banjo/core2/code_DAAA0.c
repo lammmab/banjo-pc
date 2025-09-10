@@ -175,7 +175,7 @@ void func_80361DC4(Actor *this){
     if(this->unk134){
         anSeq_free(this->unk134);
     }
-    this->unk134 = NULL;
+    this->unk134 = N64_NULL;
 
     if(this->unk160){
         func_8032477C(this->unk160);
@@ -200,9 +200,9 @@ void func_80361E10(Actor *this) {
 
 
 void func_80361E9C(Actor *this){
-    if( this->anctrl != NULL
-        && this->unk134 != NULL
-        && this->unk160 != NULL
+    if( this->anctrl != N64_NULL
+        && this->unk134 != N64_NULL
+        && this->unk160 != N64_NULL
     ){
       func_80324700(this->unk160);
     }
@@ -214,13 +214,13 @@ void func_80361EE0(Actor *this) {
     Struct62s *sp24;
     Struct63s *sp20;
 
-    if (this->anctrl != NULL && this->unk134 != NULL) {
+    if (this->anctrl != N64_NULL && this->unk134 != N64_NULL) {
         sp24 = this->unk108;
         sp28 = anctrl_getIndex(this->anctrl);
         if (sp28 != this->unk10C) {
             this->unk10C = sp28;
             anSeq_clear(this->unk134);
-            for(sp20 = sp24->unk4; sp20->unk4 != NULL; sp20++){
+            for(sp20 = sp24->unk4; sp20->unk4 != N64_NULL; sp20++){
                 if (sp28 == sp20->unk0) {
                     sp20->unk4(this->unk134, this->marker);
                     break;

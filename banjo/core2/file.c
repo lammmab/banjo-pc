@@ -20,8 +20,8 @@ File *file_open(enum asset_e asset_id) {
 
     this = (File *) malloc(sizeof(File));
 
-    if (this == NULL) {
-        return NULL;
+    if (this == N64_NULL) {
+        return N64_NULL;
     }
 
     this->mode = FILE_MODE_2_FROM_ASSET;
@@ -30,12 +30,12 @@ File *file_open(enum asset_e asset_id) {
     this->asset_base_ptr = assetcache_get(asset_id);
     this->asset_current_ptr = this->asset_base_ptr;
 
-    if (this->asset_current_ptr != NULL) {
+    if (this->asset_current_ptr != N64_NULL) {
         return this;
     }
 
     free(this);
-    return NULL;
+    return N64_NULL;
 }
 
 File *file_openMap(enum map_e map_id) {
@@ -78,7 +78,7 @@ File *file_allocNew(void) {
 void file_realloc(File *file, void **arg1, s32 *size) {
     *size = ((u32)file->current_ptr - (u32)file->base_ptr);
     *arg1 = realloc(file->base_ptr, *size);
-    file->base_ptr = NULL;
+    file->base_ptr = N64_NULL;
     file_close(file);
 }
 

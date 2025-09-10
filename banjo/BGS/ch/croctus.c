@@ -19,7 +19,7 @@ void func_80387FD4(Actor *this);
 
 /* .data */
 s16 D_803907B0[4] = {0x15, 0x16, 0x17, 0x18};
-ActorMarker *bgs_D_803907B8[5] = {NULL};
+ActorMarker *bgs_D_803907B8[5] = {N64_NULL};
 ActorAnimationInfo D_803907CC[] = {
     {0x000, 0.0f},
     {0x14B, 3.3e+7f},
@@ -97,7 +97,7 @@ void func_80387E68(ActorMarker *caller, enum asset_e text_id, s32 arg2){
         bgs_D_803907B8[this->actorTypeSpecificField]->propPtr->unk8_4 = true;
         timedFunc_set_1(1.1f, (GenFunction_1)func_80387E00, reinterpret_cast(s32, bgs_D_803907B8[this->actorTypeSpecificField]));
         timed_setStaticCameraToNode(0.8f, 9);
-        func_80324DBC(3.4f, 0xC87, 0xE, NULL, NULL, func_80387E68, NULL);
+        func_80324DBC(3.4f, 0xC87, 0xE, N64_NULL, N64_NULL, func_80387E68, N64_NULL);
         __spawnQueue_add_2((GenFunction_2) func_80387D18, reinterpret_cast(s32, this->marker), 0x46);
     }
     else{
@@ -118,13 +118,13 @@ void func_80387FD4(Actor *this){
         if(bgs_D_803907B8[this->actorTypeSpecificField - 1] == 0){
             bgs_D_803907B8[this->actorTypeSpecificField - 1] = this->marker;
             for(j = this->actorTypeSpecificField; j < 6; j++){
-                if(bgs_D_803907B8[j] != NULL){
+                if(bgs_D_803907B8[j] != N64_NULL){
                     bgs_D_803907B8[j]->propPtr->unk8_4 = false;
                     actor_setOpacity(marker_getActor(bgs_D_803907B8[j]), 0);
                 }
             }//L803880C8
             
-            for( j = this->actorTypeSpecificField - 2; j >= 0 && bgs_D_803907B8[j] == NULL; j--);
+            for( j = this->actorTypeSpecificField - 2; j >= 0 && bgs_D_803907B8[j] == N64_NULL; j--);
 
             
             if(j >= 0){
@@ -143,7 +143,7 @@ void func_80387FD4(Actor *this){
             coMusicPlayer_playMusic(COMUSIC_2B_DING_B, 28000);
             if (this->actorTypeSpecificField == 1) {
                 func_8028F94C(2, this->position);
-                gcdialog_showDialog(ASSET_C86_DIALOG_UNKNOWN, 0xE, this->position, this->marker, func_80387E68, NULL);
+                gcdialog_showDialog(ASSET_C86_DIALOG_UNKNOWN, 0xE, this->position, this->marker, func_80387E68, N64_NULL);
                 subaddie_set_state_with_direction(this, 6, 0.79f, 1);
             } else {
                 timed_playSfx(0.4f, SFX_C9_PAUSEMENU_ENTER, 1.0f, 32000); //0.4f

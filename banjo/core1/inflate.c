@@ -1,4 +1,5 @@
 #include "core1/core1.h"
+#include <stdio.h>
 
 /* static */ int huft_build(b, n, s, d, e, t, m)
 unsigned *b;            /* code lengths in bits (all assumed <= BMAX) */
@@ -44,7 +45,7 @@ int *m;                 /* maximum lookup bits, returns actual */
    } while (--i);
    if (c[0] == n)                /* null input--all zero length codes */
    {
-     *t = (struct huft *)NULL;
+     *t = (struct huft *)N64_NULL;
      *m = 0;
      return 0;
    }
@@ -96,8 +97,8 @@ int *m;                 /* maximum lookup bits, returns actual */
   p = v;                        /* grab values in bit order */
   h = -1;                       /* no tables yet--level -1 */
   w = -l;                       /* bits decoded == (l * h) */
-  u[0] = (struct huft *)NULL;   /* just to keep compilers happy */
-  q = (struct huft *)NULL;      /* ditto */
+  u[0] = (struct huft *)N64_NULL;   /* just to keep compilers happy */
+  q = (struct huft *)N64_NULL;      /* ditto */
   z = 0;                        /* ditto */
 
   /* go through the bit lengths (k already is bits in shortest code) */
@@ -133,7 +134,7 @@ int *m;                 /* maximum lookup bits, returns actual */
         
         D_8027BF34 += z + 1;         /* track memory usage */
         *t = q + 1;             /* link to list for huft_free() */
-        *(t = &(q->v.t)) = (struct huft *)NULL;
+        *(t = &(q->v.t)) = (struct huft *)N64_NULL;
         u[h] = ++q;             /* table starts after link */
 
         /* connect to last table, if there is one */
@@ -399,7 +400,7 @@ int *m;                 /* maximum lookup bits, returns actual */
 
     /* build decoding table for trees--single level, 7 bit lookup */
     bl = 7;
-    huft_build(ll, 19, 19, NULL, NULL, &tl, &bl);
+    huft_build(ll, 19, 19, N64_NULL, N64_NULL, &tl, &bl);
 
 
    /* read in literal and distance code lengths */

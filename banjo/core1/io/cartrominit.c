@@ -17,7 +17,7 @@ OSPiHandle *osCartRomInit(void)
 
 	CartRomHandle.type = DEVICE_TYPE_CART;
 	CartRomHandle.baseAddress = PHYS_TO_K1(PI_DOM1_ADDR2);
-	osPiRawReadIo(NULL, &domain);
+	osPiRawReadIo(N64_NULL, &domain);
 	CartRomHandle.latency = domain & 0xff;
 	CartRomHandle.pulse = (domain >> 8) & 0xff;
 	CartRomHandle.pageSize = (domain >> 0x10) & 0xf;

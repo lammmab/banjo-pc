@@ -26,7 +26,7 @@ enum chMotzhand_state_e {
 
 ActorInfo chMotzhand = {
     MARKER_49_MOTZHAND, ACTOR_3A_MOTZHAND, ASSET_88C_MODEL_MOTZHAND,
-    0x0, NULL,
+    0x0, N64_NULL,
     chMotzhand_update, actor_update_func_80326224, chMotzhand_draw,
     0, 0, 0.0f, 0
 };
@@ -89,7 +89,7 @@ Actor *chMotzhand_draw(ActorMarker *marker, Gfx **gfx, Mtx **mtx, Vtx **vtx) {
     sp3C[0] = sp3C[1] = sp3C[2] = 0.0f;
     sp3C[1] = 180.0f;
     modelRender_setDepthMode(MODEL_RENDER_DEPTH_FULL);
-    modelRender_draw(gfx, mtx, this->position, sp3C, 1.0f, NULL, marker_loadModelBin(marker));
+    modelRender_draw(gfx, mtx, this->position, sp3C, 1.0f, N64_NULL, marker_loadModelBin(marker));
     this->marker->unk14_21 = func_8033A170();
     return this;
 }

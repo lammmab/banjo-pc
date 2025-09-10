@@ -18,7 +18,7 @@ void chSnowball_update(Actor *this);
 /* .data */
 ActorInfo chSnowball = { 
     MARKER_B2_SNOWBALL, ACTOR_125_SNOWBALL, ASSET_378_MODEL_SNOWBALL, 
-    0x1, NULL, 
+    0x1, N64_NULL, 
     chSnowball_update, actor_update_func_80326224, chSnowball_draw, 
     0, 0x800, 0.8f, 0
 };
@@ -104,7 +104,7 @@ void chSnowball_update(Actor *this) {
 
 
     if(!this->initialized){
-        marker_setCollisionScripts(this->marker, NULL, NULL, __chSnowball_actorCollisionCallback);
+        marker_setCollisionScripts(this->marker, N64_NULL, N64_NULL, __chSnowball_actorCollisionCallback);
         if(local->unk0 == 0){
             player_getPosition(this->unk1C);
             local->unk0 = 1;
@@ -161,7 +161,7 @@ void chSnowball_update(Actor *this) {
         }
         break;
     case 2:
-        this->marker->unk40_22 = NOT(func_8028F170());
+        this->marker->unk40_22 = !(func_8028F170());
         this->velocity[0] *= 0.7;
         this->velocity[1] *= 0.7;
         this->velocity[2] *= 0.7;

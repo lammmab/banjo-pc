@@ -1,3 +1,5 @@
+#include "n64_compat.h"
+
 #ifndef VARIABLES_H
 #define VARIABLES_H
 

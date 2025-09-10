@@ -162,15 +162,15 @@ Actor *chBottlesBonus_draw(ActorMarker *marker, Gfx **gfx, Mtx **mtx, Vtx **vtx)
 
     sp6C = marker_getActor(marker);
     sp50 = func_8030C704(); //grabs frame as texture?
-    if ((sp50 == NULL) || (getGameMode() != GAME_MODE_8_BOTTLES_BONUS))
+    if ((sp50 == N64_NULL) || (getGameMode() != GAME_MODE_8_BOTTLES_BONUS))
         return sp6C;
 
     chBottlesBonus_func_802DD080(gfx, mtx);
     {sp60[0] = 0.0f; sp60[1] = 0.0f; sp60[2] = 0.0f;};
     {sp54[0] = 0.0f; sp54[1] = 0.0f; sp54[2] = 0.0f;};
     modelRender_setDepthMode(MODEL_RENDER_DEPTH_FULL);
-    modelRender_draw(gfx, mtx, sp60, NULL, 1.0f, sp54, chBottleBonusBookselfModelBin);
-    modelRender_draw(gfx, mtx, sp60, NULL, 1.0f, sp54, D_8037DEA8);
+    modelRender_draw(gfx, mtx, sp60, N64_NULL, 1.0f, sp54, chBottleBonusBookselfModelBin);
+    modelRender_draw(gfx, mtx, sp60, N64_NULL, 1.0f, sp54, D_8037DEA8);
 
     gDPSetTextureFilter((*gfx)++, G_TF_POINT);
     gDPSetColorDither((*gfx)++, G_CD_DISABLE);
@@ -182,7 +182,7 @@ Actor *chBottlesBonus_draw(ActorMarker *marker, Gfx **gfx, Mtx **mtx, Vtx **vtx)
     modelRender_preDraw((GenFunction_1)actor_predrawMethod, (s32)sp6C);
     modelRender_postDraw((GenFunction_1)actor_postdrawMethod, (s32)marker);
 
-    modelRender_draw(gfx, mtx, sp60, NULL, D_80368250, sp54, marker_loadModelBin(marker));
+    modelRender_draw(gfx, mtx, sp60, N64_NULL, D_80368250, sp54, marker_loadModelBin(marker));
     gDPSetTextureFilter((*gfx)++, G_TF_BILERP);
     gDPSetColorDither((*gfx)++, G_CD_MAGICSQ);
     chBottlesBonusCursor_draw(gfx, mtx, vtx);
@@ -408,7 +408,7 @@ void chBottlesBonus_lose(u8 *arg0, enum asset_e text_id) {
         *arg0 = 1;
         timedFunc_set_0(2.0f, chBottlesBonusCursor_func_802DF99C);
         func_80311714(0);
-        gcdialog_showDialog(text_id, 0x86, actor->position, chBottlesBonusMarker, chBottlesBonus_func_802DE224, NULL);
+        gcdialog_showDialog(text_id, 0x86, actor->position, chBottlesBonusMarker, chBottlesBonus_func_802DE224, N64_NULL);
         func_80311714(1);
     }
     else{
@@ -427,7 +427,7 @@ void chBottlesBonus_completedPuzzle(void) {
     actor = marker_getActor(chBottlesBonusMarker);
     gCompletedBottleBonusGames[chBottleBonusPuzzleIndex] = true;
     func_80311714(0);
-    gcdialog_showDialog(D_803681A0[chBottleBonusPuzzleIndex + 1].text_id, 0x86, actor->position, chBottlesBonusMarker, chBottlesBonus_IncrementPuzzle, NULL);
+    gcdialog_showDialog(D_803681A0[chBottleBonusPuzzleIndex + 1].text_id, 0x86, actor->position, chBottlesBonusMarker, chBottlesBonus_IncrementPuzzle, N64_NULL);
     func_80311714(1);
 }
 
@@ -469,7 +469,7 @@ void chBottlesBonus_update(Actor *this) {
         if (D_8037DEA8 == 0) {
             D_8037DEA8 = assetcache_get(0x471);
         }
-        if (D_8037DEAC == NULL) {
+        if (D_8037DEAC == N64_NULL) {
             D_8037DEAC = func_8033F5F8(func_8033A0B0(chBottleBonusBookselfModelBin), model_getVtxList(chBottleBonusBookselfModelBin));
             func_8034CF74(local, 0, D_8037DEAC, 0xF0);
         }
@@ -524,12 +524,12 @@ void chBottlesBonus_update(Actor *this) {
                 func_8025A7DC(COMUSIC_98_BBONUS_PIECES_SHUFFLE);
                 if (D_8037DCC7 == 0) {
                     func_80311714(0);
-                    gcdialog_showDialog(ASSET_E24_DIALOG_UNKNOWN, 0x87, this->position, chBottlesBonusMarker, chBottlesBonus_startTimer, NULL);
+                    gcdialog_showDialog(ASSET_E24_DIALOG_UNKNOWN, 0x87, this->position, chBottlesBonusMarker, chBottlesBonus_startTimer, N64_NULL);
                     func_80311714(1);
                     D_8037DCC7 = 1;
                 }
                 else{
-                    chBottlesBonus_startTimer(NULL, 0, 0);
+                    chBottlesBonus_startTimer(N64_NULL, 0, 0);
                 }
             }
             break;
@@ -550,7 +550,7 @@ void chBottlesBonus_update(Actor *this) {
 
 void __chBottlesBonus_spawn(void){
     Actor *actor;
-    if(chBottlesBonusMarker == NULL){
+    if(chBottlesBonusMarker == N64_NULL){
         actor = actor_spawnWithYaw_f32(0x1E0, D_803682C4, 0);
         chBottlesBonusMarker = actor->marker;
         chBottlesBonusCursor_spawn();
@@ -559,7 +559,7 @@ void __chBottlesBonus_spawn(void){
 }
 
 void chBottlesBonus_spawn(s32 arg0, s32 arg1){
-    if(chBottlesBonusMarker == NULL){
+    if(chBottlesBonusMarker == N64_NULL){
         __spawnQueue_add_0(__chBottlesBonus_spawn);
     }
 }

@@ -17,10 +17,10 @@ void func_802B3F20(void){
 
 void func_802B3F60(void){
     Actor *sled;
-    if(bssled_gSledMarker != NULL){
+    if(bssled_gSledMarker != N64_NULL){
         sled = marker_getActor(bssled_gSledMarker);
         sled->unk138_20 = false;
-        bssled_gSledMarker = NULL;
+        bssled_gSledMarker = N64_NULL;
     }
 }
 
@@ -35,7 +35,7 @@ void bssled_init(void){
 
 void bssled_update(void){
     s32 state = 0;
-    if(bssled_gSledMarker == NULL)
+    if(bssled_gSledMarker == N64_NULL)
         state = BS_2F_FALL;
     bs_setState(state);
 }

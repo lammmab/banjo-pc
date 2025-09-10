@@ -140,7 +140,7 @@ void func_8038A384(Actor *this){
                         && !jiggyscore_isCollected(JIGGY_2C_FP_BOGGY_3)
                         && !jiggyscore_isSpawned(JIGGY_2C_FP_BOGGY_3)
                     ){
-                        if (gcdialog_showDialog(ASSET_C1A_DIALOG_UNKNOWN, 0x2a, NULL, NULL, NULL, NULL)) {
+                        if (gcdialog_showDialog(ASSET_C1A_DIALOG_UNKNOWN, 0x2a, N64_NULL, N64_NULL, N64_NULL, N64_NULL)) {
                             levelSpecificFlags_set(LEVEL_FLAG_19_FP_UNKNOWN, true);
                         }
                     }
@@ -164,10 +164,10 @@ void func_8038A384(Actor *this){
             if(levelSpecificFlags_get(D_80391E80[sp3C].unk0)){
                 subaddie_set_state_with_direction(this, 2, 0.001f, 1);
                 if (sp38 == ASSET_C19_DIALOG_UNKNOWN) {
-                    gcdialog_showDialog(sp38, 0x2f, this->position, this->marker, func_8038A318, NULL);
+                    gcdialog_showDialog(sp38, 0x2f, this->position, this->marker, func_8038A318, N64_NULL);
                 }
                 else {
-                    gcdialog_showDialog(sp38, 0x3, this->position, this->marker, func_8038A318, NULL);
+                    gcdialog_showDialog(sp38, 0x3, this->position, this->marker, func_8038A318, N64_NULL);
                 }
             }
             else{//L8038A73C

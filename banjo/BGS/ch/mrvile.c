@@ -27,8 +27,8 @@ typedef struct chmrvile_s{
 } ActorLocal_MrVile;
 
 /* .data */
-ActorInfo D_80390A70 = {MARKER_C8_MR_VILE, ACTOR_13A_MR_VILE, ASSET_373_MODEL_MR_VILE, 0x00, NULL,
-    chvile_update, NULL, chvile_draw,
+ActorInfo D_80390A70 = {MARKER_C8_MR_VILE, ACTOR_13A_MR_VILE, ASSET_373_MODEL_MR_VILE, 0x00, N64_NULL,
+    chvile_update, N64_NULL, chvile_draw,
     0, 0, 0.0f, 0
 };
 
@@ -342,12 +342,12 @@ void chvile_update(Actor *this) {
         this->marker->actorFreeFunc = chvile_free;
         local->unk0 = 0;
         local->unk4 = assetcache_get(0x3F6);
-        local->game_marker = NULL;
+        local->game_marker = N64_NULL;
         func_8038BD84(this);
         func_8038C0C8(this, 1);
         return;
     }
-    if (local->game_marker == NULL) {
+    if (local->game_marker == N64_NULL) {
         local->game_marker = actorArray_findClosestActorFromActorId(this->position, 0x138, -1, &sp90)->marker;
     }
     player_getPosition(player_position);
@@ -372,7 +372,7 @@ void chvile_update(Actor *this) {
             local->target_position[1] = 0.0f;
             local->target_position[2] = 0.0f;
         }
-        if (local->game_marker != NULL) {
+        if (local->game_marker != N64_NULL) {
             temp_v0 = chvilegame_get_score_difference(local->game_marker);
             if (temp_v0 >= 2) {
                 local->unk10 = 200.0f;

@@ -150,7 +150,7 @@ TransitionInfo *_gctranstion_8030B400(s32 arg0){
         if(i->uid == arg0)
             return i;
     }
-    return NULL;
+    return N64_NULL;
 }
 
 MapTransitionInfo *_gctranstion_get_map_transition_info(s32 map_indx){
@@ -163,13 +163,13 @@ MapTransitionInfo *_gctranstion_get_map_transition_info(s32 map_indx){
 }
 
 void _gctranstion_changeState(s32 state, TransitionInfo *desc){
-    if(s_current_transition.model_ptr != NULL){
+    if(s_current_transition.model_ptr != N64_NULL){
         func_8033BD20(&s_current_transition.model_ptr);
     }
 
-    if(s_current_transition.anctrl != NULL){
+    if(s_current_transition.anctrl != N64_NULL){
         anctrl_free(s_current_transition.anctrl);
-        s_current_transition.anctrl = NULL;
+        s_current_transition.anctrl = N64_NULL;
     }
     
     s_current_transition.unk0 = 0;
@@ -182,11 +182,11 @@ void _gctranstion_changeState(s32 state, TransitionInfo *desc){
         s_current_transition.model_ptr = assetcache_get(0x7D2); //scene transition black
     else if(state == TRANSITION_STATE_6_LOADING_WHITE)
         s_current_transition.model_ptr = assetcache_get(0x7D3);  //scene transition white
-    else if(desc != NULL && desc->model_index != 0)
+    else if(desc != N64_NULL && desc->model_index != 0)
         s_current_transition.model_ptr = assetcache_get(desc->model_index);
 
     //load transistion animation
-    if(desc != NULL && desc->anim_index != NULL){
+    if(desc != N64_NULL && desc->anim_index != N64_NULL){
         s_current_transition.anctrl = anctrl_new(0);
         anctrl_reset(s_current_transition.anctrl);
         anctrl_setIndex(s_current_transition.anctrl, desc->anim_index);
@@ -233,7 +233,7 @@ void _gctranstion_changeState(s32 state, TransitionInfo *desc){
 }  
 
 void gctransition_defrag(void){
-    if(s_current_transition.model_ptr != NULL)
+    if(s_current_transition.model_ptr != N64_NULL)
         s_current_transition.model_ptr = defrag_asset(s_current_transition.model_ptr);
 }
 
@@ -249,7 +249,7 @@ void gctransition_draw(Gfx **gdl, Mtx **mptr, Vtx **vptr){
         return;
 
     viewport_backupState();
-    if(s_current_transition.anctrl != NULL){
+    if(s_current_transition.anctrl != N64_NULL){
         vp_position[0] = 0.0f;
         vp_position[1] = 0.0f;
         vp_position[2] = 350.0f;
@@ -272,7 +272,7 @@ void gctransition_draw(Gfx **gdl, Mtx **mptr, Vtx **vptr){
     sp58[0] = 0.0f;
     sp58[1] = 0.0f;
     sp58[2] = 0.0f;
-    if(s_current_transition.anctrl != NULL){
+    if(s_current_transition.anctrl != N64_NULL){
         gDPSetTextureFilter((*gdl)++, G_TF_POINT);
         gDPSetColorDither((*gdl)++, G_CD_DISABLE);
         anctrl_drawSetup(s_current_transition.anctrl, sp58, 1);
@@ -282,7 +282,7 @@ void gctransition_draw(Gfx **gdl, Mtx **mptr, Vtx **vptr){
     //complex animation (from animation bin file)
     if(s_current_transition.state == 1 || s_current_transition.state == 6){
         modelRender_draw(gdl, mptr, sp58, vp_rotation, 1.0f, 0, s_current_transition.model_ptr);
-        if(s_current_transition.anctrl != NULL){
+        if(s_current_transition.anctrl != N64_NULL){
             gDPSetTextureFilter((*gdl)++, G_TF_BILERP);
             gDPSetColorDither((*gdl)++, G_CD_MAGICSQ);
         }
@@ -361,7 +361,7 @@ void gctransition_draw(Gfx **gdl, Mtx **mptr, Vtx **vptr){
     else{
         
     }
-    if(s_current_transition.anctrl != NULL){
+    if(s_current_transition.anctrl != N64_NULL){
         gDPSetTextureFilter((*gdl)++, G_TF_BILERP);
     }
     viewport_restoreState();
@@ -398,7 +398,7 @@ int gctransition_8030BDC0(void){
 }
 
 void gctransition_8030BE3C(void){
-    _gctranstion_changeState(0, NULL);
+    _gctranstion_changeState(0, N64_NULL);
 }
 
 void gctransition_8030BE60(void){
@@ -413,9 +413,9 @@ void gctransition_8030BEA4(s32 arg0){
 }
 
 void gctransition_reset(void){
-    s_current_transition.transistion_info = NULL;
+    s_current_transition.transistion_info = N64_NULL;
     s_current_transition.state = TRANSITION_STATE_0_NONE;
-    s_current_transition.model_ptr = NULL;
+    s_current_transition.model_ptr = N64_NULL;
     s_current_transition.rotation = 0.0f;
     _gctranstion_changeState(0,0);
 }
@@ -426,10 +426,10 @@ void gctransition_update(void){
     
 
     dt = time_getDelta();
-    if(s_current_transition.transistion_info == NULL)
+    if(s_current_transition.transistion_info == N64_NULL)
         return;
     
-    if(s_current_transition.anctrl != NULL){
+    if(s_current_transition.anctrl != N64_NULL){
         anctrl_update(s_current_transition.anctrl);
         if(s_current_transition.state == TRANSITION_STATE_4_FADE_IN){
             switch(s_current_transition.substate){
@@ -474,7 +474,7 @@ void gctransition_update(void){
         s_current_transition.timer += dt;
     }
     if(s_current_transition.transistion_info->duration < s_current_transition.timer
-        || (s_current_transition.anctrl!= NULL && anctrl_isStopped(s_current_transition.anctrl))
+        || (s_current_transition.anctrl!= N64_NULL && anctrl_isStopped(s_current_transition.anctrl))
     ){
         s_current_transition.timer = s_current_transition.transistion_info->duration;
         //update next transition rotation
@@ -489,7 +489,7 @@ void gctransition_update(void){
         if(s_current_transition.state == TRANSITION_STATE_4_FADE_IN)
             func_8030C180();
 
-        if(s_current_transition.anctrl != NULL)
+        if(s_current_transition.anctrl != N64_NULL)
             func_80334ECC();
     }
     s_current_transition.substate++;

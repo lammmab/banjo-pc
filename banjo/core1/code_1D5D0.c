@@ -4,10 +4,10 @@
 #include "save.h"
 
 bool snsToRestoreItems = false;
-struct SnsPayload *snsBasePayloadPtr1 = NULL;
-struct SnsPayload *snsBasePayloadPtr2 = NULL;
-struct SnsPayload *snsBasePayloadPtr3 = NULL;
-struct SnsPayload *snsBasePayloadPtr4 = NULL;
+struct SnsPayload *snsBasePayloadPtr1 = N64_NULL;
+struct SnsPayload *snsBasePayloadPtr2 = N64_NULL;
+struct SnsPayload *snsBasePayloadPtr3 = N64_NULL;
+struct SnsPayload *snsBasePayloadPtr4 = N64_NULL;
 
 /* .bss */
 StopNSwop_Data snsParsedKeys;
@@ -190,7 +190,7 @@ void sns_commit_unlocked_flags(s32 mode, struct SnsPayload *payload)
 
 void sns_unlock_parsed_items(void)
 {
-    sns_commit_unlocked_flags(SNS_MODE_READ, NULL);
+    sns_commit_unlocked_flags(SNS_MODE_READ, N64_NULL);
 }
 
 void sns_generate_payload(struct SnsPayload *payload)

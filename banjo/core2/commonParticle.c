@@ -257,7 +257,7 @@ void freeParticleByIndex(s32 index) {
     projectile_freeByIndex(particles[index].projectileIndex);
     animsprite_free(particles[index].animSprite);
     marker_free(particles[index].marker_30);
-    particles[index].marker_30 = NULL;
+    particles[index].marker_30 = N64_NULL;
     particles[index].actorMarker = 0;
     particles[index].isInUse = 0;
 }

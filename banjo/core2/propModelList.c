@@ -37,7 +37,7 @@ void propModelList_drawModel(Gfx **gfx, Mtx **mtx, Vtx **vtx, f32 position[3], f
     func_8033A28C(1);
     modelRender_setDepthMode(MODEL_RENDER_DEPTH_FULL);
     func_8033A1FC();
-    modelRender_draw(gfx, mtx, position, rotation, scale, NULL, model);
+    modelRender_draw(gfx, mtx, position, rotation, scale, N64_NULL, model);
 }
 
 void propModelList_drawSprite(Gfx **gfx, Mtx **mtx, Vtx **Vtx, f32 position[3], f32 scale, s32 sprite_index, Cube *arg6, s32 r, s32 b, s32 g, s32 mirrored, s32 frame) {
@@ -60,7 +60,7 @@ void propModelList_drawSprite(Gfx **gfx, Mtx **mtx, Vtx **Vtx, f32 position[3], 
 }
 
 BKModelBin *propModelList_getModel(s32 arg0){
-    if(sPropModelList[arg0].model_bin == NULL){
+    if(sPropModelList[arg0].model_bin == N64_NULL){
         sPropModelList[arg0].model_bin = assetcache_get(0x2d1 + arg0);
     }
     sPropModelList[arg0].timestamp = globalTimer_getTime();
@@ -123,9 +123,9 @@ void propModelList_free(void){
         }
     }
     free(sPropModelList);
-    sPropModelList = NULL;
+    sPropModelList = N64_NULL;
     free(sPropSpriteList);
-    sPropSpriteList = NULL;
+    sPropSpriteList = N64_NULL;
 }
 
 void propModelList_init(void){//init
@@ -136,11 +136,11 @@ void propModelList_init(void){//init
     sPropSpriteList = (propModelListSprite *)malloc(0x168 * sizeof(propModelListSprite));
     D_8036B800 = 0;
     for(iPtr = sPropModelList; iPtr < &sPropModelList[0x2A2]; iPtr++){
-        iPtr->model_bin = NULL;
+        iPtr->model_bin = N64_NULL;
         iPtr->scale = 0.0f;
     }
     for(jPtr = sPropSpriteList; jPtr < &sPropSpriteList[0x168]; jPtr++){
-        jPtr->sprite = NULL;
+        jPtr->sprite = N64_NULL;
         jPtr->scale = 0.0f;
     }
 }
@@ -161,18 +161,18 @@ void propModelList_flush(s32 level) {
     propModelListSprite *temp_a0_2;
 
     oldest_active_time = globalTimer_getTime() - func_80255B08(level);
-    for(var_s0 = 0; (sPropModelList != NULL) && (var_s0 < ((level == 1) ? 0x28 : 0x2A1)); var_s0++, D_8036B804 = (D_8036B804 >= 0x2A1)? 0: D_8036B804 + 1){
+    for(var_s0 = 0; (sPropModelList != N64_NULL) && (var_s0 < ((level == 1) ? 0x28 : 0x2A1)); var_s0++, D_8036B804 = (D_8036B804 >= 0x2A1)? 0: D_8036B804 + 1){
         sp3C = (propModelListModel*)((u32)sPropModelList + sizeof(propModelListModel)*D_8036B804);
-        if ((sp3C->model_bin != NULL) && ((sp3C->timestamp < oldest_active_time) || (level == 3))){
+        if ((sp3C->model_bin != N64_NULL) && ((sp3C->timestamp < oldest_active_time) || (level == 3))){
             assetcache_release(sp3C->model_bin);
-            sp3C->model_bin = NULL;
+            sp3C->model_bin = N64_NULL;
             if( (level != 1) && (func_80254BC4(1))){
                 return;
             }
         }
     }
 
-    for(var_s0 = 0; (sPropSpriteList != NULL) && (var_s0 < ((level == 1) ? 0x28 : 0x167)); var_s0++, D_8036B808 = (D_8036B808 >= 0x167)? 0: D_8036B808 + 1){
+    for(var_s0 = 0; (sPropSpriteList != N64_NULL) && (var_s0 < ((level == 1) ? 0x28 : 0x167)); var_s0++, D_8036B808 = (D_8036B808 >= 0x167)? 0: D_8036B808 + 1){
         temp_a0_2 = (propModelListSprite*)((u32)sPropSpriteList + sizeof(propModelListSprite)*D_8036B808);
         if ((temp_a0_2->sprite != 0) && ((temp_a0_2->timestamp < oldest_active_time) || (level == 3))){
             func_8033B338(&temp_a0_2->sprite, &temp_a0_2->display);
@@ -189,14 +189,14 @@ void propModelList_defrag(void) {
 
     sPropSpriteList = (propModelListSprite *) defrag(sPropSpriteList);
     sPropModelList = (propModelListModel *) defrag(sPropModelList);
-    if (!func_802559A0() && !func_80255AE4() && sPropModelList != NULL) {
+    if (!func_802559A0() && !func_80255AE4() && sPropModelList != N64_NULL) {
         for(phi_s2 = 0x14; (phi_s2 != 0) && !func_80255AE4(); phi_s2--){
             D_8036B800++;
             if (D_8036B800 >= 0x2A2) {
                 D_8036B800 = 0;
             }
             temp_a0 = sPropModelList[D_8036B800].model_bin;
-            if (temp_a0 != NULL && (func_802546E4(temp_a0) < 0x2AF8)) {
+            if (temp_a0 != N64_NULL && (func_802546E4(temp_a0) < 0x2AF8)) {
                 sPropModelList[D_8036B800].model_bin = func_80255888(sPropModelList[D_8036B800].model_bin);
             }
         }
@@ -211,7 +211,7 @@ void propModelList_refresh(void) {
     propModelListModel *phi_s0_2;
 
     for(phi_s0 = sPropSpriteList; phi_s0 < sPropSpriteList + 360; phi_s0++){
-        if (phi_s0->sprite != NULL) {
+        if (phi_s0->sprite != N64_NULL) {
             temp_t7 = phi_s0 - sPropSpriteList;
             func_8033B338(&phi_s0->sprite, &phi_s0->display);
             phi_s2 = temp_t7 *sizeof(propModelListSprite);
@@ -220,7 +220,7 @@ void propModelList_refresh(void) {
     }
     
     for(phi_s0_2 = sPropModelList; phi_s0_2 < sPropModelList + 674; phi_s0_2++){
-        if(phi_s0_2->model_bin != NULL){
+        if(phi_s0_2->model_bin != N64_NULL){
             model_list_index = phi_s0_2 - sPropModelList;
             assetcache_release(phi_s0_2->model_bin);
             sPropModelList[model_list_index].model_bin = (BKModelBin *) assetcache_get(model_list_index + 0x2D1);

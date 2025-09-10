@@ -2,7 +2,7 @@
 #include "functions.h"
 #include "variables.h"
 
-s16 *D_802758E0 = NULL;
+s16 *D_802758E0 = N64_NULL;
 
 void core1_7090_alloc(void) {
     int i;
@@ -29,7 +29,7 @@ void core1_7090_release(void) {
     }
 
     free(D_802758E0);
-    D_802758E0 = NULL;
+    D_802758E0 = N64_NULL;
 }
 
 void core1_7090_initSfxSource(s32 idx, s32 lookup_idx, s32 sample_rate, f32 volume) {

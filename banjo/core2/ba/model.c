@@ -12,7 +12,7 @@ void func_8033A280(f32);
 extern s32 osCicId;
 
 /* .data */
-struct5Bs *D_80363780 = NULL;
+struct5Bs *D_80363780 = N64_NULL;
 
 /* .bss */
 void *baModelBin; //baModelPtr
@@ -59,7 +59,7 @@ void baModel_80291A50(s32 arg0, f32 dst[3]){
 }
 
 Actor *baModel_80291AAC(ActorMarker *marker, Gfx **gfx, Mtx **mtx, Vtx **vtx){
-    return NULL;
+    return N64_NULL;
 }
 
 static void _baModel_preDraw(int arg0){
@@ -126,9 +126,9 @@ void baModel_reset(void){
         baModel_80292078(i, 0.0f);
     }
     baModelEnvAlpha = 0xFF;
-    baModelBin = NULL;
+    baModelBin = N64_NULL;
     baModelId = 0;
-    baModelPostDrawMethod = NULL;
+    baModelPostDrawMethod = N64_NULL;
     D_80363780 = func_8034A2C8();
     func_8034A130(D_80363780);
     ml_vec3f_clear(D_8037C100);
@@ -153,10 +153,10 @@ void baModel_reset(void){
 
 void baModel_free(void){
     assetcache_release(baModelBin);
-    baModelBin = NULL;
+    baModelBin = N64_NULL;
     baModelId = 0;
     func_8034A2A8(D_80363780);
-    D_80363780 = NULL;
+    D_80363780 = N64_NULL;
 }
 
 void baModel_update(void){
@@ -201,7 +201,7 @@ void baModel_set(enum asset_e asset_id){
         if(baModelBin){
             func_80254008();
             assetcache_release(baModelBin);
-            baModelBin = NULL;
+            baModelBin = N64_NULL;
         }
         baModelId = asset_id;
         if(baModelId)

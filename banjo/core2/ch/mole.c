@@ -160,7 +160,7 @@ void chmole_healthRefill(ActorMarker *marker, enum asset_e arg1, s32 arg2){
         gcdialog_showDialog(ASSET_D39_DIALOG_BOTTLES_REFILL_HEALTH, 7, 0, actor->marker, chmole_healthRefill, chmole_additionalAbilityLearnActions);
     }//L802D9738
     else if(arg1 == moleTable[actor->actorTypeSpecificField-9].teach_text_id || arg1 == ASSET_D39_DIALOG_BOTTLES_REFILL_HEALTH){
-        gcdialog_showDialog(chmole_learnedAllGameAbilities()? 0xa87 : chmole_learnedAllLevelAbilitiesDialog(), 7, 0, actor->marker, chmole_healthRefill, NULL);
+        gcdialog_showDialog(chmole_learnedAllGameAbilities()? 0xa87 : chmole_learnedAllLevelAbilitiesDialog(), 7, 0, actor->marker, chmole_healthRefill, N64_NULL);
     }
     else{//L802D97BC
         if(actor->has_met_before){
@@ -336,7 +336,7 @@ void chmole_update(Actor *this){
         marker_setFreeMethod(this->marker, func_802D9C90);
         if(this->initialized){
             other = actorArray_findClosestActorFromActorId(this->position, ACTOR_12C_MOLEHILL, -1, &sp4C);
-            this->partnerActor = (other) ? other->marker : NULL;
+            this->partnerActor = (other) ? other->marker : N64_NULL;
             if(this->partnerActor){
                 other = subaddie_getLinkedActor(this);
                 if(other && this->partnerActor->id == 0xB8){
@@ -350,7 +350,7 @@ void chmole_update(Actor *this){
         // Checks if player is within radius of a specific actor exists within the same cube
         // If actor exists and player is within radius, force trigger conversation
         node_prop = nodeprop_findByActorIdAndActorPosition(0x372, this);
-        if(node_prop == NULL){
+        if(node_prop == N64_NULL){
             this->unk38_0 = false;
         }
         else{
@@ -364,7 +364,7 @@ void chmole_update(Actor *this){
         this->initialized = true;
         if(this->actorTypeSpecificField == 0x12){
             node_prop = nodeprop_findByActorIdAndActorPosition(0x349, this);
-            if(node_prop == NULL){
+            if(node_prop == N64_NULL){
                 this->velocity[0] = this->position[0];
                 this->velocity[1] = this->position[1];
                 this->velocity[2] = this->position[2];

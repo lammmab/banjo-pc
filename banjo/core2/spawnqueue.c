@@ -180,7 +180,7 @@ typedef struct function_queue_s{
 /* .data */
 u8 spawnQueueLock = 0;
 u8 spawnQueueLength = 0;
-FunctionQueue *spawnQueue = NULL;
+FunctionQueue *spawnQueue = N64_NULL;
 
 /* .code */
 void spawnQueue_malloc(void){
@@ -415,7 +415,7 @@ void spawnQueue_free(void){
     actorArray_free();
     func_80305D94();
     free(spawnQueue);
-    spawnQueue = NULL;
+    spawnQueue = N64_NULL;
     spawnQueueLength = 0;
     
 }
@@ -598,7 +598,7 @@ Actor *spawnQueue_bundle_s32_2(enum bundle_e bundle_id, s32 x, s32 y, s32 z) {
 }
 
 void spawnQueue_defrag(FunctionQueue *arg0) {
-    if ((arg0 = spawnQueue) != NULL) {
+    if ((arg0 = spawnQueue) != N64_NULL) {
         spawnQueue = (FunctionQueue *) defrag();
     }
 }

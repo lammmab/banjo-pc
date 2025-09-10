@@ -19,6 +19,7 @@ extern void func_80296C90(f32);
 extern void func_80296C9C(f32);
 extern void func_8029B73C(f32 arg0[3], f32 arg1, f32 arg2, f32 arg3, f32 arg4);
 
+bool func_8028F2FC(void);
 bool func_8028F4B8(f32 arg0[3], f32 arg1, f32 arg2);
 bool func_8028F620(f32 arg0[3], f32 arg1, f32 arg2);
 void func_8028F85C(f32 arg0[3]);
@@ -148,7 +149,7 @@ void func_8028E0F0(s32 arg0, s32 arg1[3]) {
         func_8028E060(arg0, &sp6C);
         yaw_setIdeal((f32) sp6C);
         yaw_applyIdeal();
-        bs_setState(badrone_goto(sp7C, 1.0f, func_8028E0B0, NULL));
+        bs_setState(badrone_goto(sp7C, 1.0f, func_8028E0B0, N64_NULL));
         return;
     }
     func_8028F85C(sp7C);
@@ -304,7 +305,7 @@ enum actor_e carriedObj_getActorId(void){
 
     marker = bacarry_get_marker();
     
-    if(marker != NULL){
+    if(marker != N64_NULL){
         actor = marker_getActor(marker);
         return actor->modelCacheIndex;
     }
@@ -499,7 +500,7 @@ enum bsgroup_e player_movementGroup(void) {
             return BSGROUP_7_CROC_ATTACK;
 
         default: //L8028EE58
-            if (player_getActiveHitbox(NULL) != 0) {
+            if (player_getActiveHitbox(N64_NULL) != 0) {
                 return BSGROUP_B_ATTACKING;
             }
             return BSGROUP_0_NONE;
@@ -624,7 +625,7 @@ bool player_is_present(void){
 }
 
 bool func_8028F1E0(void){
-    return bsList_getInterruptMethod(bs_getState()) != NULL;
+    return bsList_getInterruptMethod(bs_getState()) != N64_NULL;
 }
 
 bool func_8028F20C(void){
@@ -927,7 +928,7 @@ bool func_8028FBD4(f32 arg0[3]) {
     if (gcdialog_hasCurrentTextId() || player_movementGroup()) {
         return false;
     }
-    if (arg0 != NULL) {
+    if (arg0 != N64_NULL) {
         set_talk_target_position(arg0);
     }
     return bs_checkInterrupt(BS_INTR_8) == 2;

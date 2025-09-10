@@ -14,7 +14,7 @@ enum mumbotoken_e func_802E0CB0(Actor *this);
 /* .data */
  ActorInfo D_803685A0 = { 
     MARKER_39_MUMBO_TOKEN, ACTOR_2D_MUMBO_TOKEN, ASSET_41A_SPRITE_MUMBO_TOKEN,
-    0, NULL, 
+    0, N64_NULL, 
     func_802E0B10, actor_update_func_80326224, func_80325934,
     2000, 0, 0.0f, 0
 };
@@ -60,7 +60,7 @@ void func_802E0B10(Actor *this){
     local = (ActorLocal_MumboToken *)&this->local;
     if(!this->initialized){
         this->initialized = true;
-        if(local->uid == NULL){
+        if(local->uid == N64_NULL){
             if(!this->unk44_2){
                 local->uid = D_8037E610;
             }
@@ -79,7 +79,7 @@ void func_802E0B10(Actor *this){
     }//L802E0BD4
 
     if(!func_8032BBE8(this)){
-        marker_setCollisionScripts(this->marker, chMumboToken_collect, NULL, NULL);
+        marker_setCollisionScripts(this->marker, chMumboToken_collect, N64_NULL, N64_NULL);
     }
 
     if(this->marker->unk14_21 && randf() < 0.1){

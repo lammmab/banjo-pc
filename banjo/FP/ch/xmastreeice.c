@@ -7,7 +7,7 @@ void func_80390BDC(Actor *this);
 
 /* .data */
 ActorInfo D_80392730 = { 0x210, 0x340, 0x4D2,
-    0x0, NULL,
+    0x0, N64_NULL,
     func_80390BDC, actor_update_func_80326224, func_803908F0,
     0, 0, 1.0f, 0
 };

@@ -61,13 +61,13 @@ Actor *func_802DEC00(ActorMarker *marker, Gfx **gfx, Mtx **mtx, Vtx **vtx){
     D_8037DFF0[1] = 270.0f;
     D_8037DFF0[2] = 0.0f;
     modelRender_setDepthMode(MODEL_RENDER_DEPTH_FULL);
-    modelRender_draw(gfx, mtx, sp58, NULL, 1.0f, sp4C, D_8037DFE8);
+    modelRender_draw(gfx, mtx, sp58, N64_NULL, 1.0f, sp4C, D_8037DFE8);
     gDPSetColorDither((*gfx)++, G_CD_DISABLE);
     func_80253190(gfx);
     gSPSegment((*gfx)++, 0x04, osVirtualToPhysical(sp48));
     modelRender_preDraw((GenFunction_1)actor_predrawMethod,  (s32)this);
     modelRender_postDraw((GenFunction_1)actor_postdrawMethod, (s32)marker);
-    modelRender_draw(gfx, mtx, this->position, NULL, 4.5f, sp4C, marker_loadModelBin(marker));
+    modelRender_draw(gfx, mtx, this->position, N64_NULL, 4.5f, sp4C, marker_loadModelBin(marker));
     gDPSetTextureFilter((*gfx)++, G_TF_BILERP);
     gDPSetColorDither((*gfx)++, G_CD_MAGICSQ);
     chBottlesBonus_func_802DD158(gfx, mtx);
@@ -75,10 +75,10 @@ Actor *func_802DEC00(ActorMarker *marker, Gfx **gfx, Mtx **mtx, Vtx **vtx){
 }
 
 void func_802DEDDC(Actor *this){
-    D_8037DFE0 = NULL;
-    if(D_8037DFE8 != NULL){
+    D_8037DFE0 = N64_NULL;
+    if(D_8037DFE8 != N64_NULL){
         assetcache_release(D_8037DFE8);
-        D_8037DFE8 = NULL;
+        D_8037DFE8 = N64_NULL;
     }
 }
 
@@ -94,7 +94,7 @@ void func_802DEE1C(Actor *this) {
         actor_collisionOff(this);
         marker_setFreeMethod(this->marker, func_802DEDDC);
         actor_playAnimationOnce(this);
-        if (D_8037DFE8 == NULL) {
+        if (D_8037DFE8 == N64_NULL) {
             D_8037DFE8 = assetcache_get(0x56E);
         }
         sp4C = map_getLevel(map_get());
@@ -119,7 +119,7 @@ void func_802DEE1C(Actor *this) {
         }
         sp38 = (f32) ((f64) (sp44 + 1) * 0.75);
         timedFunc_set_1(sp38, func_80311714, 0);
-        func_80324DBC(sp38, sp48, 0x80, NULL, NULL, NULL, NULL);
+        func_80324DBC(sp38, sp48, 0x80, N64_NULL, N64_NULL, N64_NULL, N64_NULL);
         timedFunc_set_1(sp38, func_80311714, 1);
         D_8037DFE4 = sp4C;
     }
@@ -155,14 +155,14 @@ void func_802DEE1C(Actor *this) {
 
 void func_802DF04C(void){
     Actor *this;
-    if(D_8037DFE0 == NULL){
+    if(D_8037DFE0 == N64_NULL){
         this = actor_spawnWithYaw_f32(0x19B, D_80368330, 0);
         D_8037DFE0 = this->marker;
     }
 }
 
 void func_802DF090(s32 arg0, s32 arg1){
-    if(D_8037DFE0 == NULL){
+    if(D_8037DFE0 == N64_NULL){
         __spawnQueue_add_0(func_802DF04C);
     }
 }
@@ -178,7 +178,7 @@ void func_802DF0C8(void) {
 }
 
 void func_802DF11C(s32 arg0, s32 arg1){
-    if(D_8037DFE0 != NULL){
+    if(D_8037DFE0 != N64_NULL){
         func_80326310(marker_getActor(D_8037DFE0));
     }
 }

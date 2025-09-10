@@ -2,6 +2,8 @@
 #include "osint.h"
 #include "piint.h"
 
+#include "n64_compat.h"
+
 #define WAIT_ON_IOBUSY2(stat)                                \
     stat = IO_READ(PI_STATUS_REG);                          \
     while (stat & (PI_STATUS_IO_BUSY | PI_STATUS_DMA_BUSY)) \
@@ -203,12 +205,12 @@ static void __osLeoResume(void)
 	OSMesgQueue *mq;
 	s32 last;
 	es = &__osEventStateTab[OS_EVENT_PI];
-	mq = es->messageQueue;
-	if (mq == NULL || MQ_IS_FULL(mq))
+	mq = es->queue;
+	if (mq == N64_NULL || MQ_IS_FULL(mq))
 		return;
 	last = (mq->first + mq->validCount) % mq->msgCount;
-	mq->msg[last] = es->message;
+	mq->msg[last] = es->msg;
 	mq->validCount++;
-	if (mq->mtqueue->next != NULL)
+	if (mq->mtqueue->next != N64_NULL)
 		__osEnqueueThread(&__osRunQueue, __osPopThread(&mq->mtqueue));
 }

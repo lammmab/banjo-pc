@@ -91,10 +91,10 @@ void gcdialog_init(void) {
     g_Dialog.dialog_bin_ptr = 0;
     
     for (i = 0; i < 2; i++) {
-        g_Dialog.dialog[i] = NULL;
+        g_Dialog.dialog[i] = N64_NULL;
         g_Dialog.string_count[i] = 0;
-        g_Dialog.zoombox[i] = NULL;
-        g_Dialog.string_index[i] = NULL;
+        g_Dialog.zoombox[i] = N64_NULL;
+        g_Dialog.string_index[i] = N64_NULL;
         g_Dialog.string_cmd[i] = -1;
         g_Dialog.string[i] = 0;
         g_Dialog.unk11A[i].unk0_7 = 0;
@@ -104,10 +104,10 @@ void gcdialog_init(void) {
     for (i = 0; i < 4; i++) {
         g_Dialog.unk148[i].unk0 = -1;
         g_Dialog.unk148[i].unk2 = 0;
-        g_Dialog.unk148[i].unk10 = NULL;
+        g_Dialog.unk148[i].unk10 = N64_NULL;
         g_Dialog.unk148[i].unk14 = 0;
-        g_Dialog.unk148[i].unk18 = NULL;
-        g_Dialog.unk148[i].unk1C = NULL;
+        g_Dialog.unk148[i].unk18 = N64_NULL;
+        g_Dialog.unk148[i].unk1C = N64_NULL;
         g_Dialog.unk148[i].unk20 = 0;
         g_Dialog.unk148[i].unk4[0] = g_Dialog.unk148[i].unk4[1] = g_Dialog.unk148[i].unk4[2] = 0;
     }
@@ -120,9 +120,9 @@ void gcdialog_init(void) {
     g_Dialog.playerHasConfirmed = -1;
     g_Dialog.unk12C_15 = g_Dialog.unk12C_11 = 0;
     g_Dialog.currentTextId = (s16) -1;
-    g_Dialog.caller = NULL;
-    g_Dialog.currentCallback = NULL;
-    g_Dialog.unk140 = NULL;
+    g_Dialog.caller = N64_NULL;
+    g_Dialog.currentCallback = N64_NULL;
+    g_Dialog.unk140 = N64_NULL;
     g_Dialog.conditionalCallback = 0;
     g_Dialog.yPositionModifierIndex = 12; // Length of array is 11, so intentionally setting out of bounds
     g_Dialog.unk128_3 = true;
@@ -132,7 +132,7 @@ static void freeZoomboxes(void) {
     s32 i;
     for (i = 0; i < 2; i++) {
         gczoombox_free(g_Dialog.zoombox[i]);
-        g_Dialog.zoombox[i] = NULL;
+        g_Dialog.zoombox[i] = N64_NULL;
     }
 }
 
@@ -140,24 +140,24 @@ void clearDialogStrings(void) {
     s32 i, j;
     for (i = 0; i < 2; i++) {
         for (j = 0; j < g_Dialog.string_count[i]; j++) {
-            g_Dialog.dialog[i][j].str = NULL;
+            g_Dialog.dialog[i][j].str = N64_NULL;
         }
         g_Dialog.string_count[i] = 0;
         free(g_Dialog.dialog[i]);
-        g_Dialog.dialog[i] = NULL;
+        g_Dialog.dialog[i] = N64_NULL;
     }
 
     if (g_Dialog.currentTextId != -1) {
         dialogBin_release(g_Dialog.currentTextId);
     }
 
-    g_Dialog.dialog_bin_ptr = NULL;
+    g_Dialog.dialog_bin_ptr = N64_NULL;
 }
 
 void clearDialog(void) {
    clearDialogStrings();
 
-   if (g_Dialog.zoombox[DIALOG_TOP] != NULL && !g_Dialog.unk11A[DIALOG_TOP].unk0_7) {
+   if (g_Dialog.zoombox[DIALOG_TOP] != N64_NULL && !g_Dialog.unk11A[DIALOG_TOP].unk0_7) {
        func_80347A14(1);
    }
 
@@ -168,10 +168,10 @@ void clearDialog(void) {
    g_Dialog.currentTextId = -1;
    g_Dialog.unk128_15 = 0;
    g_Dialog.unk128_31 = 0;
-   g_Dialog.caller = NULL;
-   g_Dialog.currentCallback = NULL;
-   g_Dialog.unk140 = NULL;
-   g_Dialog.conditionalCallback = NULL;
+   g_Dialog.caller = N64_NULL;
+   g_Dialog.currentCallback = N64_NULL;
+   g_Dialog.unk140 = N64_NULL;
+   g_Dialog.conditionalCallback = N64_NULL;
 }
 
 void func_8030F1D0(void) {
@@ -218,8 +218,8 @@ void replaceText(char *next_state, char *arg1, char *arg2, bool arg3, bool arg4)
 }
 
 void func_8030F338(void) {
-    if (g_Dialog.currentCallback != NULL) {
-        if (g_Dialog.caller == NULL) {
+    if (g_Dialog.currentCallback != N64_NULL) {
+        if (g_Dialog.caller == N64_NULL) {
             g_Dialog.currentCallback(g_Dialog.caller, g_Dialog.currentTextId, g_Dialog.playerHasConfirmed);
         } else {
             if (func_8030EDC0(g_Dialog.caller, g_Dialog.unk138)) {
@@ -258,7 +258,7 @@ void dialog_setState(DialogState next_state) {
     switch (next_state) {
         case DIALOG_STATE_1:
             for (i = 0; i < 2; i++) {
-                if (g_Dialog.zoombox[i] != NULL && g_Dialog.unk11A[i].unk0_7 == 0) {
+                if (g_Dialog.zoombox[i] != N64_NULL && g_Dialog.unk11A[i].unk0_7 == 0) {
                     gczoombox_open(g_Dialog.zoombox[i]);
                 }
             }
@@ -266,7 +266,7 @@ void dialog_setState(DialogState next_state) {
 
         case DIALOG_STATE_5:
             for (i = 0; i < 2; i++) {
-                if (g_Dialog.zoombox[i] != NULL && g_Dialog.unk11A[i].unk0_7 == 0) {
+                if (g_Dialog.zoombox[i] != N64_NULL && g_Dialog.unk11A[i].unk0_7 == 0) {
                     gczoombox_minimize(g_Dialog.zoombox[i]);
                     gczoombox_close(g_Dialog.zoombox[i]);
                 }
@@ -277,7 +277,7 @@ void dialog_setState(DialogState next_state) {
             for (i = 0; i < 2; i++) { //L8030F59C
                 for (j = g_Dialog.string_index[i]; g_Dialog.dialog[i][j].cmd < -4 || g_Dialog.dialog[i][j].cmd >= 0; j++) {
                     if (g_Dialog.dialog[i][j].cmd == -7 && g_Dialog.unk140) {
-                        if (g_Dialog.caller == NULL) {
+                        if (g_Dialog.caller == N64_NULL) {
                             g_Dialog.unk140(g_Dialog.caller, g_Dialog.currentTextId, *g_Dialog.dialog[i][j].str);
                         } else {
                             if (func_8030EDC0(g_Dialog.caller, g_Dialog.unk138)) {
@@ -291,7 +291,7 @@ void dialog_setState(DialogState next_state) {
             g_Dialog.unk12C_25 = 0;
             for (i = 0; i < 2; i++) {
                 g_Dialog.unk11A[i].unk0_7 = 0;
-                if (g_Dialog.zoombox[i] != NULL) {
+                if (g_Dialog.zoombox[i] != N64_NULL) {
                     g_Dialog.unk12C_25 += (u8)func_803188B4(g_Dialog.zoombox[i]);
                 }
             }
@@ -307,7 +307,7 @@ void dialog_setState(DialogState next_state) {
             for (i = 0; i < 2; i++) {
                 if (g_Dialog.unk11A[i].unk0_7 == 0) {
                     gczoombox_free(g_Dialog.zoombox[i]);
-                    g_Dialog.zoombox[i] = NULL;
+                    g_Dialog.zoombox[i] = N64_NULL;
                 }
             }
             break;
@@ -392,7 +392,7 @@ void dialog_update(void) {
     switch (g_Dialog.state) {    
         case DIALOG_STATE_1:
             for (spA8 = 0, i = 0; i < 2; i++) {
-                if (g_Dialog.zoombox[i] == NULL) {
+                if (g_Dialog.zoombox[i] == N64_NULL) {
                     spA8++;
                 }
             }
@@ -406,7 +406,7 @@ void dialog_update(void) {
             break;
     
         case DIALOG_STATE_2:
-            if (g_Dialog.zoombox[g_Dialog.u8.active_zoombox] == NULL || func_80318BEC(g_Dialog.zoombox[g_Dialog.u8.active_zoombox]) || g_Dialog.unk11A[g_Dialog.u8.active_zoombox].unk0_5) {
+            if (g_Dialog.zoombox[g_Dialog.u8.active_zoombox] == N64_NULL || func_80318BEC(g_Dialog.zoombox[g_Dialog.u8.active_zoombox]) || g_Dialog.unk11A[g_Dialog.u8.active_zoombox].unk0_5) {
                 g_Dialog.u8.active_zoombox ^= 1;
             } else {
                 g_Dialog.string_cmd[g_Dialog.u8.active_zoombox] = CMD(g_Dialog.string_index[g_Dialog.u8.active_zoombox])->cmd;
@@ -439,8 +439,8 @@ void dialog_update(void) {
                         break;
         
                     case -7: // Trigger
-                        if (g_Dialog.unk140 != NULL) {
-                            if (g_Dialog.caller == NULL) {
+                        if (g_Dialog.unk140 != N64_NULL) {
+                            if (g_Dialog.caller == N64_NULL) {
                                 g_Dialog.unk140(g_Dialog.caller, g_Dialog.currentTextId, *g_Dialog.string[g_Dialog.u8.active_zoombox]);
                             } else if (func_8030EDC0(g_Dialog.caller, g_Dialog.unk138)) {
                                 g_Dialog.unk140(g_Dialog.caller, g_Dialog.currentTextId, *g_Dialog.string[g_Dialog.u8.active_zoombox]);
@@ -497,10 +497,10 @@ void dialog_update(void) {
                         } else {
                             if (CMD(g_Dialog.string_index[g_Dialog.u8.active_zoombox] + 1)->cmd == -8) {
                                 // Conditional text - use callback to determine if text should be shown
-                                if (g_Dialog.conditionalCallback != NULL) {
+                                if (g_Dialog.conditionalCallback != N64_NULL) {
                                     sp7C = 1;
         
-                                    if (g_Dialog.caller == NULL) {
+                                    if (g_Dialog.caller == N64_NULL) {
                                         ret = g_Dialog.conditionalCallback(g_Dialog.caller, g_Dialog.currentTextId, g_Dialog.string_index[g_Dialog.u8.active_zoombox]);
                                     } else if (func_8030EDC0(g_Dialog.caller, g_Dialog.unk138)) {
                                         ret = g_Dialog.conditionalCallback(g_Dialog.caller, g_Dialog.currentTextId, g_Dialog.string_index[g_Dialog.u8.active_zoombox]);
@@ -529,12 +529,12 @@ void dialog_update(void) {
                             } else if (CMD(g_Dialog.string_index[g_Dialog.u8.active_zoombox] + 1)->cmd == -9) {
                                 // Integer substitution - use callback to determine integer value
                                 // (used for player's note count in some messages)
-                                if (g_Dialog.conditionalCallback != NULL) {
+                                if (g_Dialog.conditionalCallback != N64_NULL) {
                                     // static char D_80382FF8[24];
         
                                     D_80382FF8[0] = '\0';
         
-                                    if (g_Dialog.caller == NULL) {
+                                    if (g_Dialog.caller == N64_NULL) {
                                         ret = g_Dialog.conditionalCallback(g_Dialog.caller, g_Dialog.currentTextId, g_Dialog.string_index[g_Dialog.u8.active_zoombox]);
                                     } else if (func_8030EDC0(g_Dialog.caller, g_Dialog.unk138)) {
                                         ret = g_Dialog.conditionalCallback(g_Dialog.caller, g_Dialog.currentTextId, g_Dialog.string_index[g_Dialog.u8.active_zoombox]);
@@ -594,7 +594,7 @@ void dialog_update(void) {
                 break;
             }
     
-            if (NOT((g_Dialog.u8.unk128_31 & 0x80) ? func_8024E5E8(0, 4) : func_8024E5E8(0, 3))) {
+            if (!((g_Dialog.u8.unk128_31 & 0x80) ? func_8024E5E8(0, 4) : func_8024E5E8(0, 3))) {
                 break;
             }
     
@@ -708,7 +708,7 @@ void loadAndCreateDialogs(s32 text_id, s32 arg1, ActorMarker *marker, void(*call
                     gczoombox_close(g_Dialog.zoombox[i]);
                     g_Dialog.unk128_15++;
                 } else {
-                    g_Dialog.zoombox[i] = NULL;
+                    g_Dialog.zoombox[i] = N64_NULL;
                 }
                 g_Dialog.unk11A[i].unk0_7 = 0;
             } else { //L803108D8
@@ -732,7 +732,7 @@ void loadAndCreateDialogs(s32 text_id, s32 arg1, ActorMarker *marker, void(*call
     g_Dialog.currentCallback = callback;
     g_Dialog.unk140 = arg4;
     g_Dialog.conditionalCallback = (void *)arg5;
-    g_Dialog.unk138 = (marker != NULL) ? ((marker->unk5C)? marker->unk5C : -1) : 0;
+    g_Dialog.unk138 = (marker != N64_NULL) ? ((marker->unk5C)? marker->unk5C : -1) : 0;
     dialog_setState(((func_802E4A08() || volatileFlag_get(VOLATILE_FLAG_1F_IN_CHARACTER_PARADE)) && g_Dialog.unk128_3) ? 6 : 1);
     //L803109EC
 }
@@ -770,12 +770,12 @@ void updateDialogYPositions(void) {
     if (g_Dialog.zoomboxYPositionIndexDecremented) {
         g_Dialog.yPositionModifierIndex++;
         y_position_change = Y_POSITION_MODIFIERS[g_Dialog.yPositionModifierIndex];
-        if (g_Dialog.zoombox[DIALOG_BOTTOM] != NULL) {
+        if (g_Dialog.zoombox[DIALOG_BOTTOM] != N64_NULL) {
             g_Dialog.zoomboxYPosition[DIALOG_BOTTOM] -= y_position_change;
             func_80318B7C(g_Dialog.zoombox[DIALOG_BOTTOM], g_Dialog.zoomboxYPosition[DIALOG_BOTTOM]);
         }
         
-        if (g_Dialog.zoombox[DIALOG_TOP] != NULL) {
+        if (g_Dialog.zoombox[DIALOG_TOP] != N64_NULL) {
             g_Dialog.zoomboxYPosition[DIALOG_TOP] += y_position_change;
             func_80318B7C(g_Dialog.zoombox[DIALOG_TOP], g_Dialog.zoomboxYPosition[DIALOG_TOP]);
         }
@@ -786,12 +786,12 @@ void updateDialogYPositions(void) {
     } else {
         g_Dialog.yPositionModifierIndex--;
         y_position_change = Y_POSITION_MODIFIERS[g_Dialog.yPositionModifierIndex];
-        if (g_Dialog.zoombox[DIALOG_BOTTOM] != NULL) {
+        if (g_Dialog.zoombox[DIALOG_BOTTOM] != N64_NULL) {
             g_Dialog.zoomboxYPosition[DIALOG_BOTTOM] += y_position_change;
             func_80318B7C(g_Dialog.zoombox[DIALOG_BOTTOM], g_Dialog.zoomboxYPosition[DIALOG_BOTTOM]);
         }
 
-        if (g_Dialog.zoombox[DIALOG_TOP] != NULL) {
+        if (g_Dialog.zoombox[DIALOG_TOP] != N64_NULL) {
             g_Dialog.zoomboxYPosition[DIALOG_TOP] -= y_position_change;
             func_80318B7C(g_Dialog.zoombox[DIALOG_TOP], g_Dialog.zoomboxYPosition[DIALOG_TOP]);
         }
@@ -889,7 +889,7 @@ void func_80310D2C(void) {
 
 int func_803110F8(s32 next_state, s32 arg1, s32 arg2, s32 arg3, void (*arg4)(ActorMarker *, enum asset_e, s32)) {
     func_8025A55C(15000, 300, 2);
-    gcdialog_showDialogConditional(next_state + 0xe57, 0x84, NULL, NULL, NULL, NULL, arg4);
+    gcdialog_showDialogConditional(next_state + 0xe57, 0x84, N64_NULL, N64_NULL, N64_NULL, N64_NULL, arg4);
     func_80310A5C(arg2, arg3, arg1, 0, 0);
     return 1;
 }
@@ -906,7 +906,7 @@ int gcdialog_showDialogConditional(s32 text_id, s32 arg1, f32 *pos, ActorMarker 
         func_80310B1C(text_id, arg1, marker, (void *)callback, (void *)arg5, arg6);
         if (arg1 & 8) {
             if (!(func_802E4A08() || volatileFlag_get(VOLATILE_FLAG_1F_IN_CHARACTER_PARADE)) || !g_Dialog.unk128_3) { //L80311214
-                if (pos != NULL) {
+                if (pos != N64_NULL) {
                     func_8028F94C(((g_Dialog.string_cmd[1] < 0)? 1 : 3), pos);
                 } else { //L8031126C
                     func_8028F918(((g_Dialog.string_cmd[1] < 0)? 1 : 3));
@@ -941,7 +941,7 @@ int gcdialog_showDialogConditional(s32 text_id, s32 arg1, f32 *pos, ActorMarker 
                 g_Dialog.unk148[temp_v1].unk4[0] = 0.0f;
             }
             g_Dialog.unk148[temp_v1].unk10 = marker;
-            g_Dialog.unk148[temp_v1].unk14 = (marker != NULL) ? ((marker->unk5C) ? marker->unk5C : -1) : 0;
+            g_Dialog.unk148[temp_v1].unk14 = (marker != N64_NULL) ? ((marker->unk5C) ? marker->unk5C : -1) : 0;
             g_Dialog.unk148[temp_v1].unk18 = (void *)callback;
             g_Dialog.unk148[temp_v1].unk1C = (void *)arg5;
             g_Dialog.unk148[temp_v1].unk20 = arg6;
@@ -949,7 +949,7 @@ int gcdialog_showDialogConditional(s32 text_id, s32 arg1, f32 *pos, ActorMarker 
             if (arg1 & 0x08) {
                 if (!(func_802E4A08() || volatileFlag_get(VOLATILE_FLAG_1F_IN_CHARACTER_PARADE)) || !g_Dialog.unk128_3) { //L8031141C
                     if (!func_8028EC04()) {
-                        if (pos != NULL) {
+                        if (pos != N64_NULL) {
                             func_8028F94C(2, pos);
                         } else { //L80311444
                             func_8028F918(2);
@@ -1042,7 +1042,7 @@ void gcdialog_defrag(void) {
             g_Dialog.dialog[i] = (BKDialog *)defrag(g_Dialog.dialog[i]);
         }
 
-        if (g_Dialog.zoombox[i] != NULL) {
+        if (g_Dialog.zoombox[i] != N64_NULL) {
             g_Dialog.zoombox[i] = (GcZoombox *)defrag(g_Dialog.zoombox[i]);
         }
     }

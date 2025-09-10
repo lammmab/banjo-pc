@@ -16,7 +16,7 @@ void func_8038ECD8(Actor *this);
 
 /* .data */
 ActorInfo D_80392470 = { 0x207, 0x339, 0x426, 
-    0x1, NULL,
+    0x1, N64_NULL,
     func_8038ECD8, actor_update_func_80326224, func_8038EBD0,
     0, 0, 0.0f, 0
 };
@@ -65,7 +65,7 @@ void func_8038ECD8(Actor *this){
 
     if(!this->volatile_initialized){
         this->volatile_initialized = true;
-        marker_setCollisionScripts(this->marker, NULL, func_8038EC34, NULL);
+        marker_setCollisionScripts(this->marker, N64_NULL, func_8038EC34, N64_NULL);
         this->marker->propPtr->unk8_3 = true;
         player_getPosition(D_803935D0);
         local->unk1B = 0;

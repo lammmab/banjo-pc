@@ -25,9 +25,9 @@ void mapSavestate_init(void){
 void mapSavestate_free_all(void){
     int i;
     for(i = 0; i < 0x9A; i++){
-        if((u32*)D_8037E650[i] != NULL){
+        if((u32*)D_8037E650[i] != N64_NULL){
             free((void *)D_8037E650[i]);
-            D_8037E650[i] = NULL;
+            D_8037E650[i] = N64_NULL;
         }
     }
 }
@@ -90,7 +90,7 @@ void mapSavestate_apply(enum map_e map_id) {
     ActorListSaveState *actor_list_ptr;
     u32 bit_value;
 
-    if(D_8037E650[map_id] == NULL)
+    if(D_8037E650[map_id] == N64_NULL)
         return;
 
     flag_ptr = reinterpret_cast(u32*, D_8037E650[map_id]);
@@ -100,7 +100,7 @@ void mapSavestate_apply(enum map_e map_id) {
     func_803083B0(-1);
 
     while (
-        bit_value = BOOL(((u32*)D_8037E650[map_id])[iBit >> 5] & (1 << (iBit & 0x1f))),
+        bit_value = (((u32*)D_8037E650[map_id])[iBit >> 5] & (1 << (iBit & 0x1f))),
         func_803083B0(bit_value) != -1
     ) {
         iBit++;
@@ -110,6 +110,6 @@ void mapSavestate_apply(enum map_e map_id) {
     actor_list_ptr = (ActorListSaveState *)D_8037E650[map_id] + (((iBit + (0x80 - 1)) >> 7) * 4);
     func_8032A09C(D_8037E650[map_id], actor_list_ptr);
     free((void*)D_8037E650[map_id] );
-    D_8037E650[map_id] = NULL;
+    D_8037E650[map_id] = N64_NULL;
 }
 

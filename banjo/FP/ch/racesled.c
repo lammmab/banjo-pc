@@ -16,7 +16,7 @@ ActorAnimationInfo chRaceSledAnimations []= {
 ActorInfo chRaceSled = { 
     MARKER_3C_RACE_SLED, ACTOR_182_RACE_SLED, ASSET_352_MODEL_SLED, 
     0x0, chRaceSledAnimations, 
-    chRaceSled_update, NULL, chRaceSled_draw, 
+    chRaceSled_update, N64_NULL, chRaceSled_draw, 
     1000, 0, 0.0f, 0
 };
 
@@ -69,7 +69,7 @@ void chRaceSled_update(Actor *this){
     s32 sp24;
     if(!this->initialized){
         this->initialized = true;
-        marker_setCollisionScripts(this->marker, __chRaceSled_touch, NULL, NULL);
+        marker_setCollisionScripts(this->marker, __chRaceSled_touch, N64_NULL, N64_NULL);
         __chRaceSled_setState(this, 1);
     }
     

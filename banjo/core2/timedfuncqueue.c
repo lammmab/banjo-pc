@@ -127,7 +127,7 @@ void func_80324AA4(timefuncqueue_Struct2 *arg0){
 
 void func_80324AEC(DelayedTextCallback *arg0) {
     if ((arg0->position[0] == 0.0f) && (arg0->position[1] == 0.0f) && (arg0->position[2] == 0.0f)) {
-        gcdialog_showDialog(arg0->text_id, arg0->unk4, NULL, arg0->caller, arg0->callback_method_1, arg0->callback_method_2);
+        gcdialog_showDialog(arg0->text_id, arg0->unk4, N64_NULL, arg0->caller, arg0->callback_method_1, arg0->callback_method_2);
     }
     else{
         gcdialog_showDialog(arg0->text_id, arg0->unk4, arg0->position, arg0->caller, arg0->callback_method_1, arg0->callback_method_2);
@@ -203,7 +203,7 @@ void func_80324DBC(f32 time, enum asset_e text_id, s32 arg2, f32 position[3], Ac
     sp20.caller = caller;
     sp20.callback_method_1 = callback_method_1;
     sp20.callback_method_2 = callback_method_2;
-    if (position != NULL) {
+    if (position != N64_NULL) {
         sp20.position[0] = position[0];
         sp20.position[1] = position[1];
         sp20.position[2] = position[2];

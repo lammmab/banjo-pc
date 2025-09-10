@@ -43,7 +43,7 @@ void eggShatter_new(f32 position[3]){
 }
 
 void eggShatter_defrag(void){
-    if(gEggShatter_controller != NULL){
+    if(gEggShatter_controller != N64_NULL){
         gEggShatter_controller = partEmitMgr_defragEmitter(gEggShatter_controller);
     }
 }

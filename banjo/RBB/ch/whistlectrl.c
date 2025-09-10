@@ -14,8 +14,8 @@ void chWhistleCtrl_update(Actor * this);
 
 /* .data */
 ActorInfo D_80390A50 = {
-    0x2D, 0x1C5, 0x0, 0x0, NULL,
-    chWhistleCtrl_update, NULL, func_80325340,
+    0x2D, 0x1C5, 0x0, 0x0, N64_NULL,
+    chWhistleCtrl_update, N64_NULL, func_80325340,
     0, 0, 0.0f, 0
 };
 

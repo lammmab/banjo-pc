@@ -52,7 +52,7 @@ SEGMENT_EXTERNS(fight);
     {#realname, segname##_VRAM, segname##_VRAM_END, segname##_ROM_START, segname##_ROM_END, segname##_TEXT_START, segname##_TEXT_END, segname##_DATA_START, segname##_RODATA_END, segname##_BSS_START, segname##_BSS_END}
 
 #define DUMMY_SEGMENT_ENTRY(segname, realname) \
-    {#realname, segname##_VRAM, segname##_VRAM_END, segname##_ROM_START, segname##_ROM_END, NULL, NULL, NULL, NULL, NULL, NULL}
+    {#realname, segname##_VRAM, segname##_VRAM_END, segname##_ROM_START, segname##_ROM_END, N64_NULL, N64_NULL, N64_NULL, N64_NULL, N64_NULL, N64_NULL}
 
 /* .data */
 static OverlayAddressMap overlayAddressMap[] = {

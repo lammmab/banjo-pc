@@ -11,7 +11,7 @@ void func_802DC900(Actor *this);
 f32 D_803680A0[3] = {0.0f, 0.0f, 0.0f};
 ActorInfo D_803680AC = { 
     0x175, 0x1DC, 0x54D, 
-    0x1, NULL, 
+    0x1, N64_NULL, 
     func_802DC900, actor_update_func_80326224, func_802DC7E0, 
     0, 0, 0.0f, 0
 };
@@ -47,14 +47,14 @@ Actor *func_802DC7E0(ActorMarker *marker, Gfx **gfx, Mtx **mtx, Vtx **vtx){
     sp34[0] = 0.0f;
     sp34[1] = -87.0f;
     sp34[2] = 0.0f;
-    modelRender_draw(gfx, mtx, sp40, NULL, 1.0f, sp34, marker_loadModelBin(marker));
+    modelRender_draw(gfx, mtx, sp40, N64_NULL, 1.0f, sp34, marker_loadModelBin(marker));
     viewport_restoreState();
     viewport_setRenderViewportAndPerspectiveMatrix(gfx, mtx);
     return this;
 }
 
 void func_802DC8F0(Actor *this){
-    D_8037DE60 = NULL;
+    D_8037DE60 = N64_NULL;
 }
 
 void func_802DC900(Actor *this){
@@ -75,13 +75,13 @@ void func_802DC960(void) {
 }
 
 void func_802DC9A4(s32 arg0, s32 arg1){
-    if(D_8037DE60 == NULL){
+    if(D_8037DE60 == N64_NULL){
         __spawnQueue_add_0(func_802DC960);
     }
 }
 
 void func_802DC9DC(s32 arg0, s32 arg1){
-    if(D_8037DE60 != NULL){
+    if(D_8037DE60 != N64_NULL){
         func_80326310(marker_getActor(D_8037DE60));
     }
 }

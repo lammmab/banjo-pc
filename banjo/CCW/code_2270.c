@@ -28,7 +28,7 @@ Struct_CCW_2270_0 D_8038ECD0[] = {
 
 ActorInfo D_8038ECE8 = { 
     MARKER_1B1_CCW_GOBI, ACTOR_29E_CCW_GOBI, ASSET_3E0_MODEL_GOBI,
-    0x0, NULL,
+    0x0, N64_NULL,
     chGobiCCW_update, chGobiCCW_update, chGobiCCW_draw,
     0, 0, 1.0f, 0
 };
@@ -48,7 +48,7 @@ void CCW_func_8038868C(Actor *this, s32 next_state) {
     }
     if (next_state == 2) {
         if (local->unk0->unk4 != 0) {
-            gcdialog_showDialog(local->unk0->unk4, 4, NULL, NULL, NULL, NULL);
+            gcdialog_showDialog(local->unk0->unk4, 4, N64_NULL, N64_NULL, N64_NULL, N64_NULL);
         }
         skeletalAnim_set(this->unk148, ASSET_FC_ANIM_GOBI_SPITTING, 0.2f, 3.0f);
         skeletalAnim_setBehavior(this->unk148, SKELETAL_ANIM_2_ONCE);
@@ -73,7 +73,7 @@ void CCW_func_8038868C(Actor *this, s32 next_state) {
     }
     if (next_state == 5) {
         if (local->unk0->unk6 != 0) {
-            gcdialog_showDialog((s32) local->unk0->unk6, 4, NULL, NULL, NULL, NULL);
+            gcdialog_showDialog((s32) local->unk0->unk6, 4, N64_NULL, N64_NULL, N64_NULL, N64_NULL);
         }
         skeletalAnim_set(this->unk148, ASSET_FD_ANIM_GOBI2_GETTING_UP, 0.23f, 0.5f);
         timed_setStaticCameraToNode(0.0f, 3);
@@ -114,7 +114,7 @@ Actor *chGobiCCW_draw(ActorMarker *marker, Gfx **gfx, Mtx **mtx, Vtx **vtx){
 
         modelRender_setBoneTransformList(skeletalAnim_getBoneTransformList(local->unk4));
         modelRender_setDepthMode(MODEL_RENDER_DEPTH_COMPARE);
-        modelRender_draw(gfx, mtx, this->position, sp2C, 1.0f, NULL, local->spit_model);
+        modelRender_draw(gfx, mtx, this->position, sp2C, 1.0f, N64_NULL, local->spit_model);
     }
     return actor_draw(marker, gfx, mtx, vtx);
 }
@@ -140,7 +140,7 @@ void chGobiCCW_update(Actor *this) {
         this->has_met_before = false;
         local->unk4 = skeletalAnim_new();
         local->spit_model = assetcache_get(ASSET_3F3_MODEL_GOBI_SPIT);
-        marker_setCollisionScripts(this->marker, NULL, func_8038894C, NULL);
+        marker_setCollisionScripts(this->marker, N64_NULL, func_8038894C, N64_NULL);
         if(!jiggyscore_isSpawned(JIGGY_4D_CCW_FLOWER)) {
             fileProgressFlag_set(FILEPROG_E5_CCW_FLOWER_AUTUMN, false);
         }
@@ -163,7 +163,7 @@ void chGobiCCW_update(Actor *this) {
             player_getPosition(sp48);
             if (ml_vec3f_distance(this->position, sp48) < 600.0f) {
                 if (local->unk0->unk2 != 0) {
-                    gcdialog_showDialog((s32) local->unk0->unk2, 4, NULL, NULL, NULL, NULL);
+                    gcdialog_showDialog((s32) local->unk0->unk2, 4, N64_NULL, N64_NULL, N64_NULL, N64_NULL);
                 }
                 this->has_met_before = true;
             }

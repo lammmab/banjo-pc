@@ -15,13 +15,13 @@ s32 osContStartReadData(OSMesgQueue *mq)
     {
         __osPackReadData();
         ret = __osSiRawStartDma(OS_WRITE, &__osContPifRam);
-        osRecvMesg(mq, NULL, OS_MESG_BLOCK);
+        osRecvMesg(mq, N64_NULL, OS_MESG_BLOCK);
     }
-    for (i = 0; i < ARRLEN(__osContPifRam.ramarray) + 1; i++)
+    for (i = 0; i < ARRLEN(__osContPifRam.ram) + 1; i++)
     {
-        __osContPifRam.ramarray[i] = 0xFF;
+        __osContPifRam.ram[i] = 0xFF;
     }
-    __osContPifRam.pifstatus = 0;
+    __osContPifRam.status = 0;
     ret = __osSiRawStartDma(OS_READ, &__osContPifRam);
 
     __osContLastCmd = CONT_CMD_READ_BUTTON;
@@ -32,18 +32,18 @@ s32 osContStartReadData(OSMesgQueue *mq)
 void osContGetReadData(OSContPad *data)
 {
     u8 *ptr;
-    __OSContReadFormat readformat;
+    __OSContReadHeader readformat;
     int i;
-    ptr = (u8 *)&__osContPifRam.ramarray;
-    for (i = 0; i < __osMaxControllers; i++, ptr += sizeof(__OSContReadFormat), data++)
+    ptr = (u8 *)&__osContPifRam.ram;
+    for (i = 0; i < __osMaxControllers; i++, ptr += sizeof(__OSContReadHeader), data++)
     {
-        readformat = *(__OSContReadFormat *)ptr;
-        data->errno = CHNL_ERR(readformat);
-        if (data->errno == 0)
+        readformat = *(__OSContReadHeader *)ptr;
+        data->err_no = CHNL_ERR(readformat);
+        if (data->err_no == 0)
         {
             data->button = readformat.button;
-            data->stick_x = readformat.stick_x;
-            data->stick_y = readformat.stick_y;
+            data->stick_x = readformat.joyX;
+            data->stick_y = readformat.joyY;
         }
     }
 }
@@ -51,25 +51,25 @@ void osContGetReadData(OSContPad *data)
 static void __osPackReadData(void)
 {
     u8 *ptr;
-    __OSContReadFormat readformat;
+    __OSContReadHeader readformat;
     int i;
 
-    ptr = (u8*)&__osContPifRam.ramarray;
-    for (i = 0; i < ARRLEN(__osContPifRam.ramarray) + 1; i++)
+    ptr = (u8*)&__osContPifRam.ram;
+    for (i = 0; i < ARRLEN(__osContPifRam.ram) + 1; i++)
     {
-        __osContPifRam.ramarray[i] = 0;
+        __osContPifRam.ram[i] = 0;
     }
-    __osContPifRam.pifstatus = CONT_CMD_EXE;
-    readformat.dummy = CONT_CMD_NOP;
+    __osContPifRam.status = CONT_CMD_EXE;
+    readformat.align = CONT_CMD_NOP;
     readformat.txsize = CONT_CMD_READ_BUTTON_TX;
     readformat.rxsize = CONT_CMD_READ_BUTTON_RX;
-    readformat.cmd = CONT_CMD_READ_BUTTON;
+    readformat.poll = CONT_CMD_READ_BUTTON;
     readformat.button = -1;
-    readformat.stick_x = -1;
-    readformat.stick_y = -1;
+    readformat.joyX = -1;
+    readformat.joyY = -1;
     for(i=0; i < __osMaxControllers; i++){
-        *(__OSContReadFormat*)ptr = readformat;
-        ptr += sizeof(__OSContReadFormat);
+        *(__OSContReadHeader*)ptr = readformat;
+        ptr += sizeof(__OSContReadHeader);
     }
     *ptr = CONT_CMD_END;
 }

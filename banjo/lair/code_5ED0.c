@@ -423,7 +423,7 @@ void *lair_func_8038C5B8(s32 a0)
     s32 v0;
 
     if (!a0)
-        return NULL;
+        return N64_NULL;
 
     v0  = FF_QNF_START;
     ptr = D_80393760;
@@ -541,10 +541,10 @@ void lair_func_8038CC9C(void)
 void func_8038CCEC(void)
 {
     free(D_8037DCB8->unk48);
-    D_8037DCB8->unk48 = NULL;
+    D_8037DCB8->unk48 = N64_NULL;
 
     free(D_8037DCB8);
-    D_8037DCB8 = NULL;
+    D_8037DCB8 = N64_NULL;
 
     gcquiz_free();
     quizQuestionAskedBitfield_free();
@@ -553,7 +553,7 @@ void func_8038CCEC(void)
 
 void lair_func_8038CD48(void)
 {
-    if (D_8037DCB8 == NULL)
+    if (D_8037DCB8 == N64_NULL)
         return;
 
     /**
@@ -563,10 +563,10 @@ void lair_func_8038CD48(void)
      */
     ability_setAllLearned(D_8037DCB8->unlockedMoves);
 
-    D_8037DCB8->unk0 = NULL;
+    D_8037DCB8->unk0 = N64_NULL;
 
     gczoombox_free(D_8037DCB8->unk20);
-    D_8037DCB8->unk20 = NULL;
+    D_8037DCB8->unk20 = N64_NULL;
 
     if (D_8037DCB8->UNK_18)
         lair_func_8038CC9C();
@@ -602,8 +602,8 @@ void func_8038CE28(void)
     item_adjustByDiffWithoutHud(ITEM_27_JOKER_CARD, item_getCount(0x27) * -1);
 
     D_8037DCB8->unk8     = 0;
-    D_8037DCB8->unk4     = NULL;
-    D_8037DCB8->unk20     = NULL;
+    D_8037DCB8->unk4     = N64_NULL;
+    D_8037DCB8->unk20     = N64_NULL;
     D_8037DCB8->unk14     = 1.f;
     D_8037DCB8->UNK_18     = 0;
     D_8037DCB8->currFfMode = 1;
@@ -1151,8 +1151,8 @@ void lair_func_8038E0B0(void) {
     s32 sp28;
 
     if( (map_get() == MAP_8E_GL_FURNACE_FUN) 
-        && (D_8037DCB8 != NULL) 
-        && (D_8037DCB8->unk0 != NULL)
+        && (D_8037DCB8 != N64_NULL) 
+        && (D_8037DCB8->unk0 != N64_NULL)
     ){
         gcquiz_func_80319EA4();
         func_8038C9D0();
@@ -1231,7 +1231,7 @@ void lair_func_8038E0B0(void) {
                 func_802FACA4(0x16);
                 if (sp38 != FFTT_0_NIL) {
                     sp28 = sp38 - 1 + FILEPROG_55_FF_BK_SQUARE_INSTRUCTIONS;
-                    if (!fileProgressFlag_get(sp28) && gcdialog_showDialog(sp38 + 0x101E, 0, NULL, NULL, NULL, NULL)) {
+                    if (!fileProgressFlag_get(sp28) && gcdialog_showDialog(sp38 + 0x101E, 0, N64_NULL, N64_NULL, N64_NULL, N64_NULL)) {
                         fileProgressFlag_set(sp28, true);
                     }
                     if ((sp38 == FFTT_6_SKULL) && (item_getCount(ITEM_16_LIFE) == 1)) {
@@ -1457,13 +1457,13 @@ s32 func_8038E800(void)
 
 void func_8038E968(s32 idx)
 {
-    if (D_8037DCB8 != NULL && D_8037DCB8->unk48 != NULL && idx >= 0)
+    if (D_8037DCB8 != N64_NULL && D_8037DCB8->unk48 != N64_NULL && idx >= 0)
         D_8037DCB8->unk48->data[idx].unk20 = 0;
 }
 
 void func_8038E9A4(s32 idx, f32 a1[3])
 {
-    if (D_8037DCB8 != NULL && D_8037DCB8->unk48 != NULL && idx >= 0)
+    if (D_8037DCB8 != N64_NULL && D_8037DCB8->unk48 != N64_NULL && idx >= 0)
     {
         D_8037DCB8->unk48->data[idx].unk0[0] = a1[0];
         D_8037DCB8->unk48->data[idx].unk0[1] = a1[1];
@@ -1473,7 +1473,7 @@ void func_8038E9A4(s32 idx, f32 a1[3])
 
 void func_8038EA10(s32 idx, f32 a1[3])
 {
-    if (D_8037DCB8 != NULL && D_8037DCB8->unk48 != NULL && idx >= 0)
+    if (D_8037DCB8 != N64_NULL && D_8037DCB8->unk48 != N64_NULL && idx >= 0)
     {
         D_8037DCB8->unk48->data[idx].unkC = a1[0];
         D_8037DCB8->unk48->data[idx].UNK_10 = a1[1];
@@ -1482,7 +1482,7 @@ void func_8038EA10(s32 idx, f32 a1[3])
 
 void func_8038EA68(s32 idx, s32 a1[3])
 {
-    if (D_8037DCB8 != NULL && D_8037DCB8->unk48 != NULL && idx >= 0)
+    if (D_8037DCB8 != N64_NULL && D_8037DCB8->unk48 != N64_NULL && idx >= 0)
     {
         D_8037DCB8->unk48->data[idx].unk14[0] = a1[0];
         D_8037DCB8->unk48->data[idx].unk14[1] = a1[1];

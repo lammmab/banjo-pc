@@ -21,7 +21,7 @@ void func_802CA1E0(Actor *this);
 /* .data */
 ActorInfo D_80366CD0 = {
     0x3D, 0x183, 0,
-    0, NULL,
+    0, N64_NULL,
     func_802CA1E0, actor_update_func_80326224, func_80325340,
     0, 0, 0.0f, 0
 };

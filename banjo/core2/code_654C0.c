@@ -226,11 +226,11 @@ void func_802ECBD4(BKVertexList *dst, BKVertexList *src, f32 position[3], f32 ro
     viewport_getPosition_vec3f(vp_position);
     viewport_getLookVector(vp_look);
     mlMtxIdent();
-    func_80252CC4(position, rotation, 1.0f, NULL);
+    func_80252CC4(position, rotation, 1.0f, N64_NULL);
     mlMtx_apply_vec3f(vp_position, vp_position);
 
     mlMtxIdent();
-    func_80252CC4(NULL, rotation, 1.0f, NULL);
+    func_80252CC4(N64_NULL, rotation, 1.0f, N64_NULL);
     mlMtx_apply_vec3f(vp_look, vp_look);
 
     start_vtx = (Vtx *)(dst + 1);

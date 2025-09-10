@@ -23,7 +23,7 @@ enum nabnut_state_e{
 f32 D_8038F350[3] = {0.0f, 0.0f, 0.0f};
 ActorInfo D_8038F35C = {
     MARKER_1BB_NABNUT, ACTOR_2A8_NABNUT, ASSET_502_MODEL_NABNUT,
-    0x0, NULL, 
+    0x0, N64_NULL, 
     chnabnut_update, chnabnut_update, chnabnut_draw,
     0, 0, 1.2f, 0
 };
@@ -49,7 +49,7 @@ void chnabnut_setState(Actor *this, s32 next_state) {
         skeletalAnim_setBehavior(this->unk148, SKELETAL_ANIM_2_ONCE);
         func_80324E38(0.0f, 3);
         timed_setStaticCameraToNode(0.0f, 0xB);
-        gcdialog_showDialog(0xCCC, 0x20, this->position, NULL, NULL, NULL);
+        gcdialog_showDialog(0xCCC, 0x20, this->position, N64_NULL, N64_NULL, N64_NULL);
     }
 
     if (next_state == NABNUT_STATE_4_THANK_PLAYER) {
@@ -91,7 +91,7 @@ Actor *chnabnut_draw(ActorMarker *marker, Gfx **gfx, Mtx **mtx, Vtx **vtx) {
         temp_f2 = skeletalAnim_getProgress(this->unk148);
         if ((0.116 <= temp_f2) && (temp_f2 <= 0.32)) {
             sp24 = this->unk130;
-            this->unk130 = NULL;
+            this->unk130 = N64_NULL;
             func_8033A45C(1, 4);
             out = actor_draw(marker, gfx, mtx, vtx);
             out->unk130 = sp24;
@@ -122,7 +122,7 @@ void chnabnut_update(Actor *this) {
         D_8038F350[2] = this->position[2];
         if (this->state == 0) {
             this->has_met_before = false;
-            local->returned_acorn_count = NULL;
+            local->returned_acorn_count = N64_NULL;
         }
         chnabnut_setState(this, 1);
         if(jiggyscore_isSpawned(JIGGY_4A_CCW_NABNUT)) {
@@ -135,7 +135,7 @@ void chnabnut_update(Actor *this) {
         player_getPosition(sp30);
         if (!this->has_met_before && (ml_vec3f_distance(this->position, sp30) < 400.0f)) {
             this->has_met_before = true;
-            gcdialog_showDialog(0xCCA, 0xE, this->position, NULL, NULL, NULL);
+            gcdialog_showDialog(0xCCA, 0xE, this->position, N64_NULL, N64_NULL, N64_NULL);
         }
         if (item_getCount(ITEM_23_ACORNS) > 0) {
             func_80258A4C(this->position, this->yaw - 90.0f, sp30, &sp2C, &sp28, &sp24);
@@ -149,7 +149,7 @@ void chnabnut_update(Actor *this) {
                 if (local->returned_acorn_count == 6) {
                     chnabnut_setState(this, NABNUT_STATE_2_WAIT);
                 } else if (item_getCount(ITEM_23_ACORNS) == 1) {
-                    gcdialog_showDialog(0xCCB, 0x20, this->position, NULL, NULL, NULL);
+                    gcdialog_showDialog(0xCCB, 0x20, this->position, N64_NULL, N64_NULL, N64_NULL);
                 }
             }
         }

@@ -5,6 +5,10 @@
 #define assert(s) 
 #endif
 
+// WRAPPER W/ DEFAULTS
+#define aEnvMixerWrapper(pkt, flags, m) \
+    aEnvMixer(pkt, 0, 1, 0, 0,0,0,0, m, flags)
+
 #ifdef AUD_PROFILE
 extern u32 cnt_index, env_num, env_cnt, env_max, env_min, lastCnt[];
 extern u32 rate_num, rate_cnt, rate_max, rate_min;
@@ -379,10 +383,10 @@ Acmd* _pullSubFrame(void *filter, s16 *inp, s16 *outp, s32 outCount, s32 sampleO
         aSetVolume(ptr++, A_LEFT  | A_RATE, e->ltgt, e->lratm, e->lratl);
         aSetVolume(ptr++, A_RIGHT | A_RATE, e->rtgt, e->rratm, e->rratl);
         aSetVolume(ptr++, A_AUX, e->dryamt, 0, e->wetamt);
-        aEnvMixer (ptr++, A_INIT | A_AUX, osVirtualToPhysical(e->state));
+        aEnvMixerWrapper(ptr++, A_INIT | A_AUX, osVirtualToPhysical(e->state));
     }
     else
-	    aEnvMixer(ptr++, A_CONTINUE | A_AUX, osVirtualToPhysical(e->state));
+	    aEnvMixerWrapper(ptr++, A_CONTINUE | A_AUX, osVirtualToPhysical(e->state));
 
     /*
      * bump the input buffer pointer

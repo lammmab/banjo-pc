@@ -15,7 +15,7 @@ u8 bacarry_active;
 
 /* .code */
 void bacarry_init(void){
-    baCarry_marker = NULL;
+    baCarry_marker = N64_NULL;
     bacarry_active = 0;
     bacarry_set_offsets(0.0f, 0.0f);
 }
@@ -46,9 +46,9 @@ void __bacarry_update(void){
 }
 
 void bacarry_update(void){
-    if(baCarry_marker != NULL){
+    if(baCarry_marker != N64_NULL){
         if(bacarry_active == 0){
-            baCarry_marker = NULL;
+            baCarry_marker = N64_NULL;
         }
         else{
             __bacarry_update();
@@ -58,7 +58,7 @@ void bacarry_update(void){
 }
 
 void bacarry_reset_marker(void){
-    baCarry_marker = NULL;
+    baCarry_marker = N64_NULL;
 }
 
 ActorMarker *bacarry_get_marker(void){

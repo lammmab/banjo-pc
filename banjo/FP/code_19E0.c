@@ -110,7 +110,7 @@ void func_803881AC(Actor *this){
             marker_despawn(this->marker);
             return;
         }
-        marker_setCollisionScripts(this->marker, NULL, func_8038811C, NULL);
+        marker_setCollisionScripts(this->marker, N64_NULL, func_8038811C, N64_NULL);
         this->marker->propPtr->unk8_3 = false;
         this->unk124_6 = false;
         func_803289EC(this, randf(), 1);

@@ -82,6 +82,6 @@ void func_80298700(void){
             D_8037C5D0 = assetcache_get(sp1C);
     }
     else{
-        D_8037C5D0 = NULL;
+        D_8037C5D0 = N64_NULL;
     }
 }

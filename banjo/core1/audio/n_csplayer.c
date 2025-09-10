@@ -78,7 +78,7 @@ void n_alCSPNew(N_ALCSPlayer *seqp, ALSeqpConfig *c)
      * initialize member variables
      */
     seqp->bank          = 0;
-    seqp->target        = NULL;
+    seqp->target        = N64_NULL;
     seqp->drvr          = n_syn;
     seqp->chanMask      = -1;
     seqp->uspt          = 488;
@@ -125,7 +125,7 @@ void n_alCSPNew(N_ALCSPlayer *seqp, ALSeqpConfig *c)
     /*
      * add ourselves to the driver
      */
-    seqp->node.next       = NULL;
+    seqp->node.next       = N64_NULL;
     seqp->node.handler    = __n_CSPVoiceHandler;
     seqp->node.clientData = seqp;
     n_alSynAddSeqPlayer(&seqp->node);  
@@ -350,7 +350,7 @@ void __n_CSPPostNextSeqEvent(ALCSPlayer *seqp)
     ALEvent     evt;
     s32		deltaTicks;
     
-    if (seqp->state != AL_PLAYING || seqp->target == NULL)
+    if (seqp->state != AL_PLAYING || seqp->target == N64_NULL)
         return;
     
     /* Get the next event time in ticks. */
@@ -375,7 +375,7 @@ __CSPHandleNextSeqEvent(ALCSPlayer *seqp)
     ALEvent	evt;
 
     /* sct 1/5/96 - Do nothing if we don't have a target sequence. */
-    if (seqp->target == NULL)
+    if (seqp->target == N64_NULL)
 	return;
 
     n_alCSeqNextEvent(seqp->target, &evt);
@@ -762,7 +762,7 @@ static void __n_CSPHandleMIDIMsg(N_ALCSPlayer *seqp, ALEvent *event)
             break;
         case (AL_MIDI_ProgramChange):
 	    /* sct 1/16/96 - We must have a valid bank in order to process the program change. */
-	    matching_assert(seqp->bank != NULL, n_csplayer.c, 0x2cb);
+	    matching_assert(seqp->bank != N64_NULL, n_csplayer.c, 0x2cb);
 
             if (byte1 < seqp->bank->instCount)
             {

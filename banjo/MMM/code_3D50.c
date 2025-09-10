@@ -105,7 +105,7 @@ Struct_MMM_3D50_0 *func_8038A26C(s32 arg0){
             return v1;
         }
     }
-    return NULL;
+    return N64_NULL;
 }
 
 void func_8038A2B8(void){
@@ -220,9 +220,9 @@ void func_8038A9B4(void){
     MMM_D_8038C510.unk8 = 0;
     
     if(map_get() == MAP_24_MMM_TUMBLARS_SHED){
-        MMM_D_8038C510.unkC = NULL;
+        MMM_D_8038C510.unkC = N64_NULL;
         MMM_D_8038C510.unk0 = mapModel_getModel(0);
-        MMM_D_8038C510.unk4 = NULL;
+        MMM_D_8038C510.unk4 = N64_NULL;
 
         func_8038A2B8();
         func_8038A964();
@@ -249,7 +249,7 @@ void func_8038AA44(void){
 
     func_8038A750();
     if( MMM_D_8038C510.unk8 == 1
-        && MMM_D_8038C510.unkC != NULL
+        && MMM_D_8038C510.unkC != N64_NULL
         && chTumblar_isBanjoAbove(MMM_D_8038C510.unkC, MMM_D_8038C510.unk10)
     ){
         if (!levelSpecificFlags_get(LEVEL_FLAG_2F_MMM_UNKNOWN)) {
@@ -265,7 +265,7 @@ void func_8038AA44(void){
         if(item_empty(ITEM_6_HOURGLASS)){
             func_8038A140(4);
         }
-        else if( MMM_D_8038C510.unkC != NULL
+        else if( MMM_D_8038C510.unkC != N64_NULL
             && chTumblar_isBanjoAbove(MMM_D_8038C510.unkC, MMM_D_8038C510.unk10)
         ){
             chTumblar_copyPosition(MMM_D_8038C510.unkC, MMM_D_8038C510.unk10, sp28);

@@ -41,7 +41,22 @@
     "ultraerror.h": "c",
     "internal.h": "c",
     "os_system.h": "c",
-    "ucode.h": "c"
+    "ucode.h": "c",
+    "filesystem": "c",
+    "array": "c",
+    "vector": "c",
+    "xstring": "c",
+    "xutility": "c",
+    "xmemory": "c",
+    "piint.h": "c",
+    "convert.h": "c",
+    "interrupt.h": "c",
+    "cstdarg": "c",
+    "algorithm": "c",
+    "iterator": "c",
+    "xhash": "c",
+    "xtree": "c",
+    "rarezip.h": "c"
   },
   "C_Cpp.errorSquiggles": "disabled"
 }

@@ -1,5 +1,7 @@
 #include <libultraship/libultra.h>
 
+#include "n64_compat.h"
+
 #define PI_Q_BUF_LEN 1
 u32 __osPiAccessQueueEnabled = 0;
 OSMesg piAccessBuf[PI_Q_BUF_LEN]; // todo bss
@@ -9,7 +11,7 @@ void __osPiCreateAccessQueue(void)
 
 	__osPiAccessQueueEnabled = 1;
 	osCreateMesgQueue(&__osPiAccessQueue, piAccessBuf, PI_Q_BUF_LEN);
-	osSendMesg(&__osPiAccessQueue, NULL, OS_MESG_NOBLOCK);
+	osSendMesg(&__osPiAccessQueue, (OSMesg){N64_NULL}, OS_MESG_NOBLOCK);
 }
 void __osPiGetAccess(void)
 {
@@ -20,5 +22,5 @@ void __osPiGetAccess(void)
 }
 void __osPiRelAccess(void)
 {
-	osSendMesg(&__osPiAccessQueue, NULL, OS_MESG_NOBLOCK);
+	osSendMesg(&__osPiAccessQueue, (OSMesg){N64_NULL}, OS_MESG_NOBLOCK);
 }

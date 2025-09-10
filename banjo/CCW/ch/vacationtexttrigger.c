@@ -10,7 +10,7 @@ void chVacationTextTrigger_update(Actor* this);
 
 ActorInfo gChVacationTextTrigger = { 
     MARKER_1E3_VACATION_TEXT_TRIGGER, ACTOR_374_VACATION_TEXT_TRIGGER, 0x0,
-    0x0, NULL,
+    0x0, N64_NULL,
     chVacationTextTrigger_update, actor_update_func_80326224, func_80325340, 
     0, 0, 0.0f, 0
 };
@@ -37,7 +37,7 @@ void chVacationTextTrigger_update(Actor* this) {
 
     // Start dialog if player is within trigger
     if (__playerIsWithinTrigger(0, -107, 188) != 0) {
-        gcdialog_showDialog(0xDA9, 4, NULL, NULL, NULL, NULL);
+        gcdialog_showDialog(0xDA9, 4, N64_NULL, N64_NULL, N64_NULL, N64_NULL);
         volatileFlag_set(VOLATILE_FLAG_13_HAS_TRIGGERED_MUMBO_VACATION_TEXT, 1);
     }
 }

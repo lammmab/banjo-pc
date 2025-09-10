@@ -50,7 +50,7 @@ void func_8030C180(void){
 }
 
 void func_8030C1A0(void){
-    if(D_80382454 == NULL){
+    if(D_80382454 == N64_NULL){
         D_80382454 = D_80382450 = malloc(IMAGE_WIDTH * IMAGE_HEIGHT * sizeof(u16) + 64);
 
         while((s32)D_80382450 & 0x3F){
@@ -62,7 +62,7 @@ void func_8030C1A0(void){
 void func_8030C204(void){
     if(D_80382454){
         free(D_80382454);
-        D_80382454 = NULL;
+        D_80382454 = N64_NULL;
     }
 
     switch(getGameMode()){

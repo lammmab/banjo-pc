@@ -22,7 +22,7 @@ typedef struct{
 /* .data */
 ActorInfo D_803732E0 = {
     0x1F7, 0x1E7, 0, 
-    0, NULL, 
+    0, N64_NULL, 
     func_80363310, func_80363330, func_80325340,
     0, 0, 0.0f, 0
 }; 

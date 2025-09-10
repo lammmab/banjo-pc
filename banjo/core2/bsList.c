@@ -12,10 +12,10 @@ bsState D_8037C700[166];
 void bsList_clearAll(void){
     s32 i = 0;
     do{
-        bsList_setInitMethod(i, NULL);
-        bsList_setUpdateMethod(i, NULL);
-        bsList_setEndMethod(i, NULL);
-        bsList_setInterruptMethod(i, NULL);
+        bsList_setInitMethod(i, N64_NULL);
+        bsList_setUpdateMethod(i, N64_NULL);
+        bsList_setEndMethod(i, N64_NULL);
+        bsList_setInterruptMethod(i, N64_NULL);
         i++;
     }while(i != 0xa6);
 }

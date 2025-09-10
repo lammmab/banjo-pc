@@ -7,7 +7,7 @@ typedef struct {
     u8 egg_hits[4];
 } ActorLocal_BossJinjonatorBase;
 
-ActorInfo chJinjonatorBase = { MARKER_27F_JINJONATOR_STATUE_BASE, ACTOR_3A9_JINJONATOR_STATUE_BASE, ASSET_544_MODEL_JINJONATOR_STATUE_BASE, 1, NULL, chjinjonatorbase_update, actor_update_func_80326224, actor_draw, 0, 2048, 0.0f, 0 };
+ActorInfo chJinjonatorBase = { MARKER_27F_JINJONATOR_STATUE_BASE, ACTOR_3A9_JINJONATOR_STATUE_BASE, ASSET_544_MODEL_JINJONATOR_STATUE_BASE, 1, N64_NULL, chjinjonatorbase_update, actor_update_func_80326224, actor_draw, 0, 2048, 0.0f, 0 };
 
 s32 chJinjonatorBase_SmokeColor[3] = { 200, 200, 160 };
 ParticleScaleAndLifetimeRanges chJinjonatorBase_SmokeScaleAndLifetimeSettings = { {1.0f, 1.0f}, {1.7f, 2.7f}, {0.0f, 0.05f}, {2.6f, 3.4f}, 0.0f, 0.1f };
@@ -96,7 +96,7 @@ void chjinjonatorbase_update(Actor *this){
 
     if (!this->volatile_initialized) {
         this->volatile_initialized = true;
-        marker_setCollisionScripts(this->marker, NULL, chjinjonatorbase_getHitByEgg, NULL);
+        marker_setCollisionScripts(this->marker, N64_NULL, chjinjonatorbase_getHitByEgg, N64_NULL);
         this->marker->propPtr->unk8_3 = 1;
         actor_collisionOn(this);
 

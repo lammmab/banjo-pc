@@ -115,7 +115,7 @@ ActorAnimationInfo D_80392CB0[] = {
     {0x271,   3.0f}, 
     {0x271, 1e+08f}
 };
-ActorInfo lair_D_80392D90 = { 0x270, 0x2D8, 0x3B2, 0x1, NULL, func_802D3D54, actor_update_func_80326224, actor_drawFullDepth, 0, 0,   0.0f, 0};
+ActorInfo lair_D_80392D90 = { 0x270, 0x2D8, 0x3B2, 0x1, N64_NULL, func_802D3D54, actor_update_func_80326224, actor_drawFullDepth, 0, 0,   0.0f, 0};
 ActorInfo D_80392DB4 = { 0x110, 0x214, 0x4AB, 0x1, D_80392CB0, func_803896D4, actor_update_func_80326224, actor_draw, 0, 0,   0.0f, 0};
 ActorInfo D_80392DD8 = { 0x113, 0x217, 0x4A9, 0x1, D_80392CB0, func_803896F4, actor_update_func_80326224, actor_draw, 0, 0,   0.0f, 0};
 ActorInfo D_80392DFC = { 0x115, 0x219, 0x4AA, 0x1, D_80392CB0, func_80389714, actor_update_func_80326224, actor_draw, 0, 0,   0.0f, 0};
@@ -129,35 +129,35 @@ ActorInfo D_80392EF8 = { MARKER_109_BREAKABLE_BRICK_WALL, ACTOR_20D_BREAKABLE_BR
 ActorInfo D_80392F1C = { 0x264, 0x2E5, 0x550, 0x19, D_80392CB0, func_80388524, actor_update_func_80326224, actor_draw, 0, 0,   0.0f, 0};
 ActorInfo D_80392F40 = { MARKER_224_BREAKABLE_FLOOR_COBWEB, ACTOR_230_BREAKABLE_FLOOR_COBWEB, ASSET_4BF_MODEL_FLOOR_COBWEB, 0xB, D_80392CB0, chFloorCobweb_update, actor_update_func_80326224, actor_draw, 0, 0,   0.0f, 0x88};
 ActorInfo D_80392F64 = { MARKER_225_BREAKABLE_WALL_COBWEB,  ACTOR_231_BREAKABLE_WALL_COBWEB, ASSET_4D5_MODEL_WALL_COBWEB, 0xE, D_80392CB0, chWallCobweb_update, actor_update_func_80326224, actor_draw, 0, 0,   0.0f, 0x88};
-ActorInfo D_80392F88 = { 0x111, 0x215, 0x4A4, 0x1, NULL, func_80388FC8, actor_update_func_80326224, actor_drawFullDepth, 0, 0,   0.0f, 0};
-ActorInfo D_80392FAC = { 0x112, 0x216, 0x4A5, 0x1, NULL, func_80388FC8, actor_update_func_80326224, actor_drawFullDepth, 0, 0,   0.0f, 0};
-ActorInfo D_80392FD0 = { 0x114, 0x218, 0x4A6, 0x1, NULL, lair_func_80389204, actor_update_func_80326224, actor_drawFullDepth, 0, 0,   0.0f, 0};
-ActorInfo D_80392FF4 = { 0x10D, 0x211, 0x4A3, 0x1, NULL, func_80388524, actor_update_func_80326224, actor_drawFullDepth, 0, 0,   0.0f, 0};
-ActorInfo D_80393018 = { 0x22C, 0x23A, 0x4D9, 0x1, NULL, func_803882B0, actor_update_func_80326224, actor_drawFullDepth, 0, 0,   0.0f, 0};
-ActorInfo D_8039303C = { 0x164, 0x259, 0x507, 0x1, NULL, func_803880BC, actor_update_func_80326224, actor_drawFullDepth, 0, 0,   0.0f, 0};
-ActorInfo D_80393060 = { 0x165, 0x25A, 0x508, 0x1, NULL, func_8038824C, actor_update_func_80326224, actor_drawFullDepth, 0, 0,   0.0f, 0};
-ActorInfo D_80393084 = { MARKER_240_LAIR_SWITCH_FLIGHT_PAD, 0x247, 0x48A, 0x1, NULL, func_80386D78, actor_update_func_80326224, actor_drawFullDepth, 0, 0,   0.0f, 0};
-ActorInfo D_803930A8 = { 0x242, 0x249, 0x2DD, 0x1, NULL, func_803867A8, actor_update_func_80326224, actor_drawFullDepth, 0, 0,   0.0f, 0};
-ActorInfo D_803930CC = { 0x11F, 0x225, 0x4B3, 0x1, NULL, func_8038A064, actor_update_func_80326224, actor_drawFullDepth, 0, 0,   0.0f, 0};
-ActorInfo D_803930F0 = { 0x10A, 0x20E, 0x4A2, 0x1, NULL, func_80388524, actor_update_func_80326224, actor_drawFullDepth, 0, 0,   0.0f, 0};
-ActorInfo D_80393114 = { 0x11A, 0x220, 0x4B7, 0x1, NULL, func_80389FF4, actor_update_func_80326224, actor_drawFullDepth, 0, 0,   0.0f, 0x91};
-ActorInfo D_80393138 = { 0x11E, 0x224, 0x4AF, 0x1, NULL, func_8038A014, actor_update_func_80326224, actor_drawFullDepth, 0, 0,   0.0f, 0x83};
-ActorInfo D_8039315C = { 0x227, 0x234, 0x4D6, 0x1, NULL, func_80388524, actor_update_func_80326224, actor_drawFullDepth, 0, 0,   0.0f, 0x93};
-ActorInfo D_80393180 = { 0x228, 0x235, 0x4D7, 0x1, NULL, func_80388524, actor_update_func_80326224, actor_drawFullDepth, 0, 0,   0.0f, 0x8B};
-ActorInfo D_803931A4 = { 0x229, 0x236, 0x4D8, 0x1, NULL, func_80388524, actor_update_func_80326224, actor_drawFullDepth, 0, 0,   0.0f, 0x8B};
-ActorInfo D_803931C8 = { MARKER_121_GLASS_EYE, ACTOR_227_GLASS_EYE, ASSET_4BD_MODEL_GLASS_EYE, 0x1, NULL, func_8038A034, actor_update_func_80326224, actor_draw, 0, 0,   0.0f, 0x89};
-ActorInfo D_803931EC = { 0x116, 0x21A, 0x4AC, 0x1, NULL, func_803893B8, actor_update_func_80326224, actor_drawFullDepth, 0, 0,   0.0f, 0x82};
-ActorInfo D_80393210 = { 0x117, 0x21B, 0x4AD, 0x1, NULL, lair_func_803894B0, actor_update_func_80326224, actor_drawFullDepth, 0, 0,   0.0f, 0x82};
-ActorInfo D_80393234 = { 0x10B, 0x20F, 0x4B4, 0x1, NULL, func_80388524, actor_update_func_80326224, actor_drawFullDepth, 0, 0,   0.0f, 0x90};
-ActorInfo D_80393258 = { 0x10C, 0x210, 0x4AE, 0x1, NULL, func_80388524, actor_update_func_80326224, actor_drawFullDepth, 0, 0,   0.0f, 0x84};
-ActorInfo D_8039327C = { 0x10E, 0x212, 0x4A7, 0x1, NULL, func_80388524, actor_update_func_80326224, actor_drawFullDepth, 0, 0,   0.0f, 0x7F};
-ActorInfo D_803932A0 = { 0x120, 0x226, 0x4BC, 0x1, NULL, func_80388524, actor_update_func_80326224, actor_drawFullDepth, 0, 0,   0.0f, 0x87};
-ActorInfo D_803932C4 = { 0x122, ACTOR_228_MMM_ENTRANCE_DOOR, 0x4BE, 0x1, NULL, func_80388524, actor_update_func_80326224, actor_drawFullDepth, 0, 0,   0.0f, 0x8C};
-ActorInfo D_803932E8 = { 0x10F, 0x213, 0x4A8, 0x1, NULL, func_803875F0, actor_update_func_80326224, actor_drawFullDepth, 0, 0,   0.0f, 0x80};
-ActorInfo D_8039330C = { 0x118, 0x21E, 0x4B1, 0x1, NULL, lair_func_8038A084, actor_update_func_80326224, actor_drawFullDepth, 0, 0,   0.0f, 0x8F};
-ActorInfo D_80393330 = { 0x119, 0x21F, 0x4B6, 0x1, NULL, func_8038A0A4, actor_update_func_80326224, actor_drawFullDepth, 0, 0,   0.0f, 0x92};
-ActorInfo D_80393354 = { 0x266, 0x2E3, 0x563, 0x1, NULL, func_803870DC, actor_update_func_80326224, lair_func_80387560, 0, 0,   0.0f, 0};
-ActorInfo D_80393378 = { 0x17D, 0x1E1, 0x517, 0x1, NULL, func_80389D08, actor_update_func_80326224, func_80389E10, 0, 0,   0.0f, 0x8D};
+ActorInfo D_80392F88 = { 0x111, 0x215, 0x4A4, 0x1, N64_NULL, func_80388FC8, actor_update_func_80326224, actor_drawFullDepth, 0, 0,   0.0f, 0};
+ActorInfo D_80392FAC = { 0x112, 0x216, 0x4A5, 0x1, N64_NULL, func_80388FC8, actor_update_func_80326224, actor_drawFullDepth, 0, 0,   0.0f, 0};
+ActorInfo D_80392FD0 = { 0x114, 0x218, 0x4A6, 0x1, N64_NULL, lair_func_80389204, actor_update_func_80326224, actor_drawFullDepth, 0, 0,   0.0f, 0};
+ActorInfo D_80392FF4 = { 0x10D, 0x211, 0x4A3, 0x1, N64_NULL, func_80388524, actor_update_func_80326224, actor_drawFullDepth, 0, 0,   0.0f, 0};
+ActorInfo D_80393018 = { 0x22C, 0x23A, 0x4D9, 0x1, N64_NULL, func_803882B0, actor_update_func_80326224, actor_drawFullDepth, 0, 0,   0.0f, 0};
+ActorInfo D_8039303C = { 0x164, 0x259, 0x507, 0x1, N64_NULL, func_803880BC, actor_update_func_80326224, actor_drawFullDepth, 0, 0,   0.0f, 0};
+ActorInfo D_80393060 = { 0x165, 0x25A, 0x508, 0x1, N64_NULL, func_8038824C, actor_update_func_80326224, actor_drawFullDepth, 0, 0,   0.0f, 0};
+ActorInfo D_80393084 = { MARKER_240_LAIR_SWITCH_FLIGHT_PAD, 0x247, 0x48A, 0x1, N64_NULL, func_80386D78, actor_update_func_80326224, actor_drawFullDepth, 0, 0,   0.0f, 0};
+ActorInfo D_803930A8 = { 0x242, 0x249, 0x2DD, 0x1, N64_NULL, func_803867A8, actor_update_func_80326224, actor_drawFullDepth, 0, 0,   0.0f, 0};
+ActorInfo D_803930CC = { 0x11F, 0x225, 0x4B3, 0x1, N64_NULL, func_8038A064, actor_update_func_80326224, actor_drawFullDepth, 0, 0,   0.0f, 0};
+ActorInfo D_803930F0 = { 0x10A, 0x20E, 0x4A2, 0x1, N64_NULL, func_80388524, actor_update_func_80326224, actor_drawFullDepth, 0, 0,   0.0f, 0};
+ActorInfo D_80393114 = { 0x11A, 0x220, 0x4B7, 0x1, N64_NULL, func_80389FF4, actor_update_func_80326224, actor_drawFullDepth, 0, 0,   0.0f, 0x91};
+ActorInfo D_80393138 = { 0x11E, 0x224, 0x4AF, 0x1, N64_NULL, func_8038A014, actor_update_func_80326224, actor_drawFullDepth, 0, 0,   0.0f, 0x83};
+ActorInfo D_8039315C = { 0x227, 0x234, 0x4D6, 0x1, N64_NULL, func_80388524, actor_update_func_80326224, actor_drawFullDepth, 0, 0,   0.0f, 0x93};
+ActorInfo D_80393180 = { 0x228, 0x235, 0x4D7, 0x1, N64_NULL, func_80388524, actor_update_func_80326224, actor_drawFullDepth, 0, 0,   0.0f, 0x8B};
+ActorInfo D_803931A4 = { 0x229, 0x236, 0x4D8, 0x1, N64_NULL, func_80388524, actor_update_func_80326224, actor_drawFullDepth, 0, 0,   0.0f, 0x8B};
+ActorInfo D_803931C8 = { MARKER_121_GLASS_EYE, ACTOR_227_GLASS_EYE, ASSET_4BD_MODEL_GLASS_EYE, 0x1, N64_NULL, func_8038A034, actor_update_func_80326224, actor_draw, 0, 0,   0.0f, 0x89};
+ActorInfo D_803931EC = { 0x116, 0x21A, 0x4AC, 0x1, N64_NULL, func_803893B8, actor_update_func_80326224, actor_drawFullDepth, 0, 0,   0.0f, 0x82};
+ActorInfo D_80393210 = { 0x117, 0x21B, 0x4AD, 0x1, N64_NULL, lair_func_803894B0, actor_update_func_80326224, actor_drawFullDepth, 0, 0,   0.0f, 0x82};
+ActorInfo D_80393234 = { 0x10B, 0x20F, 0x4B4, 0x1, N64_NULL, func_80388524, actor_update_func_80326224, actor_drawFullDepth, 0, 0,   0.0f, 0x90};
+ActorInfo D_80393258 = { 0x10C, 0x210, 0x4AE, 0x1, N64_NULL, func_80388524, actor_update_func_80326224, actor_drawFullDepth, 0, 0,   0.0f, 0x84};
+ActorInfo D_8039327C = { 0x10E, 0x212, 0x4A7, 0x1, N64_NULL, func_80388524, actor_update_func_80326224, actor_drawFullDepth, 0, 0,   0.0f, 0x7F};
+ActorInfo D_803932A0 = { 0x120, 0x226, 0x4BC, 0x1, N64_NULL, func_80388524, actor_update_func_80326224, actor_drawFullDepth, 0, 0,   0.0f, 0x87};
+ActorInfo D_803932C4 = { 0x122, ACTOR_228_MMM_ENTRANCE_DOOR, 0x4BE, 0x1, N64_NULL, func_80388524, actor_update_func_80326224, actor_drawFullDepth, 0, 0,   0.0f, 0x8C};
+ActorInfo D_803932E8 = { 0x10F, 0x213, 0x4A8, 0x1, N64_NULL, func_803875F0, actor_update_func_80326224, actor_drawFullDepth, 0, 0,   0.0f, 0x80};
+ActorInfo D_8039330C = { 0x118, 0x21E, 0x4B1, 0x1, N64_NULL, lair_func_8038A084, actor_update_func_80326224, actor_drawFullDepth, 0, 0,   0.0f, 0x8F};
+ActorInfo D_80393330 = { 0x119, 0x21F, 0x4B6, 0x1, N64_NULL, func_8038A0A4, actor_update_func_80326224, actor_drawFullDepth, 0, 0,   0.0f, 0x92};
+ActorInfo D_80393354 = { 0x266, 0x2E3, 0x563, 0x1, N64_NULL, func_803870DC, actor_update_func_80326224, lair_func_80387560, 0, 0,   0.0f, 0};
+ActorInfo D_80393378 = { 0x17D, 0x1E1, 0x517, 0x1, N64_NULL, func_80389D08, actor_update_func_80326224, func_80389E10, 0, 0,   0.0f, 0x8D};
 ActorInfo D_8039339C = { 0x234, 0x23E, 0x4E1, 0x12, D_80392CB0, func_8038982C, actor_update_func_80326224, actor_drawFullDepth, 0, 0,   0.0f, 0};
 ActorInfo D_803933C0 = { 0x163, 0x258, 0x511, 0x12, D_80392CB0, func_80389898, actor_update_func_80326224, func_8038664C, 0, 0,   0.0f, 0x8E};
 ActorInfo D_803933E4 = { 0x160, 0x255, 0x509, 0x15, D_80392CB0, func_80389934, actor_update_func_80326224, actor_draw, 0, 0,   0.0f, 0};
@@ -179,12 +179,12 @@ s16 D_80393454[] = {
     FILEPROG_37_MMM_OPEN,
     FILEPROG_38_RBB_OPEN,
     FILEPROG_39_CCW_OPEN,
-    NULL
+    N64_NULL
 };
 
 s16 D_80393468[] = {
-    NULL, 
-    NULL, 
+    N64_NULL, 
+    N64_NULL, 
     VOLATILE_FLAG_7F_SANDCASTLE_OPEN_CC, 
     VOLATILE_FLAG_84_SANDCASTLE_OPEN_BGS, 
     VOLATILE_FLAG_8B_SANDCASTLE_OPEN_FP, 
@@ -192,7 +192,7 @@ s16 D_80393468[] = {
     VOLATILE_FLAG_8C_SANDCASTLE_OPEN_MMM, 
     VOLATILE_FLAG_90_SANDCASTLE_OPEN_RBB, 
     VOLATILE_FLAG_93_SANDCASTLE_OPEN_CCW, 
-    NULL
+    N64_NULL
 };
 
 s16 D_8039347C[] = {50, 180, 260, 350, 450, 640, 765, 810, 828, 846, 864, 882}; //notedoor_notes_required_to_open
@@ -406,7 +406,7 @@ void func_803867A8(Actor *this) {
         this->position[2] = this->unk1C[2] + sp5C[2];
         if (this->marker->unk14_21) {
             sp44 = this->unk158[globalTimer_getTime() & 1];
-            if (sp44 != NULL) {
+            if (sp44 != N64_NULL) {
                 particleEmitter_setAlpha(sp44, this->alpha_124_19);
                 phi_f0 = this->lifetime_value - 10.0f;
                 while(phi_f0 < 0.0f) {phi_f0 += 360.0f;}
@@ -885,7 +885,7 @@ void func_803880BC(Actor *this)
             actor_collisionOn(this);
         }
 
-        if (this->partnerActor != NULL && !fileProgressFlag_get(FILEPROG_9D_LAIR_CC_WITCH_SWITCH_RIGHT_EYE_PRESSED))
+        if (this->partnerActor != N64_NULL && !fileProgressFlag_get(FILEPROG_9D_LAIR_CC_WITCH_SWITCH_RIGHT_EYE_PRESSED))
         {
             Actor *actor = marker_getActor(this->partnerActor);
             actor->position_y = this->unk1C[1];
@@ -903,7 +903,7 @@ void func_803880BC(Actor *this)
             fileProgressFlag_set(FILEPROG_9B_LAIR_CC_WITCH_SWITCH_EYES_ACTIVE, true);
         }
 
-        if (this->partnerActor != NULL)
+        if (this->partnerActor != N64_NULL)
         {
             Actor *actor = marker_getActor(this->partnerActor);
             actor->position_y = this->position_y;

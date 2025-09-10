@@ -42,7 +42,7 @@ void func_8038B3F0(Struct5Fs *arg0, struct struct_68_s *arg1, f32 position[3], f
         modelRender_setPrimAndEnvColors(sp30, __mmm_5000_blue);
     }
     modelRender_setDepthMode(MODEL_RENDER_DEPTH_FULL);
-    modelRender_draw(gfx, mtx, position, rotation, scale, NULL, model_bin);
+    modelRender_draw(gfx, mtx, position, rotation, scale, N64_NULL, model_bin);
 }
 
 void func_8038B590(Struct5Fs *arg0, Struct68s *arg1){

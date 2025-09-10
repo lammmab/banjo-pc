@@ -86,13 +86,13 @@ void chOverlayPressStart_update(Actor *this){
 }
 
 void __chOverlayPressStart_spawn(void){
-    if(D_8037DE80 == NULL){
+    if(D_8037DE80 == N64_NULL){
         D_8037DE80 = actor_spawnWithYaw_f32(ACTOR_1DE_PRESS_START_OVERLAY, D_80368118, 0)->marker;
     }
 }
 
 void chOverlayPressStart_spawn(s32 arg0, s32 arg1){
-    if(D_8037DE80 == NULL){
+    if(D_8037DE80 == N64_NULL){
         __spawnQueue_add_0(__chOverlayPressStart_spawn);
     }
 }

@@ -93,7 +93,7 @@ void bitfield_setBit(s32 *arg0, s32 arg1, bool arg2){
 }
 
 bool bitfield_isBitSet(s32 *arg0, s32 arg1) {
-    return BOOL(arg0[(arg1 >> 5) + 1] & (1 << (arg1 & 0x1F)));
+    return (arg0[(arg1 >> 5) + 1] & (1 << (arg1 & 0x1F)));
 }
 
 void bitfield_setAll(s32 *arg0, bool arg1) {

@@ -92,7 +92,7 @@
 #define LEO_ERROR_24 24 //no reference position found?
 #define LEO_ERROR_29 29 //
 
-extern OSDevMgr __osPiDevMgr;
+extern OSMgrArgs __osPiDevMgr;
 extern OSPiHandle *__osCurrentHandle[2];
 extern OSPiHandle CartRomHandle;
 extern OSPiHandle LeoDiskHandle;

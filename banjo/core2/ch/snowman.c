@@ -213,7 +213,7 @@ void chSnowman_update(Actor *this){
         this->volatile_initialized = true;
         this->marker->propPtr->unk8_3 = 0;
         actor_collisionOn(this);
-        marker_setCollisionScripts(this->marker, NULL, NULL, __chSnowman_deathCallback);
+        marker_setCollisionScripts(this->marker, N64_NULL, N64_NULL, __chSnowman_deathCallback);
         func_803300C0(this->marker, __chSnowman_func_802E1F70);
         local->unk9 = 0;
         local->unkA = 1;

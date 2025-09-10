@@ -70,7 +70,7 @@ void badrone_goto_end(void){
 
 void badrone_init(void){
     badrone.type = 0;
-    badrone.unk14 = NULL;
+    badrone.unk14 = N64_NULL;
     badrone.duration = 0.1f;
     ml_vec3f_clear(badrone.position);
 }

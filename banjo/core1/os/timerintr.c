@@ -1,6 +1,8 @@
 #include <libultraship/libultra.h>
 #include "osint.h"
 
+#include "n64_compat.h"
+
 OSTimer *__osTimerList = &__osBaseTimer;
 OSTimer __osBaseTimer;
 OSTime __osCurrentTime;
@@ -16,8 +18,8 @@ void __osTimerServicesInit(void)
 	__osTimerList->next = __osTimerList->prev;
 	__osTimerList->value = 0;
 	__osTimerList->interval = __osTimerList->value;
-	__osTimerList->mq = NULL;
-	__osTimerList->msg = 0;
+	__osTimerList->mq = N64_NULL;
+	__osTimerList->msg = (OSMesg){N64_NULL};
 }
 
 void __osTimerInterrupt(void)
@@ -50,9 +52,9 @@ void __osTimerInterrupt(void)
 		{
 			t->prev->next = t->next;
 			t->next->prev = t->prev;
-			t->next = NULL;
-			t->prev = NULL;
-			if (t->mq != NULL)
+			t->next = N64_NULL;
+			t->prev = N64_NULL;
+			if (t->mq != N64_NULL)
 			{
 				osSendMesg(t->mq, t->msg, OS_MESG_NOBLOCK);
 			}

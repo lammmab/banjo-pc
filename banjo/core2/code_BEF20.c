@@ -395,15 +395,15 @@ void func_80346DB4(s32 note_count) {
         if (D_80385FF0[level_id] < note_count) {
             D_80385FF0[level_id] = note_count;
             if ((level_get() == LEVEL_1_MUMBOS_MOUNTAIN) && (note_count == 50)) {
-                gcdialog_showDialog(0xF74, 4, NULL, NULL, NULL, NULL);
+                gcdialog_showDialog(0xF74, 4, N64_NULL, N64_NULL, N64_NULL, N64_NULL);
             }
             if (note_count == 100) {
-                gcdialog_showDialog(0xF78, 4, NULL, NULL, NULL, NULL);
+                gcdialog_showDialog(0xF78, 4, N64_NULL, N64_NULL, N64_NULL, N64_NULL);
             }
             if (note_count == 1) {
                 levelSpecificFlags_set(LEVEL_FLAG_34_UNKNOWN, true);
             }
-            if (!levelSpecificFlags_get(LEVEL_FLAG_34_UNKNOWN) && (gcdialog_showDialog(0xF76, 0, NULL, NULL, NULL, NULL))) {
+            if (!levelSpecificFlags_get(LEVEL_FLAG_34_UNKNOWN) && (gcdialog_showDialog(0xF76, 0, N64_NULL, N64_NULL, N64_NULL, N64_NULL))) {
                 levelSpecificFlags_set(LEVEL_FLAG_34_UNKNOWN, true);
             }
             if (volatileFlag_get(VOLATILE_FLAG_17) == 0) {

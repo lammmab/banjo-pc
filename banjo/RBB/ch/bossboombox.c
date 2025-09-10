@@ -47,26 +47,26 @@ Struct_RBB_5F80 D_80390B70[4] = {
 };
 
 ActorInfo RBB_D_80390BD0 = {
-    MARKER_1A1_BOSS_BOOM_BOX_LARGEST, ACTOR_281_BOSS_BOOM_BOX_LARGEST, ASSET_428_MODEL_BOSS_BOOM_BOX, 0x0, NULL,
-    func_8038D8BC, NULL, func_8038D638,
+    MARKER_1A1_BOSS_BOOM_BOX_LARGEST, ACTOR_281_BOSS_BOOM_BOX_LARGEST, ASSET_428_MODEL_BOSS_BOOM_BOX, 0x0, N64_NULL,
+    func_8038D8BC, N64_NULL, func_8038D638,
     0, 0, 0.0f, 0
 };
 
 ActorInfo D_80390BF4 = {
-    MARKER_1A2_BOSS_BOOM_BOX_LARGE, ACTOR_282_BOSS_BOOM_BOX_LARGE, ASSET_428_MODEL_BOSS_BOOM_BOX, 0x0, NULL,
-    func_8038D8BC, NULL, func_8038D638,
+    MARKER_1A2_BOSS_BOOM_BOX_LARGE, ACTOR_282_BOSS_BOOM_BOX_LARGE, ASSET_428_MODEL_BOSS_BOOM_BOX, 0x0, N64_NULL,
+    func_8038D8BC, N64_NULL, func_8038D638,
     0, 0, 0.0f, 0
 };
 
 ActorInfo D_80390C18 = {
-    MARKER_1A3_BOSS_BOOM_BOX_MEDIUM, ACTOR_283_BOSS_BOOM_BOX_MEDIUM, ASSET_428_MODEL_BOSS_BOOM_BOX, 0x0, NULL,
-    func_8038D8BC, NULL, func_8038D638,
+    MARKER_1A3_BOSS_BOOM_BOX_MEDIUM, ACTOR_283_BOSS_BOOM_BOX_MEDIUM, ASSET_428_MODEL_BOSS_BOOM_BOX, 0x0, N64_NULL,
+    func_8038D8BC, N64_NULL, func_8038D638,
     0, 0, 0.0f, 0
 };
 
 ActorInfo RBB_D_80390C3C = {
-    MARKER_1A4_BOSS_BOOM_BOX_SMALL, ACTOR_284_BOSS_BOOM_BOX_SMALL, ASSET_428_MODEL_BOSS_BOOM_BOX, 0x0, NULL,
-    func_8038D8BC, NULL, func_8038D638,
+    MARKER_1A4_BOSS_BOOM_BOX_SMALL, ACTOR_284_BOSS_BOOM_BOX_SMALL, ASSET_428_MODEL_BOSS_BOOM_BOX, 0x0, N64_NULL,
+    func_8038D8BC, N64_NULL, func_8038D638,
     0, 0, 0.0f, 0
 };
 
@@ -293,7 +293,7 @@ void RBB_func_8038CC9C(Actor *this, s32 new_state){
 
     if(local->unk20){
         func_803343F8(local->unk20);
-        local->unk20 = NULL;
+        local->unk20 = N64_NULL;
     }
     
     if(this->state == 1){
@@ -322,7 +322,7 @@ void RBB_func_8038CC9C(Actor *this, s32 new_state){
         }
         else{//L8038CEFC
             timedFunc_set_3(2.4f, (GenFunction_3)comusic_8025AB44, COMUSIC_62_RBB_BOOMBOX, 0x1f40, 0x12C);
-            func_80324DBC(2.4f, 0xb9e, 4, NULL, this->marker, func_8038CB34, func_8038CB68);
+            func_80324DBC(2.4f, 0xb9e, 4, N64_NULL, this->marker, func_8038CB34, func_8038CB68);
         }
     }//L8038CF60
 
@@ -465,7 +465,7 @@ Actor *func_8038D638(ActorMarker *marker, Gfx **gdl, Mtx ** mptr, Vtx **arg3){
     }
     modelRender_preDraw( (GenFunction_1)actor_predrawMethod, (s32)actor);
     modelRender_postDraw((GenFunction_1)actor_postdrawMethod, (s32)marker);
-    modelRender_draw(gdl, mptr, actor->position, sp3C, actor->scale, NULL, marker_loadModelBin(marker));
+    modelRender_draw(gdl, mptr, actor->position, sp3C, actor->scale, N64_NULL, marker_loadModelBin(marker));
     
     return actor;
 }

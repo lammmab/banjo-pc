@@ -26,8 +26,8 @@ typedef struct {
 /* .data */
 ActorInfo D_803728A0 = { 
     MARKER_253_SCARAB_BEETLE, ACTOR_380_SCARAB_BEETLE, ASSET_51B_MODEL_SCARAB_BEETLE, 
-    0, NULL, 
-    func_80358684, NULL, func_80358344, 
+    0, N64_NULL, 
+    func_80358684, N64_NULL, func_80358344, 
     0, 0, 1.0f, 0
 };
 
@@ -297,7 +297,7 @@ void func_80358684(Actor *this) {
         local->unk30[1] = (s16) (s32) this->position[1];
         local->unk30[2] = (s16) (s32) this->position[2];
         local->unk30[1] += 0xC8;
-        marker_setCollisionScripts(this->marker, func_803582C4, NULL, func_80358304);
+        marker_setCollisionScripts(this->marker, func_803582C4, N64_NULL, func_80358304);
         local->sfxsourceIdx = 0;
         func_80357F0C(this, 1);
     }

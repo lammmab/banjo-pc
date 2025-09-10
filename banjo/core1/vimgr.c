@@ -3,6 +3,8 @@
 #include "variables.h"
 #include "version.h"
 
+#include "os_system.h"
+
 #define VIMANAGER_THREAD_STACK_SIZE 0x400
 
 // Used in US 1.0 NTSC 
@@ -86,7 +88,7 @@ static OSThread sViManagerThread;
 static u8 sViManagerThreadStack[VIMANAGER_THREAD_STACK_SIZE];
 
 u32 getOtherFramebuffer(void) {
-    return NOT(sActiveFramebuffer);
+    return !(sActiveFramebuffer);
 }
 
 s32 viMgr_func_8024BD94(void){
@@ -100,7 +102,7 @@ s32 getActiveFramebuffer(void){
 void viMgr_func_8024BDAC(OSMesgQueue *mq, OSMesg msg){
     s32 i;
     for(i = 0; i < 8; i++){
-        if(D_80280730[i].messageQueue == NULL){
+        if(D_80280730[i].messageQueue == N64_NULL){
             D_80280730[i].messageQueue = mq;
             D_80280730[i].message = msg;
             return;
@@ -128,23 +130,23 @@ void viMgr_init(void) {
     osViSetSpecialFeatures(OS_VI_GAMMA_OFF);
     osViSwapBuffer(&gFramebuffers[0]);
 
-    osCreateMesgQueue(&sMesgQueue1, sMesgBuffer1, 10);
-    osCreateMesgQueue(&sMesgQueue2, sMesgBuffer2, 1);
-    osCreateMesgQueue(&sMesgQueue3, sMesgBuffer3, FRAMERATE);
-    osViSetEvent(&sMesgQueue1, NULL, 1);
+    osCreateMesgQueue(&sMesgQueue1, (OSMesg *)sMesgBuffer1, 10);
+    osCreateMesgQueue(&sMesgQueue2, (OSMesg *)sMesgBuffer2, 1);
+    osCreateMesgQueue(&sMesgQueue3, (OSMesg *)sMesgBuffer3, FRAMERATE);
+    osViSetEvent(&sMesgQueue1, (OSMesg){N64_NULL}, 1);
 
     sActiveFramebuffer = 0;
     D_80280724 = 1;
     D_80280728 = 0;
 
     for (i = 0; i < 8; i++) {
-        D_80280730[i].messageQueue = NULL;
+        D_80280730[i].messageQueue = N64_NULL;
     }
 
     D_802808D8 = 0;
     viMgr_func_8024BF94(2);
 
-    osCreateThread(&sViManagerThread, 0, viMgr_entry, NULL, sViManagerThreadStack + VIMANAGER_THREAD_STACK_SIZE, 80);
+    osCreateThread(&sViManagerThread, 0, viMgr_entry, N64_NULL, sViManagerThreadStack + VIMANAGER_THREAD_STACK_SIZE, 80);
     osStartThread(&sViManagerThread);
 }
 
@@ -157,37 +159,37 @@ s32 viMgr_func_8024BFA0(void){
 }
 
 void viMgr_func_8024BFAC(void){
-    osSendMesg(&sMesgQueue2, 0, OS_MESG_NOBLOCK);
+    osSendMesg(&sMesgQueue2, (OSMesg){N64_NULL}, OS_MESG_NOBLOCK);
 }
 
 void viMgr_func_8024BFD8(s32 arg0){
     static s32 D_80280E90;
     
-    osSetThreadPri(NULL, 0x7f);
+    osSetThreadPri(N64_NULL, 0x7f);
     defragManager_setPriority(0x1E);
     defragManager_80240874();
     if(arg0){
-        osRecvMesg(&sMesgQueue2, NULL, OS_MESG_BLOCK);
+        osRecvMesg(&sMesgQueue2, N64_NULL, OS_MESG_BLOCK);
     }
 
     while(D_802808D8 < viMgr_func_8024BFA0() - D_80280E90){
-        osRecvMesg(&sMesgQueue3, NULL, OS_MESG_BLOCK);
+        osRecvMesg(&sMesgQueue3, N64_NULL, OS_MESG_BLOCK);
     }
 
     while(sMesgQueue3.validCount){
-        osRecvMesg(&sMesgQueue3, NULL, OS_MESG_NOBLOCK);
+        osRecvMesg(&sMesgQueue3, N64_NULL, OS_MESG_NOBLOCK);
     }
     
     osViSwapBuffer(gFramebuffers[sActiveFramebuffer = getOtherFramebuffer()]);
     D_80280E90 = 0;
     while(!(osDpGetStatus() & 2) && osViGetCurrentFramebuffer() != osViGetNextFramebuffer()){
-        osRecvMesg(&sMesgQueue3, NULL, OS_MESG_BLOCK);
+        osRecvMesg(&sMesgQueue3, N64_NULL, OS_MESG_BLOCK);
         D_80280E90++;
     }//L8024C178
     D_80280724 = D_802808D8;
     D_802808D8 = 0;
     defragManager_802408B0();
-    osSetThreadPri(NULL, 0x14);
+    osSetThreadPri(N64_NULL, 0x14);
     defragManager_setPriority(0xA);
 }
 
@@ -204,8 +206,8 @@ void viMgr_func_8024C1FC(OSMesgQueue *mq, OSMesg msg) {
     s32 i;
 
     for (i = 0; i < 8; i++) {
-        if (D_80280730[i].messageQueue == mq && D_80280730[i].message == msg) {
-            D_80280730[i].messageQueue = NULL;
+        if (D_80280730[i].messageQueue == mq && D_80280730[i].message.ptr == msg.ptr) {
+            D_80280730[i].messageQueue = N64_NULL;
             return;
         }
     }
@@ -228,10 +230,10 @@ void viMgr_entry(void *arg0){
             gcdebugText_isThreadLocked();
 #endif
         }
-        osSendMesg(&sMesgQueue3, NULL, OS_MESG_NOBLOCK);
+        osSendMesg(&sMesgQueue3, (OSMesg){N64_NULL}, OS_MESG_NOBLOCK);
 
         for(i = 0; i < 8; i++){
-            if(D_80280730[i].messageQueue != NULL){
+            if(D_80280730[i].messageQueue != N64_NULL){
                 osSendMesg(D_80280730[i].messageQueue, D_80280730[i].message, OS_MESG_NOBLOCK);
             }
         }

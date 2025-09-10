@@ -218,7 +218,7 @@ void gcpausemenu_zoomboxes_free(void) {
     s32 i;
     for (i = 0; i < 4; i++) {
         gczoombox_free(D_80383010.zoombox[i]);
-        D_80383010.zoombox[i] = NULL;
+        D_80383010.zoombox[i] = N64_NULL;
     }
 }
 
@@ -226,9 +226,9 @@ void gcpausemenu_free(void) {
     s32 i;
     for (i = 0; i < 2; i++) {
         assetcache_release(D_80383010.joystick_sprite);
-        D_80383010.joystick_sprite = NULL;
+        D_80383010.joystick_sprite = N64_NULL;
         assetcache_release(D_80383010.b_button_sprite);
-        D_80383010.b_button_sprite = NULL;
+        D_80383010.b_button_sprite = N64_NULL;
     }
     gcpausemenu_zoomboxes_free();
     gcdialog_decrementYPositionModifier();
@@ -781,7 +781,7 @@ s32 gcpausemenu_80312D78(struct1As *arg0, s32 arg1) {
     for (var_s2 = 0; var_s2 < arg1; var_s2++) {
         if (arg0[var_s2].delay <= D_80383010.unkC) {
             if (!arg0[var_s2].unkF) {
-                var_v0 = BOOL(func_803183A4(D_80383010.zoombox[var_s2], arg0[var_s2].str));
+                var_v0 = (func_803183A4(D_80383010.zoombox[var_s2], arg0[var_s2].str));
                 arg0[var_s2].unkF = var_v0;
                 if (arg0[var_s2].unkF) {
                     gczoombox_open(D_80383010.zoombox[var_s2]);
@@ -893,7 +893,7 @@ void gcpausemenu_updateBButtonAndJoystickSprites(void) {
         }
         D_80383010.unk20 -= var_f0;
     }
-    D_80383010.left_joystick_visible = BOOL(D_80383010.selection != 0);
+    D_80383010.left_joystick_visible = (D_80383010.selection != 0);
     D_80383010.right_joystick_visible = (gcpausemenu_getMaxPage() == D_80383010.selection) ? false : true;
     D_80383010.unk28 += time_getDelta();
 

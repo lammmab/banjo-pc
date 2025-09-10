@@ -4,8 +4,8 @@
 
 void func_803864B8(Actor *this);
 
-ActorInfo D_8038EB50 = { 0x1AC, 0x298, 0x444, 0x0, NULL, func_803864B8, NULL, actor_draw, 0, 0, 0.0f, 0};
-ActorInfo D_8038EB74 = { 0x1AC, 0x29A, 0x445, 0x0, NULL, func_803864B8, NULL, actor_draw, 0, 0, 0.0f, 0};
+ActorInfo D_8038EB50 = { 0x1AC, 0x298, 0x444, 0x0, N64_NULL, func_803864B8, N64_NULL, actor_draw, 0, 0, 0.0f, 0};
+ActorInfo D_8038EB74 = { 0x1AC, 0x29A, 0x445, 0x0, N64_NULL, func_803864B8, N64_NULL, actor_draw, 0, 0, 0.0f, 0};
 
 /* .code */
 void CCW_func_803863F0(Actor *this, s32 next_state){
@@ -28,7 +28,7 @@ void func_803864B8(Actor *this){
     if(!this->volatile_initialized){
         this->volatile_initialized = true;
         this->marker->propPtr->unk8_3 = true;
-        marker_setCollisionScripts(this->marker, NULL, NULL, func_80386468);
+        marker_setCollisionScripts(this->marker, N64_NULL, N64_NULL, func_80386468);
         CCW_func_803863F0(this, 1);
 
         if (levelSpecificFlags_get(LEVEL_FLAG_10_CCW_UNKNOWN)) {

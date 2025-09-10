@@ -10,7 +10,7 @@ ActorInfo sumusicNote = {
     ACTOR_51_MUSIC_NOTE,
     ASSET_6D6_MODEL_MUSIC_NOTE,
     0,
-    NULL,
+    N64_NULL,
     musicNote_update,
     actor_update_func_80326224,
     func_80325934,

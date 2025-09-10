@@ -429,7 +429,7 @@ void gcStaticCamera_activate(s32 cameraId) {
         temp_f0 = func_802BAFA0(cameraId, phi_s1);
         switch(D_803654B8[cameraId][phi_s1 + 1]){
             case -5:
-                timedFunc_set_6(temp_f0, (GenFunction_6) func_802BAF80, NULL);
+                timedFunc_set_6(temp_f0, (GenFunction_6) func_802BAF80, N64_NULL);
                 phi_s0++;
                 break;
 
@@ -491,7 +491,7 @@ void func_802BB22C(void){
 }
 
 bool func_802BB270(void) {
-    return BOOL(!D_80364E00);
+    return (!D_80364E00);
 }
 
 s32 func_802BB294(void){

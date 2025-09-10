@@ -135,7 +135,7 @@ void func_8035DA1C(Actor *this) {
             subaddie_set_state_with_direction(this, 1, 0.0f, 1);
         }
         func_8032CA80(this, LOCAL_D6600(this)->unk4);
-        marker_setCollisionScripts(this->marker, func_8035D8F0, NULL, func_8035D88C);
+        marker_setCollisionScripts(this->marker, func_8035D8F0, N64_NULL, func_8035D88C);
     }
 
     this->marker->id = MARKER_69_CHUMP_FISH;

@@ -18,8 +18,8 @@ void func_80388620(Actor *this);
 
 /* .data */ 
 ActorInfo D_80390380 = {
-    MARKER_2E_GRIMLET, ACTOR_1C6_GRIMLET, ASSET_419_MODEL_GRIMLET, 0x0, NULL,
-    func_80388620, NULL, func_8038846C,
+    MARKER_2E_GRIMLET, ACTOR_1C6_GRIMLET, ASSET_419_MODEL_GRIMLET, 0x0, N64_NULL,
+    func_80388620, N64_NULL, func_8038846C,
     0, 0, 0.0f, 0
 };
 
@@ -97,7 +97,7 @@ void func_80388620(Actor *this){
     if(!this->volatile_initialized){
         this->volatile_initialized = true;
         this->marker->propPtr->unk8_3 = 1;
-        marker_setCollisionScripts(this->marker, RBB_func_80388430, NULL, NULL);
+        marker_setCollisionScripts(this->marker, RBB_func_80388430, N64_NULL, N64_NULL);
         local->unk4 = 0;
         local->unk0 = 0.0f;
         local->unk8 = 0.0f;

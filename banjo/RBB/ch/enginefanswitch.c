@@ -6,8 +6,8 @@ void chEngineFanSwitch_update(Actor *this);
 
 /* .data */
 ActorInfo D_803906B0 = {
-    0x194, 0x1BE, 0x412, 0x0, NULL,
-    chEngineFanSwitch_update, NULL, actor_draw,
+    0x194, 0x1BE, 0x412, 0x0, N64_NULL,
+    chEngineFanSwitch_update, N64_NULL, actor_draw,
     0, 0, 0.0f, 0
 };
 
@@ -41,7 +41,7 @@ void chEngineFanSwitch_update(Actor *this){
         this->marker->propPtr->unk8_3 = 1;
         this->volatile_initialized = true;
         mapSpecificFlags_set(0, 0);
-        marker_setCollisionScripts(this->marker, NULL, __chEngineFanSwitch_pressCallback, NULL);
+        marker_setCollisionScripts(this->marker, N64_NULL, __chEngineFanSwitch_pressCallback, N64_NULL);
         if(this->state == 0){
             this->position_x = -3209.95f;
             this->position_y = 1164.5f;

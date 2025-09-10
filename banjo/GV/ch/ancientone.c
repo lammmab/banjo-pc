@@ -18,7 +18,7 @@ Actor *chAncientOne_draw(ActorMarker *this_marker, Gfx **gfx, Mtx **mtx, Vtx **v
 
 /* .data */
 s16 GV_D_80390C20[4] = {5, 6, 7, 8};
-ActorMarker *D_80390C28[5] = {NULL};
+ActorMarker *D_80390C28[5] = {N64_NULL};
 ActorAnimationInfo chAncientOneAnimations[] = {
     {0, 0.0f},
     {0, 0.0f},
@@ -44,7 +44,7 @@ void func_80386620(Actor *this){
     s32 phi_s3;
 
     for(i = 0; i <5; i++){
-        if(D_80390C28[i] == NULL)
+        if(D_80390C28[i] == N64_NULL)
             return;
     }
 
@@ -149,7 +149,7 @@ void chAncientOne_update(Actor *this){
                             mapSpecificFlags_set(sp38, true);
                             if(sp38== 0xB){
                                 if(!jiggyscore_isCollected(JIGGY_46_GV_ANCIENT_ONES)){
-                                    gcdialog_showDialog(ASSET_A80_DIALOG_ANICIENT_ONES_DONE, 0xE, NULL, this->marker, func_80386850, NULL);
+                                    gcdialog_showDialog(ASSET_A80_DIALOG_ANICIENT_ONES_DONE, 0xE, N64_NULL, this->marker, func_80386850, N64_NULL);
                                 }
                                 else{
                                     func_80386850(this->marker, 0xA80, -1);
@@ -158,7 +158,7 @@ void chAncientOne_update(Actor *this){
                             else {   
                                 if(sp38== 7){
                                     if(!jiggyscore_isCollected(JIGGY_46_GV_ANCIENT_ONES)){
-                                        gcdialog_showDialog(ASSET_A7F_DIALOG_ANICIENT_ONES_MEET, 0x4, NULL, NULL, NULL, NULL);
+                                        gcdialog_showDialog(ASSET_A7F_DIALOG_ANICIENT_ONES_MEET, 0x4, N64_NULL, N64_NULL, N64_NULL, N64_NULL);
                                     }
                                 }
                                 
@@ -263,6 +263,6 @@ Actor *chAncientOne_draw(ActorMarker *this_marker, Gfx **gfx, Mtx **mtx, Vtx **v
 void GV_func_80387118(void){
     int i;
     for(i = 0; i < 5; i++){
-        D_80390C28[i] = NULL;
+        D_80390C28[i] = N64_NULL;
     }
 }

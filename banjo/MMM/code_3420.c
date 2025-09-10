@@ -178,7 +178,7 @@ void func_803898EC() {
 }
 
 void func_80389910() {
-    gcdialog_showDialog(ASSET_AD5_DIALOG_UNKNOWN, 0xE, NULL, NULL, MMM_func_80389810, NULL);
+    gcdialog_showDialog(ASSET_AD5_DIALOG_UNKNOWN, 0xE, N64_NULL, N64_NULL, MMM_func_80389810, N64_NULL);
     timedFunc_set_2(0.0f, (GenFunction_2)coMusicPlayer_playMusic, COMUSIC_2D_PUZZLE_SOLVED_FANFARE, 0x7FFF);
     timed_setStaticCameraToNode(2.0f, 0);
     timedFunc_set_0(2.1f, MMM_func_803898A0);
@@ -199,10 +199,10 @@ void organMinigame_setState(s32 next_state){
     if (next_state == 2) {
         if (Me.pattern == 0) {
             Me.pattern = 1;
-            gcdialog_showDialog(ASSET_AD3_DIALOG_UNKNOWN, 4, NULL, NULL, MMM_func_80389810, NULL);
+            gcdialog_showDialog(ASSET_AD3_DIALOG_UNKNOWN, 4, N64_NULL, N64_NULL, MMM_func_80389810, N64_NULL);
         }
         else {//L80389A84
-            gcdialog_showDialog(ASSET_AD6_DIALOG_UNKNOWN, 4, NULL, NULL, MMM_func_80389810, NULL);
+            gcdialog_showDialog(ASSET_AD6_DIALOG_UNKNOWN, 4, N64_NULL, N64_NULL, MMM_func_80389810, N64_NULL);
         }
     }//L80389A9C
 
@@ -219,13 +219,13 @@ void organMinigame_setState(s32 next_state){
     }//L80389AF4
 
     if(next_state == 4){
-        gcdialog_showDialog(ASSET_ADD_DIALOG_UNKNOWN, 4, NULL, NULL, MMM_func_80389810, NULL);
+        gcdialog_showDialog(ASSET_ADD_DIALOG_UNKNOWN, 4, N64_NULL, N64_NULL, MMM_func_80389810, N64_NULL);
         func_80387720(Me.motzhand_marker);
     }
 
     if(next_state == 5){
         Me.pattern++;
-        gcdialog_showDialog(ASSET_AD4_DIALOG_UNKNOWN, 4, NULL, NULL, MMM_func_80389810, NULL);
+        gcdialog_showDialog(ASSET_AD4_DIALOG_UNKNOWN, 4, N64_NULL, N64_NULL, MMM_func_80389810, N64_NULL);
         func_80387720(Me.motzhand_marker);
     }
 
@@ -320,7 +320,7 @@ void code3420_handleOrganGame(s32 arg0, s32 arg1) {
     Me.state = 0;
 
     if ((map_get() == MAP_1C_MMM_CHURCH) && (arg1 == 2)) {
-        Me.motzhand_marker = NULL;
+        Me.motzhand_marker = N64_NULL;
         Me.pattern = 0;
 
         key_position[0] = -1345.0f;
@@ -376,7 +376,7 @@ void maOrgan_update(void){
         }
     }//L8038A02C
 
-    if(Me.state == 1 && Me.motzhand_marker == NULL){
+    if(Me.state == 1 && Me.motzhand_marker == N64_NULL){
         sp38[0] = sp38[1] = sp38[2] = 0.0f;
         motzhand = actorArray_findClosestActorFromActorId(sp38, ACTOR_3A_MOTZHAND, -1, &motzhand_dist);
         Me.motzhand_marker = motzhand->marker;

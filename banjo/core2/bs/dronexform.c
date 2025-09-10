@@ -223,7 +223,7 @@ void func_802B0060(UNK_TYPE(s32) arg0, UNK_TYPE(s32) arg1){
 
 
 void func_802B014C(void){
-    baanim_setModifyMethod(NULL);
+    baanim_setModifyMethod(N64_NULL);
 }
 
 void func_802B016C(void){

@@ -373,11 +373,11 @@ void func_8030D310(u8 indx){
     ){
         if(sfxsource_isFlagSet(ptr, SFX_SRC_FLAG_5_UNKOWN)){
             if(sp30 == 0){
-                osSetThreadPri(NULL, 0x33);
+                osSetThreadPri(N64_NULL, 0x33);
                 func_8030CBD0(ptr);
                 sfxsource_clearFlag(ptr, SFX_SRC_FLAG_5_UNKOWN);
                 func_8030D10C(indx);
-                osSetThreadPri(NULL, 0x14);
+                osSetThreadPri(N64_NULL, 0x14);
             }
         }
         else{//L8030D568
@@ -483,7 +483,7 @@ u8 sfxsource_createSfxsourceAndReturnIndex(void){
         return 0;
 
     s0 = sfxsource_at(s1);
-    s0->callback = NULL;
+    s0->callback = N64_NULL;
     s0->sfx_uid = -1;
     s0->sample_rate = 22000;
     s0->unk2C = 0;
@@ -803,10 +803,10 @@ void sfxSource_func_8030E2C4(u8 indx){
                 }
                 break;
         }
-        osSetThreadPri(NULL, 0x33);
+        osSetThreadPri(N64_NULL, 0x33);
         func_8030CBD0(ptr);
         func_8030D10C(indx);
-        osSetThreadPri(NULL, 0x14);
+        osSetThreadPri(N64_NULL, 0x14);
     }
 }
 

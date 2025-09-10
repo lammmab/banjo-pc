@@ -78,7 +78,7 @@ void func_8038E940(Actor *this){
         this->volatile_initialized = true;
         this->marker->propPtr->unk8_3 = true;
         this->marker->collidable = false;
-        marker_setCollisionScripts(this->marker, NULL, func_8038E7CC, NULL);
+        marker_setCollisionScripts(this->marker, N64_NULL, func_8038E7CC, N64_NULL);
         subaddie_set_state_with_direction(this, 1, 0.05f, 1);
         this->unk38_31 = 0;
         this->lifetime_value = 0.0f;

@@ -37,7 +37,7 @@ void bsthrow_update(void){
     f32 sp24;
     ActorMarker *sp20 = bacarry_get_marker();
 
-    if(D_8037D580 == 0 && sp20 != NULL)
+    if(D_8037D580 == 0 && sp20 != N64_NULL)
         bacarry_set_marker(sp20);
 
     _player_getPosition(player_position);

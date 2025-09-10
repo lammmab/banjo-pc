@@ -340,7 +340,7 @@ void func_8029B890(void){
             func_8029B62C();
             return;
         }
-        gcdialog_showDialog(VER_SELECT(0xf81, 0xae7, 0, 0), 7, NULL, NULL, func_8029B85C, NULL);
+        gcdialog_showDialog(VER_SELECT(0xf81, 0xae7, 0, 0), 7, N64_NULL, N64_NULL, func_8029B85C, N64_NULL);
         fileProgressFlag_set(FILEPROG_A8_HAS_DIED, true);
     }
     else{

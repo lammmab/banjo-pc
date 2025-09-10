@@ -7,7 +7,7 @@ void chSnowmanHat_update(Actor *this);
 /* .data */
 ActorInfo chSnowmanHat = {
     MARKER_B3_SIR_SLUSH_HAT, ACTOR_126_SIR_SLUSH_HAT, ASSET_379_MODEL_SIRSLUSH_HAT,
-    0x1, NULL, 
+    0x1, N64_NULL, 
     chSnowmanHat_update, actor_update_func_80326224, actor_draw, 
     4500, 0, 1.0f, 0
 };

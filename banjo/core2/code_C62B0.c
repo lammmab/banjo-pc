@@ -96,7 +96,7 @@ void func_8034DBB8(Struct6Ds *arg0){
         arg0->unk48 = 0.00001f;
     }
 
-    if(arg0->unkC != NULL){
+    if(arg0->unkC != N64_NULL){
         arg0->unkC(arg0);
     }
 }
@@ -133,8 +133,8 @@ void func_8034DD48(Struct6Ds *arg0){
 
 void func_8034DD74(Struct6Ds *arg0, s32 arg1, BKModel *model, s32 mesh_id) {
     arg0->unk0 = 0;
-    arg0->unkC = NULL;
-    arg0->unk10 = NULL;
+    arg0->unkC = N64_NULL;
+    arg0->unk10 = N64_NULL;
     arg0->unk29 = 0;
     arg0->unk28 = 0;
     arg0->unk4C = 0;
@@ -355,7 +355,7 @@ void func_8034E26C(Struct6Ds *arg0, BKModel *model, s32 mesh_id) {
     if (arg0->unk48 <= arg0->unk44) {
         arg0->unk29 = 0;
         arg0->unk4C = arg0->unk4E;
-        if (arg0->unk10 != NULL) {
+        if (arg0->unk10 != N64_NULL) {
             arg0->unk10(arg0);
         }
         if (arg0->unk0 != 0) {

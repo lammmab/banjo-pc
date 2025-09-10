@@ -80,7 +80,7 @@ static void __chsnacker_start_dialog(Actor *this) {
             text_index = mapSpecificFlags_getN(8, 3);
             if( !this->has_met_before ) {
                 if(text_index < 4) {
-                    if(gcdialog_showDialog(0xA1B + text_index, 0, NULL, NULL, NULL, NULL)){
+                    if(gcdialog_showDialog(0xA1B + text_index, 0, N64_NULL, N64_NULL, N64_NULL, N64_NULL)){
                         text_index++;
                         mapSpecificFlags_setN(8, text_index, 3);
                         this->has_met_before = true;
@@ -135,7 +135,7 @@ static void __chsnacker_die(ActorMarker *marker, ActorMarker *other){
 }
 
 void func_802E0FC4(Actor *this){
-    s_chSnacker_marker = NULL;
+    s_chSnacker_marker = N64_NULL;
     D_8037E630 = this->unk166;
     if(func_8025AD7C(COMUSIC_34_SNACKER_DANGER)){
         func_8025AABC(COMUSIC_34_SNACKER_DANGER);
@@ -156,7 +156,7 @@ static void __chsnacker_ow(ActorMarker *marker, ActorMarker *other){
 
     this = marker_getActor(marker);
     if(level_get() == LEVEL_2_TREASURE_TROVE_COVE && !player_isDead()){
-        gcdialog_showDialog(0xA29, 0, NULL, NULL, NULL, NULL);
+        gcdialog_showDialog(0xA29, 0, N64_NULL, N64_NULL, N64_NULL, N64_NULL);
     }//L802E10A4
 
     if(this->state == 4){
@@ -314,7 +314,7 @@ void chsnacker_update(Actor *this) {
 void chSnacker_initialize(void){
     s_chSnacker_spawnTimer = 0.0f;
     s_chSnacker_respawnDelay_s = 1.0f;
-    s_chSnacker_marker = NULL;
+    s_chSnacker_marker = N64_NULL;
     s_chSnacker_inRbb = (level_get() == LEVEL_9_RUSTY_BUCKET_BAY);
     D_8037E630 = 0x63;
 }
@@ -394,7 +394,7 @@ void chsnacker_setControlState(SnackerCtlState control_state) {
         return;
     }
     
-    if ((s_chSnacker_marker == NULL)) {
+    if ((s_chSnacker_marker == N64_NULL)) {
         s_chSnacker_spawnTimer += dt;
         if ((s_chSnacker_respawnDelay_s < s_chSnacker_spawnTimer) && (control_state != SNACKER_CTL_STATE_0_INACTIVE)) {
             __spawnQueue_add_0(chSnacker_spawn);

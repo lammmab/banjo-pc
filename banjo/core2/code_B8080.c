@@ -79,7 +79,7 @@ void BKModel_getMeshCoordRange(BKModel *model, s32 mesh_id, s16 min[3], s16 max[
 
     mesh = meshList_getMesh(model->meshList_0, mesh_id);
     vtx_pool = vtxList_getVertices(model->vtxList_4);
-    if (mesh == NULL) return;
+    if (mesh == N64_NULL) return;
     
     mesh_begin = (s16*)(mesh + 1);
     mesh_end = mesh_begin + (mesh->vtxCount_2);

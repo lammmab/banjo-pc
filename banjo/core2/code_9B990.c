@@ -371,9 +371,9 @@ void overlay_init(void){
     s32 overlay_id;
     func_80356714();
     overlay_id = overlayManagergetLoadedId();
-    sOverlay.init = sOverlay.update = sOverlay.release = NULL;
-    sOverlay.draw = NULL;
-    sOverlay.unk14 = NULL;
+    sOverlay.init = sOverlay.update = sOverlay.release = N64_NULL;
+    sOverlay.draw = N64_NULL;
+    sOverlay.unk14 = N64_NULL;
     for(i = 0; D_8036E2F8[i].overlay_id != 0; i++){
         if(overlay_id == D_8036E2F8[i].overlay_id){
             sOverlay.unk0 = D_8036E2F8[i].unk2;

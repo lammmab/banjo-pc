@@ -18,14 +18,14 @@ void func_802F7BC0(Gfx **gdl, Mtx **mptr, Vtx **vptr){
 }
 
 struct6s *func_802F7C38(void){
-    if(D_80381030 == NULL){
+    if(D_80381030 == N64_NULL){
         D_80381030 = func_802F8BE0(50); //new CCW weather
     }
     return D_80381030;
 }
 
 struct3s *func_802F7C7C(void){
-    if(D_80381034 == NULL){
+    if(D_80381034 == N64_NULL){
         D_80381034 = func_802F8264(30); //rain
     }
     return D_80381034;
@@ -47,8 +47,8 @@ void func_802F7CE0(void){
 }
 
 void func_802F7D30(void){
-    D_80381030 = NULL;
-    ((void **)&D_80381030)[1] = NULL;
+    D_80381030 = N64_NULL;
+    ((void **)&D_80381030)[1] = N64_NULL;
 }
 
 void func_802F7D44(void){

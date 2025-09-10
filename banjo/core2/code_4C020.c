@@ -78,13 +78,13 @@ ActorAnimationInfo D_803676B0[] = {
     {ASSET_217_ANIM_UNKNOWN, 0.3f}
 };
 
-ActorInfo D_80367760 = { 0x26E, 0x2D9, 0x3B4,  0x1, NULL,       func_802D3D54, actor_update_func_80326224, actor_drawFullDepth, 0, 0, 0.0f, 0};
-ActorInfo D_80367784 = { 0x26F, 0x2DA, 0x3B5,  0x1, NULL,       func_802D3D54, actor_update_func_80326224, actor_drawFullDepth, 0, 0, 0.0f, 0};
-ActorInfo D_803677A8 = { MARKER_168_ICE_KEY, ACTOR_25D_ICE_KEY, ASSET_50C_MODEL_ICE_KEY,  0x1, NULL,       func_802D4250, actor_update_func_80326224, actor_drawFullDepth, 0, 0, 0.0f, 0};
+ActorInfo D_80367760 = { 0x26E, 0x2D9, 0x3B4,  0x1, N64_NULL,       func_802D3D54, actor_update_func_80326224, actor_drawFullDepth, 0, 0, 0.0f, 0};
+ActorInfo D_80367784 = { 0x26F, 0x2DA, 0x3B5,  0x1, N64_NULL,       func_802D3D54, actor_update_func_80326224, actor_drawFullDepth, 0, 0, 0.0f, 0};
+ActorInfo D_803677A8 = { MARKER_168_ICE_KEY, ACTOR_25D_ICE_KEY, ASSET_50C_MODEL_ICE_KEY,  0x1, N64_NULL,       func_802D4250, actor_update_func_80326224, actor_drawFullDepth, 0, 0, 0.0f, 0};
 ActorInfo D_803677CC = { 0x233, 0x23D, 0x4DD, 0x12, D_803676B0, func_802D4388, actor_update_func_80326224, func_802D4588, 0, 0, 0.0f, 0};
-ActorInfo D_803677F0 = { 0x16A, 0x242,   0x0,  0x0, NULL,       func_802D4680,          NULL, func_80325340, 0, 0, 0.0f, 0};
-ActorInfo D_80367814 = { MARKER_169_SNS_EGG, ACTOR_25E_SNS_EGG, ASSET_50D_MODEL_SNS_EGG,  0x1, NULL,       func_802D3FD4,          NULL, func_802D41C4, 0, 0, 0.0f, 0};
-ActorInfo D_80367838 = { 0x265, 0x2E4, 0x55A,  0x1, NULL,       func_802D3DA4,          NULL, func_802D3F48, 0, 0, 0.0f, 0};
+ActorInfo D_803677F0 = { 0x16A, 0x242,   0x0,  0x0, N64_NULL,       func_802D4680,          N64_NULL, func_80325340, 0, 0, 0.0f, 0};
+ActorInfo D_80367814 = { MARKER_169_SNS_EGG, ACTOR_25E_SNS_EGG, ASSET_50D_MODEL_SNS_EGG,  0x1, N64_NULL,       func_802D3FD4,          N64_NULL, func_802D41C4, 0, 0, 0.0f, 0};
+ActorInfo D_80367838 = { 0x265, 0x2E4, 0x55A,  0x1, N64_NULL,       func_802D3DA4,          N64_NULL, func_802D3F48, 0, 0, 0.0f, 0};
 ActorInfo D_8036785C = { MARKER_103_MM_WITCH_SWITCH, ACTOR_204_MM_WITCH_SWITCH, ASSET_4DC_MODEL_WITCH_SWITCH,  0x1, D_803676B0, func_802D4B94, actor_update_func_80326224, actor_draw, 0, 0, 0.0f, 0};
 ActorInfo D_80367880 = { MARKER_104_MMM_WITCH_SWITCH, ACTOR_206_MMM_WITCH_SWITCH, ASSET_4DC_MODEL_WITCH_SWITCH,  0x1, D_803676B0, func_802D4C34, actor_update_func_80326224, actor_draw, 0, 0, 0.0f, 0};
 ActorInfo D_803678A4 = { MARKER_105_TTC_WITCH_SWITCH, ACTOR_208_TTC_WITCH_SWITCH, ASSET_4DC_MODEL_WITCH_SWITCH,  0x1, D_803676B0, func_802D4C5C, actor_update_func_80326224, actor_draw, 0, 0, 0.0f, 0};
@@ -355,13 +355,13 @@ void func_802D31AC(ActorMarker *arg0, ActorMarker * arg1) {
 }
 
 void func_802D3CC8(ActorMarker *marker){
-    func_802D31AC(marker, NULL);
+    func_802D31AC(marker, N64_NULL);
 }
 
 // used as init function
 void func_802D3CE8(Actor *this){
     if(!this->initialized){
-        marker_setCollisionScripts(this->marker, NULL, func_802D3138, func_802D31AC);
+        marker_setCollisionScripts(this->marker, N64_NULL, func_802D3138, func_802D31AC);
         this->marker->propPtr->unk8_3 = true;
         this->initialized = true;
     }
@@ -517,7 +517,7 @@ bool func_802D42F8(Actor *this) {
 
 void func_802D4388(Actor *this){
     func_802D3CE8(this);
-    this->unk38_0 = BOOL(map_get() == MAP_7A_GL_CRYPT || item_getCount(ITEM_1C_MUMBO_TOKEN) >= this->actorTypeSpecificField || func_802D42F8(this));
+    this->unk38_0 = (map_get() == MAP_7A_GL_CRYPT || item_getCount(ITEM_1C_MUMBO_TOKEN) >= this->actorTypeSpecificField || func_802D42F8(this));
     mapSpecificFlags_set(0x1F, (func_8028F20C() && func_8028FB48(0x78000000)) || player_movementGroup() == BSGROUP_D_TRANSFORMING);
     switch(this->state){
         case 0x12: //L802D4468
@@ -670,7 +670,7 @@ void func_802D4AC0(Actor *this, s32 arg1, enum file_progress_e arg2) {
         }
     }
     if( (((arg1 & 0x800000) && (fileProgressFlag_get(arg1 + 0xFF800000))) || ((arg1 & 0x400000) && (volatileFlag_get(arg1 + 0xFFC00000)))) 
-        && (fileProgressFlag_get(arg2)) && (this->anctrl == NULL)
+        && (fileProgressFlag_get(arg2)) && (this->anctrl == N64_NULL)
     ) {
         subaddie_set_state_with_direction(this, 8, 0.0f, 1);
     }
@@ -1040,13 +1040,13 @@ void func_802D5628(void){
         func_802D5178(LEVEL_FLAG_3F_LAIR_GRUNTY_DOOR_OPEN, 0xE2, 0x40, MAP_93_GL_DINGPOT,  0x10, 0xA, ACTOR_2E5_DOOR_OF_GRUNTY,   0x28);
         if(volatileFlag_get(VOLATILE_FLAG_18)){
             if(!fileProgressFlag_get(FILEPROG_99_PAST_50_NOTE_DOOR_TEXT)){
-                gcdialog_showDialogConditional(0xF75, 0xE, NULL, NULL, NULL, NULL, func_802D5140);
+                gcdialog_showDialogConditional(0xF75, 0xE, N64_NULL, N64_NULL, N64_NULL, N64_NULL, func_802D5140);
                 fileProgressFlag_set(FILEPROG_99_PAST_50_NOTE_DOOR_TEXT, true);
                 volatileFlag_set(VOLATILE_FLAG_18, 0);
             }
             else{//L802D5DD8
                 if(!volatileFlag_get(VOLATILE_FLAG_16)){
-                    gcdialog_showDialogConditional(0xF77, 0x4, NULL, NULL, NULL, NULL, func_802D5140);
+                    gcdialog_showDialogConditional(0xF77, 0x4, N64_NULL, N64_NULL, N64_NULL, N64_NULL, func_802D5140);
                     volatileFlag_set(VOLATILE_FLAG_18, 0);
                 }
             }
@@ -1073,7 +1073,7 @@ void func_802D5628(void){
                         }//L802D5F1C
 
                         if(volatileFlag_get(VOLATILE_FLAG_22)){
-                            if(gcdialog_showDialog(0xF82, 4, NULL, NULL, NULL, NULL)){
+                            if(gcdialog_showDialog(0xF82, 4, N64_NULL, N64_NULL, N64_NULL, N64_NULL)){
                                 fileProgressFlag_set(FILEPROG_C1_BADDIES_ESCAPE_TEXT, true);
                                 volatileFlag_set(VOLATILE_FLAG_22, 0);
                                 D_8037DE04 = 0.0f;
@@ -1083,7 +1083,7 @@ void func_802D5628(void){
                             }
                         }
                         else{//L802D5FCC
-                            if(gcdialog_showDialog(D_8037DE00, 0, NULL, NULL, NULL, NULL)){
+                            if(gcdialog_showDialog(D_8037DE00, 0, N64_NULL, N64_NULL, N64_NULL, N64_NULL)){
                                 D_8037DE00++;
                                 if(!(D_8037DE00 < sp4C)){
                                     D_8037DE00 = 0xF86;

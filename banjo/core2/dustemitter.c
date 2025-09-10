@@ -60,7 +60,7 @@ void dustEmitter_emit(f32 position[3], f32 velocity[3], s32 color[4], bool useDe
     particleEmitter_setSpawnIntervalRange(emitter, 0.0f, 0.0f);
     particleEmitter_func_802EFA78(emitter, 1);
 
-    if (velocity != NULL) {
+    if (velocity != N64_NULL) {
         ml_vec3f_scale_copy(velocity_range, velocity, 30.0f);
     } else {
         velocity_range[0] = velocity_range[1] = velocity_range[2] = 0.0f;
@@ -74,7 +74,7 @@ void dustEmitter_emit(f32 position[3], f32 velocity[3], s32 color[4], bool useDe
         velocity_range[0], velocity_range[1], velocity_range[2],  // x, y, z min
         velocity_range[0], velocity_range[1], velocity_range[2]); // x, y, z max
 
-    if (color != NULL) {
+    if (color != N64_NULL) {
         particleEmitter_setRGB(emitter, color);
         particleEmitter_setAlpha(emitter, color[3]);
     }

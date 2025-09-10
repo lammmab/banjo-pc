@@ -22,7 +22,7 @@ enum chchimpystump_state_e {
 
 ActorInfo chchimpystump = {
     MARKER_95_CHIMPY_STUMP, ACTOR_C5_CHIMPY_STUMP, ASSET_3C8_MODEL_CHIMPY_STUMP,
-    1, NULL,
+    1, N64_NULL,
     chchimpystump_update, actor_update_func_80326224, actor_drawFullDepth,
     0, 0, 0.0f, 0
 };

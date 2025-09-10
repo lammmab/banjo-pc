@@ -38,92 +38,92 @@ Struct_core2_79830_0 D_8036A2B0[] = {
         ITEM_E_JIGGY, ASSET_35F_MODEL_JIGGY, 0, 0.0f,
         136.0f, 236.0f,   0.0f,  0.375f,
          28.0f, -10.0f, 300.0f, 20.0f,
-         -1.0f,  -1.0f, NULL, {'\0'}, 
-          0.0f,   0.0f, NULL
+         -1.0f,  -1.0f, N64_NULL, {'\0'}, 
+          0.0f,   0.0f, N64_NULL
     },
     {   {0}, 0,  {0},
         ITEM_18_GOLD_BULLIONS, ASSET_3C7_MODEL_GOLD_BULLION, 0, 0.0f,
         224.0f, 226.0f,  10.0f,  0.3f,
          32.0f,   0.0f, 100.0f, 20.0f,
-         -1.0f,  -1.0f, NULL, {'\0'}, 
-          0.0f,   0.0f, NULL
+         -1.0f,  -1.0f, N64_NULL, {'\0'}, 
+          0.0f,   0.0f, N64_NULL
     },
     {   {0}, 0,  {0},
         ITEM_19_ORANGE, ASSET_2D2_MODEL_ORANGE, 0, 0.0f,
         224.0f, 226.0f,  25.0f,  0.4f,
          32.0f,   0.0f, 100.0f, 20.0f,
-         -1.0f,  -1.0f, NULL, {'\0'}, 
-          0.0f,   0.0f, NULL
+         -1.0f,  -1.0f, N64_NULL, {'\0'}, 
+          0.0f,   0.0f, N64_NULL
     },
     {   {0}, 0,  {0},
         ITEM_1D_GRUMBLIE, ASSET_3F7_MODEL_GRUMBLIE, ASSET_12A_ANIM_GRUMBLIE_IDLE, 0.85f,
         150.0f, -20.0f,   0.0f,  0.4275f,
         200.0f, -10.0f, 100.0f, 10.0f,
-         -1.0f,   1.0f, NULL, {'\0'}, 
-          0.0f,   0.0f, NULL
+         -1.0f,   1.0f, N64_NULL, {'\0'}, 
+          0.0f,   0.0f, N64_NULL
     },
     {   {0}, 0,  {0},
         ITEM_1E_YUMBLIE, ASSET_3F6_MODEL_YUMBLIE, ASSET_127_ANIM_YUMBLIE_IDLE, 0.85f,
         150.0f, -25.0f,   0.0f,  0.3825f,
         200.0f, -10.0f, 100.0f, 10.0f,
-         -1.0f,   1.0f, NULL, {'\0'}, 
-          0.0f,   0.0f, NULL
+         -1.0f,   1.0f, N64_NULL, {'\0'}, 
+          0.0f,   0.0f, N64_NULL
     },
     {   {0}, 0,  {0},
         ITEM_1F_GREEN_PRESENT, ASSET_480_MODEL_XMAS_GIFT_GREEN, 0, 0.0f,
         224.0f, 226.0f,  25.0f,  0.23f,
          32.0f,   0.0f, 100.0f, 20.0f,
-         -1.0f,  -1.0f, NULL, {'\0'}, 
-          0.0f,   0.0f, NULL
+         -1.0f,  -1.0f, N64_NULL, {'\0'}, 
+          0.0f,   0.0f, N64_NULL
     },
     {   {0}, 0,  {0},
         ITEM_20_BLUE_PRESENT, ASSET_47F_MODEL_XMAS_GIFT_BLUE, 0, 0.0f,
         224.0f, 226.0f,  12.0f,  0.21f,
          32.0f,   0.0f, 100.0f, 20.0f,
-         -1.0f,  -1.0f, NULL, {'\0'}, 
-          0.0f,   0.0f, NULL
+         -1.0f,  -1.0f, N64_NULL, {'\0'}, 
+          0.0f,   0.0f, N64_NULL
     },
     {   {0}, 0,  {0},
         ITEM_21_RED_PRESENT, ASSET_481_MODEL_XMAS_GIFT_RED, 0, 0.0f,
         224.0f, 226.0f,  43.0f,  0.2f,
          32.0f,   0.0f, 100.0f, 20.0f,
-         -1.0f,  -1.0f, NULL, {'\0'}, 
-          0.0f,   0.0f, NULL
+         -1.0f,  -1.0f, N64_NULL, {'\0'}, 
+          0.0f,   0.0f, N64_NULL
     },
     {   {0}, 0,  {0},
         ITEM_22_CATERPILLAR, ASSET_485_MODEL_CATERPILLAR, ASSET_18E_ANIM_CATERPILLAR_IDLE, 1.0f,
         224.0f, 226.0f,  12.0f,  0.28f,
          32.0f,   0.0f, 100.0f, 20.0f,
-         -1.0f,  -1.0f, NULL, {'\0'}, 
-          0.0f,   0.0f, NULL
+         -1.0f,  -1.0f, N64_NULL, {'\0'}, 
+          0.0f,   0.0f, N64_NULL
     },
     {   {0}, 0,  {0},
         ITEM_23_ACORNS, ASSET_48E_MODEL_ACORN, ASSET_25B_ANIM_ACORN_IDLE, 1.0f,
         224.0f, 226.0f,  38.0f,  0.4f,
          32.0f,   0.0f, 100.0f, 20.0f,
-         -1.0f,  -1.0f, NULL, {'\0'}, 
-          0.0f,   0.0f, NULL
+         -1.0f,  -1.0f, N64_NULL, {'\0'}, 
+          0.0f,   0.0f, N64_NULL
     },
     {   {0}, 0,  {0},
         ITEM_24_TWINKLY_SCORE, ASSET_448_MODEL_TWINKLY_BLUE, ASSET_17C_ANIM_TWINKLY_IDLE, 1.0f,
         134.0f, -32.0f,  0.0f,  0.325f,
          24.0f, -18.0f, 100.0f, 30.0f,
-         -1.0f,   1.0f, NULL, {'\0'}, 
-          0.0f,   0.0f, NULL
+         -1.0f,   1.0f, N64_NULL, {'\0'}, 
+          0.0f,   0.0f, N64_NULL
     },
     {   {0}, 0,  {0},
         ITEM_26_JIGGY_TOTAL, ASSET_35F_MODEL_JIGGY, 0, 0.0f,
         208.0f, 238.0f,  0.0f,  0.325f,
          29.0f, -10.0f, 300.0f, 15.0f,
-         -1.0f,  -1.0f, NULL, {'\0'}, 
-          0.0f,   0.0f, NULL
+         -1.0f,  -1.0f, N64_NULL, {'\0'}, 
+          0.0f,   0.0f, N64_NULL
     },
     {   {0}, 0,  {0},
         ITEM_2B_UNKNOWN, ASSET_35F_MODEL_JIGGY, 0, 0.0f,
         208.0f, 238.0f,  0.0f,  0.325f,
          29.0f, -10.0f, 300.0f, 15.0f,
-         -1.0f,  -1.0f, NULL, {'\0'}, 
-          0.0f,   0.0f, NULL
+         -1.0f,  -1.0f, N64_NULL, {'\0'}, 
+          0.0f,   0.0f, N64_NULL
     },
     {   {0}, 0,  {0},
         -1
@@ -140,7 +140,7 @@ void *fxcommon3score_new(enum item_e item_id){
             return i_ptr;
         }
     }
-    return NULL;
+    return N64_NULL;
 }
 
 void fxcommon3score_update(enum item_e arg0, void *arg1) {
@@ -153,10 +153,10 @@ void fxcommon3score_update(enum item_e arg0, void *arg1) {
     sp20 = time_getDelta();
     switch (func_802FB0D4(a1)) {
     case 1:
-        if (a1->model == NULL) {
+        if (a1->model == N64_NULL) {
             a1->model = assetcache_get(a1->model_id);
         }
-        if ((a1->anim_id != 0) && (a1->anim_ctrl == NULL)) {
+        if ((a1->anim_id != 0) && (a1->anim_ctrl == N64_NULL)) {
             a1->anim_ctrl = anctrl_new(0);
             anctrl_reset(a1->anim_ctrl);
             anctrl_setIndex(a1->anim_ctrl, (enum asset_e) a1->anim_id);
@@ -167,7 +167,7 @@ void fxcommon3score_update(enum item_e arg0, void *arg1) {
     case 2:
     case 3:
         a1->unk68 += sp24 * sp20 * a1->unk48;
-        if ( a1->anim_ctrl != NULL) {
+        if ( a1->anim_ctrl != N64_NULL) {
             anctrl_update( a1->anim_ctrl);
         }
         break;
@@ -187,7 +187,7 @@ void fxcommon3score_draw(enum item_e item_id, void *arg1, Gfx **gfx, Mtx **mtx, 
     f32 sp3C;
     
     sp40 = func_802FB0E4(arg1)*a1->unk54 + a1->unk34;
-    if(a1->model != NULL && func_802FB0D4(arg1)){
+    if(a1->model != N64_NULL && func_802FB0D4(arg1)){
         a1->value_string[0] = '\0';
         strIToA(a1->value_string, itemPrint_getValue(item_id));
         print_bold_spaced(a1->unk30 + a1->unk40, sp40 + a1->unk44, a1->value_string);
@@ -209,7 +209,7 @@ void fxcommon3score_draw(enum item_e item_id, void *arg1, Gfx **gfx, Mtx **mtx, 
             a1->unk6C = 1.1*(vtxList_getGlobalNorm(model_getVtxList(a1->model)) * a1->unk3C);
         }
         func_80253208(gfx, a1->unk30 - a1->unk6C, sp40 - a1->unk6C, 2*a1->unk6C, 2*a1->unk6C, gFramebuffers[getActiveFramebuffer()]);
-        if(a1->anim_ctrl != NULL){
+        if(a1->anim_ctrl != N64_NULL){
             anctrl_drawSetup(a1->anim_ctrl, sp5C, 1);
         }
         modelRender_draw(gfx, mtx, sp5C, sp68, a1->unk3C*sp3C, sp44, a1->model);
@@ -218,14 +218,14 @@ void fxcommon3score_draw(enum item_e item_id, void *arg1, Gfx **gfx, Mtx **mtx, 
 
 void fxcommon3score_free(enum item_e item_id, void *arg1){
     Struct_core2_79830_0 *a1 = (Struct_core2_79830_0 *)arg1;
-    if(a1->anim_ctrl != NULL){
+    if(a1->anim_ctrl != N64_NULL){
         anctrl_free(a1->anim_ctrl);
-        a1->anim_ctrl = NULL;
+        a1->anim_ctrl = N64_NULL;
     }
 
-    if(a1->model != NULL){
+    if(a1->model != N64_NULL){
         assetCache_free(a1->model);
-        a1->model = NULL;
+        a1->model = N64_NULL;
         a1->unk6C = 0.0f;
     }
 }

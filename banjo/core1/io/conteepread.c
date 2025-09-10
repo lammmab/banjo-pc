@@ -14,7 +14,7 @@ s32 osEepromRead(OSMesgQueue *mq, u8 address, u8 *buffer)
 	__OSContEepromFormat eepromformat;
 	ret = 0;
 	i = 0;
-	ptr = (u8 *)&__osEepPifRam.ramarray;
+	ptr = (u8 *)&__osEepPifRam.ram;
 	__osSiGetAccess();
 	ret = __osEepStatus(mq, &sdata);
 	type = sdata.type & (CONT_EEPROM | CONT_EEP16K);
@@ -52,14 +52,14 @@ s32 osEepromRead(OSMesgQueue *mq, u8 address, u8 *buffer)
 	}
 	__osPackEepReadData(address);
 	ret = __osSiRawStartDma(OS_WRITE, &__osEepPifRam); //send command to pif
-	osRecvMesg(mq, NULL, OS_MESG_BLOCK);
-    for (i = 0; i < ARRLEN(__osEepPifRam.ramarray) + 1; i++) {
-        __osEepPifRam.ramarray[i] = 0xFF;
+	osRecvMesg(mq, N64_NULL, OS_MESG_BLOCK);
+    for (i = 0; i < ARRLEN(__osEepPifRam.ram) + 1; i++) {
+        __osEepPifRam.ram[i] = 0xFF;
     }
-    __osEepPifRam.pifstatus = 0;
+    __osEepPifRam.status = 0;
 	ret = __osSiRawStartDma(OS_READ, &__osEepPifRam); //recv response
 	__osContLastCmd = CONT_CMD_READ_EEPROM;
-	osRecvMesg(mq, NULL, OS_MESG_BLOCK);
+	osRecvMesg(mq, N64_NULL, OS_MESG_BLOCK);
 	for (i = 0; i < 4; i++) //skip the first 4 bytes
 	{
 		ptr++;
@@ -81,12 +81,12 @@ static void __osPackEepReadData(u8 address)
 	u8 *ptr;
 	__OSContEepromFormat eepromformat;
 	int i;
-	ptr = (u8 *)&__osEepPifRam.ramarray;
-	for (i = 0; i < ARRLEN(__osEepPifRam.ramarray) + 1; i++)
+	ptr = (u8 *)&__osEepPifRam.ram;
+	for (i = 0; i < ARRLEN(__osEepPifRam.ram) + 1; i++)
 	{
-		__osEepPifRam.ramarray[i] = CONT_CMD_NOP;
+		__osEepPifRam.ram[i] = CONT_CMD_NOP;
 	}
-	__osEepPifRam.pifstatus = CONT_CMD_EXE;
+	__osEepPifRam.status = CONT_CMD_EXE;
 
 	eepromformat.txsize = CONT_CMD_READ_EEPROM_TX;
 	eepromformat.rxsize = CONT_CMD_READ_EEPROM_RX;

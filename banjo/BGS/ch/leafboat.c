@@ -25,7 +25,7 @@ Actor *chLeafBoat_draw(ActorMarker *this, Gfx** gdl, Mtx** mtx, Vtx **Vtx);
 u8 D_80390DA0[6] = {0, 0, 0, 1, 1, 1};
 
 ActorInfo chLeafBoat = {MARKER_DA_LEAF_BOAT, ACTOR_F1_LEAF_BOAT, ASSET_30D_MODEL_LEAF_BOAT, 
-    0x01, NULL,
+    0x01, N64_NULL,
     chLeafBoat_update, chLeafBoat_update, chLeafBoat_draw,
     0, 0, 0.0f, 0
 };
@@ -60,7 +60,7 @@ void chLeafBoat_update(Actor *this){
     local = (ActorLocal_Leafboat *)&this->local;
     if(!this->initialized){
         this->initialized = true;
-        marker_setCollisionScripts(this->marker, func_8038FD88, NULL, NULL);
+        marker_setCollisionScripts(this->marker, func_8038FD88, N64_NULL, N64_NULL);
         local->unk6C = randf2(80.0f, 100.0f);
         this->unk1C[0] = this->unk1C[1] = this->unk1C[2] = 0.0f;
         local->unk0[0] = local->unk0[1] = local->unk0[2] = 0.0f;

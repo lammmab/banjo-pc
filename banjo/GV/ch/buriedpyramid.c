@@ -12,8 +12,8 @@ Actor *chBuriedPyramid_draw(ActorMarker *this_marker, Gfx **gfx, Mtx **mtx, Vtx 
 
 /* .data */
 ActorInfo chBuriedPyramid = { MARKER_1D4_SANDYBUTT_PYRAMID, ACTOR_31D_SANDYBUTT_PYRAMID, ASSET_56B_MODEL_SANDYBUTT_PYRAMID, 
-    0, NULL,
-    chBuriedPyramid_update, NULL, chBuriedPyramid_draw, 
+    0, N64_NULL,
+    chBuriedPyramid_update, N64_NULL, chBuriedPyramid_draw, 
     0, 0, 0.0f, 0
 };
 

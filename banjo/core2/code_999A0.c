@@ -43,7 +43,7 @@ f32 func_80320930(f32 arg0[3], f32 arg1, f32 arg2, u32 arg3) {
     sp30[1] = arg0[1];
     sp30[2] = arg0[2];
     sp30[1] += arg2;
-    if (func_80320B98(sp3C, sp30, sp24, arg3) != NULL) {
+    if (func_80320B98(sp3C, sp30, sp24, arg3) != N64_NULL) {
         return sp30[1];
     }
     return 100.0f;
@@ -85,7 +85,7 @@ bool func_803209F8(f32 arg0[3], f32 arg1[3], f32 *arg2, f32 arg3[3]) {
 }
 
 void func_80320B24(Method_Core2_999A0_0 arg0, Method_Core2_999A0_1 arg1, Method_Core2_999A0_2 arg2){
-    func_80320B44(arg0, arg1, arg2, NULL);
+    func_80320B44(arg0, arg1, arg2, N64_NULL);
 }
 
 void func_80320B44(Method_Core2_999A0_0 arg0, Method_Core2_999A0_1 arg1, Method_Core2_999A0_2 arg2, Method_Core2_999A0_3 arg3){
@@ -100,7 +100,7 @@ void func_80320B7C(void){}
 
 void func_80320B84(void){
     D_80383230.unk80 = &D_80383230.unk0[0];
-    D_80383230.unk84 = NULL;
+    D_80383230.unk84 = N64_NULL;
 }
 
 BKCollisionTri *func_80320B98(f32 arg0[3], f32 arg1[3], f32 arg2[3], u32 flags) {
@@ -108,19 +108,19 @@ BKCollisionTri *func_80320B98(f32 arg0[3], f32 arg1[3], f32 arg2[3], u32 flags) 
     BKCollisionTri * temp_v0_2;
     BKCollisionTri * var_s7;
 
-    var_s7 = NULL;
-    D_80383230.unk84 = NULL;
+    var_s7 = N64_NULL;
+    D_80383230.unk84 = N64_NULL;
     for(var_s0 = &D_80383230.unk0[0]; var_s0 < D_80383230.unk80; var_s0++){
-        if (var_s0->unk0 != NULL) {
+        if (var_s0->unk0 != N64_NULL) {
             temp_v0_2 = var_s0->unk0(arg0, arg1, arg2, flags);
-            if (temp_v0_2 != NULL) {
-                if (var_s0->unkC != NULL) {
+            if (temp_v0_2 != N64_NULL) {
+                if (var_s0->unkC != N64_NULL) {
                     D_80383230.unk84 = var_s0->unkC();
                 } else {
-                    D_80383230.unk84 = NULL;
+                    D_80383230.unk84 = N64_NULL;
                 }
             }
-            var_s7 = (temp_v0_2 != NULL) ? temp_v0_2 : var_s7;
+            var_s7 = (temp_v0_2 != N64_NULL) ? temp_v0_2 : var_s7;
         }
     }
     return var_s7;
@@ -131,13 +131,13 @@ BKCollisionTri *func_80320C94(f32 arg0[3], f32 arg1[3], f32 arg2, f32 arg3[3], s
     BKCollisionTri * temp_v0_2;
     BKCollisionTri * var_s7;
 
-    var_s7 = NULL;
-    D_80383230.unk84 = NULL;
+    var_s7 = N64_NULL;
+    D_80383230.unk84 = N64_NULL;
     for(var_s0 = &D_80383230.unk0[0]; var_s0 < D_80383230.unk80; var_s0++){
-        if (var_s0->unk4 != NULL) {
+        if (var_s0->unk4 != N64_NULL) {
             temp_v0_2 = var_s0->unk4(arg0, arg1, arg2, arg3, arg4, arg5);
             if (temp_v0_2 != 0) {
-                if (var_s0->unkC != NULL) {
+                if (var_s0->unkC != N64_NULL) {
                     D_80383230.unk84 = var_s0->unkC();
                 } else {
                     D_80383230.unk84 = 0;
@@ -154,19 +154,19 @@ BKCollisionTri *func_80320DB0(f32 arg0[3], f32 arg1, f32 arg2[3], u32 arg3) {
     BKCollisionTri * temp_v0_2;
     BKCollisionTri * var_s7;
 
-    var_s7 = NULL;
-    D_80383230.unk84 = NULL;
+    var_s7 = N64_NULL;
+    D_80383230.unk84 = N64_NULL;
     for(var_s0 = &D_80383230.unk0[0]; var_s0 < D_80383230.unk80; var_s0++){
-        if (var_s0->unk8 != NULL) {
+        if (var_s0->unk8 != N64_NULL) {
             temp_v0_2 = var_s0->unk8(arg0, arg1, arg2, arg3);
-            if (temp_v0_2 != NULL) {
-                if (var_s0->unkC != NULL) {
+            if (temp_v0_2 != N64_NULL) {
+                if (var_s0->unkC != N64_NULL) {
                     D_80383230.unk84 = var_s0->unkC();
                 } else {
-                    D_80383230.unk84 = NULL;
+                    D_80383230.unk84 = N64_NULL;
                 }
             }
-            var_s7 = (temp_v0_2 != NULL) ? temp_v0_2 : var_s7;
+            var_s7 = (temp_v0_2 != N64_NULL) ? temp_v0_2 : var_s7;
         }
     }
     return var_s7;

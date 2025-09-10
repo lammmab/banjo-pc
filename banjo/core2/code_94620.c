@@ -38,7 +38,7 @@ s32 func_8031B638(void) {
 }
 
 void dialogBin_initialize(void){
-    s_dialogBin.ptr = NULL;
+    s_dialogBin.ptr = N64_NULL;
     s_dialogBin.index = -1;
 }
 
@@ -65,6 +65,6 @@ char *dialogBin_get(enum asset_e text_id) {
 
 void dialogBin_release(s32 arg0){
     assetcache_release(s_dialogBin.ptr);
-    s_dialogBin.ptr = NULL;
+    s_dialogBin.ptr = N64_NULL;
     s_dialogBin.index = -1;
 }

@@ -23,7 +23,7 @@ void bs_setState(s32 state_id) {
     }
     
     D_8037D168 = state_id;
-    if (bsList_getEndMethod(D_8037D164) != NULL) {
+    if (bsList_getEndMethod(D_8037D164) != N64_NULL) {
         bsList_getEndMethod(D_8037D164)();
     }
 
@@ -32,7 +32,7 @@ void bs_setState(s32 state_id) {
     D_8037D164 = D_8037D168;
     D_8037D168 = 0;
 
-    if (bsList_getInitMethod(D_8037D164) != NULL) {
+    if (bsList_getInitMethod(D_8037D164) != N64_NULL) {
         bsList_getInitMethod(D_8037D164)();
     }
 }
@@ -50,7 +50,7 @@ s32 bs_getNextState(void) {
 }
 
 void bs_updateState(void) {
-    if (bsList_getUpdateMethod(D_8037D164) != NULL) {
+    if (bsList_getUpdateMethod(D_8037D164) != N64_NULL) {
         bsList_getUpdateMethod(D_8037D164)();
     }
 }
@@ -59,7 +59,7 @@ s32 bs_checkInterrupt(enum bs_interrupt_e interruptId) {
     currentInterrupt = interruptId;
     interruptResponse = 0;
 
-    if (bsList_getInterruptMethod(D_8037D164) != NULL) {
+    if (bsList_getInterruptMethod(D_8037D164) != N64_NULL) {
         bsList_getInterruptMethod(D_8037D164)();
     }
 

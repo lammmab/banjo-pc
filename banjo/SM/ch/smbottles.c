@@ -34,7 +34,7 @@ void __chSmBottles_talk(Actor *this);
 
 /* .data */
 ActorAnimationInfo chSmBottlesAnimations[6] = {
-    {NULL,                         0.0f},
+    {N64_NULL,                         0.0f},
     {ASSET_13A_ANIM_BOTTLES_ENTER, 2000000000.0f},
     {ASSET_13A_ANIM_BOTTLES_ENTER, 4.5f},
     {ASSET_13B_ANIM_BOTTLES_IDLE,  7.0f},
@@ -243,7 +243,7 @@ void __chSmBottles_textCallback(ActorMarker *marker, enum asset_e text_id, s32 a
 
     if (!mapSpecificFlags_get(SM_SPECIFIC_FLAG_3_ALL_SM_ABILITIES_LEARNED) && chmole_learnedAllSpiralMountainAbilities()) {
         mapSpecificFlags_set(SM_SPECIFIC_FLAG_3_ALL_SM_ABILITIES_LEARNED, true);
-        gcdialog_showDialog(ASSET_E12_DIALOG_BOTTLES_LEARNED_TUTORIAL_MOVES, 0xe, actor->position, actor->marker, __chSmBottles_textCallback, NULL);
+        gcdialog_showDialog(ASSET_E12_DIALOG_BOTTLES_LEARNED_TUTORIAL_MOVES, 0xe, actor->position, actor->marker, __chSmBottles_textCallback, N64_NULL);
     }//L8038933C
     else {
         if (!(text_id == ASSET_DF3_DIALOG_BOTTLES_INTRODUCTION || text_id == ASSET_E1F_DIALOG_BOTTLES_TUTORIAL_OFFER || text_id == ASSET_E1D_DIALOG_BOTTLES_TUTORIAL_OFFER_WAIT)) {
@@ -279,7 +279,7 @@ void __chSmBottles_textCallback(ActorMarker *marker, enum asset_e text_id, s32 a
 
             default:
                 if (actor->state != SM_BOTTLES_STATE_5_UNKNOWN) {
-                    gcdialog_showDialog(ASSET_D38_DIALOG_EMPTY, 0x4, NULL, NULL, NULL, NULL);
+                    gcdialog_showDialog(ASSET_D38_DIALOG_EMPTY, 0x4, N64_NULL, N64_NULL, N64_NULL, N64_NULL);
                 }
 
                 __chSmBottles_setState(actor, actor->state == SM_BOTTLES_STATE_5_UNKNOWN ? SM_BOTTLES_STATE_1_UNKNOWN : SM_BOTTLES_STATE_4_UNKNOWN);
@@ -621,7 +621,7 @@ void chSmBottles_update(Actor *this) {
                     this->unk38_0 = false;
                 }
                 else if (!this->has_met_before && 5.0 < this->lifetime_value) {
-                    gcdialog_showDialog(ASSET_E1D_DIALOG_BOTTLES_TUTORIAL_OFFER_WAIT, 0x86, this->position, this->marker, __chSmBottles_textCallback, NULL);
+                    gcdialog_showDialog(ASSET_E1D_DIALOG_BOTTLES_TUTORIAL_OFFER_WAIT, 0x86, this->position, this->marker, __chSmBottles_textCallback, N64_NULL);
                     this->has_met_before = true;
                 }
             }

@@ -3,7 +3,7 @@
 #include "variables.h"
 #include "fight.h"
 
-ActorInfo chBossShadow = { MARKER_288_GRUNTY_SHADOW, ACTOR_3AF_GRUNTY_SHADOW, ASSET_3BF_MODEL_PLAYER_SHADOW, 1, NULL, chBossShadow_update, actor_update_func_80326224, chBossShadow_draw, 0, 0, 0.0f, 0 };
+ActorInfo chBossShadow = { MARKER_288_GRUNTY_SHADOW, ACTOR_3AF_GRUNTY_SHADOW, ASSET_3BF_MODEL_PLAYER_SHADOW, 1, N64_NULL, chBossShadow_update, actor_update_func_80326224, chBossShadow_draw, 0, 0, 0.0f, 0 };
 
 Actor *chBossShadow_draw(ActorMarker *marker, Gfx **gfx, Mtx **mtx, Vtx **vtx) {
     f32 rotation[3];
@@ -15,7 +15,7 @@ Actor *chBossShadow_draw(ActorMarker *marker, Gfx **gfx, Mtx **mtx, Vtx **vtx) {
     scale = actor_bossshadow->scale * ml_map_f(actor_bossshadow->unk1C[0], 0.0f, 1000.0f, 1.75f, 0.9f);
 
     modelRender_setDepthMode(MODEL_RENDER_DEPTH_COMPARE);
-    modelRender_draw(gfx, mtx, actor_bossshadow->position, rotation, scale, NULL, marker_loadModelBin(marker));
+    modelRender_draw(gfx, mtx, actor_bossshadow->position, rotation, scale, N64_NULL, marker_loadModelBin(marker));
 
     return actor_bossshadow;
 }

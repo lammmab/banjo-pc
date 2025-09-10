@@ -102,16 +102,16 @@ Actor* func_8034FCDC(ActorMarker *marker, Gfx **gfx, Mtx **mtx, Vtx **vtx) {
 
     sp28 = D_80386150.unk14 + marker->actrArrayIdx;
     if (sp28->unk4->unk4 == 0) {
-        return NULL;
+        return N64_NULL;
     }
 
     sp2C[0] = 0.0f;
     sp2C[1] = sp28->unk14;
     sp2C[2] = 0.0f;
     modelRender_setDepthMode(MODEL_RENDER_DEPTH_COMPARE);
-    modelRender_draw(gfx, mtx, sp28->unk8, sp2C, sp28->unk18 * 0.1, NULL, D_80386150.unk0);
+    modelRender_draw(gfx, mtx, sp28->unk8, sp2C, sp28->unk18 * 0.1, N64_NULL, D_80386150.unk0);
 
-    return NULL;
+    return N64_NULL;
 }
 
 void func_8034FDA0(s32 arg0) {
@@ -172,7 +172,7 @@ void func_803500E8(void) {
     s32 i;
     Struct_core2_C89C0_0 *var_s0;
 
-    if (D_80386150.unk0 != NULL) {
+    if (D_80386150.unk0 != N64_NULL) {
         for(var_s0 = D_80386150.unk14; var_s0 < D_80386150.unk18; var_s0++) {
             marker_free(var_s0->unk0);
         }
@@ -193,7 +193,7 @@ void func_80350174(void) {
              break;
     }
     if(i >= 0x36){
-         D_80386150.unk0 = NULL;
+         D_80386150.unk0 = N64_NULL;
          return;
     }
 
@@ -222,7 +222,7 @@ void func_80350250(void) {
 
     
     temp_f22 = time_getDelta();
-    if ((D_80386150.unk0 != NULL) && (func_80334904() == 2)) {
+    if ((D_80386150.unk0 != N64_NULL) && (func_80334904() == 2)) {
         player_getPosition(sp7C);
         for(var_s0 = D_80386150.unk8; var_s0 < D_80386150.unkC; var_s0++) {
             var_s0->unk4 = (ml_vec3f_distance(var_s0->unkC, sp7C) < 2000.0f);

@@ -6,8 +6,8 @@
 extern f32 func_802FB0E4(struct8s*);
 
 /* .data */
-BKSprite * gSpriteHealth = NULL;
-BKSprite * gSpriteRedHealth = NULL;
+BKSprite * gSpriteHealth = N64_NULL;
+BKSprite * gSpriteRedHealth = N64_NULL;
 Gfx D_8036A918[] = {
     gsDPPipeSync(),
     gsSPClearGeometryMode(G_ZBUFFER | G_SHADE | G_CULL_BOTH | G_FOG | G_LIGHTING | G_TEXTURE_GEN | G_TEXTURE_GEN_LINEAR | G_LOD | G_SHADING_SMOOTH),
@@ -44,14 +44,14 @@ void func_80300C10(void) {
 }
 
 void fxhealthscore_free(enum item_e item_id, struct8s *arg1){
-    if (gSpriteHealth != NULL) {
+    if (gSpriteHealth != N64_NULL) {
         assetCache_free(gSpriteHealth);
-        gSpriteHealth = NULL;
+        gSpriteHealth = N64_NULL;
     }
 
-    if (gSpriteRedHealth != NULL) {
+    if (gSpriteRedHealth != N64_NULL) {
         assetCache_free(gSpriteRedHealth);
-        gSpriteRedHealth = NULL;
+        gSpriteRedHealth = N64_NULL;
     }
 
     func_80300C10();
@@ -75,7 +75,7 @@ void fxhealthscore_draw(enum item_e item_id, struct8s *arg1, Gfx **gfx, Mtx **mt
     s32 is_red_health_initialized = false;
     s32 s6;
 
-    if (gSpriteHealth == NULL) {
+    if (gSpriteHealth == N64_NULL) {
         return;
     }
 
@@ -209,11 +209,11 @@ void fxhealthscore_update(enum item_e item_id, struct8s *arg1) {
             break;
 
         case 1:
-            if (gSpriteHealth == NULL) {
+            if (gSpriteHealth == N64_NULL) {
                 gSpriteHealth = assetcache_get(ASSET_7DD_SPRITE_HEALTH);
             }
 
-            if (gSpriteRedHealth == NULL) {
+            if (gSpriteRedHealth == N64_NULL) {
                 gSpriteRedHealth = assetcache_get(ASSET_7EA_SPRITE_RED_HEALTH);
             }
             break;

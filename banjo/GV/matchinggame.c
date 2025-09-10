@@ -49,7 +49,7 @@ Struct_GV_9DB0_1 * func_803901A0(s32 arg0){
         if(arg0 == D_80391650[i].unk0)
             return D_80391650 + i;
     }
-    return NULL;
+    return N64_NULL;
 }
 
 void func_803901F0(void *arg0){
@@ -123,8 +123,8 @@ void gv_matchingGame_init(void){
             ||  volatileFlag_get(VOLATILE_FLAG_2_FF_IN_MINIGAME)                      //in FF minigame
         ){
             matchingGame.match_count = 0;
-            matchingGame.tile_a = NULL;
-            matchingGame.tile_b = NULL;
+            matchingGame.tile_a = N64_NULL;
+            matchingGame.tile_b = N64_NULL;
             matchingGame.state = 1;
             matchingGame.unkC = 0.0f;
             actor = actorArray_findActorFromActorId(ACTOR_34F_MUMMUM);
@@ -132,7 +132,7 @@ void gv_matchingGame_init(void){
                 matchingGame.mummy_marker = actor->marker; 
             }
             else{
-                matchingGame.mummy_marker = NULL;
+                matchingGame.mummy_marker = N64_NULL;
             }
         }
     }
@@ -152,10 +152,10 @@ void gv_matchingGame_update(void){
         return;
 
     if(matchingGame.mummy_marker && !matchingGame.mummy_marker->unk5C){
-        matchingGame.mummy_marker = NULL;
+        matchingGame.mummy_marker = N64_NULL;
     }
 
-    if(matchingGame.tile_a == NULL || matchingGame.tile_b == NULL){
+    if(matchingGame.tile_a == N64_NULL || matchingGame.tile_b == N64_NULL){
         if( player_getActiveHitbox(0) == HITBOX_1_BEAK_BUSTER && func_8028F20C()){
             player_getPosition(player_position);
             sp4C = func_8033F3E8(mapModel_getModel(0), player_position, 0x190, 0x1a0);
@@ -200,7 +200,7 @@ void gv_matchingGame_update(void){
                     if(sp48 == matchingGame.tile_a->unk0 || sp48 == matchingGame.tile_b->unk0){
                         func_8028F66C(BS_INTR_14);
                     }
-                    matchingGame.tile_a = matchingGame.tile_b = NULL;
+                    matchingGame.tile_a = matchingGame.tile_b = N64_NULL;
                 }
             }//L80390788
             else{
@@ -212,7 +212,7 @@ void gv_matchingGame_update(void){
                     else{
                         coMusicPlayer_playMusic(COMUSIC_2B_DING_B, 0x7fff);
                     }
-                    matchingGame.tile_a = matchingGame.tile_b = NULL;
+                    matchingGame.tile_a = matchingGame.tile_b = N64_NULL;
                 }//L803907E4
                 else{
                     matchingGame.unkC = 1.0f;
@@ -229,7 +229,7 @@ void gv_matchingGame_update(void){
     }
 
     if(matchingGame.state == 2){
-        if(matchingGame.tile_a == NULL || matchingGame.tile_b == NULL){
+        if(matchingGame.tile_a == N64_NULL || matchingGame.tile_b == N64_NULL){
             if(item_empty(ITEM_6_HOURGLASS)){
                 __matchingGame_setState(3);
             }

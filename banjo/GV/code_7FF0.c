@@ -176,7 +176,7 @@ void func_8038E460(Actor *this){//banjo_door
         if(!mapSpecificFlags_get(2)){
             mapSpecificFlags_set(2, true);
             func_8028F918(0);
-            func_80324DBC(4.0f, ASSET_A7D_DIALOG_JINXY_HELPED, 4, NULL, NULL, NULL, NULL);
+            func_80324DBC(4.0f, ASSET_A7D_DIALOG_JINXY_HELPED, 4, N64_NULL, N64_NULL, N64_NULL, N64_NULL);
         }
     }
 }

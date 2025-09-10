@@ -10,8 +10,8 @@ void osCreateThread(OSThread *t, OSId id, void (*entry)(void *), void *arg, void
     OSIntMask mask;
     t->id = id;
     t->priority = p;
-    t->next = NULL;
-    t->queue = NULL;
+    t->next = N64_NULL;
+    t->queue = N64_NULL;
     t->context.pc = (u32)entry;
     t->context.a0 = (u64)arg;
     t->context.sp = (u64)sp - 16;

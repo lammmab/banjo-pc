@@ -11,12 +11,12 @@ typedef struct{
 } struct_drone;
 
 struct_drone D_80364B30[] = {
-    {BA_DRONE_GOTO,         {bsDroneGoTo_init, bsDroneGoTo_update, bsDroneGoTo_end, NULL}},
+    {BA_DRONE_GOTO,         {bsDroneGoTo_init, bsDroneGoTo_update, bsDroneGoTo_end, N64_NULL}},
     {BA_DRONE_LOOK,         {bsDroneLook_init, bsDroneLook_update, bsDroneLook_end, func_80296608}},
-    // {BA_DRONE_UNKNOWN_3, {NULL, NULL, NULL, NULL}}, //unused drone type?
+    // {BA_DRONE_UNKNOWN_3, {N64_NULL, N64_NULL, N64_NULL, N64_NULL}}, //unused drone type?
     {BA_DRONE_TRANSFORM,    {bsdronexform_init, bsdronexform_update, bsdronexform_end, bsdronexform_interrupt}},
-    {BA_DRONE_ENTER,        {bsDroneEnter_init, bsDroneEnter_update, bsDroneEnter_end, NULL}},
-    {BA_DRONE_VANISH,       {bsDroneVanish_init, bsDroneVanish_update, bsDroneVanish_end, NULL}},
+    {BA_DRONE_ENTER,        {bsDroneEnter_init, bsDroneEnter_update, bsDroneEnter_end, N64_NULL}},
+    {BA_DRONE_VANISH,       {bsDroneVanish_init, bsDroneVanish_update, bsDroneVanish_end, N64_NULL}},
     {0}
 };
 

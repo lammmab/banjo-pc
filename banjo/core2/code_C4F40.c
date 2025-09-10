@@ -81,7 +81,7 @@ void func_8034BFF8(ActorMarker *marker) {
     BKMesh *phi_s1;
     s32 phi_s2;
 
-    if (marker->unk48 != NULL) {
+    if (marker->unk48 != N64_NULL) {
         marker->unk4C = vector_new(sizeof(Struct6Es), 0);
         sp2C = BKModel_getMeshList(marker->unk48);
         phi_s1 = (BKMesh *)(sp2C + 1);
@@ -139,7 +139,7 @@ Struct70s *func_8034C2C4(ActorMarker *marker, s32 arg1) {
             return &i_ptr->unkC;
         }
     }
-    return NULL;
+    return N64_NULL;
 }
 
 Struct70s *func_8034C344(s32 arg0) {
@@ -154,5 +154,5 @@ Struct70s *func_8034C344(s32 arg0) {
             return &i_ptr->unkC;
         }
     }
-    return NULL;
+    return N64_NULL;
 }

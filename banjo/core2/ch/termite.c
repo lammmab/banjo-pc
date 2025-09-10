@@ -157,7 +157,7 @@ void chTermite_update(Actor *this) {
 
     sp34 = globalTimer_getTime();
     if (!this->volatile_initialized) {
-        marker_setCollisionScripts(this->marker, NULL, __chTermite_ow, __chTermite_die);
+        marker_setCollisionScripts(this->marker, N64_NULL, __chTermite_ow, __chTermite_die);
         this->unk124_0 = this->unk138_31 = false;
         this->has_met_before = false;
         this->unk16C_0 = true;
@@ -170,7 +170,7 @@ void chTermite_update(Actor *this) {
         && player_movementGroup() == BSGROUP_0_NONE
         && player_getTransformation() == TRANSFORM_1_BANJO
     ) {
-        gcdialog_showDialog(ASSET_B43_DIALOG_TERMITE_MEET_AS_BEAR, 7, this->position, this->marker, __chTermite_testCallback, NULL);
+        gcdialog_showDialog(ASSET_B43_DIALOG_TERMITE_MEET_AS_BEAR, 7, this->position, this->marker, __chTermite_testCallback, N64_NULL);
         mapSpecificFlags_set(0, true);
         levelSpecificFlags_set(LEVEL_FLAG_D_MM_UNKNOWN, true);
         this->has_met_before = true;
@@ -182,12 +182,12 @@ void chTermite_update(Actor *this) {
         && player_getTransformation() == TRANSFORM_2_TERMITE
     ) {
         if (!levelSpecificFlags_get(LEVEL_FLAG_B_MM_UNKNOWN)) {
-            if (gcdialog_showDialog(ASSET_B41_DIALOG_TERMITE_COOL_SHORTS, 0, NULL, NULL, NULL, NULL)) {
+            if (gcdialog_showDialog(ASSET_B41_DIALOG_TERMITE_COOL_SHORTS, 0, N64_NULL, N64_NULL, N64_NULL, N64_NULL)) {
                 levelSpecificFlags_set(LEVEL_FLAG_B_MM_UNKNOWN, true);
                 this->unk138_23 = true;
             }
         }
-        else if (!levelSpecificFlags_get(LEVEL_FLAG_C_MM_UNKNOWN) && !this->unk138_23 && (gcdialog_showDialog(ASSET_B42_DIALOG_TERMITE_COOL_BACKPACK, 0, NULL, NULL, NULL, NULL))) {
+        else if (!levelSpecificFlags_get(LEVEL_FLAG_C_MM_UNKNOWN) && !this->unk138_23 && (gcdialog_showDialog(ASSET_B42_DIALOG_TERMITE_COOL_BACKPACK, 0, N64_NULL, N64_NULL, N64_NULL, N64_NULL))) {
             levelSpecificFlags_set(LEVEL_FLAG_C_MM_UNKNOWN, true);
         }
     }

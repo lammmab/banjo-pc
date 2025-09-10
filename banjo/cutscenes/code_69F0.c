@@ -12,8 +12,8 @@ extern void func_8038CF50(Actor *this);
 /* .data */
 ActorInfo D_8038E7A0 = {
     0x211, 0x341, 0x45D,
-    1, NULL,
-    NULL, func_8038CF50, actor_draw,
+    1, N64_NULL,
+    N64_NULL, func_8038CF50, actor_draw,
     0, 0xA000, 0.0f, 0
 };
 

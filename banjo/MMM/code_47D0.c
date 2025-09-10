@@ -44,7 +44,7 @@ void chTumblar_draw(Struct_MMM_47D0_0 *arg0, struct struct_68_s *arg1, f32 posit
         }
 
         modelRender_setDepthMode(MODEL_RENDER_DEPTH_FULL);
-        modelRender_draw(gfx, mtx, position, rotation, scale, NULL, model_bin);
+        modelRender_draw(gfx, mtx, position, rotation, scale, N64_NULL, model_bin);
     }
 }
 
@@ -96,14 +96,14 @@ void chTumblar_init(Struct_MMM_47D0_0 *arg0, Struct68s *arg1) {
     distance_to_jiggy = 500.0f;
     jiggy = actorArray_findClosestActorFromActorId(position, ACTOR_46_JIGGY, -1, &distance_to_jiggy);
 
-    if (jiggy != NULL) {
+    if (jiggy != N64_NULL) {
         arg0->jiggy_marker = jiggy->marker;
     }
     else {
-        arg0->jiggy_marker = NULL;
+        arg0->jiggy_marker = N64_NULL;
     }
 
-    if (arg0->jiggy_marker != NULL) {
+    if (arg0->jiggy_marker != N64_NULL) {
         arg0->jiggy_marker->collidable = false;
     }
 
@@ -118,7 +118,7 @@ void __chTumblar_congratulationTextCallback(ActorMarker *marker, enum asset_e te
 }
 
 void chTumblar_congratulate(Struct_MMM_47D0_0 *arg0, s32 arg1) {
-    gcdialog_showDialog(ASSET_ADB_DIALOG_UNKNOWN, 4, NULL, arg0->jiggy_marker, __chTumblar_congratulationTextCallback, NULL);
+    gcdialog_showDialog(ASSET_ADB_DIALOG_UNKNOWN, 4, N64_NULL, arg0->jiggy_marker, __chTumblar_congratulationTextCallback, N64_NULL);
     arg0->state = TUMBLAR_STATE_1_CONGRATULATING;
 }
 
@@ -170,7 +170,7 @@ void chTumblar_update(Struct_MMM_47D0_0 *arg0, Struct68s *arg1, f32 tick) {
         func_80351B28(arg1, position);
         func_8035179C_copyPosition(arg1, position);
 
-        if (arg0->jiggy_marker != NULL) {
+        if (arg0->jiggy_marker != N64_NULL) {
             viewport_getPosition_vec3f(viewport_position);
 
             direction[0] = position[0] - viewport_position[0];
@@ -187,7 +187,7 @@ void chTumblar_update(Struct_MMM_47D0_0 *arg0, Struct68s *arg1, f32 tick) {
         if (arg0->timer >= 1.0f) {
             arg0->state = TUMBLAR_STATE_3_DISAPPEARED;
 
-            if (arg0->jiggy_marker != NULL) {
+            if (arg0->jiggy_marker != N64_NULL) {
                 arg0->jiggy_marker->collidable = true;
             }
 
@@ -211,7 +211,7 @@ void chTumblar_update(Struct_MMM_47D0_0 *arg0, Struct68s *arg1, f32 tick) {
     func_8035179C_copyPosition(arg1, position);
 
     if (!mapSpecificFlags_get(MMM_SPECIFIC_FLAG_0_UNKNOWN) && arg0->state == TUMBLAR_STATE_0_IDLE && ml_vec3f_horizontal_distance_zero_likely(position, plyr_pos) < 250.0f) {
-        if (gcdialog_showDialog(ASSET_ADA_DIALOG_UNKNOWN, 0, NULL, NULL, NULL, NULL)) {
+        if (gcdialog_showDialog(ASSET_ADA_DIALOG_UNKNOWN, 0, N64_NULL, N64_NULL, N64_NULL, N64_NULL)) {
             mapSpecificFlags_set(0, true);
         }
     }

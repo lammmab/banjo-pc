@@ -31,8 +31,8 @@ void func_803868F0(Actor* this);
 /* .data */
 ActorInfo D_80390050 = {
     MARKER_182_RBB_EGG_TOLL, ACTOR_172_RBB_EGG_TOLL, ASSET_402_MODEL_EGG_TOLL,
-    0x0, NULL,
-    func_803868F0, NULL, func_80325340,
+    0x0, N64_NULL,
+    func_803868F0, N64_NULL, func_80325340,
     0, 0, 0.0f, 0
 };
 Struct_RBB_0_1 D_80390074[4] = {

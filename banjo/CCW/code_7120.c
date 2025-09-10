@@ -11,8 +11,8 @@ void func_8038D85C(Actor *this);
 /* .data */
 ActorInfo D_8038F640 = {
     0x1BF, 0x2AC, 0x490,
-    0x0, NULL,
-    func_8038D85C, NULL, actor_draw,
+    0x0, N64_NULL,
+    func_8038D85C, N64_NULL, actor_draw,
     0, 0, 2.2f, 0
 };
 
@@ -105,7 +105,7 @@ void func_8038D85C(Actor *this) {
     if (!this->volatile_initialized) {
         this->marker->propPtr->unk8_3 = true;
         this->volatile_initialized = true;
-        marker_setCollisionScripts(this->marker, NULL, &func_8038D81C, NULL);
+        marker_setCollisionScripts(this->marker, N64_NULL, &func_8038D81C, N64_NULL);
         func_8038D6D8(this, 1);
 
         if (jiggyscore_isCollected(JIGGY_4B_CCW_GNAWTY) != false) {

@@ -8,7 +8,7 @@ void osSetEventMesg(OSEvent event, OSMesgQueue *mq, OSMesg msg)
 	__OSEventState *es;
 
 	es = &__osEventStateTab[event];
-	es->messageQueue = mq;
-	es->message = msg;
+	es->queue = mq;
+	es->msg = msg;
 	__osRestoreInt(saveMask);
 }

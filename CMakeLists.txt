@@ -25,6 +25,7 @@ if(MSVC)
     add_definitions(-DENABLE_DX11)
 endif()
 
+add_compile_definitions(F3DEX_GBI)
 
 add_executable(banjo ${SOURCES})
 

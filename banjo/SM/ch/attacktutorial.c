@@ -21,8 +21,8 @@ static void __chAttackTutorial_update(Actor *);
 
 /* .data */
 ActorInfo gChAttackTutorial = {
-    MARKER_12B_ATTACK_TUTORIAL, ACTOR_167_ATTACK_TUTORIAL, NULL,
-    1, NULL,
+    MARKER_12B_ATTACK_TUTORIAL, ACTOR_167_ATTACK_TUTORIAL, N64_NULL,
+    1, N64_NULL,
     __chAttackTutorial_update, actor_update_func_80326224, func_80325340,
     0, 0, 0.0f, 0
 };
@@ -94,7 +94,7 @@ static void __chAttackTutorial_setState(Actor* this, enum ch_attack_tutorial_sta
             else{
                 gcdialog_showDialog(
                     (this->unk10_12 == VEGETABLE_1_TOPPER) ? ASSET_E15_DIALOG_ATTACK_TUTORIAL_FORWARD_ROLL : ASSET_E17_DIALOG_ATTACK_TUTORIAL_RATATAT_RAP,
-                    0xE, this->unk1C, this->marker, __chAttackTutorial_learnAbilityBasedOnDialog, NULL
+                    0xE, this->unk1C, this->marker, __chAttackTutorial_learnAbilityBasedOnDialog, N64_NULL
                 );
             }
             break;
@@ -136,7 +136,7 @@ static void __chAttackTutorial_update(Actor *this) {
     
     if (!this->initialized) { 
         bottles = actorArray_findClosestActorFromActorId(this->position, ACTOR_12B_TUTORIAL_BOTTLES, -1, &minimum_distance);
-        if (bottles != NULL) {
+        if (bottles != N64_NULL) {
             this->unk1C_x = bottles->position_x;
             this->unk1C_y = bottles->position_y;
             this->unk1C_z = bottles->position_z;
@@ -184,7 +184,7 @@ static void __chAttackTutorial_handleDialog(ActorMarker *marker, enum asset_e te
 
         case ASSET_E14_DIALOG_ATTACK_TUTORIAL_SUCCESSFUL_KILL: // WOW...NICE ONE! TRY ANOTHER!
         case ASSET_E16_DIALOG_ATTACK_TUTORIAL_SUCCESSFUL_KILL: // BULLS-EYE! ONE MORE...
-        case ASSET_E18_DIALOG_ATTACK_TUTORIAL_SUCCESSFUL_KILL: // MMMM...NOT BAD, FEATHER FACE!
+        case ASSET_E18_DIALOG_ATTACK_TUTORIAL_SUCCESSFUL_KILL: // MMMM...! BAD, FEATHER FACE!
             __chAttackTutorial_spawnEnemyActor(actor, actor->unk10_12);
             break;
 
@@ -248,6 +248,6 @@ static void __chAttackTutorial_showDialogText(ActorMarker* marker) {
         timed_setStaticCameraToNode(0.0f, 6);
     }
 
-    gcdialog_showDialog(dialog_text, dialog_flag, actor->unk1C, actor->marker, __chAttackTutorial_handleDialog, NULL);
+    gcdialog_showDialog(dialog_text, dialog_flag, actor->unk1C, actor->marker, __chAttackTutorial_handleDialog, N64_NULL);
     actor->unk38_31++;
 }

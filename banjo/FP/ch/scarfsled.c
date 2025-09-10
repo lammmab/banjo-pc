@@ -15,7 +15,7 @@ ActorAnimationInfo chScarfSledAnimations[] ={
 ActorInfo chScarfSled = {
     MARKER_3B_SCARF_SLED, ACTOR_181_SCARF_SLED, ASSET_352_MODEL_SLED,
     0, chScarfSledAnimations,
-    NULL,  chScarfSled_update, actor_draw,
+    N64_NULL,  chScarfSled_update, actor_draw,
     1000, 0,  0.0f, 0
 };
 
@@ -124,7 +124,7 @@ void __chScarfSled_func_80386630(Actor *this){
 void chScarfSled_update(Actor *this){
     if(!this->initialized){
         this->initialized = true;
-        marker_setCollisionScripts(this->marker, __chScarfSled_touch, NULL, NULL);
+        marker_setCollisionScripts(this->marker, __chScarfSled_touch, N64_NULL, N64_NULL);
         this->marker->propPtr->unk8_3 = true;
         this->unk10_12 = 0;
         ml_vec3f_clear(this->velocity);

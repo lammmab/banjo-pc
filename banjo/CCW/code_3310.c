@@ -89,13 +89,13 @@ Struct_CCW_3310_1 D_8038F060[] = {
 };
 
 Struct_CCW_3310_0 D_8038F080[] = {
-    {MAP_43_CCW_SPRING, 0,                                FILEPROG_E6_SPRING_EYRIE_HATCHED,     0,       NULL, 3,     0,       NULL, 0x18F, D_8038EFC0, 0x190, D_8038F030, 0,   0,     0,     0},
+    {MAP_43_CCW_SPRING, 0,                                FILEPROG_E6_SPRING_EYRIE_HATCHED,     0,       N64_NULL, 3,     0,       N64_NULL, 0x18F, D_8038EFC0, 0x190, D_8038F030, 0,   0,     0,     0},
     {MAP_44_CCW_SUMMER, FILEPROG_E6_SPRING_EYRIE_HATCHED, FILEPROG_E7_SUMMER_EYRIE_FED,     0x191, D_8038EEA0, 2, 0x192, D_8038EF20, 0x193, D_8038EFC0, 0x194, D_8038F030, 2,   5, 0x21A, 0xCD7},
     {MAP_45_CCW_AUTUMN, FILEPROG_E7_SUMMER_EYRIE_FED,     FILEPROG_E8_AUTMN_EYRIE_FED,      0x195, D_8038EEA0, 2, 0x196, D_8038EF20, 0x197, D_8038EFC0, 0x198, D_8038F030, 4, 0xA, 0x21B, 0xCDA},
     0
 };
 
-ActorInfo D_8038F130 = { MARKER_1B4_EEYRIE_BABY, ACTOR_2A1_EEYRIE_BABY, ASSET_484_MODEL_EAGLE_BABY, 0x0, NULL, CCW_func_80389BFC, NULL, func_80389B24, 0, 0, 0.0f, 0};
+ActorInfo D_8038F130 = { MARKER_1B4_EEYRIE_BABY, ACTOR_2A1_EEYRIE_BABY, ASSET_484_MODEL_EAGLE_BABY, 0x0, N64_NULL, CCW_func_80389BFC, N64_NULL, func_80389B24, 0, 0, 0.0f, 0};
 
 /* .bss */
 f32 D_8038FDE0[3];
@@ -121,7 +121,7 @@ void func_803897B8(Actor *this, s32 next_state) {
     ActorLocal_CCW_3310 *local;
 
     local = (ActorLocal_CCW_3310 *)&this->local;
-    local->unk8 = NULL;
+    local->unk8 = N64_NULL;
     if (next_state == 1) {
         if (local->unk0->unk6 != 0) {
             skeletalAnim_set(this->unk148, local->unk0->unk6, 0.2f, 6.0f);
@@ -153,14 +153,14 @@ void func_803897B8(Actor *this, s32 next_state) {
         skeletalAnim_set(this->unk148, local->unk0->unk14, 0.5f, 8.5f);
         skeletalAnim_setBehavior(this->unk148, SKELETAL_ANIM_2_ONCE);
         if (local->unk0->map_id == MAP_43_CCW_SPRING) {
-            gcdialog_showDialog(0xCD6, 4, NULL, NULL, NULL, NULL);
+            gcdialog_showDialog(0xCD6, 4, N64_NULL, N64_NULL, N64_NULL, N64_NULL);
             skeletalAnim_setCallback_0(this->unk148, 0.65f, &func_80389798);
         }
         if (local->unk0->map_id == MAP_44_CCW_SUMMER) {
-            gcdialog_showDialog(0xCD9, 4, NULL, NULL, NULL, NULL);
+            gcdialog_showDialog(0xCD9, 4, N64_NULL, N64_NULL, N64_NULL, N64_NULL);
         }
         if (local->unk0->map_id == MAP_45_CCW_AUTUMN) {
-            gcdialog_showDialog(0xCDB, 4, NULL, NULL, NULL, NULL);
+            gcdialog_showDialog(0xCDB, 4, N64_NULL, N64_NULL, N64_NULL, N64_NULL);
         }
         local->unk8 = local->unk0->unk18;
     }
@@ -261,7 +261,7 @@ void CCW_func_80389BFC(Actor *this) {
             this->has_met_before = true;
             func_80324E38(0.0f, 3);
             timed_setStaticCameraToNode(0.0f, local->unk0->unk24);
-            func_80324DBC(0.0f, local->unk0->unk28, 6, NULL, this->marker, func_80389700, NULL);
+            func_80324DBC(0.0f, local->unk0->unk28, 6, N64_NULL, this->marker, func_80389700, N64_NULL);
         }
         local->unkC[0] = (s32) sp4C[0];
         local->unkC[1] = (s32) sp4C[1];
@@ -274,7 +274,7 @@ void CCW_func_80389BFC(Actor *this) {
             if ((local->unk0->unkE != 0) && (carriedObj_getActorId() == ACTOR_2A2_CATERPILLAR) && (ml_vec3f_distance(this->position, sp4C) < 1010.0f) && (player_throwCarriedObject() != 0)) {
                 player_setThrowTargetPosition(D_8038FDE0);
                 if ((local->unk0->map_id == MAP_44_CCW_SUMMER) && (local->unk4 == 0)) {
-                    gcdialog_showDialog(0xCD8, 4, NULL, NULL, NULL, NULL);
+                    gcdialog_showDialog(0xCD8, 4, N64_NULL, N64_NULL, N64_NULL, N64_NULL);
                 }
                 local->unk4++;
                 if (local->unk4 < local->unk0->unk25) {

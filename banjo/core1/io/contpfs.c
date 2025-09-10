@@ -54,8 +54,8 @@ s32 __osRepairPackId(OSPfs *pfs, __OSPackId *badid, __OSPackId *newid)
     SET_ACTIVEBANK_TO_ZERO;
     newid->repaired = -1;
     newid->random = osGetCount();
-    newid->serial_mid = badid->serial_mid;
-    newid->serial_low = badid->serial_low;
+    newid->serialMid = badid->serialMid;
+    newid->serialLow = badid->serialLow;
     for (j = 0; j < PFS_MAX_BANKS;)
     {
         pfs->activebank = j;
@@ -97,7 +97,7 @@ s32 __osRepairPackId(OSPfs *pfs, __OSPackId *badid, __OSPackId *newid)
     newid->deviceid = (badid->deviceid & (u16)~1) | mask;
     newid->banks = j;
     newid->version = badid->version;
-    __osIdCheckSum((u16*)newid, &newid->checksum, &newid->inverted_checksum);
+    __osIdCheckSum((u16*)newid, &newid->checksum, &newid->invertedChecksum);
     index[0] = 1;
     index[1] = 3;
     index[2] = 4;
@@ -134,7 +134,7 @@ s32 __osCheckPackId(OSPfs *pfs, __OSPackId *temp)
     {
         ERRCK(__osContRamRead(pfs->queue, pfs->channel, index[i], (u8*)temp));
         __osIdCheckSum((u16 *)temp, &sum, &isum);
-        if (temp->checksum == sum && temp->inverted_checksum == isum)
+        if (temp->checksum == sum && temp->invertedChecksum == isum)
             break;
     }
     if (i == ARRLEN(index))
@@ -164,7 +164,7 @@ s32 __osGetId(OSPfs *pfs)
     ERRCK(__osContRamRead(pfs->queue, pfs->channel, 1, (u8*)temp));
     __osIdCheckSum((u16*)temp, &sum, &isum);
     id = (__OSPackId*)temp;
-    if (id->checksum != sum || id->inverted_checksum != isum)
+    if (id->checksum != sum || id->invertedChecksum != isum)
     {
         ret = __osCheckPackId(pfs, id);
         if (ret == PFS_ERR_ID_FATAL)
@@ -240,11 +240,11 @@ s32 __osPfsRWInode(OSPfs *pfs, __OSInode *inode, u8 flag, u8 bank)
         offset = pfs->inodeStartPage;
 
     if (flag == PFS_WRITE)
-        inode->inode_page[0].inode_t.page = __osSumcalc((u8*)&inode->inode_page[offset], (-offset) * 2 + 256);
+        inode->inodePage[0].inode_t.page = __osSumcalc((u8*)&inode->inodePage[offset], (-offset) * 2 + 256);
 
     for (j = 0; j < 8; j++)
     {
-        addr = ((u8 *)inode->inode_page + j * 32); //TODO: don't like this =/ //maybe &inode->inode_table[j*PFS_ONE_PAGE].ipage or something
+        addr = ((u8 *)inode->inodePage + j * 32); //TODO: don't like this =/ //maybe &inode->inode_table[j*PFS_ONE_PAGE].ipage or something
         if (flag == PFS_WRITE)
         {
             ret = __osContRamWrite(pfs->queue, pfs->channel, pfs->inode_table + bank * 8 + j, addr, false);
@@ -259,19 +259,19 @@ s32 __osPfsRWInode(OSPfs *pfs, __OSInode *inode, u8 flag, u8 bank)
     }
     if (flag == PFS_READ)
     {
-        sum = __osSumcalc((u8*)&inode->inode_page[offset], (-offset) * 2 + 256);
-        if (sum != inode->inode_page[0].inode_t.page)
+        sum = __osSumcalc((u8*)&inode->inodePage[offset], (-offset) * 2 + 256);
+        if (sum != inode->inodePage[0].inode_t.page)
         {
             for (j = 0; j < PFS_ONE_PAGE; j++)
             {
-                addr = ((u8 *)inode->inode_page + j * 32);
+                addr = ((u8 *)inode->inodePage + j * 32);
                 ret = __osContRamRead(pfs->queue, pfs->channel, pfs->minode_table + bank * PFS_ONE_PAGE + j, addr);
             }
-            if (sum != inode->inode_page[0].inode_t.page)
+            if (sum != inode->inodePage[0].inode_t.page)
                 return PFS_ERR_INCONSISTENT;
             for (j = 0; j < PFS_ONE_PAGE; j++)
             {
-                addr = ((u8 *)inode->inode_page + j * 32);
+                addr = ((u8 *)inode->inodePage + j * 32);
                 ret = __osContRamWrite(pfs->queue, pfs->channel, pfs->inode_table + bank * PFS_ONE_PAGE + j, addr, false);
             }
         }
@@ -279,7 +279,7 @@ s32 __osPfsRWInode(OSPfs *pfs, __OSInode *inode, u8 flag, u8 bank)
         {
             for (j = 0; j < PFS_ONE_PAGE; j++)
             {
-                addr = ((u8 *)inode->inode_page + j * 32);
+                addr = ((u8 *)inode->inodePage + j * 32);
                 ret = __osContRamWrite(pfs->queue, pfs->channel, pfs->minode_table + bank * PFS_ONE_PAGE + j, addr, false);
             }
         }

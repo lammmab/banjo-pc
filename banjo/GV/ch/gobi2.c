@@ -14,8 +14,8 @@ Actor *chGobi2_draw(ActorMarker *this_marker, Gfx **gfx, Mtx **mtx, Vtx **vtx);
 
 /* .data */
 ActorInfo chGobi2 = { MARKER_BF_GOBI_2, ACTOR_131_GOBI_2, ASSET_3E0_MODEL_GOBI, 
-    0x0, NULL, 
-    NULL, chGobi2_update, chGobi2_draw, 
+    0x0, N64_NULL, 
+    N64_NULL, chGobi2_update, chGobi2_draw, 
     0, 0x533, 0.0f, 0
 };
 
@@ -85,7 +85,7 @@ void chGobi2_setState(Actor *this, s32 next_state){
         timed_playSfx(0.8f, SFX_4B_GULPING, 0.8f, 28000);
         timed_playSfx(1.4f, SFX_4B_GULPING, 0.8f, 28000);
         timed_playSfx(2.0f, SFX_4B_GULPING, 0.8f, 28000);
-        func_80324DBC(3.0f, ASSET_A72_DIALOG_TRUNKER_HELPED, 0x2A, D_80390CEC, this->marker, func_80387A2C, NULL);
+        func_80324DBC(3.0f, ASSET_A72_DIALOG_TRUNKER_HELPED, 0x2A, D_80390CEC, this->marker, func_80387A2C, N64_NULL);
     }//L80387C94
 
     if(next_state == 4){
@@ -132,12 +132,12 @@ Actor *chGobi2_draw(ActorMarker *this_marker, Gfx **gfx, Mtx **mtx, Vtx **vtx){
     sp3C[2] = this->roll;
     modelRender_setBoneTransformList(skeletalAnim_getBoneTransformList(this->unk148));
     modelRender_preDraw((GenFunction_1)actor_predrawMethod, (s32)this);
-    modelRender_draw(gfx, mtx, this->position, sp3C, 1.0f, NULL, marker_loadModelBin(this_marker));
+    modelRender_draw(gfx, mtx, this->position, sp3C, 1.0f, N64_NULL, marker_loadModelBin(this_marker));
 
     if(this->state == 4){
         modelRender_setBoneTransformList(skeletalAnim_getBoneTransformList(local->unk4));
         modelRender_setDepthMode(MODEL_RENDER_DEPTH_COMPARE);
-        modelRender_draw(gfx, mtx, this->position, sp3C, 1.0f, NULL, local->unk8);
+        modelRender_draw(gfx, mtx, this->position, sp3C, 1.0f, N64_NULL, local->unk8);
     }
     return this;
 }
@@ -155,7 +155,7 @@ void __chGobi2_80387EFC(Actor *this){
 void __chGobi2_ow(ActorMarker *this_marker, ActorMarker *other_marker){
     Actor *this = marker_getActor(this_marker);
     enum hitbox_e hitbox;
-    hitbox = player_getActiveHitbox(NULL);
+    hitbox = player_getActiveHitbox(N64_NULL);
     if(hitbox  == HITBOX_1_BEAK_BUSTER)
         D_80391A50 = true;
     else if(hitbox == HITBOX_A_FAST_FALLING){
@@ -172,7 +172,7 @@ void chGobi2_update(Actor *this){
     sp2C = time_getDelta();
     if(!this->volatile_initialized){
         this->volatile_initialized = true;
-        marker_setCollisionScripts(this->marker, __chGobi2_ow, NULL, NULL);
+        marker_setCollisionScripts(this->marker, __chGobi2_ow, N64_NULL, N64_NULL);
         sp34->actorFreeFunc = __chGobi2_80387EFC;
         local->unk4 = skeletalAnim_new();
         local->unk8 = (BKModelBin*) assetcache_get(ASSET_3F3_MODEL_GOBI_SPIT);
@@ -203,7 +203,7 @@ void chGobi2_update(Actor *this){
         if(!this->has_met_before){
             if(subaddie_playerIsWithinSphereAndActive(this, 0xFA) && !subaddie_playerIsWithinSphereAndActive(this, 0x50)){
                 if(func_8028F2A0()){
-                    if(gcdialog_showDialog(ASSET_A75_DIALOG_GOBI2_MEET, 0, this->position, NULL, NULL, NULL))
+                    if(gcdialog_showDialog(ASSET_A75_DIALOG_GOBI2_MEET, 0, this->position, N64_NULL, N64_NULL, N64_NULL))
                         this->has_met_before = true;
                 }
             }

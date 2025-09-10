@@ -228,7 +228,7 @@ void func_8033B268(void){
 
 void func_8033B2A4(s32 arg0) {
     assetCachePtrList[assetCacheLength] = malloc(arg0);
-    D_80383CD4[assetCacheLength] = NULL;
+    D_80383CD4[assetCacheLength] = N64_NULL;
     assetCacheDependencyCount[assetCacheLength] = 1;
     assetCacheAssetIdList[assetCacheLength] = -1;
     assetCacheLength += 1;
@@ -237,7 +237,7 @@ void func_8033B2A4(s32 arg0) {
 bool func_8033B338(void **sprite_ptr, BKSpriteDisplayData **arg1)
 {
     void *new_var;
-    if ((*sprite_ptr) == NULL)
+    if ((*sprite_ptr) == N64_NULL)
     return 0;
 
     new_var = *sprite_ptr;
@@ -249,12 +249,12 @@ bool func_8033B338(void **sprite_ptr, BKSpriteDisplayData **arg1)
 }
 
 bool func_8033B388(BKSprite **sprite_ptr, BKSpriteDisplayData **arg1){
-    if(*sprite_ptr == NULL)
+    if(*sprite_ptr == N64_NULL)
         return false;
     
     func_8033B020(*sprite_ptr);
-    *sprite_ptr = NULL;
-    *arg1 = NULL;
+    *sprite_ptr = N64_NULL;
+    *arg1 = N64_NULL;
 
     if(sprite_ptr);
     
@@ -293,7 +293,7 @@ s32 assetcache_release(void * arg0){
 void assetcache_update_ptr(void * arg0, void* arg1){
     s32 i;
 
-    if((arg0 == NULL) || (arg1 == NULL) || (arg0 == arg1))
+    if((arg0 == N64_NULL) || (arg1 == N64_NULL) || (arg0 == arg1))
         return;
 
     for(i = 0; i < assetCacheLength  && arg0 != assetCachePtrList[i]; i++);
@@ -336,7 +336,7 @@ bool asset_isCompressed(enum asset_e arg0){ //asset_compressed?
 BKSprite *func_8033B6C4(enum asset_e sprite_id, BKSpriteDisplayData **arg1){
     BKSprite *s0;
     s0 = assetcache_get(sprite_id);
-    if(D_80383CD4[assetCacheCurrentIndex] == NULL){
+    if(D_80383CD4[assetCacheCurrentIndex] == N64_NULL){
         func_803382E4(-1);
         func_80338308(sprite_getUnk8(s0), sprite_getUnkA(s0));
         D_80383CD4[assetCacheCurrentIndex] = func_80344A1C(s0);
@@ -364,7 +364,7 @@ void *assetcache_get(enum asset_e assetId) {
     for(i = 0; i < assetCacheLength && assetId != assetCacheAssetIdList[i]; i++);
     assetCacheCurrentIndex = i;
     if(i == 0x96)
-        return NULL;
+        return N64_NULL;
     
     if(i < assetCacheLength){ //asset exists in array;
         assetCacheDependencyCount[i]++;
@@ -462,7 +462,7 @@ s32 assetCache_getDependencyCount(enum asset_e arg0){
 
 void func_8033BD20(BKModelBin **arg0){
     func_8033B020(*arg0);
-    *arg0 = NULL;
+    *arg0 = N64_NULL;
 }
 
 void assetCache_free(void *arg0){

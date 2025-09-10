@@ -37,16 +37,16 @@ void n_alSynNew(ALSynConfig *c)
     ALParam     *params;
     ALParam     *paramPtr;
     
-    n_syn->head            = NULL;
-    n_syn->n_seqp1         = NULL;
-    n_syn->n_seqp2         = NULL;
-    n_syn->unk5C                 = NULL;
-    n_syn->unk60                 = NULL;
-    n_syn->unk64                 = NULL;
-    n_syn->unk68                 = NULL;
-    n_syn->unk6C                 = NULL;
-    n_syn->unk70                 = NULL;
-    n_syn->n_sndp          = NULL;
+    n_syn->head            = N64_NULL;
+    n_syn->n_seqp1         = N64_NULL;
+    n_syn->n_seqp2         = N64_NULL;
+    n_syn->unk5C                 = N64_NULL;
+    n_syn->unk60                 = N64_NULL;
+    n_syn->unk64                 = N64_NULL;
+    n_syn->unk68                 = N64_NULL;
+    n_syn->unk6C                 = N64_NULL;
+    n_syn->unk70                 = N64_NULL;
+    n_syn->n_sndp          = N64_NULL;
     n_syn->numPVoices      = c->maxPVoices;
     n_syn->curSamples      = 0;
     n_syn->paramSamples    = 0;
@@ -281,7 +281,7 @@ static s32 func_8025C370(ALPlayer **client)
     *client = 0;
     
     
-    if(n_syn->n_sndp != NULL){
+    if(n_syn->n_sndp != N64_NULL){
         idelta = (n_syn->n_sndp->samplesLeft - n_syn->curSamples);
         if (idelta < delta) {
             *client = n_syn->n_sndp;
@@ -290,7 +290,7 @@ static s32 func_8025C370(ALPlayer **client)
     }
 
     cl = n_syn->n_seqp1;
-    if(cl != NULL){
+    if(cl != N64_NULL){
         idelta = (cl->samplesLeft - n_syn->curSamples);
         if (idelta < delta) {
             *client = cl;
@@ -299,7 +299,7 @@ static s32 func_8025C370(ALPlayer **client)
     }
 
     cl = n_syn->n_seqp2;
-    if(cl != NULL){
+    if(cl != N64_NULL){
         if ((cl->samplesLeft - n_syn->curSamples) < delta) {
             *client = cl;
             delta = idelta;
@@ -307,7 +307,7 @@ static s32 func_8025C370(ALPlayer **client)
     }
 
     cl = n_syn->unk5C;
-    if(cl != NULL){
+    if(cl != N64_NULL){
         if ((cl->samplesLeft - n_syn->curSamples) < delta) {
             *client = cl;
             delta = idelta;
@@ -315,7 +315,7 @@ static s32 func_8025C370(ALPlayer **client)
     }
 
     cl = n_syn->unk60;
-    if(cl != NULL){
+    if(cl != N64_NULL){
         if ((cl->samplesLeft - n_syn->curSamples) < delta) {
             *client = cl;
             delta = idelta;
@@ -323,7 +323,7 @@ static s32 func_8025C370(ALPlayer **client)
     }
 
     cl = n_syn->unk64;
-    if(cl != NULL){
+    if(cl != N64_NULL){
         if ((cl->samplesLeft - n_syn->curSamples) < delta) {
             *client = cl;
             delta = idelta;
@@ -331,7 +331,7 @@ static s32 func_8025C370(ALPlayer **client)
     }
 
     cl = n_syn->unk68;
-    if(cl != NULL){
+    if(cl != N64_NULL){
         if ((cl->samplesLeft - n_syn->curSamples) < delta) {
             *client = cl;
             delta = idelta;
@@ -339,7 +339,7 @@ static s32 func_8025C370(ALPlayer **client)
     }
 
     cl = n_syn->unk6C;
-    if(cl != NULL){
+    if(cl != N64_NULL){
         if ((cl->samplesLeft - n_syn->curSamples) < delta) {
             *client = cl;
             delta = idelta;
@@ -347,7 +347,7 @@ static s32 func_8025C370(ALPlayer **client)
     }
 
     cl = n_syn->unk70;
-    if(cl != NULL){
+    if(cl != N64_NULL){
         if ((cl->samplesLeft - n_syn->curSamples) < delta) {
             *client = cl;
             delta = idelta;

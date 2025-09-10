@@ -5,7 +5,7 @@
 
 extern Actor *func_80325CAC(ActorMarker *, Gfx **, Mtx **, Vtx**);
 
-ActorInfo chGreenBlast = { MARKER_25D_GREEN_BLAST, ACTOR_38A_GREEN_BLAST, ASSET_6C7_GREEN_BLAST, 1, NULL, chGreenBlast_update, actor_update_func_80326224, chGreenBlast_draw, 0, 0, 1.0f, 0 };
+ActorInfo chGreenBlast = { MARKER_25D_GREEN_BLAST, ACTOR_38A_GREEN_BLAST, ASSET_6C7_GREEN_BLAST, 1, N64_NULL, chGreenBlast_update, actor_update_func_80326224, chGreenBlast_draw, 0, 0, 1.0f, 0 };
 
 f32 D_80391DE4[4] = {0.6f, 1.0f, 1.0f, 1.0f};
 f32 D_80391DF4[4] = {0.3f, 0.3f, 0.3f, 1.0f};
@@ -78,7 +78,7 @@ void chGreenBlast_update(Actor *this) {
 
     if (!this->volatile_initialized) {
         this->volatile_initialized = true;
-        marker_setCollisionScripts(this->marker, NULL, NULL, chGreenBlast_collisionDie);
+        marker_setCollisionScripts(this->marker, N64_NULL, N64_NULL, chGreenBlast_collisionDie);
         this->marker->propPtr->unk8_3 = 0;
         actor_collisionOn(this);
         this->lifetime_value = 10.0f;

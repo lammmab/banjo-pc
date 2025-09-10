@@ -57,13 +57,13 @@ void func_802C83F0(Actor *actor) {
 
     phi_a1 = actor->unk40;
     for( phi_s0 = phi_a1->begin; phi_s0 < phi_a1->current; phi_s0++){
-        if (phi_s0->model_bin != NULL) {
+        if (phi_s0->model_bin != N64_NULL) {
             assetcache_release(phi_s0->model_bin);
         }
         if (phi_s0->unk3C != 0) {
             dustEmitter_empty(phi_s0->unk3C);
         }
-        phi_s0->unk3C = NULL;
+        phi_s0->unk3C = N64_NULL;
     }
     free(actor->unk40);
 }
@@ -80,9 +80,9 @@ Actor *func_802C8484(ActorMarker *marker, Gfx **gfx, Mtx **mtx, Vtx **vtx) {
     temp_s1 = sp58->unk40;
     phi_s4 = false;
     for(phi_s0 = temp_s1->begin; phi_s0 < temp_s1->current; phi_s0++){
-        if ((phi_s0->unk0 != 0) && (phi_s0->model_bin != NULL)) {
+        if ((phi_s0->unk0 != 0) && (phi_s0->model_bin != N64_NULL)) {
             modelRender_setDepthMode(MODEL_RENDER_DEPTH_FULL);
-            modelRender_draw(gfx, mtx, phi_s0->unk8, phi_s0->unk14, phi_s0->unk2C / 10.0f, NULL, phi_s0->model_bin);
+            modelRender_draw(gfx, mtx, phi_s0->unk8, phi_s0->unk14, phi_s0->unk2C / 10.0f, N64_NULL, phi_s0->model_bin);
             phi_s4 = true;
         }
     }

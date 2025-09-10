@@ -13,8 +13,8 @@ typedef struct{
 /* .data */
 ActorInfo D_80372840 = { 
     0x29, ACTOR_1CC_GRILL_CHOMPA, ASSET_430_MODEL_GRILL_CHOMPA, 
-    0, NULL,
-    func_80356CCC, NULL, func_80356C50,
+    0, N64_NULL,
+    func_80356CCC, N64_NULL, func_80356C50,
     0, 0, 0.0f, 0
 };
 
@@ -92,7 +92,7 @@ void func_80356CCC(Actor *this){
     if(!this->volatile_initialized){
         this->volatile_initialized = true;
         this->unk16C_0 = 1;
-        marker_setCollisionScripts(this->marker, NULL, func_80356BF4, func_80356C24);
+        marker_setCollisionScripts(this->marker, N64_NULL, func_80356BF4, func_80356C24);
         func_803569F0(this, (this->state < 5)? 1 : 6);
     }//L80356D48
     player_getPosition(sp5C);

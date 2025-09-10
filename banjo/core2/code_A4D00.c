@@ -59,26 +59,26 @@ bool func_8032CA40(Actor *actor, f32 arg1[3], s32 arg2, s32 arg3);
 
 /* .data */
 method_core2_A4D00_0 D_8036E5D0[][6] = {
-    {func_8032C404, func_8032C4AC, NULL,          func_8032C280, NULL,          func_8032C79C},
-    {func_8032C404, func_8032C4AC, NULL,          func_8032BD88, NULL,          NULL},
-    {func_8032C404, func_8032C4AC, NULL,          NULL,          NULL,          func_8032C79C},
-    {func_8032C404, func_8032C4AC, NULL,          NULL,          NULL,          NULL},
-    {func_8032C404, NULL,          NULL,          func_8032C280, NULL,          func_8032C79C},
-    {func_8032C404, NULL,          NULL,          func_8032BD88, NULL,          NULL},
-    {func_8032C404, NULL,          NULL,          NULL,          NULL,          func_8032C79C},
-    {func_8032C404, NULL,          NULL,          NULL,          NULL,          NULL},
-    {func_8032C2F0, func_8032C660, NULL,          func_8032C280, NULL,          func_8032C79C},
-    {func_8032C2F0, func_8032C660, NULL,          func_8032BD88, NULL,          NULL},
-    {func_8032C2F0, func_8032C660, NULL,          func_8032C280, func_8032CA40, func_8032C79C},
-    {func_8032C2F0, func_8032C660, NULL,          func_8032BD88, func_8032CA40, NULL},
-    {NULL,          NULL,          NULL,          func_8032BC90, NULL,          NULL},
-    {func_8032C2F0, func_8032C4AC, NULL,          func_8032C280, NULL,          func_8032C6E0},
-    {func_8032C2F0, func_8032C660, NULL,          NULL,          NULL,          func_8032C6E0},
-    {func_8032C2F0, func_8032C660, NULL,          func_8032BD88, NULL,          func_8032C6E0},
-    {NULL,          NULL,          NULL,          func_8032BC90, NULL,          func_8032C6E0},
-    {func_8032C404, func_8032C4AC, func_8032C9C0, func_8032C280, NULL,          func_8032C79C},
-    {func_8032C404, func_8032C4AC, func_8032C99C, func_8032C280, NULL,          func_8032C79C},
-    {func_8032C404, NULL,          NULL,          NULL,          NULL,          func_8032C6E0}
+    {func_8032C404, func_8032C4AC, N64_NULL,          func_8032C280, N64_NULL,          func_8032C79C},
+    {func_8032C404, func_8032C4AC, N64_NULL,          func_8032BD88, N64_NULL,          N64_NULL},
+    {func_8032C404, func_8032C4AC, N64_NULL,          N64_NULL,          N64_NULL,          func_8032C79C},
+    {func_8032C404, func_8032C4AC, N64_NULL,          N64_NULL,          N64_NULL,          N64_NULL},
+    {func_8032C404, N64_NULL,          N64_NULL,          func_8032C280, N64_NULL,          func_8032C79C},
+    {func_8032C404, N64_NULL,          N64_NULL,          func_8032BD88, N64_NULL,          N64_NULL},
+    {func_8032C404, N64_NULL,          N64_NULL,          N64_NULL,          N64_NULL,          func_8032C79C},
+    {func_8032C404, N64_NULL,          N64_NULL,          N64_NULL,          N64_NULL,          N64_NULL},
+    {func_8032C2F0, func_8032C660, N64_NULL,          func_8032C280, N64_NULL,          func_8032C79C},
+    {func_8032C2F0, func_8032C660, N64_NULL,          func_8032BD88, N64_NULL,          N64_NULL},
+    {func_8032C2F0, func_8032C660, N64_NULL,          func_8032C280, func_8032CA40, func_8032C79C},
+    {func_8032C2F0, func_8032C660, N64_NULL,          func_8032BD88, func_8032CA40, N64_NULL},
+    {N64_NULL,          N64_NULL,          N64_NULL,          func_8032BC90, N64_NULL,          N64_NULL},
+    {func_8032C2F0, func_8032C4AC, N64_NULL,          func_8032C280, N64_NULL,          func_8032C6E0},
+    {func_8032C2F0, func_8032C660, N64_NULL,          N64_NULL,          N64_NULL,          func_8032C6E0},
+    {func_8032C2F0, func_8032C660, N64_NULL,          func_8032BD88, N64_NULL,          func_8032C6E0},
+    {N64_NULL,          N64_NULL,          N64_NULL,          func_8032BC90, N64_NULL,          func_8032C6E0},
+    {func_8032C404, func_8032C4AC, func_8032C9C0, func_8032C280, N64_NULL,          func_8032C79C},
+    {func_8032C404, func_8032C4AC, func_8032C99C, func_8032C280, N64_NULL,          func_8032C79C},
+    {func_8032C404, N64_NULL,          N64_NULL,          N64_NULL,          N64_NULL,          func_8032C6E0}
 };
 
 /* .bss */
@@ -130,7 +130,7 @@ bool func_8032BD88(Actor *arg0, f32 arg1[3], s32 arg2, s32 arg3) {
 
     temp_s7 = arg0->unk154;
     var_f24 = func_8033229C(arg0->marker);
-    var_fp = NULL;
+    var_fp = N64_NULL;
     sp290 = arg0->marker->propPtr->unk8_3;
     arg0->marker->propPtr->unk8_3 = 0;
     ml_vec3f_diff_copy(sp278, arg0->position, arg1);
@@ -153,7 +153,7 @@ bool func_8032BD88(Actor *arg0, f32 arg1[3], s32 arg2, s32 arg3) {
     sp84 = sp88 * sp88;
 
     for (i = 0; i < 3; i++) {
-        var_s2 = (i != 0) ? &spBC[i - 1] : NULL;
+        var_s2 = (i != 0) ? &spBC[i - 1] : N64_NULL;
         if (i != 0) {
             ml_vec3f_copy(spBC[i].unk0, var_s2->unk0);
             ml_vec3f_copy(spBC[i].unkC, var_s2->unkC);
@@ -186,7 +186,7 @@ bool func_8032BD88(Actor *arg0, f32 arg1[3], s32 arg2, s32 arg3) {
 
         spBC[i].unk18 = func_80320C94(spBC[i].unk34, spBC[i].unk28, var_f24, spBC[i].unk1C, 3, temp_s7);
 
-        if (spBC[i].unk18 == NULL)
+        if (spBC[i].unk18 == N64_NULL)
             break;
 
         var_fp = &spBC[i];
@@ -204,21 +204,21 @@ bool func_8032BD88(Actor *arg0, f32 arg1[3], s32 arg2, s32 arg3) {
     if (i == 3) {
         ml_vec3f_copy(arg0->position, arg1);
     }
-    else if (var_fp != NULL) {
+    else if (var_fp != N64_NULL) {
         temp_f20 = gu_sqrtf((sp284[0] * sp284[0]) + (sp284[1] * sp284[1]) + (sp284[2] * sp284[2]));
         arg0->position[0] = var_fp->unk0[0];
         arg0->position[1] = var_fp->unk0[1];
         arg0->position[2] = var_fp->unk0[2];
         if ((temp_f20 != 0.0f) && ((ml_vec3f_dot_product(var_fp->unk1C, sp284) / temp_f20) < 0.93969262)) {
-            var_fp = NULL;
+            var_fp = N64_NULL;
         }
     }
     arg0->marker->propPtr->unk8_3 = sp290;
-    if (var_fp != NULL) {
+    if (var_fp != N64_NULL) {
         ml_vec3f_copy(D_803833D8, var_fp->unk1C);
     }
 
-    return BOOL(var_fp != NULL);
+    return (var_fp != N64_NULL);
 }
 
 bool func_8032C280(Actor *arg0, f32 arg1[3], s32 arg2, s32 arg3) {
@@ -344,17 +344,17 @@ bool func_8032C850(Actor *actor, f32 arg1[3], s32 arg2, s32 arg3, bool nonactor)
 
     temp_f0 = func_8033229C(actor->marker);
     stored_collidability = actor->marker->collidable;
-    D_803833D0 = NULL;
+    D_803833D0 = N64_NULL;
     actor->marker->collidable = true;
     func_80320ED8(actor->marker, temp_f0 / 2, 2);
     actor->marker->collidable = stored_collidability;
-    for (var_v1 = func_8032F528(); var_v1 != NULL; var_v1 = func_8032F528()) {
+    for (var_v1 = func_8032F528(); var_v1 != N64_NULL; var_v1 = func_8032F528()) {
         if (nonactor || (var_v1->is_actor && (var_v1->actorProp.marker->id == actor->marker->id))) {
             D_803833D0 = var_v1;
             actor->position[0] = (f32) arg1[0];
             actor->position[1] = (f32) arg1[1];
             actor->position[2] = (f32) arg1[2];
-            while (func_8032F528() != NULL) {}
+            while (func_8032F528() != N64_NULL) {}
             return true;
         }
     }
@@ -371,7 +371,7 @@ bool func_8032C9C0(Actor *actor, f32 arg1[3], s32 arg2, s32 arg3) {
 }
 
 void func_8032C9E0(f32 arg0[3]) {
-    if (D_803833D0 != NULL) {
+    if (D_803833D0 != N64_NULL) {
         arg0[0] = (f32) D_803833D0->unk4[0];
         arg0[1] = (f32) D_803833D0->unk4[1];
         arg0[2] = (f32) D_803833D0->unk4[2];
@@ -379,7 +379,7 @@ void func_8032C9E0(f32 arg0[3]) {
 }
 
 bool func_8032CA40(Actor *actor, f32 arg1[3], s32 arg2, s32 arg3) {
-    bool var_v1 = BOOL(arg3 & 8);
+    bool var_v1 = (arg3 & 8);
 
     if (var_v1) {
         TUPLE_COPY(actor->position, arg1)
@@ -399,7 +399,7 @@ s32 func_8032CA80(Actor *actor, s32 arg1) {
     sp40[2] = actor->position[2];
     var_s1 = 0;
     for (var_s0 = 0; var_s0 < 6; var_s0++) {
-        if (D_8036E5D0[arg1][var_s0] != NULL) {
+        if (D_8036E5D0[arg1][var_s0] != N64_NULL) {
             temp_v0_2 = D_8036E5D0[arg1][var_s0](actor, sp40, arg1, var_s1);
             if (temp_v0_2 != 0) {
                 var_s1 |= temp_v0_2 << var_s0;

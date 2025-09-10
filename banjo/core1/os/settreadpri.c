@@ -8,7 +8,7 @@ extern OSThread *__osRunQueue;
 void osSetThreadPri(OSThread *t, OSPri pri)
 {
     register u32 saveMask = __osDisableInt();
-    if (t == NULL)
+    if (t == N64_NULL)
         t = __osRunningThread;
     if (t->priority != pri)
     {

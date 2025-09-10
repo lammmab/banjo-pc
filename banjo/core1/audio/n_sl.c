@@ -5,17 +5,17 @@
 #include "n_libaudio.h"
 
 
-N_ALSynth *D_80276E80 = NULL;
-N_ALSynth *n_syn = NULL;
+N_ALSynth *D_80276E80 = N64_NULL;
+N_ALSynth *n_syn = N64_NULL;
 
 void n_alInit(N_ALGlobals *g, ALSynConfig *config)
 {
-    if (D_80276E80 != NULL)
+    if (D_80276E80 != N64_NULL)
         return;
 
     D_80276E80 = &g->drvr;
 
-    if (n_syn != NULL)
+    if (n_syn != N64_NULL)
         return;
 
     n_syn = &g->drvr;
@@ -29,7 +29,7 @@ void n_alClose(N_ALGlobals *glob)
     {
         n_alSynDelete();
 
-        D_80276E80 = NULL;
-        n_syn = NULL;
+        D_80276E80 = N64_NULL;
+        n_syn = N64_NULL;
     }
 }

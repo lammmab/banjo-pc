@@ -12,7 +12,7 @@ void osDestroyThread(OSThread *t)
     register OSThread *pred;
     register OSThread *succ;
     saveMask = __osDisableInt();
-    if (t == NULL)
+    if (t == N64_NULL)
     {
         t = __osRunningThread;
     }

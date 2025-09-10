@@ -1,6 +1,10 @@
 #include <libultraship/libultra.h>
 #include "synthInternals.h"
 
+// WRAPPER W/ DEFAULTS
+#define aLoadBufferWrapper(pkt, s) \
+    aLoadBuffer(pkt, s, 0, 1)
+
 #ifndef MIN
 #   define MIN(a,b) (((a)<(b))?(a):(b))
 #endif
@@ -216,7 +220,7 @@ Acmd *alRaw16Pull(void *filter, s16 *outp, s32 outCount, s32 sampleOffset, Acmd 
             dramAlign = dramLoc & 0x7;
             nbytes += dramAlign;
             aSetBuffer(ptr++, 0, *outp, 0, nbytes + 8 - (nbytes & 0x7));
-            aLoadBuffer(ptr++, dramLoc - dramAlign);
+            aLoadBufferWrapper(ptr++, dramLoc - dramAlign);
         } else 
             dramAlign = 0; 
             
@@ -262,7 +266,7 @@ Acmd *alRaw16Pull(void *filter, s16 *outp, s32 outCount, s32 sampleOffset, Acmd 
                 dmemAlign = 0;
 
             aSetBuffer(ptr++, 0, op + dmemAlign, 0, nbytes + 8 - (nbytes & 0x7));
-            aLoadBuffer(ptr++, dramLoc - dramAlign);
+            aLoadBufferWrapper(ptr++, dramLoc - dramAlign);
 
             /*
              * Merge the two sections in DMEM.
@@ -304,7 +308,7 @@ Acmd *alRaw16Pull(void *filter, s16 *outp, s32 outCount, s32 sampleOffset, Acmd 
             dramAlign = dramLoc & 0x7;
             nbytes += dramAlign;
             aSetBuffer(ptr++, 0, *outp, 0, nbytes + 8 - (nbytes & 0x7));
-            aLoadBuffer(ptr++, dramLoc - dramAlign);
+            aLoadBufferWrapper(ptr++, dramLoc - dramAlign);
         } else      
             dramAlign = 0; 
         *outp += dramAlign;
@@ -430,7 +434,7 @@ Acmd *_decodeChunk(Acmd *ptr, ALLoadFilter *f, s32 tsam, s32 nbytes, s16 outp, s
         dramAlign = dramLoc & 0x7;
         nbytes += dramAlign;
         aSetBuffer(ptr++, 0, inp, 0, nbytes + 8 - (nbytes & 0x7));
-        aLoadBuffer(ptr++, dramLoc - dramAlign);
+        aLoadBufferWrapper(ptr++, dramLoc - dramAlign);
     } else
         dramAlign = 0;
 

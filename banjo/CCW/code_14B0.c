@@ -30,7 +30,7 @@ Struct_CCW_14B0_0 D_8038EC00[] = {
     0
 };
 
-ActorInfo D_8038EC14 = { 0x1AF, 0x29C, 0x446, 0x0, NULL, CCW_func_80387A40, NULL, actor_draw, 0, 0, 1.0f, 0};
+ActorInfo D_8038EC14 = { 0x1AF, 0x29C, 0x446, 0x0, N64_NULL, CCW_func_80387A40, N64_NULL, actor_draw, 0, 0, 1.0f, 0};
 
 /* .code */
 void func_803878A0(Actor *this, s32 next_state) {
@@ -122,7 +122,7 @@ void CCW_func_80387A40(Actor *this) {
         player_getPosition(sp44);
         if (sp44[2] > -600.0f) {
             if (!local->unk4->unk3 || !jiggyscore_isCollected(local->unk4->unk3) ) {
-                gcdialog_showDialog(local->unk4->unk4, 4, NULL, NULL, NULL, NULL);
+                gcdialog_showDialog(local->unk4->unk4, 4, N64_NULL, N64_NULL, N64_NULL, N64_NULL);
                 mapSpecificFlags_set(local->unk4->unk2, true);
             }
         }

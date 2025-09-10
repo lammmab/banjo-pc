@@ -89,7 +89,7 @@ Struct70s *func_8034C448(s32 arg0){
         if(iPtr->xform_id == 8 && iPtr->unk4 == arg0)
             return &iPtr->unk8;
     }
-    return NULL;
+    return N64_NULL;
 }
 
 int func_8034C4CC(void){
@@ -123,7 +123,7 @@ Struct70s *func_8034C528(s32 arg0){
         }
     }
 
-    return NULL;
+    return N64_NULL;
 }
 
 Struct70s *func_8034C5AC(s32 arg0){
@@ -134,7 +134,7 @@ Struct70s *func_8034C5AC(s32 arg0){
         if(iPtr->xform_id == 3 && iPtr->unk4 == arg0)
             return &iPtr->unk8;
     }
-    return NULL;
+    return N64_NULL;
 }
 
 Struct70s *func_8034C630(s32 arg0){
@@ -148,7 +148,7 @@ Struct70s *func_8034C630(s32 arg0){
             return &iPtr->unk8;
         }
     }
-    return NULL;
+    return N64_NULL;
 }
 
 void func_8034C6DC(BKModel *arg0){

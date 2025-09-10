@@ -6,8 +6,8 @@ void func_8038BF28(Actor *this);
 
 /* .data */
 ActorInfo RBB_D_80390AE0 = {
-    0x31, 0x1C9, 0x41D, 0x0, NULL,
-    func_8038BF28, NULL, actor_draw,
+    0x31, 0x1C9, 0x41D, 0x0, N64_NULL,
+    func_8038BF28, N64_NULL, actor_draw,
     0, 0, 0.0f, 0
 };
 

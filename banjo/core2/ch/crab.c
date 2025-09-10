@@ -187,12 +187,12 @@ void __chCrab_die(ActorMarker *marker, ActorMarker *other){
     ) {
         this->depth_mode =  MODEL_RENDER_DEPTH_COMPARE;
         if( !jiggyscore_isCollected(JIGGY_16_CC_SNIPPETS)
-            && ((actorArray_findClosestActorFromActorId(this->position, ACTOR_F5_MUTIE_SNIPPET, -1, &sp44) == NULL) || (3000.0f < sp44))) {
+            && ((actorArray_findClosestActorFromActorId(this->position, ACTOR_F5_MUTIE_SNIPPET, -1, &sp44) == N64_NULL) || (3000.0f < sp44))) {
             jiggy_spawn_position[0] = 13814.0f;
             jiggy_spawn_position[1] = 3812.0f;
             jiggy_spawn_position[2] = 0.0f;
             coMusicPlayer_playMusic(COMUSIC_2D_PUZZLE_SOLVED_FANFARE, 0x7FFF);
-            func_80324DBC(2.25f, ASSET_D33_DIALOG_MUTANT_CRAB_DEFEAT, 0xF, jiggy_spawn_position, NULL, __chCrab_mutantTextCallback, NULL);
+            func_80324DBC(2.25f, ASSET_D33_DIALOG_MUTANT_CRAB_DEFEAT, 0xF, jiggy_spawn_position, N64_NULL, __chCrab_mutantTextCallback, N64_NULL);
         }
     }
     p_ctrl = partEmitMgr_newEmitter(2);
@@ -268,7 +268,7 @@ void chCrab_update(Actor *this) {
         && !player_movementGroup()
     ) {
         if ((this->state != 6) && (this->state != 5)) {
-            gcdialog_showDialog(ASSET_D32_DIALOG_MUTANT_CRAB_MEET, 0xF, this->position, NULL, __chCrab_mutantTextCallback, NULL);
+            gcdialog_showDialog(ASSET_D32_DIALOG_MUTANT_CRAB_MEET, 0xF, this->position, N64_NULL, __chCrab_mutantTextCallback, N64_NULL);
             mapSpecificFlags_set(0, true);
             levelSpecificFlags_set(LEVEL_FLAG_E_CC_UNKNOWN, true);
             this->has_met_before = true;
@@ -281,10 +281,10 @@ void chCrab_update(Actor *this) {
             && !jiggyscore_isCollected(JIGGY_10_TTC_SANDCASTLE)
             && subaddie_playerIsWithinSphereAndActive(this, 1600)
         ) {
-            gcdialog_showDialog(0xA12, 4, this->position, NULL, NULL, NULL);
+            gcdialog_showDialog(0xA12, 4, this->position, N64_NULL, N64_NULL, N64_NULL);
             mapSpecificFlags_set(0, true);
         } else if (mapSpecificFlags_get(1)) {
-            gcdialog_showDialog(0xA13, 4, this->position, NULL, NULL, NULL);
+            gcdialog_showDialog(0xA13, 4, this->position, N64_NULL, N64_NULL, N64_NULL);
             mapSpecificFlags_set(1, false);
         }
     }

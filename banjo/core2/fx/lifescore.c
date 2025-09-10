@@ -48,7 +48,7 @@ struct7s *fxlifescore_new(s32 item_id){
     D_80381EC0 = func_802FFDE0((s32)D_80381EBC);
     D_80381EC4 = 0;
     for(i = 0; i < 2; i++){
-        D_80381EB0[i] = NULL;
+        D_80381EB0[i] = N64_NULL;
     }
     return &D_80381ED0;
 }
@@ -56,9 +56,9 @@ struct7s *fxlifescore_new(s32 item_id){
 void fxlifescore_free(s32 item_id, struct8s *arg1){
     s32 i;
     for(i = 0; i < 2; i++){
-        if(D_80381EB0[i] != NULL){
+        if(D_80381EB0[i] != N64_NULL){
            assetCache_free(D_80381EB0[i]);
-           D_80381EB0[i] = NULL;
+           D_80381EB0[i] = N64_NULL;
         }
     };
 }
@@ -84,7 +84,7 @@ void fxlifescore_draw(enum item_e item_id, struct8s *arg1, Gfx **gfx, Mtx **mtx,
     strIToA(code_78E50_ItemValueString, MIN(9, itemPrint_getValue(item_id)));
     print_bold_spaced(0x4E, (s32) (func_802FB0E4(arg1) + -16.0f + 4.0f), (char *) &code_78E50_ItemValueString);
     if(1); //fake
-    if (D_80381EB0[D_80381EC4] != NULL) {
+    if (D_80381EB0[D_80381EC4] != N64_NULL) {
         gSPDisplayList((*gfx)++, D_8036A278);
         viewport_setRenderViewportAndOrthoMatrix(gfx, mtx);
         if(gfx);
@@ -131,7 +131,7 @@ void fxlifescore_update(enum item_e item_id, struct8s *arg1) {
     sp20 = (s32) ((f32) func_802FFE04() - D_80381EBC);
     switch (func_802FB0D4(arg1)) {
         case 1:
-            if (D_80381EB0[D_80381EC4] == NULL) {
+            if (D_80381EB0[D_80381EC4] == N64_NULL) {
                 D_80381EB0[D_80381EC4] = assetcache_get(D_8036A260[(s32) D_80381EBC / 5]);
             }
             break;
@@ -147,7 +147,7 @@ void fxlifescore_update(enum item_e item_id, struct8s *arg1) {
             }
             sp18 = func_802FFDE0((s32)D_80381EBC);
             if (sp18 != D_80381EC0) {
-                D_80381EC4 = NOT(D_80381EC4);
+                D_80381EC4 = !(D_80381EC4);
                 if (D_80381EB0[D_80381EC4] != 0) {
                     assetCache_free(D_80381EB0[D_80381EC4]);
                 }

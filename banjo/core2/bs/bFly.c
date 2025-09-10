@@ -283,7 +283,7 @@ void bsbfly_update(void){
     sp4C = func_802946F0();
     func_8029445C(sp40);
 
-    if(sp4C != NULL && -1.0 < sp40[1])
+    if(sp4C != N64_NULL && -1.0 < sp40[1])
         sp38 = 0.0f;
 
     baphysics_set_target_yaw(yaw_get());
@@ -405,7 +405,7 @@ void func_802A411C(void) {
                 func_802944D0(sp34);
                 phi_v0 = func_802946F0();
             }
-            if (phi_v0 != NULL) {
+            if (phi_v0 != N64_NULL) {
                 sp44 = phi_v0->flags;
             } else {
                 sp44 = 0;

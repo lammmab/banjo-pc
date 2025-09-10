@@ -1,11 +1,6 @@
 #ifndef _OSINT_H
 #define _OSINT_H
 #include <libultraship/libultra.h>
-typedef struct __OSEventState
-{
-    OSMesgQueue *messageQueue;
-    OSMesg message;
-} __OSEventState;
 extern struct __osThreadTail
 {
     OSThread *next;

@@ -131,12 +131,12 @@ void maSlalom_spawnGate(s32 indx, s32 arg1){
 void __maSlalom_despawnGate(s32 indx){
     if(meActiveFlags[indx].marker){
         func_80326310(marker_getActor(meActiveFlags[indx].marker));
-        meActiveFlags[indx].marker = NULL;
+        meActiveFlags[indx].marker = N64_NULL;
     }
 
     if(meDummyFlags[indx].marker){
         func_80326310(marker_getActor(meDummyFlags[indx].marker));
-        meDummyFlags[indx].marker = NULL;
+        meDummyFlags[indx].marker = N64_NULL;
     }
 }
 
@@ -187,7 +187,7 @@ void maSlalom_spawnAllBridges(void){
 void __maSlalom_despawnBridge(s32 indx){
     if(meBridgeLinks[indx]){
         marker_despawn(meBridgeLinks[indx]);
-        meBridgeLinks[indx] = NULL;
+        meBridgeLinks[indx] = N64_NULL;
     }
 }
 
@@ -298,12 +298,12 @@ void maSlalom_lose(void){
     if(!jiggyscore_isCollected(JIGGY_30_FP_BOGGY_2)){
         timed_setStaticCameraToNode(0.0f, 1);
         timed_playSfx(1.0f, SFX_8C_BOGGY_WAHEY, 1.0f, 32000);
-        func_80324DBC(2.0f, 0xC04, 0x2b, pntBoggy->position, NULL, maSlalom_dialogCallback, NULL);
+        func_80324DBC(2.0f, 0xC04, 0x2b, pntBoggy->position, N64_NULL, maSlalom_dialogCallback, N64_NULL);
     }//L8038B4E0
     else{
         timed_setStaticCameraToNode(0.0f, 1);
         timed_playSfx(1.0f, SFX_8C_BOGGY_WAHEY, 1.0f, 32000);
-        func_80324DBC(2.0f, 0xC0b, 0x2b, pntBoggy->position, NULL, maSlalom_dialogCallback, NULL);
+        func_80324DBC(2.0f, 0xC0b, 0x2b, pntBoggy->position, N64_NULL, maSlalom_dialogCallback, N64_NULL);
 
     }
 }
@@ -336,7 +336,7 @@ void maSlalom_update(void){
                 player_stateTimer_set(STATE_TIMER_3_TURBO_TALON, 20.0f);
             }
 
-            if(meActiveFlags[NUM_GATES - 1].marker == NULL) break;
+            if(meActiveFlags[NUM_GATES - 1].marker == N64_NULL) break;
 
             if(3.0f == marker_getActor(meActiveFlags[NUM_GATES - 1].marker)->velocity[0]){
                 maSlalom_win();
@@ -357,10 +357,10 @@ void maSlalom_update(void){
             pntBoggy->unk38_31 = 2;
             timed_playSfx(1.0f, SFX_8D_BOGGY_OHWW, 1.0f, 32000);
             if(jiggyscore_isCollected(JIGGY_30_FP_BOGGY_2) || jiggyscore_isSpawned(JIGGY_30_FP_BOGGY_2)){
-                func_80324DBC(2.0f, 0xc0d, 0x2a, pntBoggy->position, NULL, maSlalom_dialogCallback, NULL);
+                func_80324DBC(2.0f, 0xc0d, 0x2a, pntBoggy->position, N64_NULL, maSlalom_dialogCallback, N64_NULL);
             }
             else{
-                func_80324DBC(2.0f, 0xc07, 0x22, pntBoggy->position, NULL, maSlalom_dialogCallback, NULL);
+                func_80324DBC(2.0f, 0xc07, 0x22, pntBoggy->position, N64_NULL, maSlalom_dialogCallback, N64_NULL);
             }
             Me.state = MA_SLALOM_STATE_4_LOSE;
             break;
@@ -378,7 +378,7 @@ void maSlalom_init(void){
     }
 
     Me.state = MA_SLALOM_STATE_1_STARTING;
-    Me.boggyLink = NULL;
+    Me.boggyLink = N64_NULL;
     Me.flagCount = 0;
     Me.playerGate = -1;
     Me.boggyGate = -1;
@@ -388,15 +388,15 @@ void maSlalom_init(void){
     Me.hasBeenFourBehind = 0;
 
     for(i = 0; i < NUM_GATES; i++){
-        meActiveFlags[i].marker = NULL;
-        meDummyFlags[i].marker = NULL;
+        meActiveFlags[i].marker = N64_NULL;
+        meDummyFlags[i].marker = N64_NULL;
         meActiveFlags[i].position[0] = meActiveFlags[i].position[1] = meActiveFlags[i].position[2] = 0.0f;
         meDummyFlags[i].position[0] = meDummyFlags[i].position[1] = meDummyFlags[i].position[2] = 0.0f;
         meActiveFlags[i].distGatesSq = 0.0f;
         meDummyFlags[i].distGatesSq = 0.0f;
     }
     for(i = 0; i < NUM_BRIDGES; i++){
-        meBridgeLinks[i] = NULL;
+        meBridgeLinks[i] = N64_NULL;
     }
 }
 
@@ -435,7 +435,7 @@ void maSlalom_linkBoggy(ActorMarker *marker){
 }
 
 void maSlalom_unlinkBoggy(void){
-    Me.boggyLink = NULL;
+    Me.boggyLink = N64_NULL;
 }
 
 void maSlalom_start(void){
@@ -537,7 +537,7 @@ void maSlalom_setBoggyGate(s32 gate_num){
                 FP_func_8038AB60(0);
                 if(!player_isDead()){
                     func_8028F918(2);
-                    gcdialog_showDialog(0xc10, 0x20, NULL, NULL, maSlalom_dialogCallback, NULL);
+                    gcdialog_showDialog(0xc10, 0x20, N64_NULL, N64_NULL, maSlalom_dialogCallback, N64_NULL);
                 }//L8038BD40
                 Me.state = MA_SLALOM_STATE_4_LOSE;
                 break;
@@ -545,7 +545,7 @@ void maSlalom_setBoggyGate(s32 gate_num){
             case 3:
                 if(!Me.hasBeenThreeBehind && !player_isDead()){
                     Me.hasBeenThreeBehind = 1;
-                    gcdialog_showDialog(0xc0f, 0x20, NULL, NULL, NULL, NULL);
+                    gcdialog_showDialog(0xc0f, 0x20, N64_NULL, N64_NULL, N64_NULL, N64_NULL);
                 }//L8038BD94
                 func_8025AEA0(0x3a, 0x411aa);
                 break;
@@ -553,7 +553,7 @@ void maSlalom_setBoggyGate(s32 gate_num){
             case 2:
                 if(!Me.hasBeenTwoBehind && !player_isDead()){
                     Me.hasBeenTwoBehind = 1;
-                    gcdialog_showDialog(0xc0e, 0x20, NULL, NULL, NULL, NULL);
+                    gcdialog_showDialog(0xc0e, 0x20, N64_NULL, N64_NULL, N64_NULL, N64_NULL);
                 }//L8038BDF0
                 func_8025AEA0(0x3a, 0x493e0);
                 break;

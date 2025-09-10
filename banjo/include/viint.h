@@ -42,12 +42,6 @@
 #define VINTR(v) v
 #define HSTART START
 
-typedef struct
-{
-    /* 0x0 */ f32 factor;
-    /* 0x4 */ u16 offset;
-    /* 0x8 */ u32 scale;
-} __OSViScale;
 
 typedef struct
 {

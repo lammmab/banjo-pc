@@ -6,7 +6,7 @@ void osStopThread(OSThread *t)
 {
     register u32 saveMask = __osDisableInt();
     register u16 state;
-    if (t == NULL)
+    if (t == N64_NULL)
     {
         state = OS_STATE_RUNNING;
     }
@@ -18,7 +18,7 @@ void osStopThread(OSThread *t)
     {
     case OS_STATE_RUNNING:
         __osRunningThread->state = OS_STATE_STOPPED;
-        __osEnqueueAndYield(NULL);
+        __osEnqueueAndYield(N64_NULL);
         break;
     case OS_STATE_RUNNABLE:
     case OS_STATE_WAITING:

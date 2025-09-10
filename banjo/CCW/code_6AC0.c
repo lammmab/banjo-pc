@@ -14,7 +14,7 @@ void func_8038CFB4(Actor *this);
 /* .data */
 ActorInfo D_8038F4D0 = { 
     0x1BE, 0x2AB, 0x48F,
-    0x0, NULL,
+    0x0, N64_NULL,
     func_8038CFB4, func_8038CFB4, actor_draw,
     0, 0, 2.2f, 0
 };
@@ -61,7 +61,7 @@ void func_8038CEB0(Actor *this, s32 next_state) {
         this->marker->propPtr->unk8_3 = false;
         skeletalAnim_set(this->unk148, 0x1A7, 0.2f, 3.0f);
         skeletalAnim_setBehavior(this->unk148, SKELETAL_ANIM_2_ONCE);
-        gcdialog_showDialog(0xCD0, 0x24, NULL, NULL, NULL, NULL);
+        gcdialog_showDialog(0xCD0, 0x24, N64_NULL, N64_NULL, N64_NULL, N64_NULL);
     }
     if (next_state == 3) {
         skeletalAnim_set(this->unk148, 0x1A8, 0.2f, 0.5f);
@@ -100,10 +100,10 @@ void func_8038CFB4(Actor *this) {
     } else if (this->state == 3) {
         phi_s0 = D_8038F5D8;
     } else{
-        phi_s0 = NULL;
+        phi_s0 = N64_NULL;
     }
 
-    if (phi_s0 != NULL) {
+    if (phi_s0 != N64_NULL) {
         skeletalAnim_getProgressRange(this->unk148, &sp70, &sp6C);
         while(phi_s0->unk0 > 0.0f){
             if (((sp70 < phi_s0->unk0) || (sp6C < sp70)) && (phi_s0->unk0 <= sp6C)) {
@@ -117,7 +117,7 @@ void func_8038CFB4(Actor *this) {
         if (!this->has_met_before) {
             player_getPosition(sp60);
             if (ml_vec3f_distance(this->position, sp60) < 900.0f) {
-                gcdialog_showDialog(0xCCF, 4, NULL, NULL, NULL, NULL);
+                gcdialog_showDialog(0xCCF, 4, N64_NULL, N64_NULL, N64_NULL, N64_NULL);
                 this->has_met_before = true;
             }
         }

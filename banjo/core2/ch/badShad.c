@@ -12,7 +12,7 @@ void func_802D729C(Actor *actor, f32 arg1);
 /* .data */
 ActorInfo chBadShad = { 
     0x9B, 0x108, 0x3BF,
-    0x1, NULL, 
+    0x1, N64_NULL, 
     chBadShad_update, actor_update_func_80326224, chBadShad_draw,
     0, 0, 0.0f, 0
 };
@@ -53,7 +53,7 @@ Actor *chBadShad_draw(ActorMarker *marker, Gfx **gfx, Mtx **mtx, Vtx **vtx){
         modelRender_setAlpha(other->alpha_124_19);
     sp40 = ml_map_f(this->actor_specific_1_f, 0.0f , 800.0f, 0.53f, 0.18f)*this->unk1C[1];
     modelRender_setDepthMode(MODEL_RENDER_DEPTH_COMPARE);
-    modelRender_draw(gfx, mtx, this->position, sp44, sp40, NULL, marker_loadModelBin(marker));
+    modelRender_draw(gfx, mtx, this->position, sp44, sp40, N64_NULL, marker_loadModelBin(marker));
     return this;
 }
 
@@ -129,12 +129,12 @@ void func_802D729C(Actor *actor, f32 arg1){
     if(actor->despawn_flag){
         if(actor->unk104){
             sp1C = marker_getActor(actor->unk104);
-            sp1C->unk104 = NULL;
+            sp1C->unk104 = N64_NULL;
             marker_getActor(actor->unk104)->despawn_flag = true;
         }
         else{
         }
-        actor->unk104 = NULL;
+        actor->unk104 = N64_NULL;
         return;
     }
     if(!actor->unk104){

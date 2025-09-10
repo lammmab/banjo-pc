@@ -7,7 +7,7 @@ typedef struct {
     u8 sfxsourceIdx;
 } ActorLocal_BossJinjoBase;
 
-ActorInfo chBossJinjoBase = { MARKER_27A_JINJO_STATUE_BASE, ACTOR_3A2_JINJO_STATUE_BASE, ASSET_543_MODEL_JINJO_STATUE_BASE, 1, NULL, chBossJinjoBase_update, actor_update_func_80326224, actor_draw, 0, 2048, 0.0f, 0 };
+ActorInfo chBossJinjoBase = { MARKER_27A_JINJO_STATUE_BASE, ACTOR_3A2_JINJO_STATUE_BASE, ASSET_543_MODEL_JINJO_STATUE_BASE, 1, N64_NULL, chBossJinjoBase_update, actor_update_func_80326224, actor_draw, 0, 2048, 0.0f, 0 };
 
 s32 chBossJinjoBase_SmokeColor[3] = { 200, 200, 160 };
 ParticleScaleAndLifetimeRanges chBossJinjoBase_SmokeScaleAndLifetimeSettings = { {1.0f, 1.0f}, {1.7f, 2.7f}, {0.0f, 0.05f}, {2.6f, 3.4f}, 0.0f, 0.1f };
@@ -83,7 +83,7 @@ void chBossJinjoBase_update(Actor *this) {
 
     if (!this->volatile_initialized) {
         this->volatile_initialized = true;
-        marker_setCollisionScripts(this->marker, NULL, chBossJinjoBase_getHitByEgg, NULL);
+        marker_setCollisionScripts(this->marker, N64_NULL, chBossJinjoBase_getHitByEgg, N64_NULL);
         marker_setFreeMethod(this->marker, chBossJinjoBase_free);
         this->marker->propPtr->unk8_3 = 1;
         actor_collisionOn(this);

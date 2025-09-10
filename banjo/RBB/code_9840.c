@@ -14,13 +14,13 @@ typedef struct {
 /* .data */
 s16 RBB_D_80390E30[2] = {0x177, 0x17F};
 ActorInfo D_80390E34 = {
-    0x1D2, 0x31B, 0x0, 0x0, NULL,
-    func_8038FC48, NULL, func_80325340,
+    0x1D2, 0x31B, 0x0, 0x0, N64_NULL,
+    func_8038FC48, N64_NULL, func_80325340,
     0, 0, 0.0f, 0
 };
 ActorInfo D_80390E58 = {
-    0x1D3, 0x31C, 0x0, 0x0, NULL,
-    func_8038FC48, NULL, func_80325340,
+    0x1D3, 0x31C, 0x0, 0x0, N64_NULL,
+    func_8038FC48, N64_NULL, func_80325340,
     0, 0, 0.0f, 0
 };
 
@@ -39,7 +39,7 @@ void func_8038FC48(Actor *this){
         this->volatile_initialized = true;
         actor_collisionOff(this);
         local->unk4 = RBB_D_80390E30 + (this->marker->id - 0x1d2);
-        local->unk8 = NULL;
+        local->unk8 = N64_NULL;
         
         local->unk0 = func_802F9AA8(0x400);
         func_802F9DB8(local->unk0, 1.0f, 1.0f, 0.0f);
@@ -49,7 +49,7 @@ void func_8038FC48(Actor *this){
         func_8038FC30(this, 1);
     }
     else{//L8038FD34
-        if(local->unk8 == NULL)
+        if(local->unk8 == N64_NULL)
             local->unk8 = actorArray_findActorFromActorId(*local->unk4)->marker;
         sp20 = func_8038A6B8(local->unk8);
         tmp_f2 = 1.5* sp20 + 0.5;

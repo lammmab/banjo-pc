@@ -17,8 +17,8 @@ void func_8038DF6C(Actor* this);
 
 /* .data */
 ActorInfo D_80390D20 = {
-    0x1AA, 0x296, 0x43B, 0x0, NULL,
-    func_8038DF6C, NULL, actor_draw,
+    0x1AA, 0x296, 0x43B, 0x0, N64_NULL,
+    func_8038DF6C, N64_NULL, actor_draw,
     0, 0, 0.0f, 0
 };
 
@@ -46,7 +46,7 @@ void func_8038DF6C(Actor* this){
         this->marker->propPtr->unk8_3 = 1;
         this->volatile_initialized = true;
         local->unk0 = randf2(80.0f, 100.0f);
-        local->unk4 = NULL;
+        local->unk4 = N64_NULL;
         local->unk20 = 0;
         local->unk24[0] = 0.0f;
         local->unk24[1] = 1.0f;
@@ -106,7 +106,7 @@ void func_8038DF6C(Actor* this){
     if(local->unk4){
         other = marker_getActor(local->unk4);
         if(!(other->state < 7)){
-            local->unk4 = NULL;
+            local->unk4 = N64_NULL;
         }else{
             other->pitch = sp5C[0];
             other->roll = sp5C[2];

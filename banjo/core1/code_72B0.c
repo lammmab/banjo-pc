@@ -25,7 +25,7 @@ void func_80244CD0(f32 arg0[3], u32 arg1) {
     sp28[1] += 100.0f;
     sp1C[1] -= 500.0f;
     temp_v0 = func_80320B98(sp28, sp1C, sp34, arg1);
-    if ((temp_v0 != NULL) && (!(sp34[1] < 0.0f) || (temp_v0->flags & 0x10000)) && (arg0[1] < sp1C[1])) {
+    if ((temp_v0 != N64_NULL) && (!(sp34[1] < 0.0f) || (temp_v0->flags & 0x10000)) && (arg0[1] < sp1C[1])) {
         arg0[1] = sp1C[1];
     }
 }
@@ -42,7 +42,7 @@ BKCollisionTri *func_80244D94(f32 arg0[3], f32 arg1[3], f32 arg2[3], u32 arg3, f
     sp20[1] += sp2C[1];
     sp20[2] += sp2C[2];
     sp1C = func_80320B98(arg0, sp20, arg2, arg3);
-    if (sp1C == NULL) {
+    if (sp1C == N64_NULL) {
         return 0;
     }
     ml_vec3f_diff(sp20, sp2C);
@@ -61,7 +61,7 @@ BKCollisionTri *func_80244E54(f32 arg0[3], f32 arg1[3], f32 arg2[3], u32 arg3, f
     sp34[1] += arg5;
     sp28[1] += arg5;
     sp24 = func_80244D94(sp34, sp28, arg2, arg3, arg4);
-    if(sp24 == NULL)
+    if(sp24 == N64_NULL)
         return 0;
     
     sp28[1] -= arg5;
@@ -221,7 +221,7 @@ int func_8024549C(f32 arg0[3], f32 arg1){
 
 bool func_80245524(f32 arg0[3], void *arg1, s32 *arg2, f32 *arg3){
     *arg2 = func_8034C630(arg1);
-    if(*arg2 == NULL){
+    if(*arg2 == N64_NULL){
         *arg3 = arg0[1];
         return false;
     }
@@ -279,7 +279,7 @@ void func_8024560C(f32 arg0[3], struct0 *arg1, UNK_TYPE(s32) arg2, u8 *arg3, f32
 
 BKCollisionTri *func_8024575C(f32 arg0[3], f32 arg1[3], f32 arg2, f32 arg3[3], s32 arg4, u32 arg5){
     if(arg2 < ml_vec3f_distance(arg0, arg1)){
-        return NULL;
+        return N64_NULL;
     }
     return func_80320C94(arg0, arg1, arg2, arg3, arg4, arg5);
 
@@ -299,7 +299,7 @@ BKCollisionTri *func_802457C4(f32 arg0[3], f32 arg1[3], f32 arg2, f32 arg3, f32 
     sp2C[2] = arg1[2];
 
     var_v1 = func_80320C94(sp38, sp2C, arg3, arg4, arg5, arg6);
-    if(var_v1 != NULL){
+    if(var_v1 != N64_NULL){
         arg1[0] = sp2C[0];
         arg1[1] = sp2C[1] - arg2;
         arg1[2] = sp2C[2];

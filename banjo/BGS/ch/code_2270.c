@@ -24,8 +24,8 @@ Actor *actor_draw(ActorMarker *, Gfx **, Mtx **, Vtx **);
 
 ActorInfo chTiptup = {
     MARKER_19A_TIPTUP, ACTOR_27A_TIPTUP, ASSET_3F8_MODEL_TIPTUP,
-    0, NULL,
-    chTiptup_update, NULL, actor_draw,
+    0, N64_NULL,
+    chTiptup_update, N64_NULL, actor_draw,
     0, 0, 2.5f, 0
 };
 s16 D_80390854[] = {0, 0xC78, 0xC7A, 0xC7C}; //see again texts
@@ -245,7 +245,7 @@ void chTiptup_choirHitReaction(ActorMarker *this, s32 arg1){
         else{
             func_8028F55C(1, thisActor->marker);
             timedFunc_set_0(0.5f, chTiptup_sfxIncorrectHit);
-           if(!mapSpecificFlags_get(1) && !volatileFlag_get(VOLATILE_FLAG_2_FF_IN_MINIGAME) && gcdialog_showDialog(0xc75, 0, NULL, NULL, NULL, NULL))
+           if(!mapSpecificFlags_get(1) && !volatileFlag_get(VOLATILE_FLAG_2_FF_IN_MINIGAME) && gcdialog_showDialog(0xc75, 0, N64_NULL, N64_NULL, N64_NULL, N64_NULL))
                mapSpecificFlags_set(1,true);
         }
     }
@@ -285,7 +285,7 @@ void chTiptup_update(Actor *this){
     if(!this->volatile_initialized){
         this->volatile_initialized = true;
         this->marker->actorFreeFunc = func_80388FC0;
-        marker_setCollisionScripts(this->marker, func_80388E44, NULL, NULL);
+        marker_setCollisionScripts(this->marker, func_80388E44, N64_NULL, N64_NULL);
         
         unqPtr->unk0 = 0;
         unqPtr->unk4 = vector_new(sizeof(Struct_BGS_2270_0s), 8);

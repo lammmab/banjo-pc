@@ -60,7 +60,7 @@ static void __animBinCache_loadAll(void){
 }
 
 AnimationFile *animBinCache_get(enum asset_e asset_id){
-    if(animBinCache[asset_id].ptr == NULL){
+    if(animBinCache[asset_id].ptr == N64_NULL){
         animBinCache[asset_id].ptr = (AnimationFile *) assetcache_get(asset_id);
     }
     animBinCache[asset_id].exp_timer = 30;
@@ -79,7 +79,7 @@ void animBinCache_free(void){
 void animBinCache_init(void){
     s32 i = 0;
     for(i = 0; i < 0x2CA; i++){
-        animBinCache[i].ptr = NULL;
+        animBinCache[i].ptr = N64_NULL;
         animBinCache[i].exp_timer = 0;
         animBinCache[i].persist = 0;
     }
@@ -91,23 +91,23 @@ void animBinCache_flushStale(s32 persistant){
     s32 i;
     if(persistant){
         for(i = 0; i < 0x2CA; i++){
-            if( (animBinCache[i].ptr != NULL) 
+            if( (animBinCache[i].ptr != N64_NULL) 
                 && (animBinCache[i].persist) 
                 && (animBinCache[i].exp_timer < 30)
             ){
                 assetcache_release(animBinCache[i].ptr);
-                animBinCache[i].ptr = NULL;
+                animBinCache[i].ptr = N64_NULL;
                 animBinCache[i].persist = 0;
             }
         }
     } else {
         for(i = 0; i < 0x2CA; i++){
-            if( (animBinCache[i].ptr != NULL) 
+            if( (animBinCache[i].ptr != N64_NULL) 
                 && !animBinCache[i].persist 
                 && (animBinCache[i].exp_timer < 30)
             ){
                 assetcache_release(animBinCache[i].ptr);
-                animBinCache[i].ptr = NULL;
+                animBinCache[i].ptr = N64_NULL;
                 if(func_80254BC4(1))
                     break;
             }
@@ -118,10 +118,10 @@ void animBinCache_flushStale(s32 persistant){
 void animBinCache_update(void){
     s32 i;
     for(i = 0; i < 0x2CA; i++){
-        if((animBinCache[i].ptr != NULL) && !animBinCache[i].persist){
+        if((animBinCache[i].ptr != N64_NULL) && !animBinCache[i].persist){
             if(--animBinCache[i].exp_timer == 0){
                 assetcache_release(animBinCache[i].ptr);
-                animBinCache[i].ptr = NULL;
+                animBinCache[i].ptr = N64_NULL;
             }
         }
     }

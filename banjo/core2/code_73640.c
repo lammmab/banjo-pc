@@ -37,50 +37,50 @@ s16 D_803692EC[6] = {
 };
 
 ItemPrint D_803692F8[0x2C] = {
-    { fxcommon2score_new, fxcommon2score_update, fxcommon2score_draw, fxcommon2score_free, 5, NULL }, //ITEM_0_HOURGLASS_TIMER
-    { fxcommon2score_new, fxcommon2score_update, fxcommon2score_draw, fxcommon2score_free, 0, NULL }, // ITEM_1_SKULL_HOURGLASS_TIMER
-    { fxcommon1score_new, fxcommon1score_update, fxcommon1score_draw, fxcommon1score_free, 0, NULL }, //2
-    { fxcommon2score_new, fxcommon2score_update, fxcommon2score_draw, fxcommon2score_free, 5, NULL }, //ITEM_3_PROPELLOR_TIMER
-    { fxcommon1score_new, fxcommon1score_update, fxcommon1score_draw, fxcommon1score_free, 0, NULL }, //
-    { fxcommon2score_new, fxcommon2score_update, fxcommon2score_draw, fxcommon2score_free, 0, NULL }, //ITEM_5_XMAS_TREE_TIMER
-    { fxcommon1score_new, fxcommon1score_update, fxcommon1score_draw, fxcommon1score_free, 0, NULL }, //ITEM_6_HOURGLASS
-    { fxcommon1score_new, fxcommon1score_update, fxcommon1score_draw, fxcommon1score_free, 0, NULL }, //ITEM_7_SKULL_HOURGLASS
-    { fxcommon1score_new, fxcommon1score_update, fxcommon1score_draw, fxcommon1score_free, 0, NULL }, //8
-    { fxcommon1score_new, fxcommon1score_update, fxcommon1score_draw, fxcommon1score_free, 0, NULL }, //ITEM_9_PROPELLOR
-    { fxcommon1score_new, fxcommon1score_update, fxcommon1score_draw, fxcommon1score_free, 0, NULL }, //10
-    { fxcommon1score_new, fxcommon1score_update, fxcommon1score_draw, fxcommon1score_free, 0, NULL }, //ITEM_B_XMAS_TREE
-    { fxcommon2score_new, fxcommon2score_update, fxcommon2score_draw, fxcommon2score_free, 1, NULL }, //ITEM_C_NOTE
-    { fxcommon2score_new, fxcommon2score_update, fxcommon2score_draw, fxcommon2score_free, 1, NULL }, //ITEM_D_EGGS
-    { fxcommon3score_new, fxcommon3score_update, fxcommon3score_draw, fxcommon3score_free, 3, NULL }, //ITEM_14_HEALTH
-    { fxcommon2score_new, fxcommon2score_update, fxcommon2score_draw, fxcommon2score_free, 1, NULL }, //ITEM_F_RED_FEATHER
-    { fxcommon2score_new, fxcommon2score_update, fxcommon2score_draw, fxcommon2score_free, 1, NULL }, //ITEM_10_GOLD_FEATHER
-    { fxcommon1score_new, fxcommon1score_update, fxcommon1score_draw, fxcommon1score_free, 0, NULL }, //17
-    { fxjinjoscore_new,   fxjinjoscore_update,   fxjinjoscore_draw,   fxjinjoscore_free,   3, NULL }, //ITEM_12_JINJOS
-    { fxhoneycarrierscore_new, fxhoneycarrierscore_update, fxhoneycarrierscore_draw, fxhoneycarrierscore_free, 0, NULL }, //ITEM_13_EMPTY_HONEYCOMB
-    { fxhealthscore_new,  fxhealthscore_update,  fxhealthscore_draw,  fxhealthscore_free,  0, NULL }, //ITEM_14_HEALTH
-    { fxcommon1score_new, fxcommon1score_update, fxcommon1score_draw, fxcommon1score_free, 0, NULL }, //ITEM_15_HEALTH_TOTAL
-    { fxlifescore_new,    fxlifescore_update,    fxlifescore_draw,    fxlifescore_free,    6, NULL }, //ITEM_16_LIFE
-    { fxairscore_new,     fxairscore_update,     fxairscore_draw,     fxairscore_free,     0, NULL }, //ITEM_17_AIR
-    { fxcommon3score_new, fxcommon3score_update, fxcommon3score_draw, fxcommon3score_free, 2, NULL }, //ITEM_18_GOLD_BULLIONS
-    { fxcommon3score_new, fxcommon3score_update, fxcommon3score_draw, fxcommon3score_free, 2, NULL }, //ITEM_19_ORANGE
-    { fxcommon2score_new, fxcommon2score_update, fxcommon2score_draw, fxcommon2score_free, 6, NULL }, //ITEM_1A_PLAYER_VILE_SCORE
-    { fxcommon2score_new, fxcommon2score_update, fxcommon2score_draw, fxcommon2score_free, 0, NULL }, //ITEM_1B_VILE_VILE_SCORE
-    { fxcommon2score_new, fxcommon2score_update, fxcommon2score_draw, fxcommon2score_free, 2, NULL }, //ITEM_1C_MUMBO_TOKEN
-    { fxcommon3score_new, fxcommon3score_update, fxcommon3score_draw, fxcommon3score_free, 0, NULL }, //ITEM_1D_GRUMBLIE
-    { fxcommon3score_new, fxcommon3score_update, fxcommon3score_draw, fxcommon3score_free, 0, NULL }, //ITEM_1E_YUMBLIE
-    { fxcommon3score_new, fxcommon3score_update, fxcommon3score_draw, fxcommon3score_free, 2, NULL }, //ITEM_1F_GREEN_PRESENT
-    { fxcommon3score_new, fxcommon3score_update, fxcommon3score_draw, fxcommon3score_free, 2, NULL }, //ITEM_20_BLUE_PRESENT
-    { fxcommon3score_new, fxcommon3score_update, fxcommon3score_draw, fxcommon3score_free, 2, NULL }, //ITEM_21_RED_PRESENT
-    { fxcommon3score_new, fxcommon3score_update, fxcommon3score_draw, fxcommon3score_free, 2, NULL }, //ITEM_22_CATERPILLAR
-    { fxcommon3score_new, fxcommon3score_update, fxcommon3score_draw, fxcommon3score_free, 2, NULL }, //ITEM_23_ACORNS
-    { fxcommon3score_new, fxcommon3score_update, fxcommon3score_draw, fxcommon3score_free, 0, NULL }, //ITEM_24_TWINKLY_SCORE
-    { fxcommon2score_new, fxcommon2score_update, fxcommon2score_draw, fxcommon2score_free, 4, NULL }, //ITEM_25_MUMBO_TOKEN_TOTAL
-    { fxcommon3score_new, fxcommon3score_update, fxcommon3score_draw, fxcommon3score_free, 4, NULL }, //ITEM_26_JIGGY_TOTAL
-    { fxcommon2score_new, fxcommon2score_update, fxcommon2score_draw, fxcommon2score_free, 2, NULL }, //ITEM_27_JOKER_CARD
-    { fxcommon2score_new, fxcommon2score_update, fxcommon1score_draw, fxcommon2score_free, 5, NULL }, //40
-    { fxcommon2score_new, fxcommon2score_update, fxcommon1score_draw, fxcommon2score_free, 3, NULL }, //41
-    { fxcommon2score_new, fxcommon2score_update, fxcommon1score_draw, fxcommon2score_free, 2, NULL }, //42
-    { fxcommon3score_new, fxcommon3score_update, fxcommon3score_draw, fxcommon3score_free, 2, NULL }  //43
+    { fxcommon2score_new, fxcommon2score_update, fxcommon2score_draw, fxcommon2score_free, 5, N64_NULL }, //ITEM_0_HOURGLASS_TIMER
+    { fxcommon2score_new, fxcommon2score_update, fxcommon2score_draw, fxcommon2score_free, 0, N64_NULL }, // ITEM_1_SKULL_HOURGLASS_TIMER
+    { fxcommon1score_new, fxcommon1score_update, fxcommon1score_draw, fxcommon1score_free, 0, N64_NULL }, //2
+    { fxcommon2score_new, fxcommon2score_update, fxcommon2score_draw, fxcommon2score_free, 5, N64_NULL }, //ITEM_3_PROPELLOR_TIMER
+    { fxcommon1score_new, fxcommon1score_update, fxcommon1score_draw, fxcommon1score_free, 0, N64_NULL }, //
+    { fxcommon2score_new, fxcommon2score_update, fxcommon2score_draw, fxcommon2score_free, 0, N64_NULL }, //ITEM_5_XMAS_TREE_TIMER
+    { fxcommon1score_new, fxcommon1score_update, fxcommon1score_draw, fxcommon1score_free, 0, N64_NULL }, //ITEM_6_HOURGLASS
+    { fxcommon1score_new, fxcommon1score_update, fxcommon1score_draw, fxcommon1score_free, 0, N64_NULL }, //ITEM_7_SKULL_HOURGLASS
+    { fxcommon1score_new, fxcommon1score_update, fxcommon1score_draw, fxcommon1score_free, 0, N64_NULL }, //8
+    { fxcommon1score_new, fxcommon1score_update, fxcommon1score_draw, fxcommon1score_free, 0, N64_NULL }, //ITEM_9_PROPELLOR
+    { fxcommon1score_new, fxcommon1score_update, fxcommon1score_draw, fxcommon1score_free, 0, N64_NULL }, //10
+    { fxcommon1score_new, fxcommon1score_update, fxcommon1score_draw, fxcommon1score_free, 0, N64_NULL }, //ITEM_B_XMAS_TREE
+    { fxcommon2score_new, fxcommon2score_update, fxcommon2score_draw, fxcommon2score_free, 1, N64_NULL }, //ITEM_C_NOTE
+    { fxcommon2score_new, fxcommon2score_update, fxcommon2score_draw, fxcommon2score_free, 1, N64_NULL }, //ITEM_D_EGGS
+    { fxcommon3score_new, fxcommon3score_update, fxcommon3score_draw, fxcommon3score_free, 3, N64_NULL }, //ITEM_14_HEALTH
+    { fxcommon2score_new, fxcommon2score_update, fxcommon2score_draw, fxcommon2score_free, 1, N64_NULL }, //ITEM_F_RED_FEATHER
+    { fxcommon2score_new, fxcommon2score_update, fxcommon2score_draw, fxcommon2score_free, 1, N64_NULL }, //ITEM_10_GOLD_FEATHER
+    { fxcommon1score_new, fxcommon1score_update, fxcommon1score_draw, fxcommon1score_free, 0, N64_NULL }, //17
+    { fxjinjoscore_new,   fxjinjoscore_update,   fxjinjoscore_draw,   fxjinjoscore_free,   3, N64_NULL }, //ITEM_12_JINJOS
+    { fxhoneycarrierscore_new, fxhoneycarrierscore_update, fxhoneycarrierscore_draw, fxhoneycarrierscore_free, 0, N64_NULL }, //ITEM_13_EMPTY_HONEYCOMB
+    { fxhealthscore_new,  fxhealthscore_update,  fxhealthscore_draw,  fxhealthscore_free,  0, N64_NULL }, //ITEM_14_HEALTH
+    { fxcommon1score_new, fxcommon1score_update, fxcommon1score_draw, fxcommon1score_free, 0, N64_NULL }, //ITEM_15_HEALTH_TOTAL
+    { fxlifescore_new,    fxlifescore_update,    fxlifescore_draw,    fxlifescore_free,    6, N64_NULL }, //ITEM_16_LIFE
+    { fxairscore_new,     fxairscore_update,     fxairscore_draw,     fxairscore_free,     0, N64_NULL }, //ITEM_17_AIR
+    { fxcommon3score_new, fxcommon3score_update, fxcommon3score_draw, fxcommon3score_free, 2, N64_NULL }, //ITEM_18_GOLD_BULLIONS
+    { fxcommon3score_new, fxcommon3score_update, fxcommon3score_draw, fxcommon3score_free, 2, N64_NULL }, //ITEM_19_ORANGE
+    { fxcommon2score_new, fxcommon2score_update, fxcommon2score_draw, fxcommon2score_free, 6, N64_NULL }, //ITEM_1A_PLAYER_VILE_SCORE
+    { fxcommon2score_new, fxcommon2score_update, fxcommon2score_draw, fxcommon2score_free, 0, N64_NULL }, //ITEM_1B_VILE_VILE_SCORE
+    { fxcommon2score_new, fxcommon2score_update, fxcommon2score_draw, fxcommon2score_free, 2, N64_NULL }, //ITEM_1C_MUMBO_TOKEN
+    { fxcommon3score_new, fxcommon3score_update, fxcommon3score_draw, fxcommon3score_free, 0, N64_NULL }, //ITEM_1D_GRUMBLIE
+    { fxcommon3score_new, fxcommon3score_update, fxcommon3score_draw, fxcommon3score_free, 0, N64_NULL }, //ITEM_1E_YUMBLIE
+    { fxcommon3score_new, fxcommon3score_update, fxcommon3score_draw, fxcommon3score_free, 2, N64_NULL }, //ITEM_1F_GREEN_PRESENT
+    { fxcommon3score_new, fxcommon3score_update, fxcommon3score_draw, fxcommon3score_free, 2, N64_NULL }, //ITEM_20_BLUE_PRESENT
+    { fxcommon3score_new, fxcommon3score_update, fxcommon3score_draw, fxcommon3score_free, 2, N64_NULL }, //ITEM_21_RED_PRESENT
+    { fxcommon3score_new, fxcommon3score_update, fxcommon3score_draw, fxcommon3score_free, 2, N64_NULL }, //ITEM_22_CATERPILLAR
+    { fxcommon3score_new, fxcommon3score_update, fxcommon3score_draw, fxcommon3score_free, 2, N64_NULL }, //ITEM_23_ACORNS
+    { fxcommon3score_new, fxcommon3score_update, fxcommon3score_draw, fxcommon3score_free, 0, N64_NULL }, //ITEM_24_TWINKLY_SCORE
+    { fxcommon2score_new, fxcommon2score_update, fxcommon2score_draw, fxcommon2score_free, 4, N64_NULL }, //ITEM_25_MUMBO_TOKEN_TOTAL
+    { fxcommon3score_new, fxcommon3score_update, fxcommon3score_draw, fxcommon3score_free, 4, N64_NULL }, //ITEM_26_JIGGY_TOTAL
+    { fxcommon2score_new, fxcommon2score_update, fxcommon2score_draw, fxcommon2score_free, 2, N64_NULL }, //ITEM_27_JOKER_CARD
+    { fxcommon2score_new, fxcommon2score_update, fxcommon1score_draw, fxcommon2score_free, 5, N64_NULL }, //40
+    { fxcommon2score_new, fxcommon2score_update, fxcommon1score_draw, fxcommon2score_free, 3, N64_NULL }, //41
+    { fxcommon2score_new, fxcommon2score_update, fxcommon1score_draw, fxcommon2score_free, 2, N64_NULL }, //42
+    { fxcommon3score_new, fxcommon3score_update, fxcommon3score_draw, fxcommon3score_free, 2, N64_NULL }  //43
 };
 
 /* .bss */

@@ -2,6 +2,12 @@
 
 #include "viint.h"
 
+#include "os_system.h"
+
+extern OSViMode osViModeMpalLan1;
+extern OSViMode osViModePalLan1;
+extern OSViMode osViModeNtscLan1;
+
 static __OSViContext vi[2] = {0};
 __OSViContext *__osViCurr = &vi[0];
 __OSViContext *__osViNext = &vi[1];

@@ -23,7 +23,7 @@ void chjujuhitbox_setJuju(Actor *this, s32 slave_id, Actor *slavePtr);
 /* .data */
 ActorInfo chjujuhitboxInfo = {
     MARKER_67_JUJU, ACTOR_11_JUJU_CTRL, 0,
-    3, NULL,
+    3, N64_NULL,
     chjujuhitbox_update, actor_update_func_80326224, chjujuhitbox_draw,
     0, 0, 0.0f, 0
 };
@@ -64,13 +64,13 @@ void func_80388BEC(NodeProp *node, ActorMarker *marker) {
 
     closest_actor = actorArray_findClosestActorFromActorId(position, ACTOR_11_JUJU_CTRL, -1, &distance_to_closest_actor);
 
-    if (closest_actor != NULL
+    if (closest_actor != N64_NULL
         && !(distance_to_closest_actor > 500.0f)
         && (closest_actor->state == 3)
     ) {
         temp_v0 = marker_getActor(((ActorLocal_JujuHitbox *) &closest_actor->local)->jujus[((ActorLocal_JujuHitbox *) &closest_actor->local)->unk4]);
 
-        if (temp_v0 != NULL) {
+        if (temp_v0 != N64_NULL) {
             if (func_80388B30(temp_v0, 90.0f)) {
                 closest_actor->state = 1;
                 ((ActorLocal_JujuHitbox *) &closest_actor->local)->unk4++;
@@ -138,7 +138,7 @@ void chjujuhitbox_update(Actor *this) {
     }
 
     if (subaddie_playerIsWithinSphereAndActive(this, 0xfa) && !subaddie_playerIsWithinSphereAndActive(this, 0x50) && !player_movementGroup()) {
-        if (!this->has_met_before && gcdialog_showDialog(ASSET_B44_DIALOG_JUJU_MEET, 0, 0, 0, NULL, NULL)) {
+        if (!this->has_met_before && gcdialog_showDialog(ASSET_B44_DIALOG_JUJU_MEET, 0, 0, 0, N64_NULL, N64_NULL)) {
             this->has_met_before = true;
         }
     }

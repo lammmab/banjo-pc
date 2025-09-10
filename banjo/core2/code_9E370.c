@@ -46,11 +46,11 @@ typedef struct {
 }Actorlocal_Core2_9E370;
 
 /* .data */
-ActorArray *suBaddieActorArray = NULL; //actorArrayPtr
+ActorArray *suBaddieActorArray = N64_NULL; //actorArrayPtr
 s32 D_8036E564 = 0;
-struct5Bs *D_8036E568 = NULL;
+struct5Bs *D_8036E568 = N64_NULL;
 s32 D_8036E56C = 0;
-void *D_8036E570 = NULL;
+void *D_8036E570 = N64_NULL;
 u8 D_8036E574 = 0;
 u8 D_8036E578 = 0;
 u8 D_8036E57C = 0;
@@ -80,7 +80,7 @@ Actor *func_80325340(ActorMarker *marker, Gfx **gfx, Mtx **mtx, Vtx **vtx){
         if(marker->collidable)
             marker_loadModelBin(marker);
     }
-    return NULL;
+    return N64_NULL;
 }
 
 void actor_predrawMethod(Actor *this){
@@ -92,17 +92,17 @@ void actor_predrawMethod(Actor *this){
     
     sp48 = marker_loadModelBin(this->marker);
     func_80330534(this);
-    if(this->anctrl != NULL){
+    if(this->anctrl != N64_NULL){
         anctrl_drawSetup(this->anctrl, this->position, 1);
     }
 
-    if(this->marker->unk20 != NULL){
+    if(this->marker->unk20 != N64_NULL){
         sp44 = false;
-        if(this->unk148 != NULL){
+        if(this->unk148 != N64_NULL){
             animMtxList_setBoned(&this->marker->unk20, model_getAnimationList(sp48), skeletalAnim_getBoneTransformList(this->unk148));
             sp44 = true;
         }//L8032542C
-        else if(this->anctrl != NULL && model_getAnimationList(sp48)){
+        else if(this->anctrl != N64_NULL && model_getAnimationList(sp48)){
             anim_802897D4(&this->marker->unk20, model_getAnimationList(sp48), anctrl_getAnimPtr(this->anctrl));
             sp44 = true;
         }//L80325474
@@ -135,7 +135,7 @@ void actor_predrawMethod(Actor *this){
             codeAC520_func_80333D48(sp40, this->position, sp34, this->scale, 0, model_getVtxList(sp48));
         }//L80325560
         modelRender_setVertexList(sp40);
-        this->unkF4_29 = NOT(this->unkF4_29);
+        this->unkF4_29 = !(this->unkF4_29);
     }//L80325594
 
     if(this->unk130){
@@ -207,7 +207,7 @@ BKModelBin *func_803257B4(ActorMarker *marker) {
         assetcache_release(model_bin);
     }
     func_8033A4A0(marker->modelId, actor->unk174, actor->unk178);
-    return NULL;
+    return N64_NULL;
 }
 
 
@@ -218,7 +218,7 @@ Actor *actor_draw(ActorMarker *marker, Gfx **gfx, Mtx **mtx, Vtx **vtx) {
     this = marker_getActorAndRotation(marker, sp3C);
     modelRender_preDraw((GenFunction_1)actor_predrawMethod, (s32)this);
     modelRender_postDraw((GenFunction_1)actor_postdrawMethod, (s32)marker);
-    modelRender_draw(gfx, mtx, this->position, sp3C, this->scale, (this->unk104 != NULL) ? D_8036E580 : NULL, func_803257B4(marker));
+    modelRender_draw(gfx, mtx, this->position, sp3C, this->scale, (this->unk104 != N64_NULL) ? D_8036E580 : N64_NULL, func_803257B4(marker));
     return this;
 }
 
@@ -230,7 +230,7 @@ Actor *func_80325934(ActorMarker *marker, Gfx **gfx, Mtx **mtx, Vtx **vtx) {
     this = marker_getActor(marker);
     sp3C = func_80330F30(marker);
     scale[0] = scale[1] = scale[2] = this->scale;
-    if (this->unk104 != NULL) {
+    if (this->unk104 != N64_NULL) {
         this->position[0] -= D_8036E58C[0];
         this->position[1] -= D_8036E58C[1];
         this->position[2] -= D_8036E58C[2];
@@ -248,7 +248,7 @@ Actor *func_80325934(ActorMarker *marker, Gfx **gfx, Mtx **mtx, Vtx **vtx) {
     func_80335D30(gfx);
     func_80344138(sp3C, marker->propPtr->unk8_15, marker->propPtr->unk8_5, this->position, scale, gfx, mtx);
     func_8033687C(gfx);
-    if (this->unk104 != NULL) {
+    if (this->unk104 != N64_NULL) {
         this->position[0] = this->position[0] + D_8036E58C[0];
         this->position[1] = this->position[1] + D_8036E58C[1];
         this->position[2] = this->position[2] + D_8036E58C[2];
@@ -268,7 +268,7 @@ Actor *func_80325AE0(ActorMarker *marker, Gfx **gfx, Mtx **mtx, Vtx **vtx) {
     rotation[0] = this->pitch;
     rotation[1] = this->yaw;
     rotation[2] = this->roll;
-    if (this->unk104 != NULL) {
+    if (this->unk104 != N64_NULL) {
         this->position[0] -= D_8036E58C[0];
         this->position[1] -= D_8036E58C[1];
         this->position[2] -= D_8036E58C[2];
@@ -286,7 +286,7 @@ Actor *func_80325AE0(ActorMarker *marker, Gfx **gfx, Mtx **mtx, Vtx **vtx) {
     func_80335D30(gfx);
     func_80344720(sp40, marker->propPtr->unk8_15, marker->propPtr->unk8_5, this->position, rotation, &scale, gfx, mtx);
     func_8033687C(gfx);
-    if (this->unk104 != NULL) {
+    if (this->unk104 != N64_NULL) {
         this->position[0] = this->position[0] + D_8036E58C[0];
         this->position[1] = this->position[1] + D_8036E58C[1];
         this->position[2] = this->position[2] + D_8036E58C[2];
@@ -303,7 +303,7 @@ Actor *func_80325CAC(ActorMarker *marker, Gfx **gfx, Gfx **mtx, Vtx **vtx) {
     this = marker_getActor(marker);
     sp40 = func_80330F30(marker);
     scale[0] = scale[1] = scale[2] = this->scale;
-    if (this->unk104 != NULL) {
+    if (this->unk104 != N64_NULL) {
         this->position[0] -= D_8036E58C[0];
         this->position[1] -= D_8036E58C[1];
         this->position[2] -= D_8036E58C[2];
@@ -324,7 +324,7 @@ Actor *func_80325CAC(ActorMarker *marker, Gfx **gfx, Gfx **mtx, Vtx **vtx) {
     func_80344720(sp40, marker->propPtr->unk8_15, marker->propPtr->unk8_5, this->position, rotation, scale, gfx, mtx);
     
     func_8033687C(gfx);
-    if (this->unk104 != NULL) {
+    if (this->unk104 != N64_NULL) {
         this->position[0] = this->position[0] + D_8036E58C[0];
         this->position[1] = this->position[1] + D_8036E58C[1];
         this->position[2] = this->position[2] + D_8036E58C[2];
@@ -340,7 +340,7 @@ Actor *actor_drawFullDepth(ActorMarker *marker, Gfx **gfx, Mtx **mtx, Vtx **vtx)
     modelRender_setDepthMode(MODEL_RENDER_DEPTH_FULL);
     modelRender_preDraw((GenFunction_1)actor_predrawMethod, (s32)this);
     modelRender_postDraw((GenFunction_1)actor_postdrawMethod, (s32)marker);
-    modelRender_draw(gfx, mtx, this->position, rotation, this->scale, (this->unk104 != NULL) ?  D_8036E580 : NULL, func_803257B4(marker));
+    modelRender_draw(gfx, mtx, this->position, rotation, this->scale, (this->unk104 != N64_NULL) ?  D_8036E580 : N64_NULL, func_803257B4(marker));
     return this;
 }
 
@@ -353,7 +353,7 @@ Actor *func_80325F2C(ActorMarker *marker, Gfx **gfx, Mtx **mtx, Vtx **vtx) {
 void func_80325F84(Actor *this){}
 
 void func_80325F8C(void) {
-    suBaddieActorArray = NULL;
+    suBaddieActorArray = N64_NULL;
     D_8036E568 = func_8034A2C8();
     D_8036E56C = dustEmitter_returnGiven(0x10);
     D_8036E570 = func_802F2AEC();
@@ -368,23 +368,23 @@ void func_80325FE8(Actor *this) {
 
     marker = this->marker;
     marker->id = 0;
-    if (this->anctrl != NULL) {
+    if (this->anctrl != N64_NULL) {
         anctrl_free(this->anctrl);
     }
     temp_v0 = this->unk44_31;
     if (temp_v0 != 0) {
         sfxsource_freeSfxsourceByIndex(temp_v0);
     }
-    this->anctrl = NULL;
+    this->anctrl = N64_NULL;
     this->unk44_31 = 0;
 
     if (this->unk138_7 != 0) {
         func_8032BB88(this, -1, 8000);
         this->unk138_7 = 0;
     }
-    if (marker->actorFreeFunc != NULL) {
+    if (marker->actorFreeFunc != N64_NULL) {
        marker->actorFreeFunc(this);
-       marker->actorFreeFunc = NULL;
+       marker->actorFreeFunc = N64_NULL;
     }
     if ((s32)marker->unk44 < 0) {
         commonParticle_freeParticleByActorMarker(marker);
@@ -399,9 +399,9 @@ void func_80325FE8(Actor *this) {
         func_8033F784(marker);
         marker->unk48 = 0;
     }
-    if (this->unk148 != NULL) {
+    if (this->unk148 != N64_NULL) {
         skeletalAnim_free(this->unk148);
-        this->unk148 = NULL;
+        this->unk148 = N64_NULL;
     }
     if (marker->unk50 != 0) {
         func_80340690(marker->unk50);
@@ -413,23 +413,23 @@ void func_80325FE8(Actor *this) {
 void actorArray_free(void) {
     Actor *var_s0;
 
-    if (suBaddieActorArray != NULL) {
+    if (suBaddieActorArray != N64_NULL) {
         for(var_s0 = suBaddieActorArray->data; var_s0 < &suBaddieActorArray->data[suBaddieActorArray->cnt]; var_s0++){
             func_80325FE8(var_s0);
-            if (var_s0->marker != NULL) {
+            if (var_s0->marker != N64_NULL) {
                 marker_free(var_s0->marker);
             }
-            var_s0->marker = NULL;
+            var_s0->marker = N64_NULL;
         }
         free(suBaddieActorArray);
-        suBaddieActorArray = NULL;
+        suBaddieActorArray = N64_NULL;
     }
     func_8034A2A8(D_8036E568);
-    D_8036E568 = NULL;
+    D_8036E568 = N64_NULL;
     dustEmitter_empty(D_8036E56C);
-    D_8036E56C = NULL;
+    D_8036E56C = N64_NULL;
     func_802F2C78(D_8036E570);
-    D_8036E570 = NULL;
+    D_8036E570 = N64_NULL;
 }
 
 s32 func_80326218(void){
@@ -526,7 +526,7 @@ void func_803268B4(void) {
     s32 temp_s1;
     
 
-    if (suBaddieActorArray != NULL) {
+    if (suBaddieActorArray != N64_NULL) {
         sp54 = volatileFlag_get(VOLATILE_FLAG_65_CHEAT_ENTERED);
         for(temp_v1 = suBaddieActorArray->cnt - 1; temp_v1 >= 0; temp_v1--){
             actor = &suBaddieActorArray->data[temp_v1];
@@ -543,20 +543,20 @@ void func_803268B4(void) {
                 if (!actor->despawn_flag) {
                     if (marker->unk2C_2) {
                         marker->actorUpdate2Func(actor);
-                        if (anim_ctrl != NULL) {
+                        if (anim_ctrl != N64_NULL) {
                                 actor->sound_timer = anctrl_getAnimTimer(anim_ctrl);
                         }
                     } else if (!temp_s1 || (temp_s1 && func_803296D8(actor, temp_s1))) {
-                        if ( marker->actorUpdateFunc != NULL) {
+                        if ( marker->actorUpdateFunc != N64_NULL) {
                              marker->actorUpdateFunc(actor);
-                            if (anim_ctrl != NULL) {
+                            if (anim_ctrl != N64_NULL) {
                                     actor->sound_timer = anctrl_getAnimTimer(anim_ctrl);
                             }
                         }
                     }
                     actor->unk124_7 = true;
                     actor->unk138_28 = false;
-                    if (anim_ctrl != NULL) {
+                    if (anim_ctrl != N64_NULL) {
                         anctrl_update(anim_ctrl);
                     }
                     if (marker->unk4C) {
@@ -620,7 +620,7 @@ Actor *actorArray_findActorFromModelId(enum asset_e model_id) {
             return i_actor;
         }
     }
-    return NULL;
+    return N64_NULL;
 }
 
 Actor *actorArray_findActorFromMarkerId(enum marker_e marker_id) {
@@ -633,7 +633,7 @@ Actor *actorArray_findActorFromMarkerId(enum marker_e marker_id) {
             return i_actor;
         }
     }
-    return NULL;
+    return N64_NULL;
 }
 
 /* 
@@ -647,9 +647,9 @@ Actor *actorArray_findClosestActorFromActorId(f32 position[3], enum actor_e acto
     f32 min_dist;
     s32 *closest_actor;
 
-    if (suBaddieActorArray != NULL) {
+    if (suBaddieActorArray != N64_NULL) {
         begin = suBaddieActorArray->data;
-        closest_actor = NULL;
+        closest_actor = N64_NULL;
         min_dist = 1e+10f;
         for(i_actor = begin; (i_actor - begin) < suBaddieActorArray->cnt; i_actor++){
             if ( ((actor_id == i_actor->modelCacheIndex) || (actor_id < 0)) 
@@ -665,12 +665,12 @@ Actor *actorArray_findClosestActorFromActorId(f32 position[3], enum actor_e acto
                 }
             }
         }
-        if (min_distance_ptr != NULL) {
+        if (min_distance_ptr != N64_NULL) {
             *min_distance_ptr = min_dist;
         }
         return closest_actor;
     }
-    return NULL;
+    return N64_NULL;
 }
 
 Actor *actorArray_findActorFromActorId(enum actor_e actor_id) {
@@ -685,7 +685,7 @@ Actor *actorArray_findActorFromActorId(enum actor_e actor_id) {
             return i_actor;
         }
     }
-    return NULL;
+    return N64_NULL;
 }
 
 s32 actorArray_actorCount(enum actor_e actor_id) {
@@ -712,13 +712,13 @@ Actor **actorArray_findJiggyActors(void) {
     s32 var_a1;
 
     begin = suBaddieActorArray->data;
-    for(i_actor = begin, var_a1 = 0; (suBaddieActorArray != NULL) && ((i_actor - begin) < suBaddieActorArray->cnt); i_actor++){
+    for(i_actor = begin, var_a1 = 0; (suBaddieActorArray != N64_NULL) && ((i_actor - begin) < suBaddieActorArray->cnt); i_actor++){
         if ((i_actor->modelCacheIndex == ACTOR_46_JIGGY) && !i_actor->despawn_flag) {
             suBaddieJiggyArray[var_a1] = i_actor;
             var_a1 += 1;
         }
     }
-    suBaddieJiggyArray[var_a1] = NULL;
+    suBaddieJiggyArray[var_a1] = N64_NULL;
     return suBaddieJiggyArray;
 }
 
@@ -729,13 +729,13 @@ bool func_803270B8(f32 arg0[3], f32 arg1, enum marker_collision_func_type_e arg2
 
     var_s4 = false;
     start = &suBaddieActorArray->data[0];
-    for(i_ptr = start; (suBaddieActorArray != NULL) && (i_ptr - start < suBaddieActorArray->cnt); i_ptr++){
+    for(i_ptr = start; (suBaddieActorArray != N64_NULL) && (i_ptr - start < suBaddieActorArray->cnt); i_ptr++){
         if( !i_ptr->despawn_flag 
             && i_ptr->marker->collidable 
-            && ((arg3 == NULL) || arg3(i_ptr)) 
+            && ((arg3 == N64_NULL) || arg3(i_ptr)) 
             && ml_vec3f_within_distance(i_ptr->position, arg0, arg1)
         ) {
-            if (i_ptr->marker->unk58 == NULL || i_ptr->marker->unk58(i_ptr->marker, arg4)
+            if (i_ptr->marker->unk58 == N64_NULL || i_ptr->marker->unk58(i_ptr->marker, arg4)
             ) {
                 var_s4 = true;
                 if (!func_8033D410(arg4, i_ptr->marker)) {
@@ -753,7 +753,7 @@ void func_8032728C(f32 arg0[3], f32 arg1, s32 arg2, int (*arg3)(Actor *)){
 }
 
 void func_803272D0(f32 arg0[3], f32 arg1, s32 arg2, int (*arg3)(Actor *)){
-    func_803270B8(arg0, arg1, arg2, arg3, NULL);
+    func_803270B8(arg0, arg1, arg2, arg3, N64_NULL);
 }
 
 Actor *actor_new(s32 position[3], s32 yaw, ActorInfo* actorInfo, u32 flags){
@@ -761,7 +761,7 @@ Actor *actor_new(s32 position[3], s32 yaw, ActorInfo* actorInfo, u32 flags){
     s32 i;
     f32 sp44[3];
     
-    if(suBaddieActorArray == NULL){
+    if(suBaddieActorArray == N64_NULL){
         suBaddieActorArray = (ActorArray *)malloc(sizeof(ActorArray) + 20*sizeof(Actor));
         suBaddieActorArray->cnt = 0;
         suBaddieActorArray->max_cnt = 20;
@@ -836,10 +836,10 @@ Actor *actor_new(s32 position[3], s32 yaw, ActorInfo* actorInfo, u32 flags){
     suLastBaddie->volatile_initialized = false;
     suLastBaddie->lifetime_value = 0.0f;
     suLastBaddie->is_bundle = false;
-    suLastBaddie->unk104 = NULL;
-    suLastBaddie->partnerActor = NULL;
-    suLastBaddie->unk158[0] = NULL;
-    suLastBaddie->unk158[1] = NULL;
+    suLastBaddie->unk104 = N64_NULL;
+    suLastBaddie->partnerActor = N64_NULL;
+    suLastBaddie->unk158[0] = N64_NULL;
+    suLastBaddie->unk158[1] = N64_NULL;
     suLastBaddie->secondaryId = 0;
     suLastBaddie->unk124_31 = 0;
     suLastBaddie->unkF4_20 = 0;
@@ -865,7 +865,7 @@ Actor *actor_new(s32 position[3], s32 yaw, ActorInfo* actorInfo, u32 flags){
     suLastBaddie->unk58_1 = 0;
     suLastBaddie->unk138_29 = 0;
     suLastBaddie->unk18 = actorInfo->animations;
-    suLastBaddie->anctrl = NULL;
+    suLastBaddie->anctrl = N64_NULL;
     suLastBaddie->stored_anctrl_timer = 0.0f;
     suLastBaddie->unk130 = 0;
     suLastBaddie->unk124_5 = 0;
@@ -878,8 +878,8 @@ Actor *actor_new(s32 position[3], s32 yaw, ActorInfo* actorInfo, u32 flags){
     suLastBaddie->unk16C_1 = 0;
     suLastBaddie->unk16C_0 = 0;
     suLastBaddie->unk17C_31 = 0;
-    suLastBaddie->unk14C[0] = NULL;
-    suLastBaddie->unk14C[1] = NULL;
+    suLastBaddie->unk14C[0] = N64_NULL;
+    suLastBaddie->unk14C[1] = N64_NULL;
     suLastBaddie->unk138_27 = 0;
     suLastBaddie->has_met_before = false;
     suLastBaddie->unk138_23 = 0;
@@ -1112,9 +1112,9 @@ void marker_despawn(ActorMarker *marker){
         D_8036E578++;
         if(actor->unk104 && actor->modelCacheIndex != 0x108){
             marker_getActor(actor->unk104)->despawn_flag = 1;
-            marker_getActor(actor->unk104)->unk104 = NULL;
+            marker_getActor(actor->unk104)->unk104 = N64_NULL;
             D_8036E578++;
-            actor->unk104 = NULL;
+            actor->unk104 = N64_NULL;
         }
     }
     else{
@@ -1170,7 +1170,7 @@ static bool __subaddie_set_state(Actor *this, s32 state)
     if (1);
 
     if (index != 0){
-        if (this->anctrl == NULL){
+        if (this->anctrl == N64_NULL){
             this->anctrl = anctrl_new(0);
             anctrl_reset(this->anctrl);
         }
@@ -1648,8 +1648,8 @@ Actor *marker_getActor(ActorMarker *this){
 }
 
 Actor *subaddie_getLinkedActor(Actor *this){
-    if(this->partnerActor == NULL)
-        return NULL;
+    if(this->partnerActor == N64_NULL)
+        return N64_NULL;
     return marker_getActor(this->partnerActor);
 }
 
@@ -1681,7 +1681,7 @@ void func_803299B4(Actor *arg0) {
 }
 
 void func_80329B68(Actor *this){
-    if(this->anctrl == NULL)
+    if(this->anctrl == N64_NULL)
         return;
 
     if(this->stored_anctrl_playbackType_){
@@ -1740,15 +1740,15 @@ void *actors_appendToSavestate(void * begin, u32 end){
                 memcpy(s0, s1, sizeof(Actor));
                 s0->unk40 = 0;
                 s0->unk138_28 = 1;
-                s0->unk14C[0] =s0->unk14C[1] = NULL;
-                // s0->unk14C = NULL;
-                s0->unk148 = NULL;
+                s0->unk14C[0] =s0->unk14C[1] = N64_NULL;
+                // s0->unk14C = N64_NULL;
+                s0->unk148 = N64_NULL;
                 s0->volatile_initialized = false;
                 s0->unk44_31 = 0;
-                s0->unk104 = NULL;
-                s0->partnerActor = NULL;
-                s0->unk158[0] = NULL;
-                s0->unk158[1] = NULL;
+                s0->unk104 = N64_NULL;
+                s0->partnerActor = N64_NULL;
+                s0->unk158[0] = N64_NULL;
+                s0->unk158[1] = N64_NULL;
                 s0->unk138_19 = s1->marker->id;
                 s0->unk108 = s1->marker->collisionFunc;
                 s0->unk10C = s1->marker->collision2Func;
@@ -1771,8 +1771,8 @@ void *actors_appendToSavestate(void * begin, u32 end){
                     s0->stored_anctrl_timer = anctrl_getAnimTimer(s0->anctrl);
                     anctrl_getSubRange(s0->anctrl, &s0->stored_anctrl_subrangeMin, &s0->stored_anctrl_subrangeMax);
                 }
-                s0->anctrl = NULL;
-                s0->marker = NULL;
+                s0->anctrl = N64_NULL;
+                s0->marker = N64_NULL;
                 s0++;
             }
         }
@@ -1794,7 +1794,7 @@ void func_8032A09C(s32 arg0, ActorListSaveState *arg1) {
     s32 var_s3;
     
     spawnQueue_lock();
-    if (suBaddieActorArray != NULL) {
+    if (suBaddieActorArray != N64_NULL) {
         func_803283BC();
         var_s3 = 0;
         var_s0 = arg1->actor_save_state;
@@ -1837,7 +1837,7 @@ void func_8032A09C(s32 arg0, ActorListSaveState *arg1) {
         for(var_s2 = 1; var_s2 < var_s3; var_s2++){
             pad = sp5C + var_s2;       
             temp_v1 = sp60 + var_s2;
-            if ((*temp_v1 != NULL) && (*(Actor **)pad != NULL) && !(*(Actor **)pad)->unkF4_22) {
+            if ((*temp_v1 != N64_NULL) && (*(Actor **)pad != N64_NULL) && !(*(Actor **)pad)->unkF4_22) {
                 var_s0 = *(Actor **)pad;
                 temp_v0_6 = *temp_v1;
                 actor_copy(var_s0, temp_v0_6);
@@ -1848,9 +1848,9 @@ void func_8032A09C(s32 arg0, ActorListSaveState *arg1) {
         for(var_s2 = 1; var_s2 < var_s3; var_s2++){
             pad = sp5C + var_s2;       
             temp_v1 = sp60 + var_s2;       
-            if ((*temp_v1 != NULL) && !(*temp_v1)->unk58_1 && (*(Actor **)pad == NULL)) {
+            if ((*temp_v1 != N64_NULL) && !(*temp_v1)->unk58_1 && (*(Actor **)pad == N64_NULL)) {
                 marker_despawn((*temp_v1)->marker);
-                *temp_v1 = NULL;
+                *temp_v1 = N64_NULL;
             }
         }
 
@@ -1879,7 +1879,7 @@ void func_8032A09C(s32 arg0, ActorListSaveState *arg1) {
 void func_8032A5F8(void) {
     Actor *var_s0;
 
-    if (suBaddieActorArray != NULL) {
+    if (suBaddieActorArray != N64_NULL) {
         for(var_s0 = &suBaddieActorArray->data[0]; var_s0 < &suBaddieActorArray->data[suBaddieActorArray->cnt]; var_s0++){
             if (var_s0->unk124_31 == 0xfff) {
                 var_s0->unk124_31 = 0;
@@ -1917,7 +1917,7 @@ Actor *func_8032A7AC(Actor *arg0) {
     Actor *var_a0;
 
     if (arg0->unk124_31 != 0) {
-        if (suBaddieActorArray != NULL) {
+        if (suBaddieActorArray != N64_NULL) {
             for(var_a0 = &suBaddieActorArray->data[0]; var_a0 < &suBaddieActorArray->data[suBaddieActorArray->cnt]; var_a0++){
                 if (arg0->unk124_31 == var_a0->secondaryId) {
                     return var_a0;
@@ -1925,7 +1925,7 @@ Actor *func_8032A7AC(Actor *arg0) {
             }
         }
     }
-    return NULL;
+    return N64_NULL;
 }
 
 void func_8032A82C(Actor *arg0, s32 arg1) {
@@ -1934,7 +1934,7 @@ void func_8032A82C(Actor *arg0, s32 arg1) {
 
     sp1C = &arg0->local;
     sp24 = nodeprop_findByActorIdAndActorPosition(arg1, arg0);
-    if (sp24 != NULL) {
+    if (sp24 != N64_NULL) {
         sp1C->unkC = nodeprop_getYaw(sp24);
         nodeprop_getPosition(sp24, sp1C->unk0);
         sp1C->unkE = func_80341EC4(sp1C);
@@ -1999,7 +1999,7 @@ void func_8032AABC(void){
     spawnQueue_lock();
 
 
-    if(suBaddieActorArray != NULL){    
+    if(suBaddieActorArray != N64_NULL){    
         cnt =  suBaddieActorArray->cnt;
         for(i_ptr = start, i = 0; i < cnt; i++, i_ptr++){
             i_ptr->marker->unk14_21 = 0;
@@ -2014,7 +2014,7 @@ void func_8032AB84(Actor *arg0) {
     marker = arg0->marker;
     if(arg0->unkF4_30){
         for(var_s0 = 0; var_s0 < 2; var_s0++){
-            if (arg0->unk14C[var_s0] == NULL) {
+            if (arg0->unk14C[var_s0] == N64_NULL) {
                 switch (var_s0) {                       /* irregular */
                     case 0:
                         arg0->unk14C[0] = vtxList_clone(model_getVtxList(func_80330DE4(marker)));
@@ -2028,7 +2028,7 @@ void func_8032AB84(Actor *arg0) {
         }
     }
 
-    if (marker->unk20 == NULL && arg0->unk3C & 0x20) {
+    if (marker->unk20 == N64_NULL && arg0->unk3C & 0x20) {
         marker->unk20 = animMtxList_new();
     }
 }
@@ -2039,7 +2039,7 @@ void func_8032ACA8(Actor *arg0) {
 
     sp30 = arg0->marker;
     for(var_s0 = 0; var_s0 < 2; var_s0++){
-        if (arg0->unk14C[var_s0] != NULL) {
+        if (arg0->unk14C[var_s0] != N64_NULL) {
             switch (var_s0) {                       /* irregular */
                 case 0:
                     vtxList_free(arg0->unk14C[0]);
@@ -2050,11 +2050,11 @@ void func_8032ACA8(Actor *arg0) {
                     }
                     break;
             }
-            arg0->unk14C[var_s0] = NULL;
+            arg0->unk14C[var_s0] = N64_NULL;
         }
     }
 
-    if (sp30->unk20 != NULL) {
+    if (sp30->unk20 != N64_NULL) {
         animMtxList_free(sp30->unk20);
         sp30->unk20 = 0;
     }
@@ -2066,12 +2066,12 @@ void func_8032AD7C(s32 arg0) {
     static s32 D_8036E5A8 = 0;
     
 
-    if (suBaddieActorArray != NULL) {
+    if (suBaddieActorArray != N64_NULL) {
         if (D_8036E5A8 >= suBaddieActorArray->cnt) {
             D_8036E5A8 = 0;
         }
         for(var_s0 = 0; var_s0 < ((arg0 == 1) ? 0xF : suBaddieActorArray->cnt); var_s0++){
-            if (func_80330E28(&suBaddieActorArray->data[D_8036E5A8]) == NULL) {
+            if (func_80330E28(&suBaddieActorArray->data[D_8036E5A8]) == N64_NULL) {
                 func_8032ACA8(&suBaddieActorArray->data[D_8036E5A8]);
             }
             D_8036E5A8 = (D_8036E5A8 + 1) % suBaddieActorArray->cnt;
@@ -2084,7 +2084,7 @@ void func_8032AEB4(void) {
     Actor *var_s0;
 
     temp_s2 = &suBaddieActorArray->data[0];
-    for(var_s0 = temp_s2; (suBaddieActorArray != NULL) && ((var_s0 - temp_s2) != suBaddieActorArray->cnt); var_s0++){
+    for(var_s0 = temp_s2; (suBaddieActorArray != N64_NULL) && ((var_s0 - temp_s2) != suBaddieActorArray->cnt); var_s0++){
         func_8032ACA8(var_s0);
     }
 }
@@ -2107,7 +2107,7 @@ void actorArray_defrag(void) {
     static s32 D_8036E5AC = 0;
 
 
-    if (suBaddieActorArray != NULL) {
+    if (suBaddieActorArray != N64_NULL) {
         for(var_s1 = 0; var_s1 < 8; var_s1++){
             D_8036E5AC++;
             if (D_8036E5AC >= suBaddieActorArray->cnt) {
@@ -2119,27 +2119,27 @@ void actorArray_defrag(void) {
                 i_actor->marker->unk44 = func_8034A348(i_actor->marker->unk44);
             }
 
-            if (i_actor->unk158[0] != NULL) {
+            if (i_actor->unk158[0] != N64_NULL) {
                 i_actor->unk158[0] = partEmitMgr_defragEmitter(i_actor->unk158[0]);
             }
 
-            if (i_actor->unk158[1] != NULL) {
+            if (i_actor->unk158[1] != N64_NULL) {
                 i_actor->unk158[1] = partEmitMgr_defragEmitter(i_actor->unk158[1]);
             }
 
-            if (i_actor->anctrl != NULL) {
+            if (i_actor->anctrl != N64_NULL) {
                 i_actor->anctrl = anctrl_defrag(i_actor->anctrl);
             }
 
-            if (i_actor->marker->unk20 != NULL) {
+            if (i_actor->marker->unk20 != N64_NULL) {
                 i_actor->marker->unk20 = animMtxList_defrag(i_actor->marker->unk20);
             }
 
-            if (i_actor->unk148 != NULL) {
+            if (i_actor->unk148 != N64_NULL) {
                 i_actor->unk148 = (SkeletalAnimation*)defrag(i_actor->unk148);
             }
 
-            if (i_actor->marker->unk50 != NULL) {
+            if (i_actor->marker->unk50 != N64_NULL) {
                 i_actor->marker->unk50 = func_803406D4(i_actor->marker->unk50);
             }
 
@@ -2163,7 +2163,7 @@ ActorMarker *func_8032B16C(enum jiggy_e jiggy_id) {
     Actor *temp_s3;
     Actor *var_s0;
 
-    if (suBaddieActorArray != NULL) {
+    if (suBaddieActorArray != N64_NULL) {
         temp_s3 = &suBaddieActorArray->data[0];
         for(var_s0 = temp_s3; (var_s0 - temp_s3) < suBaddieActorArray->cnt; var_s0++){
             if ((var_s0->marker->id == MARKER_52_JIGGY) && (chjiggy_getJiggyId(&(var_s0->marker)) == jiggy_id)) {
@@ -2171,7 +2171,7 @@ ActorMarker *func_8032B16C(enum jiggy_e jiggy_id) {
             }
         }
     }
-    return NULL;
+    return N64_NULL;
 }
 
 void func_8032B258(Actor *this, enum collision_e arg1) {
@@ -2204,7 +2204,7 @@ void func_8032B3A0(Actor *this, ActorMarker *arg1) {
     static s32 D_8036E5B0[4] = {0xFF, 0xFF, 0xFF, 0xC8};
 
 
-    if (arg1 != NULL) {
+    if (arg1 != N64_NULL) {
         sp54[0] = this->position[0];
         sp54[1] = this->position[1] + func_8033229C(this->marker)*((this->unk16C_0) ? 0.5 : 1.0);
         sp54[2] = this->position[2];
@@ -2222,9 +2222,9 @@ void func_8032B4DC(Actor *this, ActorMarker *arg1, s32 arg2) {
     f32 sp3C[3];
     static s32 D_8036E5C0[4] = {0xFF, 0xFF, 0xFF, 0xC8};
 
-    if (arg1 != NULL) {
+    if (arg1 != N64_NULL) {
         func_8034A174(this->marker->unk44, arg2, &sp3C);
-        dustEmitter_emit(sp3C, NULL, D_8036E5C0, !this->unk16C_0, 0.75f, 0.0f, 125, 250, DUST_EMITTER_TYPE_DUST);
+        dustEmitter_emit(sp3C, N64_NULL, D_8036E5C0, !this->unk16C_0, 0.75f, 0.0f, 125, 250, DUST_EMITTER_TYPE_DUST);
         func_802F3CF8(sp3C, !this->unk16C_0, 
             (arg1->id == 1) ? 1 
             : (player_getTransformation() == TRANSFORM_5_CROC) ? 2

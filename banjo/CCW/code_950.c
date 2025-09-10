@@ -16,7 +16,7 @@ typedef struct{
 void chwasp_update(Actor *this);
 
 /* .data */
-ActorInfo D_8038EBD0 = { MARKER_1AE_ZUBBA, ACTOR_29B_ZUBBA, ASSET_446_MODEL_ZUBBA, 0x0, NULL, chwasp_update, NULL, actor_draw, 0, 0, 1.0f, 0};
+ActorInfo D_8038EBD0 = { MARKER_1AE_ZUBBA, ACTOR_29B_ZUBBA, ASSET_446_MODEL_ZUBBA, 0x0, N64_NULL, chwasp_update, N64_NULL, actor_draw, 0, 0, 1.0f, 0};
 
 /* .code */
 void chwasp_setState(Actor *this, s32 next_state) {
@@ -120,13 +120,13 @@ void chwasp_update(Actor *this) {
         sfxSource_setunk43_7ByIndex(local->sfxsourceIdx, 2);
         sfxsource_playSfxAtVolume(local->sfxsourceIdx, 0.9f);
         sfxsource_setSampleRate(local->sfxsourceIdx, 0);
-        marker_setCollisionScripts(this->marker, func_80387124, NULL, CCW_func_80387150);
+        marker_setCollisionScripts(this->marker, func_80387124, N64_NULL, CCW_func_80387150);
         chwasp_setState(this, 1);
         return;
     }
-    if(local->unk4 == NULL) {
+    if(local->unk4 == N64_NULL) {
         other = actorArray_findActorFromActorId(0x299);
-        if (other == NULL) {
+        if (other == N64_NULL) {
             marker_despawn(this->marker);
             return;
         }

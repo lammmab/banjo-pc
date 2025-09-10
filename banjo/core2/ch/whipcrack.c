@@ -7,8 +7,8 @@ void chwhipcrack_update(Actor *this);
 /* .data */
 ActorInfo D_80373100 = { 
     MARKER_1C5_WHIPCRACK, ACTOR_30F_WHIPCRACK, ASSET_4FD_MODEL_WHIPCRACK, 
-    0, NULL, 
-    chwhipcrack_update, NULL, actor_draw, 
+    0, N64_NULL, 
+    chwhipcrack_update, N64_NULL, actor_draw, 
     0, 0, 0.0f, 0
 };
 
@@ -101,7 +101,7 @@ void chwhipcrack_update(Actor *this){
         this->volatile_initialized = true;
         this->roll = this->yaw;
         this->yaw = 0.0f;
-        marker_setCollisionScripts(this->marker, NULL, NULL, __chwhipcrack_die);
+        marker_setCollisionScripts(this->marker, N64_NULL, N64_NULL, __chwhipcrack_die);
         __chwhipcrack_setState(this, 1);
     }
     player_getPosition(plyr_pos);

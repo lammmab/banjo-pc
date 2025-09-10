@@ -24,8 +24,8 @@ Struct_CCW_6EC0_0 D_8038F600[] = {
 
 ActorInfo D_8038F614 = { 
     0x1CE, 0x31A, 0x48F,
-    0x0, NULL,
-    func_8038D368, NULL, func_8038D30C,
+    0x0, N64_NULL,
+    func_8038D368, N64_NULL, func_8038D30C,
     0, 0, 2.2f, 0
 };
 
@@ -71,10 +71,10 @@ void func_8038D368(Actor *this) {
         player_getPosition(plyr_pos);
         if (ml_vec3f_distance(this->position, plyr_pos) < 600.0f) {
             if (!jiggyscore_isCollected(JIGGY_4B_CCW_GNAWTY)) {
-                gcdialog_showDialog(local->unk0->unk2, 4, NULL, NULL, NULL, NULL);
+                gcdialog_showDialog(local->unk0->unk2, 4, N64_NULL, N64_NULL, N64_NULL, N64_NULL);
             } else {
                 if (local->unk0->unk4) {
-                    gcdialog_showDialog(local->unk0->unk4, 4, NULL, NULL, NULL, NULL);
+                    gcdialog_showDialog(local->unk0->unk4, 4, N64_NULL, N64_NULL, N64_NULL, N64_NULL);
                 }
             }
             this->has_met_before = true;

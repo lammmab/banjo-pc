@@ -72,7 +72,7 @@ Actor *chPinkEgg_draw(ActorMarker *this, Gfx ** gdl, Mtx** mptr, Vtx **arg3){
     u32 t7;
 
     t7 = marker_getActor(this)->state == 3;
-    func_8033A45C(1, NOT(sp18 = t7));
+    func_8033A45C(1, !(sp18 = t7));
     func_8033A45C(2, sp18);
     return actor_draw(this, gdl, mptr, arg3);
 }
@@ -100,7 +100,7 @@ void chPinkEgg_collision(ActorMarker *this, ActorMarker *other_marker){
 void chPinkEgg_update(Actor *this){
     if(!this->initialized){
         this->marker->propPtr->unk8_3 = 1;
-        marker_setCollisionScripts(this->marker, NULL, NULL, chPinkEgg_collision);
+        marker_setCollisionScripts(this->marker, N64_NULL, N64_NULL, chPinkEgg_collision);
         this->initialized = true;
     }
 

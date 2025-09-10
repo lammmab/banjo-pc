@@ -44,7 +44,7 @@ void func_803877B0(Struct_CC_13C0_1* arg0, void* arg1, f32 position[3], f32 rota
     }
     func_8033A45C(2, 0);
     modelRender_setDepthMode(MODEL_RENDER_DEPTH_FULL);
-    modelRender_draw(gfx, mtx, position, rotation, arg4, NULL, modeL_ptr);
+    modelRender_draw(gfx, mtx, position, rotation, arg4, N64_NULL, modeL_ptr);
 }
 
 void func_803878AC(Struct_CC_13C0_1 *arg0, Struct68s *arg1, s32 arg2) {
@@ -126,7 +126,7 @@ void CC_func_80387A40(Struct_CC_13C0_1* arg0, Struct68s* arg1, f32 arg2) {
         sp44[1] = 0.0f;
         sp44[2] = 1.0f;
         mlMtxIdent();
-        func_80252C08(NULL, sp2C, 1.0f, NULL);
+        func_80252C08(N64_NULL, sp2C, 1.0f, N64_NULL);
         mlMtx_apply_vec3f(sp44, sp44);
         player_getPosition(sp50);
         sp50[1] += 50.0f;

@@ -189,7 +189,7 @@ static MapModelDescription *_mapModel_mapIdToDescription(enum map_e map_id){
             return i_ptr;
         }
     }
-    return NULL;
+    return N64_NULL;
 }
 
 f32 func_80308FDC(f32 arg0[3], u32 arg1) {
@@ -344,7 +344,7 @@ void mapModel_opa_draw(Gfx **gfx, Mtx **mtx, Vtx **vtx) {
             modelRender_setAnimatedTexturesCacheId(temp_a0);
         }
         modelRender_setEnvColor(mapModel.env_red, mapModel.env_green, mapModel.env_blue, 0xFF);
-        modelRender_draw(gfx, mtx, NULL, NULL, mapModel.description->scale, NULL, mapModel.model_bin_opa);
+        modelRender_draw(gfx, mtx, N64_NULL, N64_NULL, mapModel.description->scale, N64_NULL, mapModel.model_bin_opa);
         if (!mapModel_has_xlu_bin()) {
             func_802F7BC0(gfx, mtx, vtx);
         }
@@ -354,9 +354,9 @@ void mapModel_opa_draw(Gfx **gfx, Mtx **mtx, Vtx **vtx) {
 void mapModel_xlu_draw(Gfx **gfx, Mtx **mtx, Vtx **vtx) {
     s32 temp_a0;
 
-    if (mapModel.model_bin_xlu != NULL) {
+    if (mapModel.model_bin_xlu != N64_NULL) {
         if (map_get() == MAP_1D_MMM_CELLAR) {
-            func_8033A45C(1, (actorArray_findActorFromActorId(0x191) != NULL) ? 0 : 1);
+            func_8033A45C(1, (actorArray_findActorFromActorId(0x191) != N64_NULL) ? 0 : 1);
         }
         modelRender_setDepthMode(MODEL_RENDER_DEPTH_COMPARE);
         temp_a0 = mapModel.unk4;
@@ -364,7 +364,7 @@ void mapModel_xlu_draw(Gfx **gfx, Mtx **mtx, Vtx **vtx) {
             modelRender_setAnimatedTexturesCacheId(temp_a0);
         }
         modelRender_setEnvColor(mapModel.env_red, mapModel.env_green, mapModel.env_blue, 0xFF);
-        modelRender_draw(gfx, mtx, NULL, NULL, mapModel.description->scale, NULL, mapModel.model_bin_xlu);
+        modelRender_draw(gfx, mtx, N64_NULL, N64_NULL, mapModel.description->scale, N64_NULL, mapModel.model_bin_xlu);
         func_802F7BC0(gfx, mtx, vtx);
     }
 }
@@ -432,7 +432,7 @@ void mapModel_getBounds(s32 min[3], s32 max[3]) {
         max[i] *= mapModel.scale;
     }
 
-    if (mapModel.model_bin_xlu != NULL) {
+    if (mapModel.model_bin_xlu != N64_NULL) {
         vtxList_getBounds_s32(model_getVtxList(mapModel.model_bin_xlu), xlu_min, xlu_max);
         for(j = 0; j < 3; j++){
             if(xlu_min[j] < min[j]){
@@ -455,9 +455,9 @@ BKCollisionTri *func_80309B48(f32 startPoint[3], f32 endPoint[3], f32 arg2[3], s
     BKCollisionTri *transparentTri;
 
     mapModel.unk20 = 0;
-    if (mapModel.collision_xlu != NULL) {
+    if (mapModel.collision_xlu != N64_NULL) {
         if ((flagFilter & 0x80001F00) == 0x80001F00) {
-            opaqueTri = NULL;
+            opaqueTri = N64_NULL;
         }
         else {
             opaqueTri = func_802E76B0(mapModel.collision_opa, model_getVtxList(mapModel.model_bin_opa), startPoint, endPoint, arg2, flagFilter);
@@ -465,12 +465,12 @@ BKCollisionTri *func_80309B48(f32 startPoint[3], f32 endPoint[3], f32 arg2[3], s
 
         transparentTri = func_802E76B0(mapModel.collision_xlu, model_getVtxList(mapModel.model_bin_xlu), startPoint, endPoint, arg2, flagFilter);
 
-        if (transparentTri != NULL) {
+        if (transparentTri != N64_NULL) {
             mapModel.unk20 = (s32) mapModel.model_bin_xlu;
             return transparentTri;
         }
 
-        if (opaqueTri != NULL) {
+        if (opaqueTri != N64_NULL) {
             mapModel.unk20 = (s32) mapModel.model_bin_opa;
         }
 
@@ -478,7 +478,7 @@ BKCollisionTri *func_80309B48(f32 startPoint[3], f32 endPoint[3], f32 arg2[3], s
     }
     else{
         opaqueTri = func_802E76B0(mapModel.collision_opa, model_getVtxList(mapModel.model_bin_opa), startPoint, endPoint, arg2, flagFilter);
-        if (opaqueTri != NULL) {
+        if (opaqueTri != N64_NULL) {
             mapModel.unk20 = (s32) mapModel.model_bin_opa;
         }
     }
@@ -491,10 +491,10 @@ BKCollisionTri *func_80309C74(f32 arg0[3], f32 arg1[3], f32 arg2[3], s32 flagFil
     BKCollisionTri *phi_v0;
 
     sp2C = func_802E76B0(mapModel.collision_opa, model_getVtxList(mapModel.model_bin_opa), arg0, arg1, arg2, flagFilter);
-    if (sp2C != NULL) {
+    if (sp2C != N64_NULL) {
         *arg4 = mapModel.model_bin_opa;
     }
-    if (mapModel.collision_xlu == NULL) {
+    if (mapModel.collision_xlu == N64_NULL) {
         return sp2C;
     }
 
@@ -502,15 +502,15 @@ BKCollisionTri *func_80309C74(f32 arg0[3], f32 arg1[3], f32 arg2[3], s32 flagFil
     if (phi_v0 != 0) {
         *arg4 = mapModel.model_bin_xlu;
     }
-    return (phi_v0 != NULL) ? phi_v0 : sp2C;
+    return (phi_v0 != N64_NULL) ? phi_v0 : sp2C;
 }
 
 bool func_80309D58(f32 arg0[3], UNK_TYPE(s32) arg1) {
     BKModelUnk14List *temp_v0;
 
     temp_v0 = func_8033A12C(mapModel.model_bin_opa);
-    if (temp_v0 != NULL) {
-        return func_802EC394(temp_v0, NULL, NULL, 1.0f, NULL, arg0, arg1);
+    if (temp_v0 != N64_NULL) {
+        return func_802EC394(temp_v0, N64_NULL, N64_NULL, 1.0f, N64_NULL, arg0, arg1);
     }
     return 0;
 }
@@ -548,7 +548,7 @@ UNK_TYPE(s32) func_80309EB0(f32 arg0[3], f32 arg1, f32 arg2[3], s32 arg3) {
 }
 
 bool mapModel_has_xlu_bin(void) {
-    return (mapModel.model_bin_opa != NULL) && (mapModel.model_bin_xlu != NULL);
+    return (mapModel.model_bin_opa != N64_NULL) && (mapModel.model_bin_xlu != N64_NULL);
 }
 
 bool func_80309FA4(enum map_e map_id){
@@ -599,49 +599,49 @@ void func_8030A078(void) {
         mapModel.model_bin_xlu = (BKModelBin *)assetcache_get(mapModel.description->xlu_model_id);
         mapModel.collision_xlu = model_getCollisionList(mapModel.model_bin_xlu);
     } else {
-        mapModel.model_bin_xlu = NULL;
-        mapModel.collision_xlu = NULL;
+        mapModel.model_bin_xlu = N64_NULL;
+        mapModel.collision_xlu = N64_NULL;
     }
     sp24 = func_8033A0B0(mapModel.model_bin_opa);
-    if (sp24 != NULL) {
+    if (sp24 != N64_NULL) {
         mapModel.model_opa = func_8033F5F8(sp24, model_getVtxList(mapModel.model_bin_opa));
     } else {
-        mapModel.model_opa = NULL;
+        mapModel.model_opa = N64_NULL;
     }
-    if (mapModel.model_opa != NULL) {
+    if (mapModel.model_opa != N64_NULL) {
         func_8034C6DC(mapModel.model_opa);
     }
 
-    if (mapModel.model_bin_xlu != NULL) {
+    if (mapModel.model_bin_xlu != N64_NULL) {
         sp24 = func_8033A0B0(mapModel.model_bin_xlu);
     }
     else{
-        sp24 = NULL;
+        sp24 = N64_NULL;
     }
     
-    if (sp24 != NULL) {
+    if (sp24 != N64_NULL) {
         mapModel.model_xlu = func_8033F5F8(sp24, model_getVtxList(mapModel.model_bin_xlu));
     } else {
         mapModel.model_xlu = 0;
     }
-    if (mapModel.model_xlu != NULL) {
+    if (mapModel.model_xlu != N64_NULL) {
         func_8034C6DC(mapModel.model_xlu);
     }
     mapModel.unk24 = func_8034A2C8();
     func_80320B44(func_80309B48, func_80309DBC, func_80309EB0, func_80309794);
 
-    if (( mapModel.model_bin_opa != NULL) && (model_getAnimTextureList( mapModel.model_bin_opa) != NULL)) {
+    if (( mapModel.model_bin_opa != N64_NULL) && (model_getAnimTextureList( mapModel.model_bin_opa) != N64_NULL)) {
         mapModel.unk0 = AnimTextureListCache_newList();
         AnimTextureListCache_at(mapModel.unk0, model_getAnimTextureList(mapModel.model_bin_opa));
     } else {
-        mapModel.unk0 = NULL;
+        mapModel.unk0 = N64_NULL;
     }
-    if ((mapModel.model_bin_xlu != NULL) && (model_getAnimTextureList(mapModel.model_bin_xlu) != 0)) {
+    if ((mapModel.model_bin_xlu != N64_NULL) && (model_getAnimTextureList(mapModel.model_bin_xlu) != 0)) {
         mapModel.unk4 = AnimTextureListCache_newList();
         AnimTextureListCache_at(mapModel.unk4, model_getAnimTextureList(mapModel.model_bin_xlu));
     }
     else{
-        mapModel.unk4 = NULL;
+        mapModel.unk4 = N64_NULL;
     }
 }
 
@@ -652,7 +652,7 @@ void mapModel_setEnvColor(s32 r, s32 g, s32 b){
 }
 
 void mapModel_defrag(void){
-    if(mapModel.unk24 != NULL){
+    if(mapModel.unk24 != N64_NULL){
         mapModel.unk24 = func_8034A348(mapModel.unk24);
     }
 }

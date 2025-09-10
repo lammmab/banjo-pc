@@ -129,7 +129,7 @@ void __baanim_applyBottlesBonus(s32 arg0, s32 arg1) {
             func_8028FB88(TRANSFORM_1_BANJO);
         }
     }
-    if (baAnimModifyFunction != NULL) {
+    if (baAnimModifyFunction != N64_NULL) {
         baAnimModifyFunction(arg0, arg1);
     }
 }
@@ -139,7 +139,7 @@ void baAnim_init(void){
     func_80287784(playerAnimCtrl, 0);
     anctrl_setSmoothTransition(playerAnimCtrl, false);
     func_8028746C(playerAnimCtrl, __baanim_applyBottlesBonus);
-    baAnimModifyFunction = NULL;
+    baAnimModifyFunction = N64_NULL;
     baanim_80289F30();
     baAnimState = BAANIM_UPDATE_0_NONE;
     __baanim_setUpdateType(BAANIM_UPDATE_1_NORMAL);

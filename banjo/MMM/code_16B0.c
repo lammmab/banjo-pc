@@ -26,8 +26,8 @@ enum chChompa_state_e {
 
 ActorInfo D_8038BAD0 = {
     MARKER_254_PORTRAIT_CHOMPA_A, ACTOR_381_PORTRAIT_CHOMPA, ASSET_521_MODEL_PORTRAIT_CHOMPA,
-    0x0, NULL,
-    chChompa_update, NULL, chChompa_draw,
+    0x0, N64_NULL,
+    chChompa_update, N64_NULL, chChompa_draw,
     0, 0, 0.0f, 0
 };
 
@@ -204,7 +204,7 @@ void chChompa_update(Actor *this) {
     if (!this->volatile_initialized) {
         this->volatile_initialized = true;
         this->unk16C_0 = true;
-        marker_setCollisionScripts(this->marker, NULL, __chChompa_hit, __chChompa_die);
+        marker_setCollisionScripts(this->marker, N64_NULL, __chChompa_hit, __chChompa_die);
         __spawnQueue_add_1((GenFunction_1) __chChompa_spwanPortrait, reinterpret_cast(s32, this->marker));
         chChompa_setState(this, this->state < CHOMPA_STATE_5_DYING ? CHOMPA_STATE_1_IDLE : CHOMPA_STATE_6_DEAD);
     }//L803880B4

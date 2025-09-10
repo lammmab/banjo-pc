@@ -187,7 +187,7 @@ void chfinalboss_func_80386628(ActorMarker *marker, s32 arg1) {
 void chfinalboss_func_80386654(f32 arg0, f32 arg1[4], f32 arg2[4]) {
     Struct6Ds *temp_v0 = func_8034C528(0x190);
 
-    if (temp_v0 != NULL) {
+    if (temp_v0 != N64_NULL) {
         func_8034DF30(temp_v0, arg1, arg2, arg0);
     }
 }
@@ -195,7 +195,7 @@ void chfinalboss_func_80386654(f32 arg0, f32 arg1[4], f32 arg2[4]) {
 void chfinalboss_func_80386698(f32 arg0) {
     Struct6Ds * temp_v0 = func_8034C528(0x19A);
 
-    if (temp_v0 != NULL) {
+    if (temp_v0 != N64_NULL) {
         func_8034DDF0(temp_v0, fight_D_80391524, D_80391530, arg0, 1);
     }
 }
@@ -358,7 +358,7 @@ void __chfinalboss_dropHealth(ActorMarker *marker) {
 
 void chfinalboss_despawnFlightPad(void) {
     marker_despawn(__chFinalBossFlightPadMarker);
-    __chFinalBossFlightPadMarker = NULL;
+    __chFinalBossFlightPadMarker = N64_NULL;
 }
 
 void chfinalboss_spawnFlightPad(s32 arg0) {
@@ -589,7 +589,7 @@ void chfinalboss_setPhase(ActorMarker *this, enum ch_finalboss_phase_e phase_id)
             actor->unk1C_x = D_803927D0[(local->unk5)][0];
             actor->unk1C_y = D_803927D0[(local->unk5)][1];
             actor->unk1C_z = D_803927D0[(local->unk5)][2];
-            gcdialog_showDialog(randi2(0, 5) + 0x1106, 4, NULL, NULL, NULL, NULL);
+            gcdialog_showDialog(randi2(0, 5) + 0x1106, 4, N64_NULL, N64_NULL, N64_NULL, N64_NULL);
             return;
 
             
@@ -760,7 +760,7 @@ void chfinalboss_func_80388110(ActorMarker *marker, enum asset_e text_id, s32 ar
     actor = marker_getActor(marker);
     actorLocal = (ActorLocal_FinalBoss *)&actor->local;
     ncStaticCamera_exit();
-    gcdialog_showDialog(randi2(0, 5) + 0x1101, 4, NULL, actor->marker, chfinalboss_func_803880E0, NULL);
+    gcdialog_showDialog(randi2(0, 5) + 0x1101, 4, N64_NULL, actor->marker, chfinalboss_func_803880E0, N64_NULL);
     actorLocal->unk9 = (u8)1;
 }
 
@@ -1166,8 +1166,8 @@ void chfinalboss_phase2_update(ActorMarker *marker) {
         case 20:
             if (actor_animationIsAt(this, 0.9999f)) {
                 if (local->hits >= 4) {
-                    gcdialog_showDialog(randi2(0, 5) + 0x1115, 0x20, NULL, NULL, NULL, NULL);
-                    gcdialog_showDialog(randi2(0, 3) + 0x111A, 4, NULL, this->marker, NULL, chfinalboss_phase2_endTextCallback);
+                    gcdialog_showDialog(randi2(0, 5) + 0x1115, 0x20, N64_NULL, N64_NULL, N64_NULL, N64_NULL);
+                    gcdialog_showDialog(randi2(0, 3) + 0x111A, 4, N64_NULL, this->marker, N64_NULL, chfinalboss_phase2_endTextCallback);
                     chfinalboss_phase2_setState(this, 0x11);
                 }
                 else{
@@ -1272,7 +1272,7 @@ void chfinalboss_phase3_setState(Actor *this, s32 arg1) {
     case 26:
         chfinalboss_func_80386CF8(this);
         func_80324E38(0.0f, 1);
-        gcdialog_showDialog(randi2(0, 5) + 0x112C, 0xA8, NULL, this->marker, chfinalboss_phase3_endTextCallback, NULL);
+        gcdialog_showDialog(randi2(0, 5) + 0x112C, 0xA8, N64_NULL, this->marker, chfinalboss_phase3_endTextCallback, N64_NULL);
         break;
     }
 }
@@ -1309,7 +1309,7 @@ void chfinalboss_phase3_update(ActorMarker *marker) {
                 chfinalboss_phase3_setState(this, 0x16);
                 this->lifetime_value = D_803917B4[local->hits];
             }
-            local->unkA = NOT(local->unkA);
+            local->unkA = !(local->unkA);
             break;
         }
         if (chfinalboss_func_80387470(this, this->unk1C, D_803917A4[sp38], D_803917A4[sp38], 120.0f, 520.0f, 350.0f)) {
@@ -1413,7 +1413,7 @@ void chfinalboss_phase4_setState(Actor *this, s32 arg1) {
         if ((local->unk3 == 2) && (local->unkA == 0)) {
             iter.D_803928C4_ptr = &D_803928C4;
             chFinalBossJinjoSpawned = true;
-            gcdialog_showDialog(randi2(0, 5) + 0x1136, 4, NULL, NULL, NULL, NULL);
+            gcdialog_showDialog(randi2(0, 5) + 0x1136, 4, N64_NULL, N64_NULL, N64_NULL, N64_NULL);
             if ( !fileProgressFlag_get(FILEPROG_D2_HAS_SPAWNED_A_JINJO_STATUE_IN_FINAL_FIGHT) ) {
                 local->unkA = 1U;
                 sFinalBossJinjoStatueActivated = 1;
@@ -1475,7 +1475,7 @@ void chfinalboss_phase4_setState(Actor *this, s32 arg1) {
         break;
     case 34:
         actor_playAnimationOnce(this);
-        gcdialog_showDialog(randi2(0, 5) + 0x1145, 0x20, NULL, NULL, NULL, NULL);
+        gcdialog_showDialog(randi2(0, 5) + 0x1145, 0x20, N64_NULL, N64_NULL, N64_NULL, N64_NULL);
         gcsfx_playWithPitch(SFX_1F_HITTING_AN_ENEMY_3, randf2(0.95f, 1.05f), 32000);
         gcsfx_playWithPitch(SFX_133_GRUNTY_OHW, randf2(0.95f, 1.05f), 32000);
         this->unk44_31 = sfxsource_createSfxsourceAndReturnIndex();
@@ -1485,9 +1485,9 @@ void chfinalboss_phase4_setState(Actor *this, s32 arg1) {
         sfxsource_playSfxAtVolume(this->unk44_31, D_803927C0);
         sfxsource_setSampleRate(this->unk44_31, 26000);
         for(iter.i = 0; iter.i < 4; iter.i+=1){
-            if(__chFinalBossJinjoStatueMarker[iter.i] != NULL){
+            if(__chFinalBossJinjoStatueMarker[iter.i] != N64_NULL){
                 marker_despawn(__chFinalBossJinjoStatueMarker[iter.i]);
-                __chFinalBossJinjoStatueMarker[iter.i] = NULL;
+                __chFinalBossJinjoStatueMarker[iter.i] = N64_NULL;
             }
         }
         break;
@@ -1502,7 +1502,7 @@ ActorMarker *chfinalboss_findCollidingJinjo(Actor *this, f32 arg1) {
 
     func_80320ED8(this->marker, arg1, 1);
     prop = func_8032F528();
-    while(prop !=NULL){
+    while(prop !=N64_NULL){
         if (prop->is_actor){
             jinjo = marker_getActor(prop->actorProp.marker);
             jinjo_marker_id = jinjo->marker->id;
@@ -1513,13 +1513,13 @@ ActorMarker *chfinalboss_findCollidingJinjo(Actor *this, f32 arg1) {
                 || (jinjo_marker_id == MARKER_27E_BOSS_JINJO_YELLOW)
                 || (jinjo_marker_id == MARKER_285_JINJONATOR)
             ) {
-                while (func_8032F528() != NULL) {}
+                while (func_8032F528() != N64_NULL) {}
                 return jinjo->marker;
             }
         }
         prop = func_8032F528();
     }
-    return NULL;
+    return N64_NULL;
 }
 
 void chfinalboss_phase4_update(ActorMarker *marker) {
@@ -1540,7 +1540,7 @@ void chfinalboss_phase4_update(ActorMarker *marker) {
     sp74 = time_getDelta();
     sp70 = local->hits;
     sp6C = chfinalboss_findCollidingJinjo(this, func_8033229C(this->marker));
-    if (sp6C != NULL) {
+    if (sp6C != N64_NULL) {
         chbossjinjo_attack(sp6C);
         if (!fileProgressFlag_get(FILEPROG_D1_HAS_ACTIVATED_A_JINJO_STATUE_IN_FINAL_FIGHT)) {
             fileProgressFlag_set(FILEPROG_D1_HAS_ACTIVATED_A_JINJO_STATUE_IN_FINAL_FIGHT, true);
@@ -1549,7 +1549,7 @@ void chfinalboss_phase4_update(ActorMarker *marker) {
             func_80324E38(1.0f, 0);
         }
         if (local->hits == 0) {
-            gcdialog_showDialog(randi2(0, 5) + 0x1140, 0x20, NULL, NULL, NULL, NULL);
+            gcdialog_showDialog(randi2(0, 5) + 0x1140, 0x20, N64_NULL, N64_NULL, N64_NULL, N64_NULL);
         }
         if ((local->hits + 1) < 4) {
             local->hits++;
@@ -1680,7 +1680,7 @@ void chfinalboss_phase5_setState(Actor *this, s32 next_state) {
     subaddie_set_state_with_direction(this, next_state, 0.0001f, 1);
     switch (next_state) {
         case 35:
-            gcdialog_showDialog(randi2(0, 5) + 0x114F, 4, NULL, NULL, NULL, NULL);
+            gcdialog_showDialog(randi2(0, 5) + 0x114F, 4, N64_NULL, N64_NULL, N64_NULL, N64_NULL);
             if (local->mirror_phase5) {
                 sp28 = 0x13;
             }
@@ -1769,7 +1769,7 @@ void chfinalboss_phase5_update(ActorMarker *marker) {
     sp38 = 0x14;
     sp34 = anctrl_getAnimTimer(this->anctrl);
     jinjonator_marker = chfinalboss_findCollidingJinjo(this, func_8033229C(this->marker) / 3.0f);
-    if ((jinjonator_marker != NULL) && (jinjonator_marker->id == MARKER_285_JINJONATOR)) {
+    if ((jinjonator_marker != N64_NULL) && (jinjonator_marker->id == MARKER_285_JINJONATOR)) {
         if (chjinjonator_8039125C(jinjonator_marker)) {
             __chFinalBossJinjonatorHits++;
             if (local->mirror_phase5) {
@@ -1804,7 +1804,7 @@ void chfinalboss_phase5_update(ActorMarker *marker) {
                 player_setIdealRotation(D_803928C8);
             }
             if (__chFinalBossJinjonatorHits == 3) {
-                gcdialog_showDialog(randi2(0, 5) + 0x1159, 0x20, NULL, NULL, NULL, NULL);
+                gcdialog_showDialog(randi2(0, 5) + 0x1159, 0x20, N64_NULL, N64_NULL, N64_NULL, N64_NULL);
             }
         }
     }
@@ -1954,10 +1954,10 @@ void chfinalboss_func_8038B780(ActorMarker *marker) {
     sp24 = marker_getActor(marker);
     if (!fileProgressFlag_get(FILEPROG_CF_HAS_ENTERED_FINAL_FIGHT)) {
         fileProgressFlag_set(FILEPROG_CF_HAS_ENTERED_FINAL_FIGHT, true);
-        gcdialog_showDialog(ASSET_10E7_DIALOG_FINALBOSS_ENTERING_1, 0x2A, sp24->position, sp24->marker, chfinalboss_phase0_endTextCallback, NULL);
+        gcdialog_showDialog(ASSET_10E7_DIALOG_FINALBOSS_ENTERING_1, 0x2A, sp24->position, sp24->marker, chfinalboss_phase0_endTextCallback, N64_NULL);
     }
     else{
-        gcdialog_showDialog(randi2(0, 5) + 0x10E8, 0x2B, sp24->position, sp24->marker, chfinalboss_phase0_endTextCallback, NULL);
+        gcdialog_showDialog(randi2(0, 5) + 0x10E8, 0x2B, sp24->position, sp24->marker, chfinalboss_phase0_endTextCallback, N64_NULL);
     }
 }
 
@@ -2018,7 +2018,7 @@ void chfinalboss_collisionPassive(ActorMarker *marker, ActorMarker *other_marker
     switch (local->phase) {
     case 1:
         if (local->hits == 0) {
-            gcdialog_showDialog(randi2(0, 5) + 0x10F7, 0x20, NULL, NULL, NULL, NULL);
+            gcdialog_showDialog(randi2(0, 5) + 0x10F7, 0x20, N64_NULL, N64_NULL, N64_NULL, N64_NULL);
         }
         if ((local->hits + 1) < 5) {
             local->hits++;
@@ -2032,7 +2032,7 @@ void chfinalboss_collisionPassive(ActorMarker *marker, ActorMarker *other_marker
             if ((local->unk2 + 1) >= 3) {
                 local->unk2 = 0;
                 if (local->hits == 0) {
-                    gcdialog_showDialog(randi2(0, 5) + 0x1110, 0x20, NULL, NULL, NULL, NULL);
+                    gcdialog_showDialog(randi2(0, 5) + 0x1110, 0x20, N64_NULL, N64_NULL, N64_NULL, N64_NULL);
                 }
                 if ((local->hits + 1) < 5) {
                     local->hits++;
@@ -2046,7 +2046,7 @@ void chfinalboss_collisionPassive(ActorMarker *marker, ActorMarker *other_marker
         break;
     case 3:
         if (local->hits == 0) {
-            gcdialog_showDialog(randi2(0, 5) + 0x1127, 0x20, NULL, NULL, NULL, NULL);
+            gcdialog_showDialog(randi2(0, 5) + 0x1127, 0x20, N64_NULL, N64_NULL, N64_NULL, N64_NULL);
         }
         if ((local->hits + 1) < 5) {
             local->hits++;
@@ -2067,7 +2067,7 @@ void chfinalboss_collisionActive(ActorMarker *marker, ActorMarker *other_marker)
         func_8030E878(SFX_EA_GRUNTY_LAUGH_1, randf2(0.95f, 1.05f), 32000, this->position, 5000.0f, 12000.0f);
 
         if (local->player_hit_in_phase1 == 0) {
-            if (gcdialog_showDialog(randi2(0, 5) + ASSET_10ED_DIALOG_FINALBOSS_PHASE_1_HIT_PLAYER_OPTION_1, 0, NULL, NULL, NULL, NULL)) {
+            if (gcdialog_showDialog(randi2(0, 5) + ASSET_10ED_DIALOG_FINALBOSS_PHASE_1_HIT_PLAYER_OPTION_1, 0, N64_NULL, N64_NULL, N64_NULL, N64_NULL)) {
                 local->player_hit_in_phase1++;
             }
         }
@@ -2076,7 +2076,7 @@ void chfinalboss_collisionActive(ActorMarker *marker, ActorMarker *other_marker)
     if (local->phase == FINALBOSS_PHASE_3_FLIGHT) {
         if ((local->player_hit_in_phase3 == 0) && (this->state != 0x1A)) {
             local->player_hit_in_phase3++;
-            gcdialog_showDialog(randi2(0, 5) + ASSET_111D_DIALOG_FINALBOSS_PHASE_2_HIT_PLAYER_OPTION_1, 0, NULL, NULL, NULL, NULL);
+            gcdialog_showDialog(randi2(0, 5) + ASSET_111D_DIALOG_FINALBOSS_PHASE_2_HIT_PLAYER_OPTION_1, 0, N64_NULL, N64_NULL, N64_NULL, N64_NULL);
         }
     }
 }
@@ -2098,14 +2098,14 @@ void chfinalboss_update(Actor *this){
     if (!this->volatile_initialized) {
         this->volatile_initialized = true;
         func_803300C0(this->marker, chfinalboss_func_8038B834);
-        marker_setCollisionScripts(this->marker, chfinalboss_collisionActive, chfinalboss_collisionPassive, NULL);
+        marker_setCollisionScripts(this->marker, chfinalboss_collisionActive, chfinalboss_collisionPassive, N64_NULL);
         this->marker->propPtr->unk8_3 = 0;
         actor_collisionOn(this);
         for(i = 0x38C; i < 0x39F; i++){
             nodeProp_findPositionFromActorId(i, D_803927D0[i - 0x38C]);
         }
-        __chFinalBossFlightPadMarker = NULL;
-        __chFinalBossShadowMarker = NULL;
+        __chFinalBossFlightPadMarker = N64_NULL;
+        __chFinalBossShadowMarker = N64_NULL;
         sFinalBossJinjoStatueActivated = 0;
         __chFinalBossSpellBarrierActive = false;
         __chFinalBossJinjonatorHits = 0;
@@ -2118,7 +2118,7 @@ void chfinalboss_update(Actor *this){
         local->unkB = 0;
 
         for(i = 0; i < 4; i++){ 
-            __chFinalBossJinjoStatueMarker[i] = NULL;
+            __chFinalBossJinjoStatueMarker[i] = N64_NULL;
         }
 
         __spawnQueue_add_1((GenFunction_1) chfinalboss_spawnShadow, (s32) this->marker);
@@ -2173,11 +2173,11 @@ void chfinalboss_update(Actor *this){
     chFinalBossPosition[1] = this->position[1];
     chFinalBossPosition[2] = this->position[2];
 
-    if(this->partnerActor != NULL && __chFinalBossSpellBarrierActive){
+    if(this->partnerActor != N64_NULL && __chFinalBossSpellBarrierActive){
         fight_setPositionWithDisplacement(this->partnerActor, this->position);
     }
 
-    if(__chFinalBossShadowMarker != NULL){
+    if(__chFinalBossShadowMarker != N64_NULL){
         shadow = marker_getActor(__chFinalBossShadowMarker);
         sp4C[0] = this->position[0];
         sp4C[1] = this->position[1];

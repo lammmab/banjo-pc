@@ -19,7 +19,7 @@ void animCache_init(void){
 
     for(i = 0; i<340; i++){
         D_80379E20[i].alive = false;
-        D_80379E20[i].bone_xform = NULL;
+        D_80379E20[i].bone_xform = N64_NULL;
         D_80379E20[i].life = 0;
     }
 }
@@ -40,7 +40,7 @@ void animCache_flushStale(void){
     int i;
 
     for(i = 0; i<340; i++){
-        if(D_80379E20[i].alive == true && D_80379E20[i].bone_xform != NULL){
+        if(D_80379E20[i].alive == true && D_80379E20[i].bone_xform != N64_NULL){
             if(D_80379E20[i].life < 0x3b){
                 boneTransformList_free(D_80379E20[i].bone_xform);
                 D_80379E20[i].bone_xform = 0;
@@ -60,7 +60,7 @@ void animCache_flushAll(void){
             volatileFlag_get(VOLATILE_FLAG_0_IN_FURNACE_FUN_QUIZ);
             D_80379E20[i].life = 0;
             boneTransformList_free(D_80379E20[i].bone_xform);
-            D_80379E20[i].bone_xform = NULL;
+            D_80379E20[i].bone_xform = N64_NULL;
         }
     }
 }

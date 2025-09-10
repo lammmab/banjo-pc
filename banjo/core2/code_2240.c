@@ -144,7 +144,7 @@ void anim_new(Animation *this, bool triple_buffer){
     anim_setIndex(this,0);
     anim_setTimer(this, 0.0f);
     anim_setDuration(this, 1.0f);
-    anim_80289790(this, NULL);
+    anim_80289790(this, N64_NULL);
     this->reset = 0;
     this->unk1E = 1;
     this->unk8 = 0;

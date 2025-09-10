@@ -525,7 +525,7 @@ void func_80252A38(f32 x, f32 y, f32 z) {
 void func_80252AF0(f32 arg0[3], f32 arg1[3], f32 rotation[3], f32 scale, f32 arg4[3]) {
     f32 sp1C[3];
     
-    if (arg1 != NULL) {
+    if (arg1 != N64_NULL) {
         sp1C[0] = arg1[0] - arg0[0];
         sp1C[1] = arg1[1] - arg0[1];
         sp1C[2] = arg1[2] - arg0[2];
@@ -535,7 +535,7 @@ void func_80252AF0(f32 arg0[3], f32 arg1[3], f32 rotation[3], f32 scale, f32 arg
         sp1C[2] = arg0[2] * -1.0f;
     }
     mlMtxTranslate(sp1C[0], sp1C[1], sp1C[2]);
-    if (rotation != NULL) {
+    if (rotation != N64_NULL) {
         mlMtxRotYaw(rotation[1]);
         mlMtxRotPitch(rotation[0]);
         mlMtxRotRoll(rotation[2]);
@@ -543,17 +543,17 @@ void func_80252AF0(f32 arg0[3], f32 arg1[3], f32 rotation[3], f32 scale, f32 arg
     if (scale != 1.0f) {
         mlMtxScale_xyz(scale, scale, scale);
     }
-    if (arg4 != NULL) {
+    if (arg4 != N64_NULL) {
         mlMtxTranslate(-arg4[0], -arg4[1], -arg4[2]);
     }
 }
 
 
 void func_80252C08(f32 arg0[3], f32 rotation[3], f32 scale, f32 arg3[3]){
-    if(arg0 != NULL)
+    if(arg0 != N64_NULL)
         mlMtxTranslate(arg0[0], arg0[1], arg0[2]);
 
-    if(rotation != NULL){
+    if(rotation != N64_NULL){
         mlMtxRotYaw(rotation[1]);  
         mlMtxRotPitch(rotation[0]);
         mlMtxRotRoll(rotation[2]);
@@ -563,26 +563,26 @@ void func_80252C08(f32 arg0[3], f32 rotation[3], f32 scale, f32 arg3[3]){
         mlMtxScale_xyz(scale, scale, scale);
     }
 
-    if(arg3 != NULL)
+    if(arg3 != N64_NULL)
         mlMtxTranslate(-arg3[0], -arg3[1], -arg3[2]);
 
 }
 
 void func_80252CC4(f32 position[3], f32 rotation[3], f32 scale, f32 arg3[3]){
-    if(arg3 != NULL)
+    if(arg3 != N64_NULL)
         mlMtxTranslate(arg3[0], arg3[1], arg3[2]);
     
     if(scale != 1.0f){
         mlMtxScale_xyz(1.0f/scale, 1.0f/scale, 1.0f/scale);
     }
 
-    if(rotation != NULL){
+    if(rotation != N64_NULL){
         mlMtxRotRoll(-rotation[2]);
         mlMtxRotPitch(-rotation[0]);
         mlMtxRotYaw(-rotation[1]);  
     }
 
-    if(position != NULL)
+    if(position != N64_NULL)
         mlMtxTranslate(-position[0], -position[1], -position[2]);
 
 }

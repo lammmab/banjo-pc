@@ -14,7 +14,7 @@ bool quizQuestionAskedBitfield_get(s32 index){
 
 void quizQuestionAskedBitfield_free(void){
     free(quizQuestionAskedBitfield);
-    quizQuestionAskedBitfield = NULL;
+    quizQuestionAskedBitfield = N64_NULL;
 }
 
 void quizQuestionAskedBitfield_init(void){
@@ -30,6 +30,6 @@ void quizQuestionAskedBitfield_set(s32 index, bool value){
 }
 
 void quizQuestionAskedBitfield_defrag(void){
-    if(quizQuestionAskedBitfield != NULL)
+    if(quizQuestionAskedBitfield != N64_NULL)
         quizQuestionAskedBitfield = (u8*)defrag(quizQuestionAskedBitfield);
 }

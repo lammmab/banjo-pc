@@ -64,7 +64,7 @@ s32 func_803531C8(u8 projectile_indx, s32 arg1){
     projectile_getPosition(projectile_indx, egg_position);
     marker->unk38[1] = 0x1E;
     prop = func_80320EB0(marker, 30.0f, 1);
-    if(prop != NULL && prop->is_actor){
+    if(prop != N64_NULL && prop->is_actor){
         other_marker = prop->marker;
         sp34 =other_marker->id;
         if(!func_8033D410(marker, other_marker)){
@@ -348,7 +348,7 @@ void fxegg_ass_update(void) {
     if (0.6 < func_8033EA14(1)) {
         projectile_getPosition(projectile_indx, sp80);
         if (fxegg_isCollidingWithPlayer(sp80)) {
-            chCollectible_collectEgg(NULL);
+            chCollectible_collectEgg(N64_NULL);
             commonParticle_setCurrentInUseFalse();
         }
     }

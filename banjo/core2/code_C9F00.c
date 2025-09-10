@@ -58,11 +58,11 @@ extern void CCW_func_80387A40(void *, Struct68s *, f32);
 extern void func_80352114(void *, Struct68s *, f32);
 
 Struct_Core2_C9F00_0 D_803725F4[] = {
-    {         NULL,          NULL}, 
+    {         N64_NULL,          N64_NULL}, 
     {(void (*)(void *, Struct68s *))func_80351DE0, (void (*)(void *, Struct68s *, f32))func_80351E60}, 
     {chTumblar_init, chTumblar_update},
-    {         NULL,          NULL}, 
-    {         NULL, func_8038B790}, 
+    {         N64_NULL,          N64_NULL}, 
+    {         N64_NULL, func_8038B790}, 
     {func_80387940, CCW_func_80387A40}, 
     {GV_func_80387960, CCW_func_80387A40}, 
     {func_80387980, CCW_func_80387A40}, 
@@ -100,19 +100,19 @@ Actor *func_80350E90(ActorMarker *marker, Gfx **gfx, Mtx **mtx, Vtx **vtx) {
     temp_s0 = &D_803861B0.unk4[marker->actrArrayIdx];
     temp_v0 = temp_s0->unkC;
 
-    if (temp_v0 == NULL) {
-        return NULL;
+    if (temp_v0 == N64_NULL) {
+        return N64_NULL;
     }
 
-    if (temp_s0->unk8 != NULL) {
+    if (temp_s0->unk8 != N64_NULL) {
         temp_s0->unk8(&temp_s0->local, temp_s0, temp_s0->position, temp_s0->unk20, temp_s0->unk2C, temp_v0, gfx, mtx, vtx);
     }
     else {
         modelRender_setDepthMode(MODEL_RENDER_DEPTH_FULL);
-        modelRender_draw(gfx, mtx, temp_s0->position, temp_s0->unk20, temp_s0->unk2C, NULL, temp_s0->unkC);
+        modelRender_draw(gfx, mtx, temp_s0->position, temp_s0->unk20, temp_s0->unk2C, N64_NULL, temp_s0->unkC);
     }
 
-    return NULL;
+    return N64_NULL;
 }
 
 BKCollisionTri * func_80350F7C(ActorMarker *marker, f32 arg1[3], f32 arg2[3], f32 arg3[3], s32 arg4) {
@@ -122,7 +122,7 @@ BKCollisionTri * func_80350F7C(ActorMarker *marker, f32 arg1[3], f32 arg2[3], f3
     BKCollisionList *colision_list;
 
     temp_s0 = &D_803861B0.unk4[marker->actrArrayIdx];
-    if ((temp_s0->unkC == NULL) || (temp_s0->unk30 & 1)) {
+    if ((temp_s0->unkC == N64_NULL) || (temp_s0->unk30 & 1)) {
         return 0;
     }
 
@@ -147,7 +147,7 @@ BKCollisionTri *func_803510B4(ActorMarker *marker, f32 arg1[3], f32 arg2[3], f32
     BKCollisionList *collision_list;
 
     sp40 = &D_803861B0.unk4[marker->actrArrayIdx];
-    if ((sp40->unkC == NULL) || (sp40->unk30 & 1)) {
+    if ((sp40->unkC == N64_NULL) || (sp40->unk30 & 1)) {
         return 0;
     }
     collision_list = model_getCollisionList(sp40->unkC);
@@ -162,7 +162,7 @@ BKCollisionTri *func_80351198(ActorMarker *marker, f32 arg1[3], f32 arg2, f32 ar
     BKCollisionList *collision_list;
 
     sp38 = &D_803861B0.unk4[marker->actrArrayIdx];
-    if ((sp38->unkC == NULL) || (sp38->unk30 & 1)) {
+    if ((sp38->unkC == N64_NULL) || (sp38->unk30 & 1)) {
         return 0;
     }
     collision_list = model_getCollisionList(sp38->unkC);
@@ -186,8 +186,8 @@ Struct68s * func_8035126C(f32 position[3], f32 arg1[3], f32 arg2, s32 arg3, enum
 
     D_803861B0.unk8->unk0 = 0;
     D_803861B0.unk8->unk30 = 0;
-    D_803861B0.unk8->unk8 = NULL;
-    D_803861B0.unk8->unkC = NULL;
+    D_803861B0.unk8->unk8 = N64_NULL;
+    D_803861B0.unk8->unkC = N64_NULL;
     D_803861B0.unk8->unk2C = arg2;
     D_803861B0.unk8->unk31 = arg3;
 
@@ -228,7 +228,7 @@ void func_80351538(Struct68s *arg0){
     ((ActorMarker *)arg0->unk4)->collidable = false;
     ((ActorMarker *)arg0->unk4)->actrArrayIdx = (arg0 - D_803861B0.unk4);
     ((ActorMarker *)arg0->unk4)->unk18 = &D_80386180.unk4;
-    if (D_803725F4[arg0->unk31].unk0 != NULL) {
+    if (D_803725F4[arg0->unk31].unk0 != N64_NULL) {
         D_803725F4[arg0->unk31].unk0(&arg0->local, arg0);
     }
 }
@@ -280,7 +280,7 @@ bool func_80351724(void * arg0){
 }
 
 s32 func_80351758_getSfxsourceIndex(Struct68s *arg0) {
-    if (arg0->unk0 == NULL) {
+    if (arg0->unk0 == N64_NULL) {
         arg0->unk0 = sfxsource_createSfxsourceAndReturnIndex();
     }
 
@@ -355,12 +355,12 @@ void func_80351998(void) {
     D_803861B0.unk8 = D_803861B0.unk4;
     D_803861B0.unkC = D_803861B0.unk4 + 2;
 
-    D_80386180.unk0 = NULL;
+    D_80386180.unk0 = N64_NULL;
     D_80386180.unk4.unk0 = func_80350F7C;
     D_80386180.unk4.unk4 = func_803510B4;
     D_80386180.unk4.unk8 = func_80351198;
-    D_80386180.unk4.unkC = NULL;
-    D_80386180.unk2C = NULL;
+    D_80386180.unk4.unkC = N64_NULL;
+    D_80386180.unk2C = N64_NULL;
 }
 
 
@@ -376,7 +376,7 @@ void func_80351A1C(s32 arg0, s32 arg1) {
     Struct68s *phi_s0;
 
     if (arg0 == 2) {
-        func_80305290(NULL, func_80351724);
+        func_80305290(N64_NULL, func_80351724);
         func_803518E8();
         func_80351998();
     }
@@ -392,9 +392,9 @@ void func_80351A1C(s32 arg0, s32 arg1) {
 }
 
 void func_80351AD0(Struct68s *arg0, enum asset_e model_id) {
-    if (arg0->unkC != NULL) {
+    if (arg0->unkC != N64_NULL) {
         assetcache_release(arg0->unkC);
-        arg0->unkC = NULL;
+        arg0->unkC = N64_NULL;
     }
     if (model_id != 0) {
         arg0->unkC = assetcache_get(model_id);
@@ -410,9 +410,9 @@ void func_80351B28(Struct68s *arg0, f32 arg1[3]) {
     f32 sp38;
     BKModelUnk14List *sp34;
 
-    if(arg0->unkC != NULL){
+    if(arg0->unkC != N64_NULL){
         sp34 = func_8033A12C(arg0->unkC);
-        if(sp34 != NULL){
+        if(sp34 != N64_NULL){
             if(func_802EA760(sp34, 0, arg0->position, arg0->unk20, arg0->unk2C, 0, sp48, &sp38)){
                 func_802EA760(sp34, 0, arg1, arg0->unk20, arg0->unk2C, 0, sp3C, &sp38);
                 if(func_80309DBC(sp48, sp3C, sp38, sp54, 3, 0)){
@@ -437,8 +437,8 @@ void func_80351C48(void) {
     s32 sp38[3];
 
     temp_f20 = time_getDelta();
-    D_80386180.unk0 = NULL;
-    if (D_80386180.unk2C != NULL) {
+    D_80386180.unk0 = N64_NULL;
+    if (D_80386180.unk2C != N64_NULL) {
         player_getPosition_s32(&sp38);
         if ((sp38[0] == D_80386180.unk20[0]) && (sp38[1] == D_80386180.unk20[1]) && (sp38[2] == D_80386180.unk20[2])) {
             player_getPosition(sp4C);
@@ -448,25 +448,25 @@ void func_80351C48(void) {
             if (func_8029FC4C() != 0) {
                 D_80386180.unk0 = D_80386180.unk2C;
             } else {
-                D_80386180.unk0 = NULL;
+                D_80386180.unk0 = N64_NULL;
             }
         } else {
-            D_80386180.unk2C = NULL;
+            D_80386180.unk2C = N64_NULL;
         }
     }
 
     for(phi_s0 = D_803861B0.unk4; phi_s0 < D_803861B0.unk8; phi_s0++){
-        if (D_803725F4[phi_s0->unk31].unk4 != NULL) {
+        if (D_803725F4[phi_s0->unk31].unk4 != N64_NULL) {
             D_803725F4[phi_s0->unk31].unk4(&phi_s0->local, phi_s0, temp_f20);
         }
     }
-    if (D_80386180.unk2C != NULL) {
+    if (D_80386180.unk2C != N64_NULL) {
         mlMtxIdent();
-        func_80252C08(D_80386180.unk2C->position, D_80386180.unk2C->unk20, D_80386180.unk2C->unk2C, NULL);
+        func_80252C08(D_80386180.unk2C->position, D_80386180.unk2C->unk20, D_80386180.unk2C->unk2C, N64_NULL);
         mlMtx_apply_vec3f(sp4C, D_80386180.unk14);
         func_8028FAB0(sp4C);
     }
-    D_80386180.unk2C = NULL;
+    D_80386180.unk2C = N64_NULL;
 }
 
 void func_80351DE0(Struct6Bs *arg0, Struct68s *arg1) {

@@ -7,8 +7,8 @@ void chBossBoomBoxCtrl_update(Actor *this);
 
 /* .data */
 ActorInfo RBB_D_80390CF0 = {
-    0x1C0, 0x2AD, 0x0, 0x0, NULL,
-    chBossBoomBoxCtrl_update, NULL, func_80325340,
+    0x1C0, 0x2AD, 0x0, 0x0, N64_NULL,
+    chBossBoomBoxCtrl_update, N64_NULL, func_80325340,
     0, 0, 0.0f, 0
 };
 

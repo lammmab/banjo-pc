@@ -132,7 +132,7 @@ void func_80293668(void) {
     func_80244FC0(D_8037C228, sp390, D_8037C1F8[1], D_8037C1F8[0], 1, temp_v0 | 0x1E0000);
     for(i = 0; i < 5; i++){
         sp88 = &sp90[i];
-        var_s1 = (i != 0) ? &sp90[i - 1] : NULL;
+        var_s1 = (i != 0) ? &sp90[i - 1] : N64_NULL;
 
         if (i != 0) {
             ml_vec3f_copy(sp88->unk0, var_s1->unk0);
@@ -177,7 +177,7 @@ void func_80293668(void) {
         sp88->unk28[2] = sp88->unk0[2];
 
         sp88->unk18 = func_80320C94(sp88->unk34, sp88->unk28, D_8037C1F8[1], sp88->unk1C, 3, temp_v0 | 0x1E0000);
-        if (sp88->unk18 != NULL) {
+        if (sp88->unk18 != N64_NULL) {
             D_8037C27D++;
             D_8037C204 = sp88->unk18;
             ml_vec3f_copy(D_8037C258, sp88->unk1C);
@@ -205,7 +205,7 @@ void func_80293668(void) {
                     }
                 }
             }
-            if ((sp88->unk8C == 0) && (sp88->unk18 != NULL) && (D_8037C238[1] < 0.0f)) {
+            if ((sp88->unk8C == 0) && (sp88->unk18 != N64_NULL) && (D_8037C238[1] < 0.0f)) {
                 if( (mlAbsF(sp88->unk1C[1]) < 0.01) && func_802946FC(sp88->unk68, sp88->unk18)) {
                     func_802578A4(sp380, sp88->unk0, sp88->unk68[0]);
                     ml_vec3f_scale_copy(sp3A0, sp88->unk1C, D_8037C1F8[1] + 1.0f);
@@ -306,7 +306,7 @@ void func_80293F0C(void){
     D_8037C27C = 0;
     D_8037C27A = 1;
     D_8037C27D = 0;
-    D_8037C204 = NULL;
+    D_8037C204 = N64_NULL;
     D_8037C27B = D_8037C279;
     D_8037C27E = 0;
     D_8037C1F8[0] = func_80293EAC(D_8037C1F0[0], D_8037C1F8[0], 1.0f);

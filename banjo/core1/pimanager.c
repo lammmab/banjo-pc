@@ -27,13 +27,13 @@ void piMgr_read(void *vaddr, s32 devaddr, s32 size) {
 
     for(i = 0; i < block_cnt; i++){
         osPiStartDma(&sPiMgrIOMesg, OS_MESG_PRI_NORMAL, OS_READ, devaddr, vaddr, VER_SELECT(0x20000, 0x8000, 0, 0), &sPiMgrReadMesg.queue);
-        osRecvMesg(&sPiMgrReadMesg.queue, NULL, 1);
+        osRecvMesg(&sPiMgrReadMesg.queue, N64_NULL, 1);
         devaddr += VER_SELECT(0x20000, 0x8000, 0, 0);
         vaddr = (u32 *) vaddr + VER_SELECT(0x8000, 0x2000, 0, 0);
     }
 
     osPiStartDma(&sPiMgrIOMesg, OS_MESG_PRI_NORMAL, OS_READ, devaddr, vaddr, block_remainder, &sPiMgrReadMesg.queue);
-    osRecvMesg(&sPiMgrReadMesg.queue, NULL, 1);
+    osRecvMesg(&sPiMgrReadMesg.queue, N64_NULL, 1);
     osInvalDCache(vaddr, size);
 }
 

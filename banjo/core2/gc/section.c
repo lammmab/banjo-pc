@@ -177,7 +177,7 @@ MapInfo * func_8030AD00(enum map_e map_id){
             return phi_v1;
         }
     }
-    return NULL;
+    return N64_NULL;
 }
 
 enum level_e map_getLevel(enum map_e map){

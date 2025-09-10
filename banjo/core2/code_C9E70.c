@@ -9,7 +9,7 @@ extern struct FF_StorageStruct *D_8037DCB8;
 void func_80350E00(void){
     quizQuestionAskedBitfield_defrag();
     gcquiz_defrag();
-    if(D_8037DCB8 == NULL)
+    if(D_8037DCB8 == N64_NULL)
         return;
     
     if(D_8037DCB8->unk20){

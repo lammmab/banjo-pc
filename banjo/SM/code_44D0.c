@@ -11,8 +11,8 @@ void func_8038A8F8(Actor *this);
 
 /* .data */
 ActorInfo gCode44D0  = { 
-    MARKER_1F0_SM_UNKNOWN, ACTOR_3BD_SM_UNKNOWN, NULL, 
-    0, NULL, func_8038A8F8, actor_update_func_80326224, func_80325340,
+    MARKER_1F0_SM_UNKNOWN, ACTOR_3BD_SM_UNKNOWN, N64_NULL, 
+    0, N64_NULL, func_8038A8F8, actor_update_func_80326224, func_80325340,
     0, 0, 0.0f, 0
 };
 

@@ -122,9 +122,9 @@ void fxjinjoscore_free(enum item_e item_id, struct8s * arg1){
     s32 i;
 
     for(i = 0; i < 5; i++){
-        if(D_80381E40[i] != NULL){
+        if(D_80381E40[i] != N64_NULL){
             assetCache_free(D_80381E40[i]);
-            D_80381E40[i] = NULL;
+            D_80381E40[i] = N64_NULL;
         }
     }
 
@@ -153,7 +153,7 @@ void fxjinjoscore_draw(s32 arg0, struct8s *arg1, Gfx **gfx, Mtx **mtx, Vtx **vtx
         s32 jinjo_collected; // spF0 <----
         sprite = D_80381E40[jinjo_id];
         jinjo_collected = (D_80381E58[jinjo_id] != 0) ? 1 : 0;
-        if (sprite != NULL) {
+        if (sprite != N64_NULL) {
             func_80347FC0(gfx, sprite, (s32) D_80381E60[jinjo_id], 0, 0, 0, 0, 2, 2, &texture_width, &texture_height);
             // Load the palette for the corresponding jinjo color
             gDPLoadTLUT_pal16((*gfx)++, 0, D_80381620[(s32)D_80381E60[jinjo_id]][jinjo_id]);
@@ -224,7 +224,7 @@ void fxjinjoscore_update(enum item_e item_id, struct8s *arg1) {
     switch(temp_s3){
         case 1:
             for(jinjo_id = 0; jinjo_id < 5; jinjo_id++){
-                if (D_80381E40[jinjo_id] == NULL) {
+                if (D_80381E40[jinjo_id] == N64_NULL) {
                     D_80381E40[jinjo_id] = assetcache_get(D_8036A210[jinjo_id]);
                     D_80381E78[jinjo_id] = 64.0f;
                 }

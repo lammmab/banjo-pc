@@ -81,7 +81,7 @@ void func_8038FBF8(Actor *this){
     if(!this->initialized){
         this->initialized = true;
         this->marker->propPtr->unk8_3 = 1;
-        marker_setCollisionScripts(this->marker, NULL, NULL, BGS_func_8038FB84);
+        marker_setCollisionScripts(this->marker, N64_NULL, N64_NULL, BGS_func_8038FB84);
     }
     if(this->state == 2){
         if(anctrl_isAt(this->anctrl, 0.65f)){

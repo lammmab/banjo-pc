@@ -43,7 +43,7 @@ ActorInfo D_80391FF4 = { MARKER_203_TWINKLY_RED, ACTOR_335_TWINKLY_RED, ASSET_44
     0, 0, 1.0f, 0
 };
 
-Struct6Cs FP_D_80392018 = {NULL, NULL, NULL, (void*)func_8038C0B0};
+Struct6Cs FP_D_80392018 = {N64_NULL, N64_NULL, N64_NULL, (void*)func_8038C0B0};
 ParticleSettingsVelocityAccelerationPosition D_80392028 = {
     {{-200.0f,  200.0f, -200.0f}, {200.0f,  400.0f, 200.0f}}, 
     {{   0.0f, -800.0f,    0.0f}, {  0.0f, -800.0f,   0.0f}}, 
@@ -75,10 +75,10 @@ Actor *func_8038C0B0(ActorMarker *marker, UNK_TYPE(s32) arg1, f32 arg2, UNK_TYPE
     sp40[2] = (f32)marker->roll;
     sp3C = this->scale;
     if(animMtxList_len(marker->unk20)){
-        return func_802EBAE0(sp5C, sp4C, sp40, sp3C, NULL, marker->unk20, arg1, arg2, arg3);
+        return func_802EBAE0(sp5C, sp4C, sp40, sp3C, N64_NULL, marker->unk20, arg1, arg2, arg3);
     }
     else{
-        return NULL;
+        return N64_NULL;
     }
 }
 
@@ -336,11 +336,11 @@ void func_8038C9A0(Actor *this){
             if(this->unk1C[1] <= this->position_y){
                 this->position_y = this->unk1C[1];
                 if(!fileProgressFlag_get(FILEPROG_82_MET_TWINKLIES)){
-                    gcdialog_showDialog(0xc12, 0x2a, this->position, this->marker, func_8038C94C, NULL);
+                    gcdialog_showDialog(0xc12, 0x2a, this->position, this->marker, func_8038C94C, N64_NULL);
                     fileProgressFlag_set(FILEPROG_82_MET_TWINKLIES, true);
                 }
                 else{
-                    gcdialog_showDialog(0xc25, 0x2b, this->position, this->marker, func_8038C94C, NULL);
+                    gcdialog_showDialog(0xc25, 0x2b, this->position, this->marker, func_8038C94C, N64_NULL);
                 }
                 subaddie_set_state(this, 5);
                 this->pitch -= 3.0f;

@@ -34,8 +34,8 @@ void updateJigsawPictureActor(Actor *this);
 // Seem to correspond to the two possible jigsaw pictures that can spawn in a map. 
 // IE, in the first room, the first corresponds to MM. 
 // In the second room, the first corresponds to CC and the second to TTC
-ActorInfo JIGSAW_PICTURE_ACTOR = { 0x1EB, 0x3B7, 0x48B, 0x1, NULL, updateJigsawPictureActor, actor_update_func_80326224, actor_draw, 0, 0, 0.0f, 0};
-ActorInfo JIGSAW_PICTURE_ACTOR_2 = { 0x1EB, 0x3BC, 0x538, 0x1, NULL, updateJigsawPictureActor, actor_update_func_80326224, actor_draw, 0, 0, 0.0f, 0};
+ActorInfo JIGSAW_PICTURE_ACTOR = { 0x1EB, 0x3B7, 0x48B, 0x1, N64_NULL, updateJigsawPictureActor, actor_update_func_80326224, actor_draw, 0, 0, 0.0f, 0};
+ActorInfo JIGSAW_PICTURE_ACTOR_2 = { 0x1EB, 0x3BC, 0x538, 0x1, N64_NULL, updateJigsawPictureActor, actor_update_func_80326224, actor_draw, 0, 0, 0.0f, 0};
 
 JigsawPictureInfo PICTURE_INFO[0xB] ={
     { 1, 0x1, FILEPROG_5D_MM_PUZZLE_PIECES_PLACED },
@@ -300,7 +300,7 @@ void unlockAdditionalActions(Actor *this) {
         && !isPictureComplete(this) 
         && !fileProgressFlag_get(FILEPROG_DF_CAN_REMOVE_ALL_PUZZLE_PIECES)) {
 
-        if (gcdialog_showDialog(ASSET_F7C_DIALOG_BOTTLES_REMOVE_PIECE_INSTRUCTIONS, 2, NULL, NULL, NULL, NULL)) {
+        if (gcdialog_showDialog(ASSET_F7C_DIALOG_BOTTLES_REMOVE_PIECE_INSTRUCTIONS, 2, N64_NULL, N64_NULL, N64_NULL, N64_NULL)) {
             fileProgressFlag_set(FILEPROG_DF_CAN_REMOVE_ALL_PUZZLE_PIECES, true);
         }
     } else if ((this->actorTypeSpecificField >= 3) // Trigger at CC
@@ -308,7 +308,7 @@ void unlockAdditionalActions(Actor *this) {
         && !isPictureComplete(this)
         && !fileProgressFlag_get(FILEPROG_E0_CAN_PLACE_ALL_PUZZLE_PIECES)) {
 
-        if (gcdialog_showDialog(ASSET_F7D_DIALOG_BOTTLES_EXPLAINS_PLACE_ALL, 2, NULL, NULL, NULL, NULL)) {
+        if (gcdialog_showDialog(ASSET_F7D_DIALOG_BOTTLES_EXPLAINS_PLACE_ALL, 2, N64_NULL, N64_NULL, N64_NULL, N64_NULL)) {
             fileProgressFlag_set(FILEPROG_E0_CAN_PLACE_ALL_PUZZLE_PIECES, true);
         }
     }
@@ -348,10 +348,10 @@ void jigsawPicture_setState(Actor *this, s32 nextState) {
                     position, 
                     this->marker, 
                     bottlesInstructionsCallback, 
-                    NULL);
+                    N64_NULL);
                 fileProgressFlag_set(FILEPROG_17_HAS_HAD_ENOUGH_JIGSAW_PIECES, 1);
             } else {
-                gcdialog_showDialog(ASSET_F58_DIALOG_FIRST_PICTURE_INSTRUCTION, 6, position, this->marker, bottlesInstructionsCallback, NULL);
+                gcdialog_showDialog(ASSET_F58_DIALOG_FIRST_PICTURE_INSTRUCTION, 6, position, this->marker, bottlesInstructionsCallback, N64_NULL);
             }
 
             fileProgressFlag_set(FILEPROG_16_STOOD_ON_JIGSAW_PODIUM, 1);
@@ -418,9 +418,9 @@ void jigsawPicture_setState(Actor *this, s32 nextState) {
 
             // If MM or the last Grunty door, make her cackle
             if (this->actorTypeSpecificField == 1) {
-                func_80324DBC(1.0f, 0xF7E, 4, NULL, this->marker, gruntyLaughCallback, NULL);
+                func_80324DBC(1.0f, 0xF7E, 4, N64_NULL, this->marker, gruntyLaughCallback, N64_NULL);
             } else if (this->actorTypeSpecificField == 0xA) {
-                func_80324DBC(1.0f, 0xFAC, 4, NULL, this->marker, gruntyLaughCallback, NULL);
+                func_80324DBC(1.0f, 0xFAC, 4, N64_NULL, this->marker, gruntyLaughCallback, N64_NULL);
             }
 
             timedFunc_set_1(2.0f, (GenFunction_1) afterPictureComplete, (s32) this->marker);
@@ -461,7 +461,7 @@ void addPieces(Actor *this, s32 nextState) {
     }
 
     // Bottles tells the player they need more jiggies, then sets flag; on future attempts it'll kick the player out
-    gcdialog_showDialog(ASSET_FBC_DIALOG_BOTTLES_OUT_OF_JIGGIES, 4, NULL, NULL, NULL, NULL);
+    gcdialog_showDialog(ASSET_FBC_DIALOG_BOTTLES_OUT_OF_JIGGIES, 4, N64_NULL, N64_NULL, N64_NULL, N64_NULL);
     fileProgressFlag_set(FILEPROG_DE_USED_ALL_YOUR_PUZZLE_PIECES, true);
 }
 
@@ -495,7 +495,7 @@ void updateJigsawPictureActor(Actor *this) {
         }
 
         setInitialJigsawPictureOpacity(this);
-        marker_setCollisionScripts(this->marker, onJigsawPodiumCollide, NULL, NULL);
+        marker_setCollisionScripts(this->marker, onJigsawPodiumCollide, N64_NULL, N64_NULL);
         this->marker->propPtr->unk8_3 = true;
         this->volatile_initialized = true;
 
@@ -564,7 +564,7 @@ void updateJigsawPictureActor(Actor *this) {
                 if ((this->actorTypeSpecificField == 0xA) && !fileProgressFlag_get(FILEPROG_F6_SEEN_DOOR_OF_GRUNTY_PUZZLE_PODIUM)) {
                     text_id = (item_getCount(ITEM_26_JIGGY_TOTAL) < PICTURE_INFO[this->actorTypeSpecificField - 1].cost) 
                         ? ASSET_FAB_DIALOG_GRUNTY_DOOR_NEED_JIGGIES : ASSET_FC0_DIALOG_GRUNTY_DOOR_HAVE_JIGGIES;
-                    if (gcdialog_showDialog(text_id, 0, NULL, NULL, NULL, NULL)) {
+                    if (gcdialog_showDialog(text_id, 0, N64_NULL, N64_NULL, N64_NULL, N64_NULL)) {
                         fileProgressFlag_set(FILEPROG_F6_SEEN_DOOR_OF_GRUNTY_PUZZLE_PODIUM, true);
                     }
                 } else if (this->actorTypeSpecificField == 1) { // MM

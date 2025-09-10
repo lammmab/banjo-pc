@@ -8,7 +8,7 @@ void chOverlayCopyright_update(Actor *this);
 f32 D_803680D0[3] = {0.0f, 0.0f, 0.0f};
 ActorInfo chOverlayCopyrightDescription = { 
     MARKER_176_COPYRIGHT_OVERLAY, ACTOR_1DD_COPYRIGHT_OVERLAY, ASSET_54E_MODEL_COPYRIGHT_OVERLAY, 
-    0x1, NULL, 
+    0x1, N64_NULL, 
     chOverlayCopyright_update, actor_update_func_80326224, func_802DC7E0, 
     0, 0, 0.0f, 0
 };
@@ -18,7 +18,7 @@ ActorMarker *chOverlayCopyrightMarker;
 
 /* .code */
 void chOverlayCopyright_freeMethod(Actor *this){
-    chOverlayCopyrightMarker = NULL;
+    chOverlayCopyrightMarker = N64_NULL;
 }
 
 void chOverlayCopyright_update(Actor *this){
@@ -40,7 +40,7 @@ void __chOverlayCopyright_spawn(void) {
 }
 
 void chOverlayCopyright_spawn(s32 arg0, s32 arg1){
-    if(chOverlayCopyrightMarker == NULL){
+    if(chOverlayCopyrightMarker == N64_NULL){
         __spawnQueue_add_0(__chOverlayCopyright_spawn);
     }
 }

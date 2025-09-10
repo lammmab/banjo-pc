@@ -7,7 +7,7 @@ void func_802DAA14(Actor *this);
 //000E0EE0
 ActorInfo D_80367E70= {
     0x21B, 0x351, 0, 
-    0, NULL, 
+    0, N64_NULL, 
     func_802DAA14, actor_update_func_80326224, func_80325340,
     0, 0, 0.0f, 0
 }; 
@@ -78,7 +78,7 @@ void func_802DAA14(Actor *this){
                 tmp = ASSET_F67_DIALOG_UNKNOWN;
             text_id = tmp;
         }
-        gcdialog_showDialog(text_id, 4, NULL, this->marker, func_802DA9A0, NULL);
+        gcdialog_showDialog(text_id, 4, N64_NULL, this->marker, func_802DA9A0, N64_NULL);
         this->has_met_before = true;
     }
 }

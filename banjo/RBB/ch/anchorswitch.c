@@ -6,8 +6,8 @@ void chAnchorSwitch_update(Actor *this);
 
 /* .data */
 ActorInfo D_80390A80 = {
-    0x2F, 0x1C7, 0x41B, 0x0, NULL,
-    chAnchorSwitch_update, NULL, actor_draw,
+    0x2F, 0x1C7, 0x41B, 0x0, N64_NULL,
+    chAnchorSwitch_update, N64_NULL, actor_draw,
     0, 0, 0.0f, 0
 };
 
@@ -38,7 +38,7 @@ void chAnchorSwitch_update(Actor *this){
     if(!this->volatile_initialized){
         this->volatile_initialized = true;
         this->marker->propPtr->unk8_3 = 1;
-        marker_setCollisionScripts(this->marker, NULL, __chAnchorSwitch_press, NULL);
+        marker_setCollisionScripts(this->marker, N64_NULL, __chAnchorSwitch_press, N64_NULL);
         if(jiggyscore_isSpawned(JIGGY_53_RBB_SNORKEL))
             __chAnchorSwitch_setState(this, 2);
         else

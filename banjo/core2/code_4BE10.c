@@ -7,7 +7,7 @@ void func_802D2DA0(Actor *this);
 /* .data */
 ActorInfo D_803675F0 = {
     0x16, 0x6A, 0x0,
-    0x1, NULL, 
+    0x1, N64_NULL, 
     func_802D2DA0, func_80326244, func_80325340, 
     0, 0, 0.0f, 0
 };

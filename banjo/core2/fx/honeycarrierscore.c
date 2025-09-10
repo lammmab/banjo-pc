@@ -18,9 +18,9 @@ void item_set(s32, s32);
 f32 func_802FB0E4(s32);
 
 /* .data*/
-void *D_8036A010 = NULL;
+void *D_8036A010 = N64_NULL;
 
-void *D_8036A014 = NULL;
+void *D_8036A014 = N64_NULL;
 
 s32 D_8036A018[] = {2, 1, 0, 3, 4, 5};
 
@@ -67,11 +67,11 @@ void func_802FDD20(void) {
 void fxhoneycarrierscore_free(s32 arg0, struct8s *arg1){
     if(D_8036A010){
         assetCache_free(D_8036A010);
-        D_8036A010 = NULL;
+        D_8036A010 = N64_NULL;
     }
     if(D_8036A014){
         assetCache_free(D_8036A014);
-        D_8036A014 = NULL;
+        D_8036A014 = N64_NULL;
     }
     D_803815E8 = 0x50;
 }
@@ -196,7 +196,7 @@ void fxhoneycarrierscore_update(s32 arg0, struct8s *arg1){
     //sp24 = time_getDelta();
     switch(sp20){
         case 1:
-            if(D_8036A010 == NULL)
+            if(D_8036A010 == N64_NULL)
                 D_8036A010 = assetcache_get(0x7DC);
             break;
         case 0:
@@ -222,7 +222,7 @@ void fxhoneycarrierscore_update(s32 arg0, struct8s *arg1){
                     D_803815C8 -= sp24*0.4;
                     if(D_803815C8 < 0.0f){
                         D_803815C0 = 2;
-                        if(D_8036A014 == NULL){
+                        if(D_8036A014 == N64_NULL){
                             D_8036A014 = assetcache_get(0x7DD);
                         }
                         D_803815C4 = globalTimer_getTime();

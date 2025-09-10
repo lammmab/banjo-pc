@@ -72,7 +72,7 @@ void func_80386CB8(ActorMarker *this_marker, ActorMarker *other_marker){
 }
 
 void FP_func_80386CF8(Actor *this){
-    marker_setCollisionScripts(this->marker, NULL, NULL, func_80386CB8);
+    marker_setCollisionScripts(this->marker, N64_NULL, N64_NULL, func_80386CB8);
     this->marker->propPtr->unk8_3 = true;
     actor_collisionOn(this);
     

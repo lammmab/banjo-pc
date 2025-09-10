@@ -119,7 +119,7 @@ void CC_func_8038868C(void) {
     timedFunc_set_0(13.0f, &func_80388664);
     timed_setStaticCameraToNode(16.0f, 1);
     if (jiggyscore_isCollected(JIGGY_17_CC_CLANKER_RAISED) == 0) {
-        func_80324DBC(18.0f, 0xD2C, 4, NULL, NULL, NULL, 0);
+        func_80324DBC(18.0f, 0xD2C, 4, N64_NULL, N64_NULL, N64_NULL, 0);
     }
     timed_exitStaticCamera(18.0f);
     func_80324E38(18.0f, 0);
@@ -202,7 +202,7 @@ void CC_func_80388760(Gfx **gfx, Mtx **mtx, Vtx **vtx){
     func_8033A450(D_80389FA0.unk34);
     modelRender_setVertexList(D_80389FA0.unk40);
     modelRender_setDepthMode(MODEL_RENDER_DEPTH_FULL);
-    modelRender_draw(gfx, mtx, D_80389FA0.unk28, NULL, 1.0f, NULL, D_80389FA0.unk24);
+    modelRender_draw(gfx, mtx, D_80389FA0.unk28, N64_NULL, 1.0f, N64_NULL, D_80389FA0.unk24);
     if(func_80340020(D_80389FA0.unk18, D_80389FA0.unk28, 0, 1.0f, 0, D_80389FA0.unk40, spA4, spA4)){
         func_8028FAB0(spA4);
         baModel_802921D4(spA4);
@@ -254,9 +254,9 @@ void func_80388CB4(void){
         if(model_getVtxList(D_80389FA0.unk24) != D_80389FA0.unk44)
             vtxList_free(D_80389FA0.unk44);
         assetcache_release((void *)D_80389FA0.unk24);
-        D_80389FA0.unk34 = NULL;
-        D_80389FA0.unk0 = NULL;
-        D_80389FA0.unk18 = NULL;
+        D_80389FA0.unk34 = N64_NULL;
+        D_80389FA0.unk0 = N64_NULL;
+        D_80389FA0.unk18 = N64_NULL;
     }
 }
 
@@ -359,7 +359,7 @@ void CC_func_80388F4C(void){
             if(D_80389FA0.unk20 && skeletalAnim_getAnimId(D_80389FA0.unk0) != ASSET_C4_ANIM_CLANKER_BITE){
                 skeletalAnim_set(D_80389FA0.unk0, ASSET_C4_ANIM_CLANKER_BITE, 1.0f, 10.0f);
                 if(!D_80389FA0.unk48){
-                    gcdialog_showDialog(ASSET_D2B_DIALOG_UNKNOWN, 0xE, D_80389FA0.unk28, NULL, NULL, NULL);
+                    gcdialog_showDialog(ASSET_D2B_DIALOG_UNKNOWN, 0xE, D_80389FA0.unk28, N64_NULL, N64_NULL, N64_NULL);
                     D_80389FA0.unk48 = true;
                 }
             }//L8038918C

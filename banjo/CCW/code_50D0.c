@@ -7,8 +7,8 @@ void func_8038B87C(Actor *this);
 /* .data */
 ActorInfo D_8038F300 = {
     0x1BA, 0x2A7, 0x503,
-    0x0, NULL,
-    func_8038B87C, NULL, actor_draw,
+    0x0, N64_NULL,
+    func_8038B87C, N64_NULL, actor_draw,
     0, 0, 2.0f, 0
 };
 
@@ -92,7 +92,7 @@ void func_8038B87C(Actor *this) {
     }
     if (!this->has_met_before && func_803292E0(this)) {
         this->has_met_before = true;
-        gcdialog_showDialog(0xCC9, 0, NULL, NULL, NULL, NULL);
+        gcdialog_showDialog(0xCC9, 0, N64_NULL, N64_NULL, N64_NULL, N64_NULL);
     }
     func_8028E668(this->position, 300.0f, -50.0f, 120.0f);
 }

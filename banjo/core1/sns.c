@@ -64,7 +64,7 @@ struct SnsPayload *snspayload_find_payload_in_ram(void)
         if (payload->magic == SNS_HEADER_MAGIC && snspayload_validate(payload))
             return payload;
 
-    return NULL;
+    return N64_NULL;
 }
 
 s32 snspayload_contains_key(struct SnsPayload *payload, s32 key)

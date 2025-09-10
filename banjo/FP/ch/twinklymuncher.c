@@ -87,7 +87,7 @@ Actor *func_8038DF34(Actor *this){
             return other;
         }
     }
-    return NULL;
+    return N64_NULL;
 }
 
 void func_8038E040(ActorMarker *caller, enum asset_e text_id, s32 arg2){
@@ -104,7 +104,7 @@ void func_8038E094(Actor *this){
 
     if(!this->volatile_initialized){
         this->volatile_initialized = true;
-        marker_setCollisionScripts(this->marker, NULL, func_8038DEB8, NULL);
+        marker_setCollisionScripts(this->marker, N64_NULL, func_8038DEB8, N64_NULL);
         this->marker->propPtr->unk8_3 = true;
         anctrl_setAnimTimer(this->anctrl, 0.99999f);
         this->lifetime_value = 0.0f;
@@ -127,7 +127,7 @@ void func_8038E094(Actor *this){
             if(this->actorTypeSpecificField == 1 && !fileProgressFlag_get(FILEPROG_13_COMPLETED_TWINKLIES_MINIGAME)){
                 if(this->state != 6 && this->state != 7 && 0.0f == this->velocity[0]){
                     timed_setStaticCameraToNode(0.5f, 0xd);
-                    gcdialog_showDialog(ASSET_C15_DIALOG_TWINKLIE_MINIGAME_LOST, 0x2b, this->position, this->marker, func_8038E040, NULL);
+                    gcdialog_showDialog(ASSET_C15_DIALOG_TWINKLIE_MINIGAME_LOST, 0x2b, this->position, this->marker, func_8038E040, N64_NULL);
                     this->velocity[0] = 1.0f;
                     subaddie_set_state_with_direction(this, 6, 0.03f, 1);
                     actor_loopAnimation(this);
@@ -201,7 +201,7 @@ void func_8038E094(Actor *this){
                     sfx_playFadeShorthandDefault(SFX_27_JINJO_HI, 1.6f, 32000, this->position, 1250, 2500);
                     func_80324D54(0.35f, SFX_110_TWINKLY_DEATH, 1.0f, 32000, this->position, 1250.0f, 2500.0f);
                     marker_despawn(sp38->marker);
-                    if( !mapSpecificFlags_get(0xa) && gcdialog_showDialog(0xc16, 0, NULL, NULL, NULL, NULL)){
+                    if( !mapSpecificFlags_get(0xa) && gcdialog_showDialog(0xc16, 0, N64_NULL, N64_NULL, N64_NULL, N64_NULL)){
                         mapSpecificFlags_set(0xa, true);
                     }
                 }

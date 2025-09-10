@@ -10,8 +10,8 @@
 u8 D_80363820 = 0;
 bsMap D_80363824[] ={
     {BS_1_IDLE,       bsstand_init,       bsstand_update,     bsstand_end,        func_802B5350},
-    {BS_2_WALK_SLOW,  bswalk_slow_init,   bswalk_slow_upate,  NULL,               func_802B5350},
-    {BS_WALK,       bswalk_init,        bswalk_update,      NULL,               func_802B5350},
+    {BS_2_WALK_SLOW,  bswalk_slow_init,   bswalk_slow_upate,  N64_NULL,               func_802B5350},
+    {BS_WALK,       bswalk_init,        bswalk_update,      N64_NULL,               func_802B5350},
     {BS_4_WALK_FAST,  bswalk_fast_init,   bswalk_fast_update, bswalk_fast_end,    func_802B5350},
     {BS_5_JUMP,       bsjump_init,        bsjump_update,      bsjump_end,         func_80296608},
     {BS_CLAW,       bsclaw_init,        bsclaw_update,      bsclaw_end,         func_80296608},
@@ -37,8 +37,8 @@ bsMap D_80363824[] ={
     {BS_1E_WONDERWING_EXIT,    bsbwhirl_exit_init,     bsbwhirl_exit_update,   bsbwhirl_exit_end,  func_80296608},
     {BS_9_EGG_HEAD,       bsegghead_init,         bsegghead_update,       bsegghead_end,  func_802B5350},
     {BS_A_EGG_ASS,        bseggass_init,          bseggass_update,        bseggass_end,   func_802B5350},
-    {BS_WALK_CREEP,     bswalk_creep_init,      bswalk_creep_update,    NULL,           func_802B5350},  
-    {BS_20_LANDING,        bsstand_landing_init,   bsstand_landing_update, NULL,           func_802B5350},
+    {BS_WALK_CREEP,     bswalk_creep_init,      bswalk_creep_update,    N64_NULL,           func_802B5350},  
+    {BS_20_LANDING,        bsstand_landing_init,   bsstand_landing_update, N64_NULL,           func_802B5350},
     {BS_BSHOCK_CHARGE,  bsbshock_charge_init,   bsbshock_charge_update, bsbshock_charge_end,    func_80296608},
     {BS_BSHOCK_JUMP,    bsbshock_init,          bsbshock_update,        bsbshock_end,           func_80296608},
     {BS_23_FLY_ENTER,  bsbfly_enter_init, bsbfly_enter_update, bsbfly_enter_end, func_802A505C},
@@ -122,7 +122,7 @@ bsMap D_80363824[] ={
     {0x00000077, func_802B5E8C, func_802B5EFC, func_802B5F38, func_80296608},
     {0x00000078, func_802A83C0, func_802A8410, func_802A844C, func_80296608},
     {0x00000079, bsbtrot_unk79_init, bsbtrot_unk79_update, bsbtrot_unk79_end, func_80296608},
-    {BS_WALK_MUD, bswalk_mud_init, bswalk_mud_update, NULL,          func_80296608},
+    {BS_WALK_MUD, bswalk_mud_init, bswalk_mud_update, N64_NULL,          func_80296608},
     {BS_BTROT_OW, bsbtrot_ow_init, bsbtrot_ow_update, bsbtrot_ow_end, func_80296590},
     {BS_7C_SLED, bssled_init, bssled_update, bssled_end, bssled_interrupt},
     {BS_7D_WALRUS_SLED, bswalrus_sled_init, bswalrus_sled_update, bswalrus_sled_end, func_802B98C0},
@@ -184,7 +184,7 @@ void func_802958A0(void){
 
 void func_80295914(void){
     D_80363820 = 1;
-    D_8037C3B0 = NULL;
+    D_8037C3B0 = N64_NULL;
     update_void_return_Location();
     func_802983F0();
     snackerctl_reset();
@@ -315,7 +315,7 @@ void func_80295C14(void){
     func_802919A0();
     if(D_8037C3B0){
         D_8037C3B0();
-        D_8037C3B0 = NULL;
+        D_8037C3B0 = N64_NULL;
     }
     basfx_update();
     func_80295E74();//voidOut_update

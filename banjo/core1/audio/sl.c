@@ -4,7 +4,7 @@
 
 #include <libaudio.h>
 
-ALGlobals *alGlobals = NULL;
+ALGlobals *alGlobals = N64_NULL;
 
 void alInit(ALGlobals *g, ALSynConfig *c){
     if (!alGlobals) { /* already initialized? */

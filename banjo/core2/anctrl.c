@@ -301,7 +301,7 @@ void anctrl_drawSetup(AnimCtrl *this, f32 *position, s32 arg2){
         && map != MAP_1F_CS_START_RAREWARE
         && map != MAP_20_CS_END_NOT_100 
         && this->unk23 !=0 
-        && position != NULL
+        && position != N64_NULL
     ){
         this->unk24 = this->unk24 -1;
         if(this->unk24 == 0xFF){

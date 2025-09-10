@@ -29,7 +29,7 @@ struct{
     N_AL_Struct81s *unk0;
     N_AL_Struct81s *unk4;
     N_AL_Struct81s *unk8;
-}D_802758C0 = {NULL, NULL, NULL};
+}D_802758C0 = {N64_NULL, N64_NULL, N64_NULL};
 N_ALSndPlayer *D_802758CC = &D_8027EEC0;
 s32 D_802758D0 = 1;
 s16 D_802758D4 = 0;
@@ -42,21 +42,21 @@ void func_80243070(Struct87s *arg0) {
     u32 var_s0;
 
     D_802758CC->maxSounds = (s32) arg0->unk8;
-    D_802758CC->target = NULL;
+    D_802758CC->target = N64_NULL;
     D_802758CC->frameTime = 33000;
-    D_802758CC->sndState = alHeapDBAlloc(NULL, 0, arg0->unkC, 1, arg0->unk0 * sizeof(N_AL_Struct81s));
-    alEvtqNew(&D_802758CC->evtq, alHeapDBAlloc(NULL, 0, arg0->unkC, 1, arg0->unk4 * 0x1C), arg0->unk4);
+    D_802758CC->sndState = alHeapDBAlloc(N64_NULL, 0, arg0->unkC, 1, arg0->unk0 * sizeof(N_AL_Struct81s));
+    alEvtqNew(&D_802758CC->evtq, alHeapDBAlloc(N64_NULL, 0, arg0->unkC, 1, arg0->unk4 * 0x1C), arg0->unk4);
     D_802758C0.unk8 = D_802758CC->sndState;
     for(var_s0 = 1; var_s0 < arg0->unk0; var_s0++){
         var_v0 =  (N_AL_Struct81s *)D_802758CC->sndState;
         temp_a0 = var_s0 + var_v0;
         alLink((ALLink *)temp_a0, (ALLink*)(temp_a0 - 1));
     }
-    D_8027EF14 = alHeapDBAlloc(NULL, 0, arg0->unkC, 2, (s32) arg0->unk10);
+    D_8027EF14 = alHeapDBAlloc(N64_NULL, 0, arg0->unkC, 2, (s32) arg0->unk10);
     for(var_s0 = 0; var_s0 < arg0->unk10; var_s0++){
         D_8027EF14[var_s0] = 0x7FFF;
     }
-    D_802758CC->node.next = NULL;
+    D_802758CC->node.next = N64_NULL;
     D_802758CC->node.handler = (ALVoiceHandler)func_8024324C;
     D_802758CC->node.clientData = D_802758CC;
     n_alSynAddSndPlayer(D_802758CC);
@@ -120,10 +120,10 @@ void func_802432F8(N_ALSndPlayer *sndp, N_ALEvent *event) {
     var_s5 = event;
     sp94 = 1;
     sp90 = 0;
-    temp_s0 = NULL;
-    temp_s6 = NULL;
+    temp_s0 = N64_NULL;
+    temp_s6 = N64_NULL;
     do{
-        if (temp_s6 != NULL) {
+        if (temp_s6 != N64_NULL) {
             spB0.msg.generic.data[0].i = temp_s0;
             spB0.type = var_s5->type;
             spB0.msg.generic.data[1].i = var_s5->msg.vol.delta;
@@ -131,7 +131,7 @@ void func_802432F8(N_ALSndPlayer *sndp, N_ALEvent *event) {
         }
         temp_s0 = (N_AL_Struct81s*)var_s5->msg.generic.data[0].i;
         temp_s1 = temp_s0->unk8;
-        if (temp_s1 == NULL) {
+        if (temp_s1 == N64_NULL) {
             func_80244110(&sp86, &sp84);
             return;
         }
@@ -169,7 +169,7 @@ void func_802432F8(N_ALSndPlayer *sndp, N_ALEvent *event) {
                                 n_alSynSetVol(&sp80->voice, 0, 0x3E8);
                             }
                             sp80 = sp80->node.prev;
-                        }while(var_s2 && sp80 != NULL);
+                        }while(var_s2 && sp80 != N64_NULL);
                         if (!var_s2) {
                             temp_s0->unk38 = 2;
                             alEvtqPostEvent(&temp_fp->evtq, (ALEvent *) var_s5, 0x3E9);
@@ -340,10 +340,10 @@ void func_802432F8(N_ALSndPlayer *sndp, N_ALEvent *event) {
         }
         var_v0 = (u16)var_s5->type & 0x2D1;
         temp_s0 = temp_s6;
-        if ((temp_s0 != NULL) && !var_v0) {
+        if ((temp_s0 != N64_NULL) && !var_v0) {
             sp94 = temp_s0->unk3F & 1;
         }
-    }while((sp94 == 0) && (temp_s0 != NULL) && !var_v0);
+    }while((sp94 == 0) && (temp_s0 != N64_NULL) && !var_v0);
 }
 
 void func_80243F84(N_AL_Struct81s *arg0) {
@@ -373,10 +373,10 @@ void func_80244050(ALEventQueue *arg0, N_AL_Struct81s *arg1, u16 arg2) {
     ALEventListItem *event_list;
 
     mask = osSetIntMask(OS_IM_NONE);
-    for(event_list = (ALEventListItem *)arg0->allocList.next; event_list != NULL; event_list = next_event_list) {
+    for(event_list = (ALEventListItem *)arg0->allocList.next; event_list != N64_NULL; event_list = next_event_list) {
         next_event_list = (ALEventListItem *)event_list->node.next;
         if ((arg1 == event_list->evt.msg.unk3A70.unk0) && (reinterpret_cast(u16, event_list->evt.type) & arg2)) {
-            if (next_event_list != NULL) {
+            if (next_event_list != N64_NULL) {
                 next_event_list->delta += event_list->delta;
             }
             alUnlink((ALLink *)event_list);
@@ -398,16 +398,16 @@ s32 func_80244110(u16 *arg0, u16 *arg1) {
     var_v1_2 = D_802758C0.unk8;
     var_a2 = D_802758C0.unk4;
     
-    for(var_a3 = 0; var_v0 != NULL; var_a3++){
+    for(var_a3 = 0; var_v0 != N64_NULL; var_a3++){
         var_v0 = (N_AL_Struct81s *) var_v0->node.next;
     }
 
     
-    for(var_a0 = 0; var_v1_2 != NULL; var_a0++) {
+    for(var_a0 = 0; var_v1_2 != N64_NULL; var_a0++) {
         var_v1_2 = (N_AL_Struct81s *) var_v1_2->node.next;
     }
     
-    for(var_v1 = 0; var_a2 != NULL; var_v1++) {
+    for(var_v1 = 0; var_a2 != N64_NULL; var_v1++) {
         var_a2 = (N_AL_Struct81s *) var_a2->node.prev;
     }
 
@@ -465,18 +465,18 @@ N_AL_Struct81s *func_8024431C(ALBank *bank, ALSound *sound) {
 
     temp_s0 = D_802758C0.unk8;
     sp30 = sound->keyMap;
-    if (temp_s0 != NULL) {
+    if (temp_s0 != N64_NULL) {
         mask = osSetIntMask(OS_IM_NONE);
         D_802758C0.unk8 = (N_AL_Struct81s *) temp_s0->node.next;
         alUnlink((ALLink *)temp_s0);
-        if (D_802758C0.unk0 != NULL) {
+        if (D_802758C0.unk0 != N64_NULL) {
             temp_s0->node.next = D_802758C0.unk0;
-            temp_s0->node.prev = NULL;
+            temp_s0->node.prev = N64_NULL;
             D_802758C0.unk0->node.prev = temp_s0;
             D_802758C0.unk0 = temp_s0;
         } else {
-            temp_s0->node.prev = NULL;
-            temp_s0->node.next = NULL;
+            temp_s0->node.prev = N64_NULL;
+            temp_s0->node.next = N64_NULL;
             D_802758C0.unk0 = temp_s0;
             D_802758C0.unk4 = temp_s0;
         }
@@ -524,15 +524,15 @@ void func_802444C0(N_AL_Struct81s *arg0){
 
     alUnlink((ALLink *)arg0);
 
-    if(D_802758C0.unk8 != NULL){
+    if(D_802758C0.unk8 != N64_NULL){
         arg0->node.next = (ALLink *)D_802758C0.unk8;
-        arg0->node.prev = NULL;
+        arg0->node.prev = N64_NULL;
         D_802758C0.unk8->node.prev = (ALLink *)arg0;
         D_802758C0.unk8 = arg0;
     }
     else{
-        arg0->node.prev = NULL;
-        arg0->node.next = NULL;
+        arg0->node.prev = N64_NULL;
+        arg0->node.next = N64_NULL;
         D_802758C0.unk8 = arg0;
     }
 
@@ -541,21 +541,21 @@ void func_802444C0(N_AL_Struct81s *arg0){
     }
 
     arg0->unk40 = 0;
-    if(arg0->unk30 != NULL){
+    if(arg0->unk30 != N64_NULL){
         if(*arg0->unk30 == arg0){
-            *arg0->unk30 = NULL;
+            *arg0->unk30 = N64_NULL;
         }
-        arg0->unk30 = NULL;
+        arg0->unk30 = N64_NULL;
     }
 }
 
 void func_80244594(N_AL_Struct81s *arg0, u8 arg1){
-    if(arg0 != NULL)
+    if(arg0 != N64_NULL)
         arg0->unk36 = arg1;
 }
 
 s32 func_802445AC(N_AL_Struct81s *arg0){
-    if(arg0 != NULL)
+    if(arg0 != N64_NULL)
         return arg0->unk40;
     return 0;
 }
@@ -580,17 +580,17 @@ void *func_80244608(ALBank *bank, s16 arg1, struct46s *arg2) {
     ALEvent sp50;
     ALEvent sp40;
 
-    var_fp = NULL;
+    var_fp = N64_NULL;
     sp6E = 0;
     var_s3 = 0;
     if (arg1 == 0) {
-        return NULL;
+        return N64_NULL;
     }
 
     do{
         temp_s2 = bank->instArray[0]->soundArray[arg1-1];
         temp_v0 = func_8024431C(bank, temp_s2);
-        if (temp_v0 != NULL) {
+        if (temp_v0 != N64_NULL) {
             temp_v0->unk4C = (s32) (arg1 - 1);
             D_802758CC->target = temp_v0;
             sp50.type = AL_SEQ_MIDI_EVT;
@@ -609,9 +609,9 @@ void *func_80244608(ALBank *bank, s16 arg1, struct46s *arg2) {
         temp_v0_2 = temp_s2->keyMap;
         var_s3 += var_s4;
         arg1 = temp_v0_2->velocityMin + ((temp_v0_2->keyMin & 0xC0) * 4);
-    } while (arg1 != 0 && temp_v0 != NULL);
+    } while (arg1 != 0 && temp_v0 != N64_NULL);
 
-    if (var_fp != NULL) {
+    if (var_fp != N64_NULL) {
         var_fp->unk3F |= 1;
         var_fp->unk30 = arg2;
         if (sp6E != 0) {
@@ -623,7 +623,7 @@ void *func_80244608(ALBank *bank, s16 arg1, struct46s *arg2) {
             alEvtqPostEvent(&D_802758CC->evtq, &sp40, sp68);
         }
     }
-    if (arg2 != NULL) {
+    if (arg2 != N64_NULL) {
         arg2->unk0 = (s32) var_fp;
     }
     return var_fp;
@@ -634,7 +634,7 @@ void func_80244814(N_AL_Struct81s *arg0){
 
     evt.type = 0x400;
     ((s32 *)&evt.msg)[0] = arg0;
-    if(arg0 != NULL){
+    if(arg0 != N64_NULL){
         arg0->unk3F &= ~(0x10);
         alEvtqPostEvent(&D_802758CC->evtq, &evt, 0);
     }
@@ -646,7 +646,7 @@ void func_80244860(u8 arg0) {
     N_AL_Struct81s *var_s0;
 
     mask = osSetIntMask(1U);
-    for(var_s0 = D_802758C0.unk0; var_s0 != NULL; var_s0 =  (N_AL_Struct81s *)var_s0->node.next){
+    for(var_s0 = D_802758C0.unk0; var_s0 != N64_NULL; var_s0 =  (N_AL_Struct81s *)var_s0->node.next){
         evt.type = 0x400;
         ((s32 *)&evt.msg)[0] = (s32)var_s0;
         if ((var_s0->unk3F & arg0) == arg0) {
@@ -691,7 +691,7 @@ void func_802449E4(u8 arg0, u16 arg1) {
 
     var_s0 = D_802758C0.unk0;
     D_8027EF14[arg0] = arg1;
-    while(var_s0 != NULL){
+    while(var_s0 != N64_NULL){
         if ((var_s0->unk8->keyMap->keyMin & 0x3F) == arg0) {
             evt.type = 0x800;
             ((s32 *)&evt.msg)[0] = var_s0;

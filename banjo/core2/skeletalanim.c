@@ -11,24 +11,24 @@ extern BoneTransformList *boneTransformList_new(void);
 
 /* .code */
 static void skeletalAnim_clearTransition(SkeletalAnimation *self){
-    if(self->bone_transform != NULL){
+    if(self->bone_transform != N64_NULL){
         boneTransformList_free(self->bone_transform);
-        self->bone_transform = NULL;
+        self->bone_transform = N64_NULL;
     }
 
-    if(self->animation_bin != NULL){
+    if(self->animation_bin != N64_NULL){
         assetcache_release(self->animation_bin);
-        self->animation_bin = NULL;
+        self->animation_bin = N64_NULL;
     }
 
-    if(self->transition_start != NULL){
+    if(self->transition_start != N64_NULL){
         boneTransformList_free(self->transition_start);
-        self->transition_start = NULL;
+        self->transition_start = N64_NULL;
     }
 
-    if(self->transition_target != NULL){
+    if(self->transition_target != N64_NULL){
         boneTransformList_free(self->transition_target);
-        self->transition_target = NULL;
+        self->transition_target = N64_NULL;
     }
 
     self->transition_duration = 0.0f;
@@ -44,7 +44,7 @@ static void __perform_callback(SkeletalAnimationCallback* arg0){
 }
 
 void skeletalAnim_clearCallbacks(SkeletalAnimation *self){
-    if(self->callback_list != NULL){
+    if(self->callback_list != N64_NULL){
         vector_clear(self->callback_list);
     }
 }
@@ -64,7 +64,7 @@ void skeletalAnim_getProgressRange(SkeletalAnimation *self, f32 *prev_progress, 
 
 BoneTransformList *skeletalAnim_getBoneTransformList(SkeletalAnimation *self){
     self->unk14 = 0;
-    if(self->bone_transform == NULL){
+    if(self->bone_transform == N64_NULL){
         self->bone_transform = boneTransformList_new();
     }
 
@@ -77,7 +77,7 @@ BoneTransformList *skeletalAnim_getBoneTransformList(SkeletalAnimation *self){
         return self->bone_transform;
     }
 
-    if(self->animation_bin == NULL){
+    if(self->animation_bin == N64_NULL){
         self->animation_bin = (AnimationFile *)assetcache_get(self->animation_id);
     }
 
@@ -86,7 +86,7 @@ BoneTransformList *skeletalAnim_getBoneTransformList(SkeletalAnimation *self){
         return self->bone_transform;
     }
 
-    if(self->transition_target == NULL){
+    if(self->transition_target == N64_NULL){
         self->transition_target = (BoneTransformList *) boneTransformList_new();
     }
     animationFile_getBoneTransformList(self->animation_bin, self->progress, self->transition_target);
@@ -100,7 +100,7 @@ s32 skeletalAnim_getLoopCount(SkeletalAnimation *self){
 
 void skeletalAnim_setCallback_0(SkeletalAnimation *self, f32 when, GenFunction_0 fn){
     SkeletalAnimationCallback *ptr;
-    if(self->callback_list == NULL){
+    if(self->callback_list == N64_NULL){
         self->callback_list = vector_new(sizeof(SkeletalAnimationCallback), 8);
     }
     ptr = (SkeletalAnimationCallback *)vector_pushBackNew(&self->callback_list);
@@ -112,7 +112,7 @@ void skeletalAnim_setCallback_0(SkeletalAnimation *self, f32 when, GenFunction_0
 
 void skeletalAnim_setCallback_1(SkeletalAnimation *self, f32 when, GenFunction_1 fn, s32 arg){
     SkeletalAnimationCallback *ptr;
-    if(self->callback_list == NULL){
+    if(self->callback_list == N64_NULL){
         self->callback_list = vector_new(sizeof(SkeletalAnimationCallback), 8);
     }
     ptr = (SkeletalAnimationCallback *)vector_pushBackNew(&self->callback_list);
@@ -126,7 +126,7 @@ void skeletalAnim_free(SkeletalAnimation *self){
     VLA * temp_a0;
     skeletalAnim_clearTransition(self);
     temp_a0 = self->callback_list;
-    if(temp_a0 != NULL){
+    if(temp_a0 != N64_NULL){
         vector_free(temp_a0);
     }
     free(self);
@@ -136,16 +136,16 @@ SkeletalAnimation *skeletalAnim_new(void){
     SkeletalAnimation *self;
 
     self = (SkeletalAnimation *)malloc(sizeof(SkeletalAnimation));
-    self->bone_transform = NULL;
-    self->animation_bin = NULL;
+    self->bone_transform = N64_NULL;
+    self->animation_bin = N64_NULL;
     self->callback_list = 0;
     self->unk14 = 0;
     self->behavior = SKELETAL_ANIM_1_LOOP;
     self->loop_count = 0;
     self->animation_id = 0;
     self->unk30 = 0;
-    self->transition_start = NULL;
-    self->transition_target = NULL;
+    self->transition_start = N64_NULL;
+    self->transition_target = N64_NULL;
     self->progress = 0.0f;
     self->duration = 0.0f;
     self->prev_progress = 0.0f;
@@ -160,14 +160,14 @@ void skeletalAnim_func_80335918(SkeletalAnimation *self){
 }
 
 void skeletalAnim_set(SkeletalAnimation *self, enum asset_e anim_id, f32 transistion_duration, f32 duration){
-    if(self->animation_bin != NULL && anim_id != self->animation_id){
+    if(self->animation_bin != N64_NULL && anim_id != self->animation_id){
         assetcache_release(self->animation_bin);
-        self->animation_bin = NULL;
+        self->animation_bin = N64_NULL;
     }
 
-    if(self->callback_list != NULL && anim_id != self->animation_id){
+    if(self->callback_list != N64_NULL && anim_id != self->animation_id){
         vector_free(self->callback_list);
-        self->callback_list = NULL;
+        self->callback_list = N64_NULL;
     }
 
     self->progress = 0.0f;
@@ -178,7 +178,7 @@ void skeletalAnim_set(SkeletalAnimation *self, enum asset_e anim_id, f32 transis
     self->transition_progress = 0.0f;
     self->transition_duration = transistion_duration;
     if(0.0f < transistion_duration){
-        if(self->bone_transform != NULL ){
+        if(self->bone_transform != N64_NULL ){
             BoneTransformList *tmp;
             tmp = self->transition_start;
             self->transition_start = self->bone_transform;
@@ -251,7 +251,7 @@ void skeletalAnim_update(SkeletalAnimation *self, f32 dt, s32 arg2) {
             }
         }
 
-        if (self->callback_list != NULL) {
+        if (self->callback_list != N64_NULL) {
             begin_ptr = vector_getBegin(self->callback_list);
             end_ptr = vector_getEnd(self->callback_list);
             for(i_ptr = begin_ptr; i_ptr < end_ptr; i_ptr++) {

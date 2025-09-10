@@ -50,7 +50,7 @@ void n_alSeqpNew(N_ALSeqPlayer *seqp, ALSeqpConfig *c)
      * initialize member variables
      */
     seqp->bank          = 0;
-    seqp->target        = NULL;
+    seqp->target        = N64_NULL;
     seqp->drvr          = (N_ALSynth *)&n_syn->head;
     seqp->chanMask      = 0xff;
     seqp->uspt          = 488;
@@ -99,7 +99,7 @@ void n_alSeqpNew(N_ALSeqPlayer *seqp, ALSeqpConfig *c)
     /*
      * add ourselves to the driver
      */
-    seqp->node.next       = NULL;
+    seqp->node.next       = N64_NULL;
     seqp->node.handler    = __n_seqpVoiceHandler;
     seqp->node.clientData = seqp;
     n_alSynAddSeqPlayer(&seqp->node);
@@ -322,7 +322,7 @@ __n_handleNextSeqEvent(N_ALSeqPlayer *seqp)
     N_ALEvent	evt;
 
     /* sct 1/5/96 - Do nothing if we don't have a target sequence. */
-    if (seqp->target == NULL)
+    if (seqp->target == N64_NULL)
 	return;
 
     n_alSeqEvent(seqp->target, &evt);
@@ -665,7 +665,7 @@ void __n_handleMIDIMsg(N_ALSeqPlayer *seqp, N_ALEvent *event)
 
         case (AL_MIDI_ProgramChange):
 	    /* sct 1/16/96 - We must have a valid bank in order to process the program change. */
-        matching_assert(seqp->bank != NULL, n_seqplayer.c, 0x29c);
+        matching_assert(seqp->bank != N64_NULL, n_seqplayer.c, 0x29c);
         
 
             if (key < seqp->bank->instCount) {
@@ -838,7 +838,7 @@ ALSound *__n_lookupSoundQuick(N_ALSeqPlayer *seqp, u8 key, u8 vel, u8 chan)
     s32 i;
     ALKeyMap *keymap;
 
-    matching_assert(inst != NULL, n_seqplayer.c, 0x3DE);       /* sct 10/31/95 - If inst is NULL, then the seqp probably wasn't setup correctly. */
+    matching_assert(inst != N64_NULL, n_seqplayer.c, 0x3DE);       /* sct 10/31/95 - If inst is N64_NULL, then the seqp probably wasn't setup correctly. */
     
     while (r >= l) {
         i = (l+r)/2;
@@ -1171,7 +1171,7 @@ void __n_postNextSeqEvent(N_ALSeqPlayer *seqp)
     ALSeq       *seq = seqp->target;
 
     /* sct 1/5/96 - Do nothing if we're not playing or don't have a target sequence. */
-    if ((seqp->state != AL_PLAYING) || (seq == NULL))
+    if ((seqp->state != AL_PLAYING) || (seq == N64_NULL))
 	return;
 
     /* Get the next event time in ticks. */

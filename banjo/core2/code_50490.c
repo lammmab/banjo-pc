@@ -22,19 +22,19 @@ f32 D_80367AA4[3] = {0.0f, 0.0f, 0.0f};
 
 ActorInfo D_80367AB0 = {
     0x57, 0x4C, 0x0, 
-    0, NULL, 
+    0, N64_NULL, 
     func_802D766C, actor_update_func_80326224, func_802D745C,
     0, 0, 0.0f, 0
 };
 ActorInfo D_80367AD4 = {
     0x57, 0x4D, 0x0, 
-    0, NULL, 
+    0, N64_NULL, 
     func_802D766C, actor_update_func_80326224, func_802D745C,
     0, 0, 0.0f, 0
 };
 ActorInfo D_80367AF8 = {
     0x57, 0x58, 0x0, 
-    0, NULL, 
+    0, N64_NULL, 
     func_802D766C, actor_update_func_80326224, func_802D745C,
     0, 0, 0.0f, 0
 };
@@ -43,10 +43,10 @@ ActorInfo D_80367AF8 = {
 void func_802D7420(Actor *this){
     ActorLocal_core2_50490 * local = (ActorLocal_core2_50490 *)&this->local;
 
-    if(local->unk0 != NULL){
+    if(local->unk0 != N64_NULL){
         dustEmitter_empty(local->unk0);
     }
-    local->unk0 = NULL;
+    local->unk0 = N64_NULL;
 }
 
 Actor *func_802D745C(ActorMarker *marker, Gfx **gfx, Mtx **mtx, Vtx **vtx){

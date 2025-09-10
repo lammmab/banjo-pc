@@ -13,7 +13,7 @@ typedef struct {
 }Struct_core2_6B030_0;
 
 /* .data */
-Struct_core2_6B030_0 *D_80368AB0 = NULL;
+Struct_core2_6B030_0 *D_80368AB0 = N64_NULL;
 s16 D_80368AB4 = 0;
 s16 D_80368AB8 = 0;
 
@@ -91,7 +91,7 @@ void func_802F1FC0(Struct65s *self, Gfx **gfx, Mtx **mtx, Vtx **vtx) {
     }
     
     gSPDisplayList((*gfx)++, D_80368AC0);
-    func_80347FC0(gfx, D_80368AB0[1].unk0, 0, 0, 0, 0, 0, NULL, NULL, &width, &height);
+    func_80347FC0(gfx, D_80368AB0[1].unk0, 0, 0, 0, 0, 0, N64_NULL, N64_NULL, &width, &height);
     temp_addr = &gFramebuffers[getOtherFramebuffer()][spC0*gFramebufferWidth + (spC4 & 0xFFFC)];
     gDPSetTextureImage((*gfx)++, G_IM_FMT_RGBA, G_IM_SIZ_16b, gFramebufferWidth, temp_addr);
     gDPSetTile((*gfx)++, G_IM_FMT_RGBA, G_IM_SIZ_16b, 9, 0x0080, G_TX_LOADTILE, 0, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMASK, G_TX_NOLOD, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMASK, G_TX_NOLOD);
@@ -104,7 +104,7 @@ void func_802F1FC0(Struct65s *self, Gfx **gfx, Mtx **mtx, Vtx **vtx) {
     gSP1Quadrangle((*gfx)++, 0, 1, 3, 2, 0);
     func_80349AD0();
     func_80347FC0(gfx, (D_80368AB0 + self->unk22)->unk0, 0, 0, 0, 0, 0, 2, 2, &width, &height);
-    if ((D_80368AB0 + self->unk22)->unk4 != NULL) {
+    if ((D_80368AB0 + self->unk22)->unk4 != N64_NULL) {
         func_80347FC0(gfx, (D_80368AB0 + self->unk22)->unk4, 0, 0x100, 1, 0, 0, 2, 2, &width, &height);
     }
     gSPDisplayList((*gfx)++, D_80368B08);
@@ -171,7 +171,7 @@ void func_802F2740(Struct64s *arg0) {
             } else {
                 //else (if empty) free struct
                 free(arg0->unk0);
-                arg0->unk0 = NULL;
+                arg0->unk0 = N64_NULL;
             }
         } else {
             //else (index still active)
@@ -221,15 +221,15 @@ void *func_802F2AEC(void) {
 
     if (D_80368AB4 == 0) {
         D_80368AB0 = malloc(0x10);
-        if (D_80368AB0 == NULL) {
-            return NULL;
+        if (D_80368AB0 == N64_NULL) {
+            return N64_NULL;
         }
 
         for(var_s1 = 0; var_s1 < 2; var_s1++){
             if (D_80368B28[var_s1].unk0 >= 0) {
                 (D_80368AB0 + var_s1)->unk0 = assetcache_get(D_80368B28[var_s1].unk0);
             } else {
-                (D_80368AB0 + var_s1)->unk0 = NULL;
+                (D_80368AB0 + var_s1)->unk0 = N64_NULL;
             }
 
             if (D_80368B28[var_s1].unk2 >= 0) {
@@ -246,8 +246,8 @@ void *func_802F2AEC(void) {
     }
     D_80368AB4++;
     temp_v0 = malloc(8);
-    if (temp_v0 == NULL) {
-        return NULL;
+    if (temp_v0 == N64_NULL) {
+        return N64_NULL;
     }
     temp_v0->unk0 = 0;
     temp_v0->unk4 = 0;
@@ -260,33 +260,33 @@ void func_802F2C78(Struct64s *arg0) {
     Struct_core2_6B030_0 *i_ptr;
 
 
-    if (arg0 != NULL) {
-        if (arg0->unk0 != NULL) {
+    if (arg0 != N64_NULL) {
+        if (arg0->unk0 != N64_NULL) {
             free(arg0->unk0);
         }
         free(arg0);
         D_80368AB4 -= 1;
     }
     if (D_80368AB4 == 0) {
-        if(D_80368AB0 != NULL){
+        if(D_80368AB0 != N64_NULL){
             for(var_s1 = 0; var_s1 < 2; var_s1++){
                 i_ptr = D_80368AB0 + var_s1;
-                if (i_ptr->unk0 != NULL) {
+                if (i_ptr->unk0 != N64_NULL) {
                     assetcache_release(i_ptr->unk0);
                 }
                 i_ptr = D_80368AB0 + var_s1;
-                if (i_ptr->unk4 != NULL) {
+                if (i_ptr->unk4 != N64_NULL) {
                     assetcache_release(i_ptr->unk4);
                 }
             }
             free(D_80368AB0);
-            D_80368AB0 = NULL;
+            D_80368AB0 = N64_NULL;
             D_80368AB8 = 0;
         }
 
-        if (D_80380A10 != NULL) {
+        if (D_80380A10 != N64_NULL) {
             free(D_80380A10);
-            D_80380A10 = NULL;
+            D_80380A10 = N64_NULL;
         }
     }
 }
@@ -295,7 +295,7 @@ void func_802F2C78(Struct64s *arg0) {
 void func_802F2D8C(Struct64s *arg0) {
     Struct65s *var_s0;
 
-    if ((arg0 != NULL) && (arg0->unk4 != 0)) {
+    if ((arg0 != N64_NULL) && (arg0->unk4 != 0)) {
         D_80380A58 = heap_get_size() - heap_get_occupied_size();
         for(var_s0 = arg0->unk0; var_s0 < arg0->unk0 + arg0->unk4; var_s0++){
             if (var_s0->unk23 & 1) {
@@ -319,7 +319,7 @@ void func_802F2ED0(Struct64s *arg0, Gfx **gfx, Mtx **mtx, Vtx **vtx) {
     Struct65s *phi_s0;
     f32 sp38[3];
 
-    if (arg0 != NULL && arg0->unk4) {
+    if (arg0 != N64_NULL && arg0->unk4) {
         viewport_getRotation_vec3f(sp38);
         mlMtxIdent();
         mlMtxRotPitch(-sp38[0]);
@@ -336,14 +336,14 @@ void func_802F2ED0(Struct64s *arg0, Gfx **gfx, Mtx **mtx, Vtx **vtx) {
 void func_802F2FCC(Struct64s *arg0, f32 arg1[3], s16 arg2, f32 arg3, ActorMarker *arg4, s32(*arg5)(f32[3], f32, ActorMarker *)){
     Struct65s *var_v0;
 
-    if (arg0 != NULL) {
+    if (arg0 != N64_NULL) {
         if ((arg0->unk4 != 0x20) && (D_80380A58 >= 0x19000)) {
-            if ( arg0->unk0 != NULL) {
+            if ( arg0->unk0 != N64_NULL) {
                 var_v0 = (Struct65s *)realloc(arg0->unk0, (arg0->unk4 + 1)*sizeof(Struct65s));
             } else {
                 var_v0 = malloc(sizeof(Struct65s));
             }
-            if (var_v0 != NULL) {
+            if (var_v0 != N64_NULL) {
                 arg0->unk0 = var_v0;
                 var_v0 += arg0->unk4;
                 arg0->unk4++;
@@ -377,10 +377,10 @@ void func_802F32C4(Struct64s *arg0, f32 arg1[3], f32 arg2, ActorMarker *arg3, s3
 
 void func_802F3300(void) {
     if (!func_802559A0()) {
-        if (D_80380A10 != NULL) {
+        if (D_80380A10 != N64_NULL) {
             D_80380A10 = (f32 *)defrag(D_80380A10);
         }
-        if (D_80368AB0 != NULL) {
+        if (D_80368AB0 != N64_NULL) {
             D_80368AB0 = (Struct_core2_6B030_0 *)defrag(D_80368AB0);
         }
     }

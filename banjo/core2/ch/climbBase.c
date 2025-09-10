@@ -14,7 +14,7 @@ typedef struct {
 /* .data */
 ActorInfo D_80367B20 = { 
     0x35, 0x26, 0x0, 
-    0x1, NULL, 
+    0x1, N64_NULL, 
     func_802D77D4, actor_update_func_80326224, func_80325340, 
     0, 0, 0.0f, 0
 };

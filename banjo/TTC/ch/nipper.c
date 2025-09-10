@@ -123,11 +123,11 @@ static bool __func_80388088(Actor *this){
         return false;
     }
 
-    return BOOL(-35.0f < sp2C && sp2C < 35.0f);
+    return (-35.0f < sp2C && sp2C < 35.0f);
 }
 
 static bool __chNipper_shouldShowActor(Actor *this){
-    return BOOL(subaddie_playerIsWithinSphereAndActive(this, 1300) && __func_80388088(this));
+    return (subaddie_playerIsWithinSphereAndActive(this, 1300) && __func_80388088(this));
 }
 
 static void __chNipper_dieFunc(ActorMarker *this_marker, ActorMarker *other_marker) {

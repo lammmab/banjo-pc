@@ -29,8 +29,8 @@ void chyumblie_update(Actor *);
 Actor *chyumblie_draw(ActorMarker *this, Gfx **gfx, Mtx** mtx, Vtx **vtx);
 
 /* .data */
-ActorInfo D_80390A40 = {MARKER_C7_YUMBLIE, ACTOR_139_YUMBLIE, ASSET_3F6_MODEL_YUMBLIE, 0x00, NULL,
-    chyumblie_update, NULL, chyumblie_draw,
+ActorInfo D_80390A40 = {MARKER_C7_YUMBLIE, ACTOR_139_YUMBLIE, ASSET_3F6_MODEL_YUMBLIE, 0x00, N64_NULL,
+    chyumblie_update, N64_NULL, chyumblie_draw,
     0, 0, 0.0f, 0
 };
 
@@ -47,10 +47,10 @@ bool func_8038B160(Actor *this){
     }
 
     if ((temp_v0 == 2) || (temp_v0 == 5)) {
-        return BOOL(0.7 <= randf());
+        return 0.7 <= randf();
     }
 
-    return BOOL(randf() >= 0.5);
+    return randf() >= 0.5;
 }
 
 void chyumblie_set_state(Actor* this, enum chyumblie_state_e next_state){
@@ -122,10 +122,10 @@ Actor *chyumblie_draw(ActorMarker *this, Gfx **gfx, Mtx** mtx, Vtx **vtx){
     sp38[1] = thisActor->yaw;
     sp38[2] = thisActor->roll;
     if(sp40->unk4 && sp40->game_marker){
-        modelRender_draw(gfx, mtx, sp44, sp38, 1.0f, NULL, chvilegame_get_grumblie_model(sp40->game_marker));
+        modelRender_draw(gfx, mtx, sp44, sp38, 1.0f, N64_NULL, chvilegame_get_grumblie_model(sp40->game_marker));
     }
     else{
-        modelRender_draw(gfx, mtx, sp44, sp38, 1.0f, NULL, marker_loadModelBin(this));
+        modelRender_draw(gfx, mtx, sp44, sp38, 1.0f, N64_NULL, marker_loadModelBin(this));
     }
     return thisActor;
 }
@@ -155,12 +155,12 @@ void chyumblie_update(Actor *this){
         this->volatile_initialized = true;
         s0->unk0 = 0.0f;
         s0->unk4 = 0;
-        s0->game_marker = NULL;
+        s0->game_marker = N64_NULL;
         chyumblie_set_state(this, YUMBLIE_STATE_1_UNDER_GROUND);
         return;
     }
 
-    if(s0->game_marker == NULL){
+    if(s0->game_marker == N64_NULL){
         s0->game_marker = actorArray_findClosestActorFromActorId(this->position, ACTOR_138_VILE_GAME_CTRL, -1, &sp48)->marker;
     }
     sp50 = skeletalAnim_getProgress(this->unk148);

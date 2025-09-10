@@ -17,7 +17,7 @@ ActorAnimationInfo D_8038AAF0[] = {
 
 ActorInfo gQuarrie = {
     MARKER_135_QUARRIE, ACTOR_16F_QUARRIE, ASSET_42D_MODEL_QUARRIE, 
-    1,  NULL,
+    1,  N64_NULL,
     SM_func_80386EF4, actor_update_func_80326224, actor_drawFullDepth,
     2000, 0, 5.0f, 0
 };
@@ -132,7 +132,7 @@ void SM_func_80386EF4(Actor *this) {
     Actor *other;
     if ((this->volatile_initialized) <= 0) {
         this->marker->propPtr->unk8_3 = 1;
-        marker_setCollisionScripts(this->marker, NULL, NULL, func_80386EB4);
+        marker_setCollisionScripts(this->marker, N64_NULL, N64_NULL, func_80386EB4);
         this->unk38_31 = 0;
         this->unk138_31 = 1;
         this->volatile_initialized = true;
@@ -141,10 +141,10 @@ void SM_func_80386EF4(Actor *this) {
         temp_t3 = this->unk38_31++ ^ 2;
         if ((temp_t3) == 0) {
             other = actorArray_findActorFromActorId(0x16E);
-            if (other != NULL) {
+            if (other != N64_NULL) {
                 this->partnerActor = other->marker;
             } else {
-                this->partnerActor = NULL;
+                this->partnerActor = N64_NULL;
             }
             subaddie_set_state(this, 2);
         }

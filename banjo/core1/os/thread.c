@@ -1,5 +1,6 @@
-#include <os_internal.h>
 #include "osint.h"
+
+#include "n64_compat.h"
 
 struct __osThreadTail __osThreadTail = {0, -1};
 OSThread *__osRunQueue = (OSThread *)&__osThreadTail;
@@ -12,7 +13,7 @@ void __osDequeueThread(OSThread **queue, OSThread *t)
    register OSThread *succ;
    pred = (OSThread *)queue; //this is actually legit..
    succ = pred->next;
-   while (succ != NULL)
+   while (succ != N64_NULL)
    {
       if (succ == t)
       {

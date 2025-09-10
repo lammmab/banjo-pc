@@ -9,8 +9,8 @@ Actor *chTrucker_draw(ActorMarker *this_marker, Gfx **gfx, Mtx **mtx, Vtx **vtx)
 /* .data */
 ActorInfo chTrunker = { 
     MARKER_C0_TRUNKER, ACTOR_132_TRUNKER, ASSET_3DF_MODEL_TRUNKER, 
-    0, NULL, 
-    chTrucker_update, NULL, chTrucker_draw, 
+    0, N64_NULL, 
+    chTrucker_update, N64_NULL, chTrucker_draw, 
     0, 0x599, 2.0f, 0
 };
 
@@ -48,7 +48,7 @@ Actor *chTrucker_draw(ActorMarker *this_marker, Gfx **gfx, Mtx **mtx, Vtx **vtx)
     sp2C[1] = this->yaw + 220.0f;
     sp2C[2] = this->roll;
     modelRender_setDepthMode(MODEL_RENDER_DEPTH_COMPARE);
-    modelRender_draw(gfx, mtx, sp38, sp2C, 1.0f, NULL, propModelList_getModel(3));
+    modelRender_draw(gfx, mtx, sp38, sp2C, 1.0f, N64_NULL, propModelList_getModel(3));
     return this;
 }
 
@@ -74,7 +74,7 @@ void chTrucker_update(Actor *this){
         && !subaddie_playerIsWithinSphereAndActive(this, 80)
         && func_8028F2A0()
     ){
-        gcdialog_showDialog(ASSET_A71_DIALOG_TRUNKER_MEET, 0xe, this->position, NULL, NULL, NULL);
+        gcdialog_showDialog(ASSET_A71_DIALOG_TRUNKER_MEET, 0xe, this->position, N64_NULL, N64_NULL, N64_NULL);
         this->has_met_before = true;
     }//L80389254
 

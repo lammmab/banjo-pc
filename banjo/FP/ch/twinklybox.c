@@ -177,7 +177,7 @@ void func_8038D294(ActorMarker *marker){
     func_8038D01C(this->position, 12, ASSET_700_SPRITE_DUST);
     this->velocity[1] = 0.0f;
     sfx_playFadeShorthandDefault(SFX_30_MAGIC_POOF, 1.0f, 32000, this->position, 1000, 3500);
-    gcdialog_showDialog(0xc13, 0, NULL, NULL, NULL, NULL);
+    gcdialog_showDialog(0xc13, 0, N64_NULL, N64_NULL, N64_NULL, N64_NULL);
 }
 
 void func_8038D324(Actor *this){
@@ -279,7 +279,7 @@ void func_8038D6C8(Actor *this){
     bool sp20;
     
     sp24 = time_getDelta();
-    mapSpecificFlags_set(0xd, BOOL(this->state != 1 && this->state != 2));
+    mapSpecificFlags_set(0xd, (this->state != 1 && this->state != 2));
     
     if(maSlalom_isActive() || fileProgressFlag_get(FILEPROG_13_COMPLETED_TWINKLIES_MINIGAME)){
         this->marker->propPtr->unk8_3 = false;
@@ -295,7 +295,7 @@ void func_8038D6C8(Actor *this){
     if(!this->volatile_initialized){
         this->volatile_initialized = true;
         marker_setFreeMethod(this->marker, func_8038D3B0);
-        marker_setCollisionScripts(this->marker, NULL, func_8038D5C8, NULL);
+        marker_setCollisionScripts(this->marker, N64_NULL, func_8038D5C8, N64_NULL);
         this->unk38_31 = 0;
         this->unk1C[1] = 0.0f;
         this->velocity[0] = 0.0f;

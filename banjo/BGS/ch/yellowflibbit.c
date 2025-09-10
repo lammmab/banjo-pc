@@ -23,8 +23,8 @@ void BGS_func_8038E034(Actor *this);
 /* .data */
 ActorInfo BGS_D_80390AE0 = {
     MARKER_C5_FLIBBIT_YELLOW, ACTOR_137_FLIBBIT_YELLOW, ASSET_385_MODEL_FLIBBIT_YELLOW,
-    0, NULL, 
-    BGS_func_8038E034, NULL, func_8038DE5C,
+    0, N64_NULL, 
+    BGS_func_8038E034, N64_NULL, func_8038DE5C,
     0, 0, 1.0f, 0
 };
 s32 D_80390B04[3] = {0xFF, 0xB3, 0};

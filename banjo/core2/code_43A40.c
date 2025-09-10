@@ -9,21 +9,21 @@ void chFightFlightPad_update(Actor *this);
 /* .data */
 extern ActorInfo chShockJump = { 
     0x0D4, ACTOR_B_SHOCKSPRING_PAD, ASSET_489_MODEL_SHOCKSPRING_PAD, 
-    0, NULL, 
+    0, N64_NULL, 
     chShockJump_update, actor_update_func_80326224, actor_draw,
     0, 0, 0.0f, 0
 };
 
 extern ActorInfo chFlightPad = { 
     MARKER_45_FLIGHT_PAD, ACTOR_E4_FLIGHT_PAD, ASSET_48A_MODEL_FLIGHT_PAD, 
-    0, NULL, 
+    0, N64_NULL, 
     chFlightPad_update, actor_update_func_80326224, actor_draw,
     0, 0, 0.0f, 0
 };
 
 extern ActorInfo chFightFlightPad = { 
     MARKER_261_FIGHT_FLIGHT_PAD, ACTOR_39F_FIGHT_FLIGHT_PAD, ASSET_48A_MODEL_FLIGHT_PAD, 
-    0, NULL, 
+    0, N64_NULL, 
     chFightFlightPad_update, actor_update_func_80326224, actor_draw,
     0, 0, 0.0f, 0
 };

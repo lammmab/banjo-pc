@@ -31,12 +31,12 @@ void func_80322130(Struct_core2_9B180_0 *);
 
 /* .data */
 Struct_core2_9B180_0 D_8036DE00[6] = {
-    {0x18A, NULL, func_80322298, func_803222BC, NULL}, 
-    {0x018, NULL, func_803222F4, func_80322318, NULL}, 
-    {0x18B, NULL, func_80322110, func_80322130, NULL}, 
-    {0x194, NULL, func_8032222C,          NULL, NULL}, 
-    {0x193, NULL, func_803221C4,          NULL, NULL}, 
-    {0x192, NULL, func_803221F4,          NULL, NULL}
+    {0x18A, N64_NULL, func_80322298, func_803222BC, N64_NULL}, 
+    {0x018, N64_NULL, func_803222F4, func_80322318, N64_NULL}, 
+    {0x18B, N64_NULL, func_80322110, func_80322130, N64_NULL}, 
+    {0x194, N64_NULL, func_8032222C,          N64_NULL, N64_NULL}, 
+    {0x193, N64_NULL, func_803221C4,          N64_NULL, N64_NULL}, 
+    {0x192, N64_NULL, func_803221F4,          N64_NULL, N64_NULL}
 };
 
 u8 D_8036DE78 = 1;
@@ -130,8 +130,8 @@ void func_803223AC(void) {
 
     func_80244A98(1);
     for(i_ptr = D_8036DE00; i_ptr != &D_8036DE00[6]; i_ptr++){
-        i_ptr->unk4 = cubeList_findNodePropByActorIdAndPosition_s32(i_ptr->unk0, NULL);
-        if(i_ptr->unk4 != 0 && i_ptr->unk8 != NULL){
+        i_ptr->unk4 = cubeList_findNodePropByActorIdAndPosition_s32(i_ptr->unk0, N64_NULL);
+        if(i_ptr->unk4 != 0 && i_ptr->unk8 != N64_NULL){
             i_ptr->unk8(i_ptr);
         }
     }
@@ -151,7 +151,7 @@ void func_80322490(void) {
 
     if (D_80383330 != 0) {
         for(i_ptr = D_8036DE00; i_ptr != &D_8036DE00[6]; i_ptr++){
-            if(i_ptr->unk4 != 0 && i_ptr->unkC != NULL){
+            if(i_ptr->unk4 != 0 && i_ptr->unkC != N64_NULL){
                 i_ptr->unkC(i_ptr);
             }
         }
@@ -164,7 +164,7 @@ void func_803224FC(void) {
     Struct_core2_9B180_0 *i_ptr;
 
     for(i_ptr = D_8036DE00; i_ptr != &D_8036DE00[6]; i_ptr++){
-        if(i_ptr->unk4 != 0 && i_ptr->unk10 != NULL){
+        if(i_ptr->unk4 != 0 && i_ptr->unk10 != N64_NULL){
             i_ptr->unk10(i_ptr);
         }
     }
@@ -176,5 +176,5 @@ void func_803224FC(void) {
 }
 
 void func_803225B0(s32 arg0, s32 arg1) {
-    D_80383330 = BOOL(arg1 == 2);
+    D_80383330 = (arg1 == 2);
 }

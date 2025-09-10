@@ -111,7 +111,7 @@ void func_80246670(OSMesg arg0){
 void func_802466F4(OSMesg arg0){
     s32 tmp = (D_80280680 + 1) % 0x14;
     if(D_80280684 != tmp){
-        D_80280630[D_80280680] = arg0;
+        D_80280630[D_80280680] = (Struct_Core1_8C50_s*)arg0.ptr;
         D_80280680 = tmp;
     }
 }
@@ -119,7 +119,7 @@ void func_802466F4(OSMesg arg0){
 void func_80246744(OSMesg arg0){
     s32 tmp = (D_80280628 + 1) % 0x14;
     if(D_8028062C != tmp){
-        D_802805D8[D_80280628] = arg0;
+        D_802805D8[D_80280628] = (Struct_Core1_8C50_s*)arg0.ptr;
         D_80280628 = tmp;
     }
 }
@@ -212,7 +212,7 @@ void func_80246B94(void){
         && D_8028062C == D_80280628
         && !(osDpGetStatus() & DPC_STATUS_FREEZE)
     ){
-        osSendMesg(&D_8027FBC8, N64_NULL, OS_MESG_NOBLOCK);
+        osSendMesg(&D_8027FBC8, (OSMesg){N64_NULL}, OS_MESG_NOBLOCK);
     }
     else{
         D_8027FC0C++;
@@ -233,7 +233,7 @@ void func_80246C2C(void){
     }
     else{
         if(D_8027FC0C && D_8028062C == D_80280628 && !(osDpGetStatus() & DPC_STATUS_FREEZE)){
-            osSendMesg(&D_8027FBC8, N64_NULL, 0);
+            osSendMesg(&D_8027FBC8, (OSMesg){N64_NULL}, 0);
             D_8027FC0C--;
         }
     }
@@ -258,7 +258,7 @@ void func_80246D78(void){
         }
 
         if(sp2C){
-            osSendMesg(&D_8027FBC8, N64_NULL, OS_MESG_NOBLOCK);
+            osSendMesg(&D_8027FBC8, (OSMesg){N64_NULL}, OS_MESG_NOBLOCK);
             D_8027FC0C--;
         }
     }
@@ -283,15 +283,15 @@ void func_80246D78(void){
     D_802759A4++;
     if(!(D_802759A4 & 1)){
         osStopTimer(&D_80280690);
-        osSetTimer(&D_80280690, 280000, 0, &D_8027FB60, CORE1_8C50_EVENT_AUDIO_TIMER);
+        osSetTimer(&D_80280690, 280000, 0, &D_8027FB60, (OSMesg){CORE1_8C50_EVENT_AUDIO_TIMER});
     }
 
     if(D_802806D0){
         osStopTimer(&D_802806B0);
 #if VERSION == VERSION_USA_1_0
-        osSetTimer(&D_802806B0, ((osClockRate / 60)* 2) / 3, 0, &D_8027FB60, CORE1_8C50_EVENT_CONT_TIMER);
+        osSetTimer(&D_802806B0, ((osClockRate / 60)* 2) / 3, 0, &D_8027FB60, (OSMesg){CORE1_8C50_EVENT_AUDIO_TIMER});
 #elif VERSION == VERSION_PAL
-        osSetTimer(&D_802806B0, ((osClockRate / 60.0)* 2) / 3, 0, &D_8027FB60, CORE1_8C50_EVENT_CONT_TIMER);
+        osSetTimer(&D_802806B0, ((osClockRate / 60.0)* 2) / 3, 0, &D_8027FB60, (OSMesg){CORE1_8C50_EVENT_AUDIO_TIMER});
 #endif
     }
 }
@@ -312,7 +312,7 @@ void func_80247000(void) {
     }
 
     if (D_8027FC1C == 4) {
-        osSendMesg(D_8027FC08[1].unk0, D_8027FC08[1].unk4, 0);
+        osSendMesg(D_8027FC08[1].unk0, (OSMesg){D_8027FC08[1].unk4}, 0);
     }
 
     if ((D_8027FC1C == 4) && (D_8027FC24 != 0)) {
@@ -331,7 +331,7 @@ void func_80247000(void) {
     }
     
     if ((D_8027FC0C != 0) && (D_8027FC14 == 2) && !(osDpGetStatus() & 2)) {
-        osSendMesg(&D_8027FBC8, N64_NULL, 0);
+        osSendMesg(&D_8027FBC8, (OSMesg){N64_NULL}, 0);
         D_8027FC0C -= 1;
     }
 }
@@ -341,7 +341,7 @@ void func_802471D8(OSMesg arg0){
 }
 
 void func_802471EC(void){
-    osSendMesg(audioManager_getFrameMesgQueue(), N64_NULL, OS_MESG_NOBLOCK);
+    osSendMesg(audioManager_getFrameMesgQueue(), (OSMesg){N64_NULL}, OS_MESG_NOBLOCK);
     func_80247224();
 }
 
@@ -447,24 +447,28 @@ void func_80247380(void){
 
 //resetproc
 void func_802473B4(void *arg0){
-    OSMesg msg = N64_NULL;
+    OSMesg msg = {N64_NULL};
     do{
         osRecvMesg(&D_8027FB60, &msg, OS_MESG_BLOCK);
         func_80247380();
-        if((s32)msg == 3){ func_80246B94(); }
-        else if((u32)msg == 5)  { func_80246D78(); }
-        else if((u32)msg == CORE1_8C50_EVENT_DP)          { func_80246C2C(); }
-        else if((u32)msg == CORE1_8C50_EVENT_SP)          { func_80247000(); }
-        else if((u32)msg == CORE1_8C50_EVENT_AUDIO_TIMER) { func_802471EC(); }
-        else if((u32)msg == CORE1_8C50_EVENT_FAULT)       { do{}while(1); }
-        else if((u32)msg == CORE1_8C50_EVENT_PRENMI)      { func_8024730C(); }
-        else if((u32)msg == 12) {  }
-        else if((u32)msg == CORE1_8C50_EVENT_CONT_TIMER)  { pfsManager_getStartReadData(); }
-        else if((u32)msg >= 100) {
-            if(*(u32*)msg == 0){ func_80246A64(msg); }
-            else if(*(u32*)msg == 1){ func_80246A84(msg); }
-            else if(*(u32*)msg == 2){ func_80246B0C(msg); }
-            else if(*(u32*)msg == 7){ func_802471D8(msg); }
+
+        s32 msg_int = (s32)msg.data32;
+        if(msg_int == 3){ func_80246B94(); }
+        else if((u32)msg_int == 5)  { func_80246D78(); }
+        else if((u32)msg_int == CORE1_8C50_EVENT_DP)          { func_80246C2C(); }
+        else if((u32)msg_int == CORE1_8C50_EVENT_SP)          { func_80247000(); }
+        else if((u32)msg_int == CORE1_8C50_EVENT_AUDIO_TIMER) { func_802471EC(); }
+        else if((u32)msg_int == CORE1_8C50_EVENT_FAULT)       { do{}while(1); }
+        else if((u32)msg_int == CORE1_8C50_EVENT_PRENMI)      { func_8024730C(); }
+        else if((u32)msg_int == 12) {  }
+        else if((u32)msg_int == CORE1_8C50_EVENT_CONT_TIMER)  { pfsManager_getStartReadData(); }
+        else if((u32)msg_int >= 100) {
+            Struct_Core1_8C50_s *ptr = (Struct_Core1_8C50_s*)msg.ptr;
+            
+            if(ptr->unk0 == 0){ func_80246A64(msg); }
+            else if(ptr->unk0 == 1){ func_80246A84(msg); }
+            else if(ptr->unk0 == 2){ func_80246B0C(msg); }
+            else if(ptr->unk0 == 7){ func_802471D8(msg); }
         }
     }while(1);
 }
@@ -474,11 +478,11 @@ void func_80247560(void){
     u64 *tmp_v0;
     osCreateMesgQueue(&D_8027FB60, &D_8027FB78, 20);
     osCreateMesgQueue(&D_8027FBC8, &D_8027FBE0, 10);
-    osSetEventMesg(OS_EVENT_DP, &D_8027FB60, CORE1_8C50_EVENT_DP);
-    osSetEventMesg(OS_EVENT_SP, &D_8027FB60, CORE1_8C50_EVENT_SP);
-    osSetEventMesg(OS_EVENT_FAULT, &D_8027FB60, CORE1_8C50_EVENT_FAULT);
-    osSetEventMesg(OS_EVENT_PRENMI, &D_8027FB60, CORE1_8C50_EVENT_PRENMI);
-    viMgr_func_8024BDAC(&D_8027FB60, 5);
+    osSetEventMesg(OS_EVENT_DP, &D_8027FB60, (OSMesg){CORE1_8C50_EVENT_DP});
+    osSetEventMesg(OS_EVENT_SP, &D_8027FB60, (OSMesg){CORE1_8C50_EVENT_SP});
+    osSetEventMesg(OS_EVENT_FAULT, &D_8027FB60, (OSMesg){CORE1_8C50_EVENT_FAULT});
+    osSetEventMesg(OS_EVENT_PRENMI, &D_8027FB60, (OSMesg){CORE1_8C50_EVENT_PRENMI});
+    viMgr_func_8024BDAC(&D_8027FB60, (OSMesg){5});
     D_8027FC0C = 0;
     D_8027FC10 = 0;
     D_8027FC14 = D_8027FC18 = 2;

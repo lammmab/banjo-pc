@@ -70,9 +70,9 @@ BKSprite *func_80330F50(ActorMarker * marker);
 s32 D_8036E7B0 = 0;
 u8 pad_8036E7B4[0xC] = {0}; //PROBABLY INDICATES FILE BREAK
 
-ModelCache *modelCache = NULL; //D_8036E7C0 //model pointer array pointer
-u8 *D_8036E7C4 = NULL;
-ActorMarker *D_8036E7C8 = NULL;
+ModelCache *modelCache = N64_NULL; //D_8036E7C0 //model pointer array pointer
+u8 *D_8036E7C4 = N64_NULL;
+ActorMarker *D_8036E7C8 = N64_NULL;
 
 /* .bss */
 s32 D_803833F0[3];
@@ -131,7 +131,7 @@ static void __cube_sort(Cube *cube, bool global) {
         do {
             new_var = start_prop;
             var_t1 = var_t0;
-            start_prop = NULL;
+            start_prop = N64_NULL;
             var_v1 = new_var;
             i = (new_var - cube->prop2Ptr);
             while(var_v1 < var_t1){
@@ -165,7 +165,7 @@ static void __cube_sort(Cube *cube, bool global) {
                 var_v1++;
                 i++;
             }
-        } while (start_prop != NULL);
+        } while (start_prop != N64_NULL);
         code_A5BC0_initCubePropActorProp(cube);
     }
 }
@@ -185,7 +185,7 @@ void func_8032CD60(Prop *prop) {
 
     var_v0 = ((u32)(((u16*)prop)[5]) & 1) ? func_80330F50(prop->actorProp.marker)
            : propModelList_getSprite((u32)(((u16*)prop)[0]) >> 4);
-    if ((var_v0 != NULL) && ((var_v0->unkC.bit27 != 0))) {
+    if ((var_v0 != N64_NULL) && ((var_v0->unkC.bit27 != 0))) {
        sp48 = var_v0->unkC.bit31;
        sp44 = var_v0->unkC.bit27;
        sp40 = var_v0->unkC.bit24;
@@ -310,9 +310,9 @@ void func_8032D330(){
 
 void func_8032D36C(void){
     vector_free(D_80383550);
-    D_80383550 = NULL;
+    D_80383550 = N64_NULL;
     vector_free(D_80383554);
-    D_80383554 = NULL;
+    D_80383554 = N64_NULL;
 }
 
 void func_8032D3A8(void){
@@ -400,7 +400,7 @@ void func_8032D510(Cube *cube, Gfx **gfx, Mtx **mtx, Vtx **vtx){
 Prop *__codeA5BC0_initProp2Ptr(Cube *cube) {
     Prop *sp1C;
 
-    if (cube->prop2Ptr != NULL) {
+    if (cube->prop2Ptr != N64_NULL) {
         cube->prop2Cnt++;
         cube->prop2Ptr = realloc(cube->prop2Ptr, cube->prop2Cnt * sizeof(Prop));
     } else {
@@ -444,7 +444,7 @@ s32 func_8032D9C0(Cube *cube, Prop* prop){
             code_A5BC0_initCubePropActorProp(cube);
         }else{
             free(cube->prop2Ptr);
-            cube->prop2Ptr = NULL;
+            cube->prop2Ptr = N64_NULL;
         }
         return sp24;
     }
@@ -454,7 +454,7 @@ s32 func_8032D9C0(Cube *cube, Prop* prop){
 void func_8032DB2C(Cube *cube, NodeProp *arg1) {
     s32 sp24;
 
-    if(cube->prop1Cnt == NULL)
+    if(cube->prop1Cnt == N64_NULL)
         return;
 
     sp24 = arg1 - cube->prop1Ptr;
@@ -471,7 +471,7 @@ void func_8032DB2C(Cube *cube, NodeProp *arg1) {
     }
     else{
         free(cube->prop1Ptr);
-        cube->prop1Ptr = NULL;
+        cube->prop1Ptr = N64_NULL;
         cube->unk0_4 = 0;
     }
 }
@@ -481,7 +481,7 @@ void func_8032DC70(s32 arg0) {
     s32 temp_v0;
 
     sp1C = func_803080C8(arg0);
-    if (sp1C != NULL) {
+    if (sp1C != N64_NULL) {
         func_8032DB2C(func_80308224(), sp1C);
     }
 }
@@ -615,13 +615,13 @@ void codeA5BC0_getActorPosition(ActorProp *prop, s32 dst[3]){
 
 NodeProp *codeA5BC0_getPropNodeAtIndex(Cube *cube, s32 prop_index) {
     if ((prop_index < 0) || (prop_index >= cube->prop1Cnt)) {
-        return NULL;
+        return N64_NULL;
     }
     return &cube->prop1Ptr[prop_index];
 }
 
 void func_8032E070(void){
-    D_8038341C = NULL;
+    D_8038341C = N64_NULL;
 }
 
 void cube_free(Cube *cube){
@@ -634,11 +634,11 @@ void cube_free(Cube *cube){
             }
         }
         free(cube->prop2Ptr);
-        cube->prop2Ptr = NULL;
+        cube->prop2Ptr = N64_NULL;
     }
     if(cube->prop1Ptr){
         free(cube->prop1Ptr);
-        cube->prop1Ptr = NULL;
+        cube->prop1Ptr = N64_NULL;
     }
     cube->prop2Cnt = 0;
     cube->prop1Cnt = 0;
@@ -649,7 +649,7 @@ bool __codeA5BC0_pad_func_8032E178(Cube *arg0, s32 *arg1, s32 arg2) {
     NodeProp *last_node_ptr;
     NodeProp *node_ptr;
 
-    if ((arg0 != NULL) && (arg0->prop1Cnt != 0)) {
+    if ((arg0 != N64_NULL) && (arg0->prop1Cnt != 0)) {
         node_ptr = arg0->prop1Ptr;
         last_node_ptr = arg0->prop1Ptr + arg0->prop1Cnt;
         while (node_ptr < last_node_ptr) {
@@ -671,7 +671,7 @@ bool __codeA5BC0_pad_func_8032E178(Cube *arg0, s32 *arg1, s32 arg2) {
 NodeProp *cube_findNodePropByActorId(Cube *cube, enum actor_e actor_id) {
     NodeProp *i_ptr;
 
-    if (cube != NULL && cube->prop1Cnt != 0){
+    if (cube != N64_NULL && cube->prop1Cnt != 0){
         for(i_ptr = cube->prop1Ptr; i_ptr < cube->prop1Ptr + cube->prop1Cnt; i_ptr++){
             if( ( (i_ptr->bit0 == true) 
                   || ( (i_ptr->bit0 == false) && (i_ptr->unk10_6 == true))
@@ -683,14 +683,14 @@ NodeProp *cube_findNodePropByActorId(Cube *cube, enum actor_e actor_id) {
             }
         }
     }
-    return NULL;
+    return N64_NULL;
 }
 
 bool func_8032E2D4(Cube *arg0, s32 arg1[3], s32 arg2) {
     NodeProp * temp_a2;
     NodeProp *var_v1;
 
-    if ((arg0 != NULL) && (arg0->prop1Cnt != 0)) {
+    if ((arg0 != N64_NULL) && (arg0->prop1Cnt != 0)) {
         var_v1 = arg0->prop1Ptr;
         temp_a2 = arg0->prop1Ptr + arg0->prop1Cnt;
         while (var_v1 < temp_a2) {
@@ -717,7 +717,7 @@ bool func_8032E398(Cube *cube, bool (*arg1)(NodeProp *), bool (*arg2)(Prop *)) {
     NodeProp *var_s1;
     Prop *var_s1_2;
 
-    if ((cube->prop1Cnt != 0) && (arg1 != NULL)) {
+    if ((cube->prop1Cnt != 0) && (arg1 != N64_NULL)) {
         var_s0 = cube->prop1Ptr;
         var_s1 = cube->prop1Ptr + cube->prop1Cnt;
         while (var_s0 < var_s1) {
@@ -727,7 +727,7 @@ bool func_8032E398(Cube *cube, bool (*arg1)(NodeProp *), bool (*arg2)(Prop *)) {
             var_s0++;
         }
     }
-    if ((cube->prop2Cnt != 0) && (arg2 != NULL)) {
+    if ((cube->prop2Cnt != 0) && (arg2 != N64_NULL)) {
         var_s0_2 = cube->prop2Ptr;
         var_s1_2 = cube->prop2Ptr + cube->prop2Cnt;
         while(var_s0_2 < var_s1_2) {
@@ -751,7 +751,7 @@ s32 func_8032E49C(Cube *cube, enum actor_e *actor_id_list, NodeProp **node_list,
     NodeProp *i_node;
 
     found_cnt = 0;
-    if (cube != NULL) {
+    if (cube != N64_NULL) {
         if (cube->prop1Cnt != 0) {
             i_node = cube->prop1Ptr;
             end_node = cube->prop1Ptr + cube->prop1Cnt;
@@ -778,7 +778,7 @@ s32 func_8032E5A8(Cube *cube, s32 arg1, f32 (*arg2)[3], s32 capacity) {
     NodeProp *i_node;
 
     count = 0;
-    if (cube != NULL) {
+    if (cube != N64_NULL) {
         if (cube->prop1Cnt != 0) {
             i_node = cube->prop1Ptr;
             end_node = cube->prop1Ptr + cube->prop1Cnt;
@@ -804,7 +804,7 @@ bool func_8032E6CC(Cube *cube, s32 *arg1, s32 arg2) {
     NodeProp *end_node;
     NodeProp *i_node;
 
-    if (cube != NULL) {
+    if (cube != N64_NULL) {
         if (cube->prop1Cnt != 0) {
             i_node = cube->prop1Ptr;
             end_node = cube->prop1Ptr + cube->prop1Cnt;
@@ -825,7 +825,7 @@ bool func_8032E6CC(Cube *cube, s32 *arg1, s32 arg2) {
 }
 
 static void __codeA5BC0_freeCube1Pointer(Cube *cube, s32 cnt){
-    if(cube->prop1Ptr != NULL){
+    if(cube->prop1Ptr != N64_NULL){
         free(cube->prop1Ptr);
     }
 
@@ -904,7 +904,7 @@ void code7AF80_initCubeFromFile(File *file_ptr, Cube *cube) {
         if ((sp34) && gcparade_8031B4CC()) {
             sp34 = 0;
         }
-        if (cube->prop2Ptr != NULL) {
+        if (cube->prop2Ptr != N64_NULL) {
             free(cube->prop2Ptr);
         }
         cube->prop2Cnt = sp47;
@@ -926,14 +926,14 @@ void code7AF80_initCubeFromFile(File *file_ptr, Cube *cube) {
         }
             
     }
-    if ((cube->prop2Ptr != NULL) && ((cube->prop2Cnt) == 0)) {
+    if ((cube->prop2Ptr != N64_NULL) && ((cube->prop2Cnt) == 0)) {
         free(cube->prop2Ptr);
-        cube->prop2Ptr = NULL;
+        cube->prop2Ptr = N64_NULL;
     }
     
-    if ((cube->prop1Ptr != NULL) && (cube->prop1Cnt == 0)) {
+    if ((cube->prop1Ptr != N64_NULL) && (cube->prop1Cnt == 0)) {
         free(cube->prop1Ptr);
-        cube->prop1Ptr = NULL;
+        cube->prop1Ptr = N64_NULL;
         cube->unk0_4 = 0;
     }
 }
@@ -944,7 +944,7 @@ void func_8032EE0C(Method_Core2_A5BC0 arg0, s32 arg1){
 }
 
 void func_8032EE20(void){
-    D_80383558 = NULL;
+    D_80383558 = N64_NULL;
 }
 
 void func_8032EE2C(s32 arg0[3], s32 arg1, s32 arg2) {
@@ -954,7 +954,7 @@ void func_8032EE2C(s32 arg0[3], s32 arg1, s32 arg2) {
     D_80383400 = arg1;
     D_803833FC = arg2 * arg2;
     D_80383404 = 0;
-    D_80383408 = NULL;
+    D_80383408 = N64_NULL;
     D_8038340C = 0;
 }
 
@@ -987,7 +987,7 @@ void func_8032EE80(Cube *cube) {
             var_s0 = cube->prop1Ptr;
             for(var_s1 = 0; var_s1 < cube->prop1Cnt; var_s1++, var_s0++){
                 if (((var_s0->x - D_803833F0[0]) * (var_s0->x - D_803833F0[0])) + ((var_s0->y - D_803833F0[1]) * (var_s0->y - D_803833F0[1])) + ((var_s0->z - D_803833F0[2]) * (var_s0->z - D_803833F0[2])) < D_803833FC) {
-                    if (D_80383558 == NULL || D_80383558(var_s0, D_8038355C)) {
+                    if (D_80383558 == N64_NULL || D_80383558(var_s0, D_8038355C)) {
                         D_803833FC = ((var_s0->x - D_803833F0[0]) * (var_s0->x - D_803833F0[0])) + ((var_s0->y - D_803833F0[1]) * (var_s0->y - D_803833F0[1])) + ((var_s0->z - D_803833F0[2]) * (var_s0->z - D_803833F0[2]));
                         D_80383404 = cube;
                         D_80383408 = (Prop*)var_s0;
@@ -1082,7 +1082,7 @@ void func_8032F470(s32 *pos, ActorMarker *arg1){
 
 Prop *func_8032F528(void){
     Prop * prop = func_80303F7C(0, 0, 0, 1);
-    if(prop != NULL){
+    if(prop != N64_NULL){
         D_80383448 = true;
     }
     else{
@@ -1149,8 +1149,8 @@ void func_8032F7EC(f32 position[3], ActorMarker *marker, f32 rotation[3]) {
 
 ActorMarker * marker_init(s32 *pos, MarkerDrawFunc draw_func, int arg2, int marker_id, int arg4){
     ActorMarker * marker = func_80332A60();
-    marker->propPtr = NULL;
-    marker->cubePtr = NULL;
+    marker->propPtr = N64_NULL;
+    marker->cubePtr = N64_NULL;
     marker->drawFunc = draw_func;
     marker->id = marker_id;
     marker->unk40_23 = arg4;
@@ -1171,16 +1171,16 @@ ActorMarker * marker_init(s32 *pos, MarkerDrawFunc draw_func, int arg2, int mark
     marker->unk40_22 = 0;
     marker->unk40_19 = 0;
     marker->unk40_21 = 0;
-    marker->collisionFunc = NULL;
-    marker->collision2Func = NULL;
-    marker->dieFunc = NULL;
-    marker->unk54 = NULL;
+    marker->collisionFunc = N64_NULL;
+    marker->collision2Func = N64_NULL;
+    marker->dieFunc = N64_NULL;
+    marker->unk54 = N64_NULL;
     marker->unk58 = 0;
     marker->unk18 = 0;
-    marker->actorUpdateFunc = NULL;
-    marker->actorFreeFunc = NULL;
+    marker->actorUpdateFunc = N64_NULL;
+    marker->actorFreeFunc = N64_NULL;
     marker->commonParticleIndex = 0;
-    marker->actorUpdate2Func = NULL;
+    marker->actorUpdate2Func = N64_NULL;
     marker->unk38[0] = 0;
     marker->unk38[1] = 0;
     marker->unk38[2] = 0;
@@ -1249,7 +1249,7 @@ void marker_callCollisionFunc(ActorMarker *this, ActorMarker *other, enum marker
 }
 
 void func_80330078(ActorMarker *marker, ActorMarker *other_marker, u16 *arg2){
-    if(marker != NULL && marker->unk54 != NULL){
+    if(marker != N64_NULL && marker->unk54 != N64_NULL){
         marker->unk54(marker, other_marker, arg2);
     }
 }
@@ -1312,7 +1312,7 @@ void func_80330208(Cube *cube) {
     NodeProp *end_prop;
     NodeProp *i_prop;
 
-    if ((cube != NULL) && (cube->prop1Cnt != 0)) {
+    if ((cube != N64_NULL) && (cube->prop1Cnt != 0)) {
         i_prop = cube->prop1Ptr;
         end_prop = cube->prop1Ptr + cube->prop1Cnt;
         func_80326C24(1);
@@ -1322,7 +1322,7 @@ void func_80330208(Cube *cube) {
                 position[1] = (s32) i_prop->y;
                 position[2] = (s32) i_prop->z;
                 actor = func_803055E0(i_prop->unk8, position, i_prop->yaw, i_prop->unk10_31, i_prop->unk10_19);
-                if (actor != NULL) {
+                if (actor != N64_NULL) {
                     actor->secondaryId = i_prop->unk10_31;
                     actor->actorTypeSpecificField = i_prop->radius;
                     func_8032AA58(actor, (i_prop->scale != 0) ? ((f32)i_prop->scale * 0.01) : 1.0);
@@ -1340,7 +1340,7 @@ void func_803303B8(Cube *cube) {
     NodeProp *last_node_prop_ptr;
     NodeProp *current_node_ptr;
 
-    if ((cube != NULL) && (cube->prop1Cnt != 0)){
+    if ((cube != N64_NULL) && (cube->prop1Cnt != 0)){
         current_node_ptr = cube->prop1Ptr;
         last_node_prop_ptr = cube->prop1Ptr + cube->prop1Cnt;
         while (current_node_ptr < last_node_prop_ptr) {
@@ -1388,7 +1388,7 @@ void func_803305AC(void){
 
     modelCache = (ModelCache *)malloc(AssetCacheSize * sizeof(ModelCache));
     for(i = 0; i<AssetCacheSize; i++){
-        modelCache[i].modelPtr = NULL;
+        modelCache[i].modelPtr = N64_NULL;
         modelCache[i].unk4 = 0;
         modelCache[i].unk8 = 0;
         modelCache[i].animated_texture_cache_id = 0;
@@ -1416,14 +1416,14 @@ void func_803306C8(s32 arg0) {
             || ((arg0 == 3) && ((D_80383444 == 0) || (D_8036E7CC != D_80383444)))
         ) {
             var_s0_2 = false;
-            if (var_a2->modelPtr != NULL) {
+            if (var_a2->modelPtr != N64_NULL) {
                 assetcache_release(var_a2->modelPtr);
-                modelCache[D_8036E7CC].modelPtr = NULL;
+                modelCache[D_8036E7CC].modelPtr = N64_NULL;
                 var_s0_2 = true;
             }
             var_a2 = modelCache + D_8036E7CC;
             
-            if (var_a2->unk4 != NULL) {
+            if (var_a2->unk4 != N64_NULL) {
                 if (!D_8036E7CC);
 
                 var_s0_2 = true;
@@ -1474,7 +1474,7 @@ s32 func_80330974(ActorMarker *marker, s32 arg1, f32 arg2, s32 arg3) {
 
 
     model = func_80330DE4(marker);
-    if (model == NULL) {
+    if (model == N64_NULL) {
        return 0;
     }
     sp58 = func_8033A12C(model);
@@ -1494,7 +1494,7 @@ s32 func_80330974(ActorMarker *marker, s32 arg1, f32 arg2, s32 arg3) {
 }
 
 Struct6Cs *func_80330B10(void){
-    static Struct6Cs D_8036E7D0 = {NULL, NULL, NULL, func_80330974};
+    static Struct6Cs D_8036E7D0 = {N64_NULL, N64_NULL, N64_NULL, func_80330974};
     return &D_8036E7D0;
 }
 
@@ -1504,10 +1504,10 @@ BKModelBin *marker_loadModelBin(ActorMarker *this){
     ModelCache *modelInfo;
 
     if(this->modelId == 0)
-        return NULL;
+        return N64_NULL;
 
     thisActor = marker_getActor(this);
-    if((modelInfo = &modelCache[thisActor->modelCacheIndex])->modelPtr == NULL){
+    if((modelInfo = &modelCache[thisActor->modelCacheIndex])->modelPtr == N64_NULL){
         model = assetcache_get(this->modelId);
         modelInfo->modelPtr = model;
         if(model_getAnimTextureList(model)){
@@ -1532,8 +1532,8 @@ s32 actor_getAnimatedTexturesCacheId(Actor *actor){
 BKVertexList *func_80330C74(Actor *actor){
     ModelCache *model_cache_ptr;
     model_cache_ptr = &modelCache[actor->modelCacheIndex];
-    if(model_cache_ptr->modelPtr == NULL)
-        return NULL;
+    if(model_cache_ptr->modelPtr == N64_NULL)
+        return N64_NULL;
 
     if(actor->unkF4_30 && actor->unk14C[actor->unkF4_29]){
         return actor->unk14C[actor->unkF4_29];
@@ -1545,10 +1545,10 @@ BKVertexList *func_80330C74(Actor *actor){
 BKVertexList *func_80330CFC(Actor *this, s32 arg1){
     ModelCache *model_cache_ptr;
     model_cache_ptr = &modelCache[this->modelCacheIndex];
-    if(model_cache_ptr->modelPtr == NULL){
+    if(model_cache_ptr->modelPtr == N64_NULL){
         marker_loadModelBin(this->marker);
     }
-    if(this->unkF4_30 && this->unk14C[this->unkF4_29 ^ arg1] != NULL)
+    if(this->unkF4_30 && this->unk14C[this->unkF4_29 ^ arg1] != N64_NULL)
         return this->unk14C[this->unkF4_29 ^ arg1];
     return model_getVtxList(model_cache_ptr->modelPtr);
 }
@@ -1574,8 +1574,8 @@ BKSpriteDisplayData *func_80330E54(ActorMarker *marker, BKSprite **sprite_ptr) {
     ModelCache *model_cache_ptr;
 
     if (marker->modelId == 0) {
-        if (*sprite_ptr != NULL) {
-            *sprite_ptr = NULL;
+        if (*sprite_ptr != N64_NULL) {
+            *sprite_ptr = N64_NULL;
         }
         return 0;
     }
@@ -1584,14 +1584,14 @@ BKSpriteDisplayData *func_80330E54(ActorMarker *marker, BKSprite **sprite_ptr) {
         model_cache_ptr->unk4 = func_8033B6C4(marker->modelId, &model_cache_ptr->unk8);
     }
     model_cache_ptr->unk10 = globalTimer_getTime();
-    if (sprite_ptr != NULL) {
+    if (sprite_ptr != N64_NULL) {
         *sprite_ptr = model_cache_ptr->unk4;
     }
     return model_cache_ptr->unk8;
 }
 
 BKSpriteDisplayData *func_80330F30(ActorMarker *marker){
-    return func_80330E54(marker, NULL);
+    return func_80330E54(marker, N64_NULL);
 }
 
 BKSprite *func_80330F50(ActorMarker * marker){
@@ -1645,29 +1645,29 @@ void func_80330FF4(void){
     if(func_80334904() == 1)
         return;
     
-    if(D_8038341C != NULL){
+    if(D_8038341C != N64_NULL){
         phi_s0 = marker_getActor(D_8038341C);
         player_getPosition(sp48);
         scale[0] = phi_s0->pitch;
         scale[1] = phi_s0->yaw;
         scale[2] = phi_s0->roll;
-        func_80340200(D_8038341C->unk50, phi_s0->position, scale, 1.0f, NULL, D_80383420, func_80330DA4(phi_s0), D_80383410);
+        func_80340200(D_8038341C->unk50, phi_s0->position, scale, 1.0f, N64_NULL, D_80383420, func_80330DA4(phi_s0), D_80383410);
     }//L8033108C
 
     spawnQueue_func_802C39D4();
-    if(D_8038341C != NULL){
+    if(D_8038341C != N64_NULL){
         phi_s0 = marker_getActor(D_8038341C);
         player_getPosition(sp48);
         scale[0] = phi_s0->pitch;\
         scale[1] = phi_s0->yaw;\
         scale[2] = phi_s0->roll;
-        if(func_80340020(D_8038341C->unk50, phi_s0->position, scale, 1.0f, NULL, func_80330DC4(phi_s0), sp48, sp48)){
+        if(func_80340020(D_8038341C->unk50, phi_s0->position, scale, 1.0f, N64_NULL, func_80330DC4(phi_s0), sp48, sp48)){
             sp48[1] -= 10.0f;
             func_8028FAB0(sp48);
         }
     }
-    if(D_8038341C != NULL){
-        D_8038341C = NULL;
+    if(D_8038341C != N64_NULL){
+        D_8038341C = N64_NULL;
     }
     //L80331144
 }
@@ -1687,7 +1687,7 @@ BKCollisionTri *func_803311D4(Cube *cube, f32 *arg1, f32 *arg2, f32 *arg3, u32 a
    Actor *temp_s2_2;
     ActorMarker *temp_a0;
     BKModelBin *var_a0;
-    BKModelBin *var_s0 = NULL;
+    BKModelBin *var_s0 = N64_NULL;
     BKVertexList *temp_a1;
     Prop *var_s1;
     f32 model_position[3];
@@ -1703,13 +1703,13 @@ BKCollisionTri *func_803311D4(Cube *cube, f32 *arg1, f32 *arg2, f32 *arg3, u32 a
     BKCollisionTri *var_v0;
     u32 var_s5;
 
-    var_s6 = NULL;
+    var_s6 = N64_NULL;
     for(var_s1 = cube->prop2Ptr, var_s5 = cube->prop2Cnt; var_s5 > 0; var_s5--, var_s1++) {
         if(var_s1);
         
         if (!var_s1->is_actor && var_s1->is_3d && var_s1->unk8_4) { //ModelProp
             var_s0 = propModelList_getModelIfActive(((u32)var_s1->modelProp.unk0 >> 0x4));
-            if ((var_s0 != NULL) || (func_8028F280() && ((var_s0 = propModelList_getModel(((u32)var_s1->modelProp.unk0 >> 0x4))) != NULL))) {
+            if ((var_s0 != N64_NULL) || (func_8028F280() && ((var_s0 = propModelList_getModel(((u32)var_s1->modelProp.unk0 >> 0x4))) != N64_NULL))) {
                 temp_s2 = model_getCollisionList(var_s0);
                 if (temp_s2 != 0) {
                     model_position[0] = (f32) var_s1->modelProp.position[0];
@@ -1719,7 +1719,7 @@ BKCollisionTri *func_803311D4(Cube *cube, f32 *arg1, f32 *arg2, f32 *arg3, u32 a
                     model_rotation[1] = (f32) (var_s1->modelProp.yaw * 2);
                     model_rotation[2] = (f32) (var_s1->modelProp.roll * 2);
                     var_v0 = func_802E805C(temp_s2, model_getVtxList(var_s0), model_position, model_rotation, (f32)var_s1->modelProp.scale / 100.0, arg1, arg2, arg3, arg4);
-                    if (var_v0 != NULL) {
+                    if (var_v0 != N64_NULL) {
                         var_s6 = var_v0;
                     }
                 }
@@ -1731,7 +1731,7 @@ BKCollisionTri *func_803311D4(Cube *cube, f32 *arg1, f32 *arg2, f32 *arg3, u32 a
                 var_a0 = marker_loadModelBin(var_s1->actorProp.marker);
             }
 
-            if(var_a0 != NULL || (func_8028F280() && (var_a0 = marker_loadModelBin(var_s1->actorProp.marker), true))){
+            if(var_a0 != N64_NULL || (func_8028F280() && (var_a0 = marker_loadModelBin(var_s1->actorProp.marker), true))){
                 temp_s0 = model_getCollisionList(var_a0);
                 if (temp_s0 != 0) {
                     temp_s2_2 = marker_getActor(var_s1->actorProp.marker);
@@ -1743,7 +1743,7 @@ BKCollisionTri *func_803311D4(Cube *cube, f32 *arg1, f32 *arg2, f32 *arg3, u32 a
                     actor_rotation[1] = (f32) var_s1->actorProp.marker->yaw;
                     actor_rotation[2] = (f32) var_s1->actorProp.marker->roll;
                     temp_s0_2 = func_802E805C(temp_s0, temp_a1, actor_position, actor_rotation, temp_s2_2->scale, arg1, arg2, arg3, arg4);
-                    if ((temp_s0_2 != NULL) && (func_8029453C())) {
+                    if ((temp_s0_2 != N64_NULL) && (func_8029453C())) {
                         marker_loadModelBin(var_s1->actorProp.marker);
                         if (var_s1->actorProp.marker->unk50 != 0) {
                             D_80383410[0] = arg2[0];
@@ -1756,14 +1756,14 @@ BKCollisionTri *func_803311D4(Cube *cube, f32 *arg1, f32 *arg2, f32 *arg3, u32 a
                             D_80383420 = temp_s0_2;
                         }
                     }
-                    if (temp_s0_2 != NULL) {
+                    if (temp_s0_2 != N64_NULL) {
                         var_s6 = temp_s0_2;
                     }
                 }
             }
         } else if (var_s1->is_actor) {
-            if (var_s1->actorProp.marker->unk18 != NULL) {
-                if (var_s1->actorProp.marker->unk18->unk0 != NULL) {
+            if (var_s1->actorProp.marker->unk18 != N64_NULL) {
+                if (var_s1->actorProp.marker->unk18->unk0 != N64_NULL) {
                     var_v0 = var_s1->actorProp.marker->unk18->unk0(var_s1->actorProp.marker, arg1, arg2, arg3, arg4);
                     if (var_v0 != 0) {
                         var_s6 = var_v0;
@@ -1899,7 +1899,7 @@ BKCollisionTri *func_803319C0(Cube *cube, f32 position[3], f32 radius, s32 arg3,
     Actor *temp_v0_6;
     ActorProp *aProp = &prop_ptr->actorProp;
     
-    var_s7 = NULL;
+    var_s7 = N64_NULL;
     prop_ptr = cube->prop2Ptr;
     for (i = cube->prop2Cnt; i != 0; i--, prop_ptr++) {
         if (((!prop_ptr->is_actor) && prop_ptr->is_3d) && prop_ptr->unk8_4) {
@@ -1907,7 +1907,7 @@ BKCollisionTri *func_803319C0(Cube *cube, f32 position[3], f32 radius, s32 arg3,
             new_var = propModelList_getModelIfActive(mProp->model_index); 
             if (1) { } if (1) { } if (1) { }
             model_bin = new_var;
-            if (model_bin != NULL){
+            if (model_bin != N64_NULL){
                 model_collision_list = model_getCollisionList(model_bin);
                 if (model_collision_list != 0){
                     model_position[0] = (f32) mProp->position[0];
@@ -1918,7 +1918,7 @@ BKCollisionTri *func_803319C0(Cube *cube, f32 position[3], f32 radius, s32 arg3,
                     model_bin = model_bin;
                     model_rotation[2] = (f32) (mProp->roll * 2);
                     var_v0 = func_802E9DD8(model_collision_list, model_getVtxList(model_bin), model_position, model_rotation, ((f32) mProp->scale) / 100.0, position, radius, arg3, arg4);
-                    if (var_v0 != NULL)
+                    if (var_v0 != N64_NULL)
                         var_s7 = var_v0;
                 }
             }
@@ -2010,7 +2010,7 @@ f32 func_80331F54(ActorMarker *marker) {
     BKModelBin *model;
 
     model = marker_loadModelBin(marker);
-    if (model == NULL) {
+    if (model == N64_NULL) {
         return 1.0f;
     }
     vtxList_getCenterAndNorm(model_getVtxList(model), model_center, &sp34);
@@ -2029,9 +2029,9 @@ f32 func_80332050(Prop *prop, ActorMarker *marker, s32 arg2) {
     ActorMarker * phi_v0;
     f32 phi_f2;
 
-    phi_v0 =(prop->is_actor) ? prop->actorProp.marker : NULL;
+    phi_v0 =(prop->is_actor) ? prop->actorProp.marker : N64_NULL;
     phi_f2 = prop->unk4[arg2] - (&marker->propPtr->x)[arg2] - marker->unk38[arg2];
-    if (phi_v0 != NULL) {
+    if (phi_v0 != N64_NULL) {
         phi_f2 += phi_v0->unk38[arg2];
     }
     return phi_f2;
@@ -2099,8 +2099,8 @@ Prop *func_803322F0(Cube *cube, ActorMarker *marker, f32 arg2, s32 arg3, s32 *ar
                             && (func_803327A8(phi_s1->actorProp.marker->modelId) & arg3)
                         ) {
                             if( phi_s1->actorProp.is_3d
-                                && (phi_s1->actorProp.marker->unk18 != NULL) 
-                                && (phi_s1->actorProp.marker->unk18->unkC != NULL)
+                                && (phi_s1->actorProp.marker->unk18 != N64_NULL) 
+                                && (phi_s1->actorProp.marker->unk18->unkC != N64_NULL)
                             ) {
                                 func_803320BC(&phi_s1->actorProp, &func_80331F54);
                                 sp68[0] = (f32) (marker->unk38[0] + marker->propPtr->x);
@@ -2155,7 +2155,7 @@ Prop *func_803322F0(Cube *cube, ActorMarker *marker, f32 arg2, s32 arg3, s32 *ar
         }
     }
     *arg4 = -1;
-    return NULL;
+    return N64_NULL;
 }
 
 
@@ -2211,7 +2211,7 @@ void func_80332894(void) {
 
 void func_8033297C(void){
     free(D_8036E7C4);
-    D_8036E7C4 = NULL;
+    D_8036E7C4 = N64_NULL;
     func_8032D36C();
 }
 
@@ -2232,7 +2232,7 @@ void func_803329AC(void){
 
 void func_80332A38(void){
     free(D_8036E7C8);
-    D_8036E7C8 = NULL;
+    D_8036E7C8 = N64_NULL;
 }
 
 //MarkerList_getFreeMarker
@@ -2245,7 +2245,7 @@ ActorMarker * func_80332A60(void){
 
     for(i = 0; i < 0x1C && D_80383428[i] == 0xff; i++);
     if(i == 0x1C)
-        return NULL;
+        return N64_NULL;
 
     tmp_a2 = 0x80;
     for(j = 0; D_80383428[i] & tmp_a2; j++){tmp_a2 >>= 1;}

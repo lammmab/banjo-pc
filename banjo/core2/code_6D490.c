@@ -174,9 +174,9 @@ Struct5Ds *func_802F47D0(void){
     func_8030DD90(this->unk1D, 0);
 
     ml_vec3f_clear(this->unk4);
-    func_802F487C(this, NULL);
+    func_802F487C(this, N64_NULL);
     func_802F4884(this, 0, 0.0f);
-    func_802F48B4(this, NULL);
+    func_802F48B4(this, N64_NULL);
 
     return this;
 

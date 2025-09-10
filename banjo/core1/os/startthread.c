@@ -16,7 +16,7 @@ void osStartThread(OSThread *t)
         __osEnqueueThread(&__osRunQueue, t);
         break;
     case OS_STATE_STOPPED:
-        if (t->queue == NULL || t->queue == &__osRunQueue)
+        if (t->queue == N64_NULL || t->queue == &__osRunQueue)
         {
             t->state = OS_STATE_RUNNABLE;
             __osEnqueueThread(&__osRunQueue, t);
@@ -29,7 +29,7 @@ void osStartThread(OSThread *t)
         }
         break;
     }
-    if (__osRunningThread == NULL)
+    if (__osRunningThread == N64_NULL)
     {
         __osDispatchThread();
     }

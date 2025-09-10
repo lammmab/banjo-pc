@@ -6,7 +6,7 @@ extern OSThread *__osRunningThread;
 
 OSPri osGetThreadPri(OSThread *thread)
 {
-    if (thread == NULL)
+    if (thread == N64_NULL)
         thread = __osRunningThread;
     return thread->priority;
 }

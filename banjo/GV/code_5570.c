@@ -58,12 +58,12 @@ void func_8038B988(ActorMarker *caller, enum asset_e text_id, s32 arg2){
 void func_8038BA08(Actor *this){
     subaddie_set_state_with_direction(this, 6, 0.01f, 1);
     actor_loopAnimation(this);
-    this->partnerActor = NULL;
+    this->partnerActor = N64_NULL;
     D_80391A80 = 3;
     if(player_movementGroup() == BSGROUP_6_TURBO_TALON_TRAINERS)
         player_stateTimer_set(STATE_TIMER_3_TURBO_TALON, 0.0f);
 
-    gcdialog_showDialog(ASSET_A79_DIALOG_GRABBA_DEFEAT, 0xf, this->position, this->marker, func_8038B988, NULL);
+    gcdialog_showDialog(ASSET_A79_DIALOG_GRABBA_DEFEAT, 0xf, this->position, this->marker, func_8038B988, N64_NULL);
     comusic_8025AB44(COMUSIC_57_TURBO_TRAINERS, 7000, 700);
 }
 
@@ -178,12 +178,12 @@ void GV_func_8038BEA0(Actor *this){
             sfxsource_playSfxAtVolume(this->unk44_31, 0.1f);
             sfxsource_setSampleRate(this->unk44_31, 32000);
         }
-        if(this->partnerActor == NULL){
+        if(this->partnerActor == N64_NULL){
             this->partnerActor = func_8032B16C(JIGGY_3E_GV_GRABBA);
-            if(this->partnerActor != NULL) {
+            if(this->partnerActor != N64_NULL) {
                 local->unk0 = this->partnerActor->unk5C;
             } else {
-                local->unk0 = NULL;
+                local->unk0 = N64_NULL;
             }
         }
         subaddie_set_state_with_direction(this, this->state, 0.01f, 1);
@@ -249,7 +249,7 @@ void GV_func_8038BEA0(Actor *this){
                 }
                 else{
                     if(!this->has_met_before){
-                        if(gcdialog_showDialog(ASSET_A78_DIALOG_GRABBA_MEET, 0, NULL, NULL, NULL, NULL)){
+                        if(gcdialog_showDialog(ASSET_A78_DIALOG_GRABBA_MEET, 0, N64_NULL, N64_NULL, N64_NULL, N64_NULL)){
                             this->has_met_before = true;
                         }
                     }
@@ -280,7 +280,7 @@ void GV_func_8038BEA0(Actor *this){
                         }
 
                         if(!this->unk138_23){
-                            if(gcdialog_showDialog(ASSET_A7A_DIALOG_GRABBA_TOO_FAST, 0, NULL, NULL, NULL, NULL)){
+                            if(gcdialog_showDialog(ASSET_A7A_DIALOG_GRABBA_TOO_FAST, 0, N64_NULL, N64_NULL, N64_NULL, N64_NULL)){
                                 this->unk138_23 = true;
                             }
                         }

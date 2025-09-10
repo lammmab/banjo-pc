@@ -14,15 +14,15 @@ u8 D_80373130[] = {0, 1, 0, 0};
 
 ActorInfo D_80373134 = { 
     0x1a6, 0x289, 0x431, 
-    0x0, NULL, 
-    func_8036158C, NULL, actor_draw, 
+    0x0, N64_NULL, 
+    func_8036158C, N64_NULL, actor_draw, 
     0, 0, 0.0f, 0
 };
 
 ActorInfo D_80373158 = { 
     0x1a6, 0x28f, 0x431, 
-    0x0, NULL, 
-    func_8036158C, NULL, actor_draw, 
+    0x0, N64_NULL, 
+    func_8036158C, N64_NULL, actor_draw, 
     0, 0, 0.0f, 0
 };
 

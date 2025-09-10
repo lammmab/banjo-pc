@@ -126,13 +126,13 @@ Actor *bundle_spawn_s32(enum bundle_e bundle_id, s32 position[3]) {
 Actor *__bundle_spawnWithFirstActor(enum bundle_e bundle_id, f32 position[3], Actor *firstActor) {
     static f32 D_80366C4C = 400.0f;
     BundleInfo *bundle_info; //s2
-    Actor *actor = NULL; //s3
+    Actor *actor = N64_NULL; //s3
 
     s32 i;
     Bundle *bundle;
 
     bundle_info = gBundle_array + bundle_id;
-    actor = NULL;
+    actor = N64_NULL;
 
     for (i = 0; i < bundle_info->count; i++) {//L802C90B0
         gBundle_yaw += 360.0 / bundle_info->count;
@@ -187,7 +187,7 @@ Actor *__bundle_spawnFromFirstActor(enum bundle_e bundle_id, Actor *actor) {
 }
 
 Actor *bundle_spawn_f32(enum bundle_e bundle_id, f32 position[3]) {
-    return __bundle_spawnWithFirstActor(bundle_id, position, NULL);
+    return __bundle_spawnWithFirstActor(bundle_id, position, N64_NULL);
 }
 
 bool func_802C939C(Actor *actor, f32 arg1[3], f32 arg2[3], f32 arg3[3], bool arg4) {

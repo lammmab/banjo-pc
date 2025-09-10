@@ -82,7 +82,7 @@ void ability_use(enum ability_used ability) {
     }
 
     if (dialog_id) {
-        gcdialog_showDialog(dialog_id, 4, NULL, NULL, NULL, 0);
+        gcdialog_showDialog(dialog_id, 4, N64_NULL, N64_NULL, N64_NULL, 0);
     }
 
     usedAbilities |= (1 << ability);

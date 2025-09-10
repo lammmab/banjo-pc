@@ -6,94 +6,6 @@
 #define ARRLEN(x) ((s32)(sizeof(x) / sizeof(x[0])))
 #define CHNL_ERR(format) ((format.rxsize & CHNL_ERR_MASK) >> 4)
 
-typedef struct
-{
-    /* 0x0 */ u32 ramarray[15];
-    /* 0x3C */ u32 pifstatus;
-} OSPifRam;
-
-typedef struct
-{
-    /* 0x0 */ u8 dummy;
-    /* 0x1 */ u8 txsize;
-    /* 0x2 */ u8 rxsize;
-    /* 0x3 */ u8 cmd;
-    /* 0x4 */ u16 button;
-    /* 0x6 */ s8 stick_x;
-    /* 0x7 */ s8 stick_y;
-} __OSContReadFormat;
-
-typedef struct
-{
-    /* 0x0 */ u8 dummy;
-    /* 0x1 */ u8 txsize;
-    /* 0x2 */ u8 rxsize;
-    /* 0x3 */ u8 cmd;
-    /* 0x4 */ u8 typeh;
-    /* 0x5 */ u8 typel;
-    /* 0x6 */ u8 status;
-    /* 0x7 */ u8 dummy1;
-} __OSContRequesFormat;
-
-typedef struct
-{
-    /* 0x0 */ u8 txsize;
-    /* 0x1 */ u8 rxsize;
-    /* 0x2 */ u8 cmd;
-    /* 0x3 */ u8 typeh;
-    /* 0x4 */ u8 typel;
-    /* 0x5 */ u8 status;
-} __OSContRequesFormatShort;
-
-typedef struct
-{
-    /* 0x0 */ u8 dummy;
-    /* 0x1 */ u8 txsize;
-    /* 0x2 */ u8 rxsize;
-    /* 0x3 */ u8 cmd;
-    /* 0x4 */ u16 address;
-    /* 0x6 */ u8 data[BLOCKSIZE];
-    /* 0x26 */ u8 datacrc;
-} __OSContRamReadFormat;
-
-typedef union {
-    /* 0x0 */ struct
-    {
-        /* 0x0 */ u8 bank;
-        /* 0x1 */ u8 page;
-    } inode_t;
-    /* 0x0 */ u16 ipage;
-} __OSInodeUnit;
-
-typedef struct
-{
-    /* 0x0 */ u32 game_code;
-    /* 0x4 */ u16 company_code;
-    /* 0x6 */ __OSInodeUnit start_page;
-    /* 0x8 */ u8 status;
-    /* 0x9 */ s8 reserved;
-    /* 0xA */ u16 data_sum;
-    /* 0xC */ u8 ext_name[PFS_FILE_EXT_LEN];
-    /* 0x10 */ u8 game_name[PFS_FILE_NAME_LEN];
-} __OSDir;
-
-typedef struct
-{
-    /* 0x0 */ __OSInodeUnit inode_page[128];
-} __OSInode;
-
-typedef struct
-{
-    /* 0x0 */ u32 repaired;
-    /* 0x4 */ u32 random;
-    /* 0x8 */ u64 serial_mid;
-    /* 0x10 */ u64 serial_low;
-    /* 0x18 */ u16 deviceid;
-    /* 0x1A */ u8 banks;
-    /* 0x1B */ u8 version;
-    /* 0x1C */ u16 checksum;
-    /* 0x1E */ u16 inverted_checksum;
-} __OSPackId;
 
 typedef struct
 {
@@ -137,13 +49,6 @@ typedef struct
 #define DIR_STATUS_UNKNOWN 1
 #define DIR_STATUS_OCCUPIED 2
 
-
-typedef struct
-{
-    /* 0x0 */ __OSInode inode;
-    /* 0x100 */ u8 bank;
-    /* 0x101 */ u8 map[256];
-} __OSInodeCache;
 
 extern s32 __osEepStatus(OSMesgQueue *, OSContStatus *);
 u16 __osSumcalc(u8 *ptr, int length);

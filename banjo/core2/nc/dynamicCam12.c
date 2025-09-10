@@ -232,7 +232,7 @@ void func_802C16CC(s32 arg0) {
             player_getPosition(player_or_node_position); 
             ml_vec3f_to_vec3w(player_position_copy, player_or_node_position);
             sp30 = cubeList_findNodePropByActorIdAndPosition_s32(sp38, player_position_copy);
-            if(sp30 != NULL) {
+            if(sp30 != N64_NULL) {
                 nodeprop_getPosition(sp30, player_or_node_position);
                 switch (nodeprop_getScale(sp30)) {                        /* irregular */
                 default:

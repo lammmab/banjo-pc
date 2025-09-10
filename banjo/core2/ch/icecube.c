@@ -269,7 +269,7 @@ void chicecube_update(Actor *this){
     func_802D729C(this, 3.4 * this->scale);
     if(!this->volatile_initialized){
         this->volatile_initialized = true;
-        marker_setCollisionScripts(this->marker, __chicecube_ow, NULL, __chicecube_die);
+        marker_setCollisionScripts(this->marker, __chicecube_ow, N64_NULL, __chicecube_die);
         this->marker->propPtr->unk8_3 = false;
         actor_collisionOff(this);
         this->alpha_124_19 = 0x50;

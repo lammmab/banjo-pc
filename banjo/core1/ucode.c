@@ -24,7 +24,7 @@ void ucode_load(void) {
 void ucode_stub1(void) {}
 
 void ucode_stub2(void) {
-    osPiReadIo(0, NULL);
+    osPiReadIo(0, N64_NULL);
 }
 
 s32 ucode_stub3(void) {

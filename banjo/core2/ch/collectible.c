@@ -13,21 +13,21 @@ void chCollectible_update(Actor *this);
 /* .data */
 extern ActorInfo D_80367D00 = {
     MARKER_60_BLUE_EGG_COLLECTIBLE, ACTOR_52_BLUE_EGG, ASSET_36D_SPRITE_BLUE_EGG,
-    0, NULL, 
+    0, N64_NULL, 
     chCollectible_update, actor_update_func_80326224, chCollectible_draw, 
     0, 0, 0.7f, 0
 };
 
 extern ActorInfo D_80367D24 = {
     MARKER_B5_RED_FEATHER_COLLECTIBLE, ACTOR_129_RED_FEATHER, ASSET_580_SPRITE_RED_FEATHER,
-    0, NULL, 
+    0, N64_NULL, 
     chCollectible_update, actor_update_func_80326224, chCollectible_draw, 
     0, 0, 0.5f, 0
 };
 
 extern ActorInfo D_80367D48 = {
     MARKER_1E5_GOLD_FEATHER_COLLECTIBLE, ACTOR_370_GOLD_FEATHER, ASSET_6D1_SPRITE_GOLDFEATHTER,
-    0, NULL, 
+    0, N64_NULL, 
     chCollectible_update, actor_update_func_80326224, chCollectible_draw, 
     0, 0, 0.5f, 0
 };
@@ -94,8 +94,8 @@ bool chCollectible_collectItem(Actor* actor, enum file_progress_e arg1, enum ass
 }
 
 s32 chCollectible_collectEgg(ActorProp *arg0){
-    Actor *actPtr = NULL;
-    if(arg0 != NULL){
+    Actor *actPtr = N64_NULL;
+    if(arg0 != N64_NULL){
         fxSparkle_blueEgg(&arg0->x);
         if(arg0->is_actor)
             actPtr = marker_getActor(arg0->marker);
@@ -104,7 +104,7 @@ s32 chCollectible_collectEgg(ActorProp *arg0){
 }
 
 void chCollectible_collectRedFeather(ActorProp *arg0){
-    Actor *actPtr = NULL;
+    Actor *actPtr = N64_NULL;
     fxSparkle_redFeather(&arg0->x);
     if(arg0->is_actor)
         actPtr = marker_getActor(arg0->marker);
@@ -112,7 +112,7 @@ void chCollectible_collectRedFeather(ActorProp *arg0){
 }
 
 void chCollectible_collectGoldFeather(ActorProp *arg0){
-    Actor *actPtr = NULL;
+    Actor *actPtr = N64_NULL;
     fxSparkle_goldFeather(&arg0->x);
     if(arg0->is_actor)
         actPtr = marker_getActor(arg0->marker);

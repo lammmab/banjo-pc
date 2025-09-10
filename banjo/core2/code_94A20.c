@@ -40,7 +40,7 @@ struct0 *func_8031B9D8(void){
     this->unk59 = 0;
     this->unk5B = 0;
     this->unk54 = 0;
-    this->model = NULL;
+    this->model = N64_NULL;
     func_8031C608(this);
     this->unk5E = 0;
     func_8031B9B0(this, 1);
@@ -87,12 +87,12 @@ BKCollisionTri *func_8031BBA0(f32 *this, f32 arg1, f32 arg2, u32 arg3, struct86s
     if (mlAbsF(arg2 - arg1) > 500.0f) {
         if (arg1 < arg2) {
             phi_v1 = func_8031BABC(this, arg1, arg1 + 500.0f, arg3, arg4);
-            if (phi_v1 == NULL) {
+            if (phi_v1 == N64_NULL) {
                 phi_v1 = func_8031BABC(this, arg1 + 500.0f - 1.0f, arg2, arg3, arg4);     
             }
         } else {
             phi_v1 = func_8031BABC(this, arg1, arg1 - 500.0f, arg3, arg4);
-            if (phi_v1 == NULL) {
+            if (phi_v1 == N64_NULL) {
                 phi_v1 = func_8031BABC(this, arg1 - 500.0f + 1.0f, arg2, arg3, arg4);
             }
         }
@@ -147,7 +147,7 @@ void func_8031BE58(struct0 *this){
 }
 
 void func_8031BE98(struct0 *this, f32 arg1, BKCollisionTri * arg2){
-    if(arg2 != NULL)
+    if(arg2 != N64_NULL)
         collisionTri_copy(&this->unk10, arg2);
     this->unk59 = 1;
     this->posY = arg1;
@@ -170,12 +170,12 @@ void func_8031BF08(struct0 *arg0) {
     ml_vec3f_copy(&sp38, arg0->unk1C);
     sp64 = arg0->posZ;
     temp_v0 = func_8031BBA0(sp38, ml_max_f(arg0->unk28[1] - arg0->unk1C[1], 150.0f) + 10.0f, -5.0f, 0xF800FF0F, &sp48);
-    if (temp_v0 != NULL) {
+    if (temp_v0 != N64_NULL) {
         func_8031BE98(arg0, sp48.unkC, temp_v0);
         sp30 = 1;
     }
     temp_v0 = func_8031BBA0(&sp38, sp64, -1300.0f, arg0->unk54, &sp48);
-    if (temp_v0 == NULL) {
+    if (temp_v0 == N64_NULL) {
         func_8031BE58(arg0);
         if (!sp30) {
             func_8031BEE0(arg0);
@@ -190,7 +190,7 @@ void func_8031BF08(struct0 *arg0) {
                 func_8031B9B0(arg0, 3);
             }
             temp_v0 = func_8031BBA0(sp38, sp64, -450.0f, tmp | arg0->unk54, &sp48);
-            if (temp_v0 == NULL) {
+            if (temp_v0 == N64_NULL) {
                 func_8031BE58(arg0);
             }else if (sp48.unk0[1] >= 0.0f) {
                 func_8031BE0C(arg0, &sp48, temp_v0);
@@ -199,7 +199,7 @@ void func_8031BF08(struct0 *arg0) {
             if ((sp48.unk0[1] < 0.0f) && !(temp_v0->flags & 0x10000)) {
                 sp64 = sp48.unkC - sp38[1];
                 temp_v0 = func_8031BBA0(sp38, sp64 - 1.0f, sp64 - 1300.0f, arg0->unk54 | 0x1E0000, &sp48);
-                if (temp_v0 != NULL) {
+                if (temp_v0 != N64_NULL) {
                     func_8031BE0C(arg0, &sp48, temp_v0);
                 }
                 else{
@@ -258,7 +258,7 @@ void func_8031C29C(struct0 *arg0) {
     if ((sp48 == 0) || (sp40 != 0)) {
         arg0->unk59 = arg0->unk5B;
         temp_v0 = func_8031BBA0(&sp30, 60.0f, -390.0f, arg0->unk54 | 0x1E0000, &sp4C);
-        if (temp_v0 != NULL) {
+        if (temp_v0 != N64_NULL) {
             if (sp4C.unk0[1] >= 0.0f) {
                 func_8031BE0C(arg0, &sp4C, temp_v0);
             }
@@ -296,10 +296,10 @@ void func_8031C44C(struct0 *arg0) {
     if ((arg0->unk5E == 1) || (arg0->unk5D != 0)) {
         arg0->unk5D--;
         sp38 = func_8031BABC(arg0->unk1C, -100.0f, 7000.0f, 0xF800FF0F, &sp3C);
-        if (sp38 != NULL) {
+        if (sp38 != N64_NULL) {
             func_8031BE98(arg0, sp3C.unkC, sp38);
         }
-        if (sp38 != NULL) {
+        if (sp38 != N64_NULL) {
             func_8031B9B0(arg0, 3);
         } else {
             func_8031B9B0(arg0, 2);

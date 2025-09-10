@@ -13,12 +13,12 @@ void chChoirTurtle_update(Actor *this);
 Actor *chChoirTurtle_draw(ActorMarker *marker, Gfx **, Mtx **, Vtx**);
 
 /* .data */
-ActorInfo chChoirTurtleYellow = { MARKER_19B_CHOIR_TURTLE_YELLOW, ACTOR_27B_CHOIR_TURTLE_YELLOW, ASSET_3F9_MODEL_CHOIR_TURTLE, 0, NULL, chChoirTurtle_update, NULL, chChoirTurtle_draw, 0, 0, 1.5f, 0};
-ActorInfo chChoirTurtleCyan = { MARKER_19C_CHOIR_TURTLE_CYAN,   ACTOR_27C_CHOIR_TURTLE_CYAN,   ASSET_3F9_MODEL_CHOIR_TURTLE, 0, NULL, chChoirTurtle_update, NULL, chChoirTurtle_draw, 0, 0, 1.5f, 0};
-ActorInfo chChoirTurtleBlue = { MARKER_19D_CHOIR_TURTLE_BLUE,   ACTOR_27D_CHOIR_TURTLE_BLUE,   ASSET_3F9_MODEL_CHOIR_TURTLE, 0, NULL, chChoirTurtle_update, NULL, chChoirTurtle_draw, 0, 0, 1.5f, 0};
-ActorInfo chChoirTurtleRed = { MARKER_19E_CHOIR_TURTLE_RED,    ACTOR_27E_CHOIR_TURTLE_RED,    ASSET_3F9_MODEL_CHOIR_TURTLE, 0, NULL, chChoirTurtle_update, NULL, chChoirTurtle_draw, 0, 0, 1.5f, 0};
-ActorInfo chChoirTurtlePink = { MARKER_19F_CHOIR_TURTLE_PINK,   ACTOR_27F_CHOIR_TURTLE_PINK,   ASSET_3F9_MODEL_CHOIR_TURTLE, 0, NULL, chChoirTurtle_update, NULL, chChoirTurtle_draw, 0, 0, 1.5f, 0};
-ActorInfo chChoirTurtlePurple = { MARKER_1A0_CHOIR_TURTLE_PURPLE, ACTOR_280_CHOIR_TURTLE_PURPLE, ASSET_3F9_MODEL_CHOIR_TURTLE, 0, NULL, chChoirTurtle_update, NULL, chChoirTurtle_draw, 0, 0, 1.5f, 0};
+ActorInfo chChoirTurtleYellow = { MARKER_19B_CHOIR_TURTLE_YELLOW, ACTOR_27B_CHOIR_TURTLE_YELLOW, ASSET_3F9_MODEL_CHOIR_TURTLE, 0, N64_NULL, chChoirTurtle_update, N64_NULL, chChoirTurtle_draw, 0, 0, 1.5f, 0};
+ActorInfo chChoirTurtleCyan = { MARKER_19C_CHOIR_TURTLE_CYAN,   ACTOR_27C_CHOIR_TURTLE_CYAN,   ASSET_3F9_MODEL_CHOIR_TURTLE, 0, N64_NULL, chChoirTurtle_update, N64_NULL, chChoirTurtle_draw, 0, 0, 1.5f, 0};
+ActorInfo chChoirTurtleBlue = { MARKER_19D_CHOIR_TURTLE_BLUE,   ACTOR_27D_CHOIR_TURTLE_BLUE,   ASSET_3F9_MODEL_CHOIR_TURTLE, 0, N64_NULL, chChoirTurtle_update, N64_NULL, chChoirTurtle_draw, 0, 0, 1.5f, 0};
+ActorInfo chChoirTurtleRed = { MARKER_19E_CHOIR_TURTLE_RED,    ACTOR_27E_CHOIR_TURTLE_RED,    ASSET_3F9_MODEL_CHOIR_TURTLE, 0, N64_NULL, chChoirTurtle_update, N64_NULL, chChoirTurtle_draw, 0, 0, 1.5f, 0};
+ActorInfo chChoirTurtlePink = { MARKER_19F_CHOIR_TURTLE_PINK,   ACTOR_27F_CHOIR_TURTLE_PINK,   ASSET_3F9_MODEL_CHOIR_TURTLE, 0, N64_NULL, chChoirTurtle_update, N64_NULL, chChoirTurtle_draw, 0, 0, 1.5f, 0};
+ActorInfo chChoirTurtlePurple = { MARKER_1A0_CHOIR_TURTLE_PURPLE, ACTOR_280_CHOIR_TURTLE_PURPLE, ASSET_3F9_MODEL_CHOIR_TURTLE, 0, N64_NULL, chChoirTurtle_update, N64_NULL, chChoirTurtle_draw, 0, 0, 1.5f, 0};
 
 /* .code */
 void chChoirTurtle_returnState(ActorMarker *marker) {
@@ -44,7 +44,7 @@ void chChoirTurtle_setState(Actor *this, s32 next_state) {
         gcsfx_playWithPitch(SFX_86_TIPTUP_CHORUS_AH, local->unk8, 0x7FFF);
         skeletalAnim_set(this->unk148, ASSET_12F_ANIM_CHOIR_TURTLE_HURT, 0.1f, 1.75f);
         skeletalAnim_setCallback_1(this->unk148, 0.9f, (GenFunction_1)chChoirTurtle_returnState, (s32)this->marker);
-        if (local->tiptup_marker != NULL) {
+        if (local->tiptup_marker != N64_NULL) {
             chTiptup_choirHitReaction(local->tiptup_marker, local->unk0);
         }
     }
@@ -74,10 +74,10 @@ void chChoirTurtle_update(Actor *this) {
     if (!this->volatile_initialized) {
         this->volatile_initialized = true;
         this->marker->propPtr->unk8_3 = true;
-        marker_setCollisionScripts(this->marker, NULL, func_803895D0, NULL);
+        marker_setCollisionScripts(this->marker, N64_NULL, func_803895D0, N64_NULL);
         local->unk0 = 1;
         local->unkC = 0;
-        local->tiptup_marker = NULL;
+        local->tiptup_marker = N64_NULL;
         local->unk8 = 1.0f;
         chChoirTurtle_setState(this, 1);
         if (jiggyscore_isSpawned(JIGGY_27_BGS_TIPTUP) && !volatileFlag_get(VOLATILE_FLAG_2_FF_IN_MINIGAME) && !volatileFlag_get(VOLATILE_FLAG_1)) {
@@ -89,13 +89,13 @@ void chChoirTurtle_update(Actor *this) {
     local->unkC++;
     if (local->unkC == 2) {
         tiptup = actorArray_findClosestActorFromActorId(this->position, ACTOR_27A_TIPTUP, -1, &sp30);
-        local->tiptup_marker = (tiptup != NULL) ? tiptup->marker : NULL;
-        if (local->tiptup_marker != NULL) {
+        local->tiptup_marker = (tiptup != N64_NULL) ? tiptup->marker : N64_NULL;
+        if (local->tiptup_marker != N64_NULL) {
             func_80388FFC(local->tiptup_marker, &local->unk0, &local->unk8);
         }
     }
     if (this->state == 1) {
-        if (local->tiptup_marker != NULL && (func_80388E70(local->tiptup_marker) == local->unk0)) {
+        if (local->tiptup_marker != N64_NULL && (func_80388E70(local->tiptup_marker) == local->unk0)) {
             chChoirTurtle_setState(this, 2);
         }
     }

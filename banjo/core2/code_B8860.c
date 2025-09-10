@@ -88,7 +88,7 @@ u8 func_8033FA84(void){
             D_80385000[i].unk28_13 = true;
             D_80385000[i].unk28_23 = 0;
             D_80385000[i].unk28_21 = 0xb;
-            D_80385000[i].sprite_0 = NULL;
+            D_80385000[i].sprite_0 = N64_NULL;
             D_80385000[i].unk28_12 = true;
             D_80385000[i].unk20[0] = 100;
             D_80385000[i].unk20[1] = 100;
@@ -108,7 +108,7 @@ void projectile_freeByIndex(u8 indx) {
         assetCache_free(D_80385000[indx].sprite_0);
     }
 
-    D_80385000[indx].sprite_0 = NULL;
+    D_80385000[indx].sprite_0 = N64_NULL;
     D_80385000[indx].unk28_13 = 0;
 }
 

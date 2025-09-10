@@ -6,7 +6,7 @@ Actor *CCW_func_8038954C(ActorMarker *marker, Gfx **gfx, Mtx **mtx, Vtx **vtx);
 void func_803895F4(Actor *this);
 
 /* .data */
-ActorInfo D_8038EE70 = { 0x1B3, 0x2A0, 0x483, 0x0, NULL, func_803895F4, NULL, CCW_func_8038954C, 0, 0, 0.0f, 0};
+ActorInfo D_8038EE70 = { 0x1B3, 0x2A0, 0x483, 0x0, N64_NULL, func_803895F4, N64_NULL, CCW_func_8038954C, 0, 0, 0.0f, 0};
 
 /* .code */
 void func_80389440(Actor *this, s32 next_state) {
@@ -52,7 +52,7 @@ void func_803895F4(Actor *this) {
     if(!this->volatile_initialized) {
         this->volatile_initialized = true;
         this->marker->propPtr->unk8_3 = true;
-        marker_setCollisionScripts(this->marker, NULL, NULL, &func_8038950C);
+        marker_setCollisionScripts(this->marker, N64_NULL, N64_NULL, &func_8038950C);
         func_80389440(this, 1);
         if (fileProgressFlag_get(FILEPROG_E6_SPRING_EYRIE_HATCHED) || jiggyscore_isSpawned(JIGGY_49_CCW_EYRIE)) {
             marker_despawn(this->marker);

@@ -50,15 +50,15 @@ extern EmptyHeapBlock D_8023DA00;
 u32 heap_occupiedBytes = 0; //occupied heap size
 u8 D_80276594 = 0;
 u8 D_80276598 = 0;
-void *D_8027659C = NULL;
-void *D_802765A0 = NULL;
+void *D_8027659C = N64_NULL;
+void *D_802765A0 = N64_NULL;
 s32 D_802765A4 = 0;
-void *D_802765A8 = NULL;
+void *D_802765A8 = N64_NULL;
 s32 D_802765AC = 0;
 struct{
     bool unk0;
 }D_802765B0 = {0};
-UNK_TYPE(void *) D_802765B4 = NULL;
+UNK_TYPE(void *) D_802765B4 = N64_NULL;
 
 /* .bss */
 s32 D_80283220;
@@ -89,7 +89,7 @@ int func_80254490(int arg0){
 }
 
 void _heap_defragEmptyBlock(EmptyHeapBlock * arg0){
-    EmptyHeapBlock * defrag_ptr = NULL;
+    EmptyHeapBlock * defrag_ptr = N64_NULL;
     if(arg0->hdr.next->unkC_7 == HEAP_BLOCK_EMPTY){ //absorb next block
         defrag_ptr = arg0;
         //remove next from empty block link list
@@ -108,7 +108,7 @@ void _heap_defragEmptyBlock(EmptyHeapBlock * arg0){
         arg0->hdr.prev->next = arg0->hdr.next;
         arg0->hdr.next->prev = arg0->hdr.prev;
     }
-    if(defrag_ptr != NULL){
+    if(defrag_ptr != N64_NULL){
         _heap_sortEmptyBlock(defrag_ptr);
     }else{
         _heap_sortEmptyBlock(arg0);
@@ -176,8 +176,8 @@ u32 func_802546E4(void * arg0){
 }
 
 void func_802546FC(void){
-    D_80283224 = NULL;
-    D_80283228 = NULL;
+    D_80283224 = N64_NULL;
+    D_80283228 = N64_NULL;
 }
 
 void heap_init(void){
@@ -191,11 +191,11 @@ void heap_init(void){
     D_802765A8 = 0;
     D_802765AC = 0;
     D_802765B0.unk0 = false;
-    D_8002D500[0].hdr.prev = NULL;
+    D_8002D500[0].hdr.prev = N64_NULL;
     D_8002D500[0].hdr.next = &D_8002D500[1];
     D_8002D500[0].hdr.unkC_7 = 2;
     D_8002D500[0].hdr.unusedBytes_C_31 = 0;
-    D_8002D500[0].prev_free = NULL;
+    D_8002D500[0].prev_free = N64_NULL;
     D_8002D500[0].next_free = &D_8002D500[1];
 
     D_8002D500[1].hdr.prev = &D_8002D500[0];
@@ -210,7 +210,7 @@ void heap_init(void){
     D_8002D500[LAST_HEAP_BLOCK].hdr.unkC_7 = 2;
     D_8002D500[LAST_HEAP_BLOCK].hdr.unusedBytes_C_31 = 0;
     D_8002D500[LAST_HEAP_BLOCK].prev_free = &D_8002D500[1];
-    D_8002D500[LAST_HEAP_BLOCK].next_free = NULL;
+    D_8002D500[LAST_HEAP_BLOCK].next_free = N64_NULL;
     sns_init_base_payloads();
 }
 
@@ -224,19 +224,19 @@ void *func_80254898(s32 arg0){
     void * sp18 = malloc(0x80);
     free(sp1C);
     free(D_802765B4);
-    D_802765B4 =  NULL;
+    D_802765B4 =  N64_NULL;
     return sp18;
 }
 
 void func_80254908(void){
     if(D_802765A0){
         free(D_802765A0);
-        D_802765A0 = NULL;
+        D_802765A0 = N64_NULL;
     }
 
     if(D_802765A8){
         free(D_802765A8);
-        D_802765A8 = NULL;
+        D_802765A8 = N64_NULL;
     }
 }
 
@@ -250,7 +250,7 @@ u32 heap_get_occupied_size(void){
 
 bool func_8025498C(s32 size){
     s32 v0 = func_802549BC(size);
-    return BOOL(v0);
+    return (v0);
 }
 
 EmptyHeapBlock *func_802549BC(s32 size){
@@ -277,11 +277,11 @@ EmptyHeapBlock *func_80254A60(bool arg0){
         }
         
         if(chunkSize(&v1->hdr) < heap_requested_size)
-            return NULL;
+            return N64_NULL;
         return v1;
     }else{
         //from back
-        v1 = NULL;
+        v1 = N64_NULL;
         v0 = D_8002D500->next_free;
         while(v0 != &D_8002D500[LAST_HEAP_BLOCK]){
             if(chunkSize(&v0->hdr) >= heap_requested_size && v1 < v0)
@@ -290,10 +290,10 @@ EmptyHeapBlock *func_80254A60(bool arg0){
         }
 
         if(!v1)
-            return NULL;
+            return N64_NULL;
 
         if(chunkSize(&v1->hdr) < heap_requested_size)
-            return NULL;
+            return N64_NULL;
         return v1;
     }
 }
@@ -319,7 +319,7 @@ void *func_80254BD0(s32 *size, u32 arg1) {
         var_v1 = var_v1->prev_free;
         if (var_v1 == &D_8002D500[0]) {
             //less than n blocks
-            return NULL;
+            return N64_NULL;
         }
         arg1--;
     }
@@ -339,11 +339,11 @@ void *malloc(s32 size){
     D_80283234 = D_802765B0.unk0;
     D_802765B0.unk0 = false;
     if(D_8002D500->next_free == &D_8002D500[LAST_HEAP_BLOCK])
-        return NULL;
+        return N64_NULL;
 
     heap_requested_size = __heap_align((size > 0 )? size : 1); 
     if(!(v1 = func_80254B84(0))){ //remove stall cache ptrs
-        D_80283234 = NULL;
+        D_80283234 = N64_NULL;
         func_803306C8(2);
         if(!func_80254B84(0))
             propModelList_flush(2);
@@ -377,7 +377,7 @@ void *malloc(s32 size){
 
                 if(v1 = func_80254B84(0)){}
                 else
-                    return NULL;
+                    return N64_NULL;
             }
         }//L80254E38
     }//L80254E38
@@ -471,17 +471,17 @@ void free(void * ptr) {
         func_8025456C(sPtr);
         
         if((u32)ptr == (u32)D_802765A0)
-            D_802765A0 = NULL;
+            D_802765A0 = N64_NULL;
 
         if((u32)ptr == (u32)D_802765A8)
-            D_802765A8 = NULL;
+            D_802765A8 = N64_NULL;
     }
 }
 
 void func_80255170(void **arg0){
     *D_80283238.unk40 = *arg0;
     D_80283238.unk40++;
-    *arg0 = NULL;
+    *arg0 = N64_NULL;
 }
 
 //heap_free_queue_flush
@@ -613,11 +613,11 @@ void func_80255524(void){
 
     if(D_802765A0 && D_802765A4 + 1 < D_802765AC){
         free(D_802765A0);
-        D_802765A0 = NULL;
+        D_802765A0 = N64_NULL;
 
         if(D_802765A8){
             free(D_802765A8);
-            D_802765A8 = NULL;
+            D_802765A8 = N64_NULL;
         }
     }
 }
@@ -639,7 +639,7 @@ void *defrag(void *this){
     HeapHeader *prev_block;
     s32 size;
 
-    if(this == NULL || this == D_8027659C){
+    if(this == N64_NULL || this == D_8027659C){
         return this;
     }
     
@@ -685,7 +685,7 @@ void *defrag(void *this){
 
 void *defrag_asset(void *arg0){
     void *sp1C;
-    if(arg0 == NULL || arg0 == D_8027659C)
+    if(arg0 == N64_NULL || arg0 == D_8027659C)
         return arg0;
 
     sp1C = defrag(arg0);
@@ -701,7 +701,7 @@ void *func_80255774(void *this){
     s32 pad;
     void *sp24;
 
-    if( this == NULL 
+    if( this == N64_NULL 
         || this == D_8027659C
         || D_802765A0
         || func_8033BD8C(this)
@@ -732,7 +732,7 @@ void *func_80255774(void *this){
 //recache asset?? defragment cached obj???
 void *func_80255888(void *arg0){
     void *sp1C;
-    if(arg0 == NULL || arg0 == D_8027659C){
+    if(arg0 == N64_NULL || arg0 == D_8027659C){
         return arg0;
     }
 
@@ -756,7 +756,7 @@ void *func_802558D8(void *arg0, void *arg1){
 bool func_80255920(void *arg0) {
     HeapHeader *block;
 
-    if ((arg0 == NULL) || (arg0 == D_8027659C) || (D_802765A0 != NULL)) {
+    if ((arg0 == N64_NULL) || (arg0 == D_8027659C) || (D_802765A0 != N64_NULL)) {
         return false;
     }
 

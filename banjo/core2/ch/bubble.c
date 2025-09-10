@@ -12,7 +12,7 @@ extern void func_802F32C4(s32, f32[3], f32, ActorMarker *, s32(*)(f32[3], f32, A
 /* .data */
 ActorInfo chBubble = { 
     MARKER_6B_GLOOPBUBBLE, ACTOR_E7_GLOOP_BUBBLE, ASSET_704_SPRITE_BUBBLE, 
-    0, NULL, chBubble_update, actor_update_func_80326224, func_80325340, 
+    0, N64_NULL, chBubble_update, actor_update_func_80326224, func_80325340, 
     0, 0, 0.0f, 0
 };
 
@@ -53,7 +53,7 @@ void __chBubble_collisionCallback(ActorMarker *this_marker, ActorMarker *other_m
 void chBubble_update(Actor *this){
     if(!this->initialized){
         this->initialized = true;
-        marker_setCollisionScripts(this->marker, __chBubble_collisionCallback, NULL, NULL);
+        marker_setCollisionScripts(this->marker, __chBubble_collisionCallback, N64_NULL, N64_NULL);
         marker_setFreeMethod(this->marker, __chBubble_freeCallback);
         func_802F32C4(func_8032994C(), this->position, 200.0f, this->marker, __chBubble_func_802C5C70);
         this->lifetime_value = 10.0f;

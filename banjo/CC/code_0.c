@@ -14,7 +14,7 @@ void func_803864D4(Actor *this);
 
 /* .data */
 ActorInfo D_80389AA0 = {
-    MARKER_4B_CC_SCREW, ACTOR_43_CLACKER_SCREW, ASSET_890_MODEL_SCREW, 0, NULL, 
+    MARKER_4B_CC_SCREW, ACTOR_43_CLACKER_SCREW, ASSET_890_MODEL_SCREW, 0, N64_NULL, 
     func_803864D4, actor_update_func_80326224 , actor_draw,  
     0, 0, 0.0f, 0
 };

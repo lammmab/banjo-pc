@@ -18,7 +18,7 @@ enum chorange_state_e {
 
 ActorInfo chorangeInfo = {
     MARKER_C_ORANGE_PROJECTILE, ACTOR_14_ORANGE_PROJECTILE, ASSET_2D2_MODEL_ORANGE,
-    1, NULL,
+    1, N64_NULL,
     chorange_update, actor_update_func_80326224, chorange_draw,
     0, 0, 0.6f, 0
 };
@@ -30,7 +30,7 @@ f32 D_80389A00[3] = {0.0f, 0.0f, 0.0f};
 void __chorange_collisionCallback(ActorMarker *marker, ActorMarker *other_marker) {
     if (!player_isDead() &&
         !mapSpecificFlags_get(MM_SPECIFIC_FLAG_8_HIT_WITH_ORANGE) &&
-        gcdialog_showDialog(ASSET_B3A_DIALOG_CONGA_HITS_PLAYER, 0, 0, 0, NULL, NULL)) {
+        gcdialog_showDialog(ASSET_B3A_DIALOG_CONGA_HITS_PLAYER, 0, 0, 0, N64_NULL, N64_NULL)) {
 
         mapSpecificFlags_set(MM_SPECIFIC_FLAG_8_HIT_WITH_ORANGE, true);
     }
@@ -44,7 +44,7 @@ void chorange_update(Actor *this) {
 
     if (!this->initialized) {
         this->marker->unk2C_1 = 1;
-        marker_setCollisionScripts(this->marker, NULL, __chorange_collisionCallback, NULL);
+        marker_setCollisionScripts(this->marker, N64_NULL, __chorange_collisionCallback, N64_NULL);
     }
 
     switch (this->state) {

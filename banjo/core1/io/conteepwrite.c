@@ -14,7 +14,7 @@ s32 osEepromWrite(OSMesgQueue *mq, u8 address, u8 *buffer)
     OSContStatus sdata;
 
     ret = 0;
-    ptr = (u8 *)&__osEepPifRam.ramarray;
+    ptr = (u8 *)&__osEepPifRam.ram;
     __osSiGetAccess();
     ret = __osEepStatus(mq, &sdata); //why is this duplicated?
     ret = __osEepStatus(mq, &sdata);
@@ -54,17 +54,17 @@ s32 osEepromWrite(OSMesgQueue *mq, u8 address, u8 *buffer)
     }
     __osPackEepWriteData(address, buffer);
     ret = __osSiRawStartDma(OS_WRITE, &__osEepPifRam); //send command to pif
-    osRecvMesg(mq, NULL, OS_MESG_BLOCK);
+    osRecvMesg(mq, N64_NULL, OS_MESG_BLOCK);
 
-    for (i = 0; i < ARRLEN(__osEepPifRam.ramarray) + 1; i++) {
-        __osEepPifRam.ramarray[i] = 0xFF;
+    for (i = 0; i < ARRLEN(__osEepPifRam.ram) + 1; i++) {
+        __osEepPifRam.ram[i] = 0xFF;
     }
 
-    __osEepPifRam.pifstatus = 0;
+    __osEepPifRam.status = 0;
 
     ret = __osSiRawStartDma(OS_READ, &__osEepPifRam); //recv response
     __osContLastCmd = CONT_CMD_WRITE_EEPROM;
-    osRecvMesg(mq, NULL, OS_MESG_BLOCK);
+    osRecvMesg(mq, N64_NULL, OS_MESG_BLOCK);
     for (i = 0; i < 4; i++) //skip the first 4 bytes
     {
         ptr++;
@@ -82,12 +82,12 @@ static void __osPackEepWriteData(u8 address, u8 *buffer)
     u8 *ptr;
     __OSContEepromFormat eepromformat;
     int i;
-    ptr = (u8 *)&__osEepPifRam.ramarray;
-    for (i = 0; i < ARRLEN(__osEepPifRam.ramarray) + 1; i++)
+    ptr = (u8 *)&__osEepPifRam.ram;
+    for (i = 0; i < ARRLEN(__osEepPifRam.ram) + 1; i++)
     {
-        __osEepPifRam.ramarray[i] = CONT_CMD_NOP;
+        __osEepPifRam.ram[i] = CONT_CMD_NOP;
     }
-    __osEepPifRam.pifstatus = CONT_CMD_EXE;
+    __osEepPifRam.status = CONT_CMD_EXE;
 
     eepromformat.txsize = CONT_CMD_WRITE_EEPROM_TX;
     eepromformat.rxsize = CONT_CMD_WRITE_EEPROM_RX;
@@ -110,7 +110,7 @@ s32 __osEepStatus(OSMesgQueue *mq, OSContStatus *data)
     s32 ret;
     int i;
     u8 *ptr;
-    __OSContRequesFormat requestformat;
+    __OSContRequestHeader requestformat;
 
     //addiu	sp,sp,-48
     //lui	t6,__osEepPifRam
@@ -121,33 +121,33 @@ s32 __osEepStatus(OSMesgQueue *mq, OSContStatus *data)
     //sw	zero,44(sp)
     ret = 0;
     //sw	t6,36(sp)
-    ptr = (u8 *)__osEepPifRam.ramarray;
+    ptr = (u8 *)__osEepPifRam.ram;
     //could be bset or bzero intrinsic
-    for (i = 0; i < ARRLEN(__osEepPifRam.ramarray) + 1; i++) //still has the buffer overflow =/, just sets status to 0
+    for (i = 0; i < ARRLEN(__osEepPifRam.ram) + 1; i++) //still has the buffer overflow =/, just sets status to 0
     {
-        __osEepPifRam.ramarray[i] = 0;
+        __osEepPifRam.ram[i] = 0;
     }
-    __osEepPifRam.pifstatus = CONT_CMD_EXE;
-    ptr = (u8 *)__osEepPifRam.ramarray;
+    __osEepPifRam.status = CONT_CMD_EXE;
+    ptr = (u8 *)__osEepPifRam.ram;
     for (i = 0; i < 4; i++) //zero 4 bytes?
         *ptr++ = 0;
-    requestformat.dummy = CONT_CMD_NOP;
+    requestformat.align = CONT_CMD_NOP;
     requestformat.txsize = CONT_CMD_REQUEST_STATUS_TX;
     requestformat.rxsize = CONT_CMD_REQUEST_STATUS_RX;
-    requestformat.cmd = CONT_CMD_REQUEST_STATUS;
+    requestformat.poll = CONT_CMD_REQUEST_STATUS;
     requestformat.typeh = CONT_CMD_NOP;
     requestformat.typel = CONT_CMD_NOP;
     requestformat.status = CONT_CMD_NOP;
-    requestformat.dummy1 = CONT_CMD_NOP;
-    *(__OSContRequesFormat *)ptr = requestformat;
-    ptr += sizeof(__OSContRequesFormat);
+    requestformat.align1 = CONT_CMD_NOP;
+    *(__OSContRequestHeader *)ptr = requestformat;
+    ptr += sizeof(__OSContRequestHeader);
     *ptr = CONT_CMD_END;
 
     ret = __osSiRawStartDma(OS_WRITE, &__osEepPifRam);
-    osRecvMesg(mq, NULL, OS_MESG_BLOCK);
+    osRecvMesg(mq, N64_NULL, OS_MESG_BLOCK);
     __osContLastCmd = CONT_CMD_REQUEST_STATUS;
     ret = __osSiRawStartDma(OS_READ, &__osEepPifRam);
-    osRecvMesg(mq, NULL, OS_MESG_BLOCK);
+    osRecvMesg(mq, N64_NULL, OS_MESG_BLOCK);
 
     if (ret != 0)
         return ret;
@@ -156,11 +156,11 @@ s32 __osEepStatus(OSMesgQueue *mq, OSContStatus *data)
     for (i = 0; i < 4; i++)
         *ptr++ = 0;
 
-    requestformat = *(__OSContRequesFormat *)ptr;
-    data->errno = CHNL_ERR(requestformat);
+    requestformat = *(__OSContRequestHeader *)ptr;
+    data->err_no = CHNL_ERR(requestformat);
     data->type = (requestformat.typel << 8) | requestformat.typeh;
     data->status = requestformat.status;
-    if (data->errno != 0)
-        return data->errno;
+    if (data->err_no != 0)
+        return data->err_no;
     return 0;
 }

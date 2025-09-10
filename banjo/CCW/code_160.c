@@ -15,7 +15,7 @@ void func_803865F4(Actor *this, s32 next_state);
 void func_8038687C(Actor *this);
 
 /* .data */
-ActorInfo D_8038EBA0 = { 0x1AD, 0x299, 0x443, 0x0, NULL, func_8038687C, NULL, actor_draw, 0, 0, 0.0f, 0};
+ActorInfo D_8038EBA0 = { 0x1AD, 0x299, 0x443, 0x0, N64_NULL, func_8038687C, N64_NULL, actor_draw, 0, 0, 0.0f, 0};
 
 /* .code */
 void CCW_func_80386550(ActorMarker *marker){
@@ -27,7 +27,7 @@ void CCW_func_80386550(ActorMarker *marker){
     local = (ActorLocal_CCW_160 *)&this->local;
     this->unk124_11 = 2;
     this->alpha_124_19 = 0xFF;
-    if (local->unk0 != NULL) {
+    if (local->unk0 != N64_NULL) {
         actor_collisionOn(marker_getActor(local->unk0));
     }
     coMusicPlayer_playMusic(COMUSIC_3D_JIGGY_SPAWN, 28000);
@@ -44,9 +44,9 @@ void func_803865F4(Actor *this, s32 next_state) {
     local->unkC = 0.0f;
     if (next_state == 2) {
         if (!volatileFlag_getAndSet(VOLATILE_FLAG_B5, 1)) {
-            gcdialog_showDialog(0xCE2, 4, NULL, this->marker, func_803865C4, NULL);
+            gcdialog_showDialog(0xCE2, 4, N64_NULL, this->marker, func_803865C4, N64_NULL);
         } else {
-            gcdialog_showDialog(0xCE3, 4, NULL, NULL, NULL, NULL);
+            gcdialog_showDialog(0xCE3, 4, N64_NULL, N64_NULL, N64_NULL, N64_NULL);
             func_803865F4(this, 3);
             return;
         }
@@ -64,7 +64,7 @@ void func_803865F4(Actor *this, s32 next_state) {
             volatileFlag_set(VOLATILE_FLAG_3, 0);
             volatileFlag_set(VOLATILE_FLAG_5_FF_MINIGAME_WON, 1);
         } else {
-            gcdialog_showDialog(0xCE4, 4, NULL, NULL, NULL, NULL);
+            gcdialog_showDialog(0xCE4, 4, N64_NULL, N64_NULL, N64_NULL, N64_NULL);
             func_8025A58C(-1, 400);
             comusic_8025AB44(COMUSIC_4B_CCW_ZUBBA_FIGHT, 0, 400);
             func_8025AABC(COMUSIC_4B_CCW_ZUBBA_FIGHT);
@@ -144,12 +144,12 @@ void func_8038687C(Actor *this) {
     if ((s32)local->unk0 == 1) {
         other = actorArray_findActorFromActorId(0x46);
         if(volatileFlag_get(VOLATILE_FLAG_2_FF_IN_MINIGAME)) {
-            local->unk0 = NULL;
-            if (other != NULL) {
+            local->unk0 = N64_NULL;
+            if (other != N64_NULL) {
                 actor_collisionOff(other);
                 other->position[1] -= 300.0f;
             }
-        } else if (other != NULL) {
+        } else if (other != N64_NULL) {
             local->unk0 = other->marker;
             actor_collisionOff(other);
             if (jiggyscore_isCollected(JIGGY_4C_CCW_ZUBBAS) != 0) {
@@ -162,7 +162,7 @@ void func_8038687C(Actor *this) {
         return;
     }
     
-    if (local->unk0 != NULL) {
+    if (local->unk0 != N64_NULL) {
         other = marker_getActor(local->unk0);
         viewport_getPosition_vec3f(sp78);
         sp6C[0] = this->position[0] - sp78[0];
@@ -204,7 +204,7 @@ void func_8038687C(Actor *this) {
             item_set(ITEM_6_HOURGLASS, 1);
             item_set(ITEM_0_HOURGLASS_TIMER, 1800 - 1);
             func_803865F4(this, 3);
-        } else if ((local->unk0 != NULL) && (map_get() == MAP_5A_CCW_SUMMER_ZUBBA_HIVE)) {
+        } else if ((local->unk0 != N64_NULL) && (map_get() == MAP_5A_CCW_SUMMER_ZUBBA_HIVE)) {
             player_getPosition(sp40);
             if ((ml_vec3f_distance(this->position, sp40) < 300.0f) && (player_getTransformation() == TRANSFORM_1_BANJO)) {
                 func_803865F4(this, 2);

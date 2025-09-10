@@ -8,7 +8,7 @@ u8 initializingIndex;
 EmitterData emitterData[MAX_EMITTER_COUNT];
 
 ParticleEmitter *pem_getEmitterByIndex(u8 index) {
-    if (emitterData[index].emitter == NULL) {
+    if (emitterData[index].emitter == N64_NULL) {
         initializingIndex = index;
         emitterData[index].emitter = partEmitMgr_newEmitter(emitterData[index].capacity);
         particleEmitter_manualFree(emitterData[index].emitter);
@@ -26,7 +26,7 @@ u8 pem_newEmitter(s32 count) {
     for (i = 1; i < MAX_EMITTER_COUNT; i++) {
         if (emitterData[i].isActive == 0) {
             emitterData[i].isActive++;
-            emitterData[i].emitter = NULL;
+            emitterData[i].emitter = N64_NULL;
             emitterData[i].capacity = count;
             return i;
         }
@@ -67,14 +67,14 @@ void pem_updateAll(void) {
 
     for (i = 1; i < MAX_EMITTER_COUNT; i++) {
         if (emitterData[i].isActive != 0
-            && emitterData[i].emitter != NULL
+            && emitterData[i].emitter != N64_NULL
             && particleEmitter_isDone(emitterData[i].emitter)) {
 
            emitterData[i].freeTime -= time_getDelta();
 
            if (emitterData[i].freeTime <= 0.0f) {
                 partEmitMgr_freeEmitter(emitterData[i].emitter);
-                emitterData[i].emitter = NULL;
+                emitterData[i].emitter = N64_NULL;
            }
         }
     }
@@ -85,11 +85,11 @@ void pem_freeEmitters(void) {
 
     for (i = 1; i < MAX_EMITTER_COUNT; i++) {
         if (emitterData[i].isActive != 0
-            && emitterData[i].emitter != NULL
+            && emitterData[i].emitter != N64_NULL
             && i != initializingIndex) {
 
             partEmitMgr_freeEmitter(emitterData[i].emitter);
-            emitterData[i].emitter = NULL;
+            emitterData[i].emitter = N64_NULL;
         }
     }
 }
@@ -99,7 +99,7 @@ void pem_defragAll(void) {
 
     for (i = 1; i < MAX_EMITTER_COUNT; i++) {
         if (emitterData[i].isActive != 0
-            && emitterData[i].emitter != NULL) {
+            && emitterData[i].emitter != N64_NULL) {
 
            emitterData[i].emitter = partEmitMgr_defragEmitter(emitterData[i].emitter);
         }
