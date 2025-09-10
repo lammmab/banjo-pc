@@ -1,7 +1,7 @@
 #include <libultraship/libultra.h>
 #include "n_synth.h"
 
-#include <ultraerror.h>
+#include "core1/ultraerror.h"
 
 static s32 _n_allocatePVoice(N_PVoice **pvoice, s16 priority);
 

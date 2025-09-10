@@ -11,6 +11,8 @@ u8 __osMaxControllers;
 OSTimer __osEepromTimer;
 OSMesgQueue __osEepromTimerQ;
 OSMesg __osEepromTimerMsg;
+
+/*
 s32 osContInit(OSMesgQueue *mq, u8 *bitpattern, OSContStatus *data)
 {
     OSMesg dummy;
@@ -44,6 +46,7 @@ s32 osContInit(OSMesgQueue *mq, u8 *bitpattern, OSContStatus *data)
     osCreateMesgQueue(&__osEepromTimerQ, &__osEepromTimerMsg, 1);
     return ret;
 }
+*/
 void __osContGetInitData(u8 *pattern, OSContStatus *data)
 {
     u8 *ptr;

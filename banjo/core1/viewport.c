@@ -506,7 +506,7 @@ void viewport_backupState(void) {
 
     for(i = 0; i < 4; i++){
         for(j = 0; j < 4; j++){
-            sViewportBackupMatrix.m[i][j] = sViewportMatrix.m[i][j];
+            sViewportBackupMatrix.mf[i][j] = sViewportMatrix.mf[i][j];
         }
     }
 }
@@ -521,7 +521,7 @@ void viewport_restoreState(void) {
 
     for(i = 0; i < 4; i++){
         for(j = 0; j < 4; j++){
-            sViewportMatrix.m[i][j] = sViewportBackupMatrix.m[i][j];
+            sViewportMatrix.mf[i][j] = sViewportBackupMatrix.mf[i][j];
         }
     }
 }

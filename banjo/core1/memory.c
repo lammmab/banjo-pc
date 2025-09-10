@@ -143,6 +143,7 @@ void memcpy(void * dst, void *src, int size){
     }
 }
 
+/*
 void wmemcpy(void * dst, void *src, int size){
     while(size > 0){
         *(u32*)dst = *(u32*)src;
@@ -151,6 +152,7 @@ void wmemcpy(void * dst, void *src, int size){
         src = (u32 *) src + 1;
     }
 }
+*/
 
 void memmove(u8* dst, u8* src, s32 n) {
     if(dst < src){ //copy

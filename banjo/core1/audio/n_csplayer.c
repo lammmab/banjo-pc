@@ -1,7 +1,7 @@
 #include <libultraship/libultra.h>
 #include "functions.h"
 #include "variables.h"
-#include <ultraerror.h>
+#include "core1/ultraerror.h"
 
 #include "n_synth.h"
 #include "seqp.h"

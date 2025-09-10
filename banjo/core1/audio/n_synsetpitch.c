@@ -1,7 +1,7 @@
 #include <libultraship/libultra.h>
 #include "n_synth.h"
 
-#include <ultraerror.h>
+#include "core1/ultraerror.h"
 
 void    n_alSynSetPitch( N_ALVoice *v, f32 pitch)
 {

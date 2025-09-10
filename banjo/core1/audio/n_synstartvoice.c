@@ -17,7 +17,7 @@
  * Copyright Laws of the United States.
  *====================================================================*/
 #include <libultraship/libultra/internal.h>
-#include <ultraerror.h>
+#include "core1/ultraerror.h"
 #include "n_synth.h"
 
 void n_alSynStartVoice( N_ALVoice *v, ALWaveTable *table)

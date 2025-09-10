@@ -2,7 +2,7 @@
 #include "functions.h"
 #include "variables.h"
 
-#include <ultraerror.h>
+#include "core1/ultraerror.h"
 
 extern f64 D_80278D50;
 extern f64 D_80278D58;

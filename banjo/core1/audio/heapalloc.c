@@ -1,5 +1,5 @@
 #include "synthInternals.h"
-#include <ultraerror.h>
+#include "core1/ultraerror.h"
 
 void *alHeapDBAlloc(u8 *file, s32 line, ALHeap *hp, s32 num, s32 size)
 {

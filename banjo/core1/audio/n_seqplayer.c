@@ -6,7 +6,7 @@
 // #include "functions.h"
 // #include "variables.h"
 
-#include <ultraerror.h>
+#include "core1/ultraerror.h"
 
 #define KILL_TIME 50000
 

@@ -4,6 +4,8 @@
 #include "controller.h"
 
 static void __osPackReadData(void);
+
+/*
 s32 osContStartReadData(OSMesgQueue *mq)
 {
     s32 ret;
@@ -28,7 +30,9 @@ s32 osContStartReadData(OSMesgQueue *mq)
     __osSiRelAccess();
     return ret;
 }
+*/
 
+/*
 void osContGetReadData(OSContPad *data)
 {
     u8 *ptr;
@@ -47,6 +51,7 @@ void osContGetReadData(OSContPad *data)
         }
     }
 }
+*/
 
 static void __osPackReadData(void)
 {

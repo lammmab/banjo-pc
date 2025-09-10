@@ -1,7 +1,7 @@
 #include <libultraship/libultra.h>
 #include "n_synth.h"
 
-#include <ultraerror.h>
+#include "core1/ultraerror.h"
 
 void    n_alSynStopVoice( N_ALVoice *v)
 {
